@@ -1,0 +1,26 @@
+# Dependencies
+markdown:            redcarpet
+highlighter:         pygments
+
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               CMSs and WordPress
+tagline:             'Lessons and Materials for WIE Course'
+description:         'Collaborative lessons and materials for Web Interactivity and Enagement course.'
+url:                 http://jayres.github.io/Web-Interactivity-and-Engagement/
+baseurl:             /
+paginate:            5
+
+# About/contact
+author:
+  name:              James Ayres
+  url:               http://www.jfrancisayres.com
+  email:             jfrancisayres@gmail.com
+
+# Custom vars
+version:             0.1.0
