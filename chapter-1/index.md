@@ -53,7 +53,7 @@ title: Chapter 1&#58; Introduction to WordPress and CMSs
 
 ## <a name="cmss">Content Management Systems (CMSs)</a>
 
-The name “Content Management Systems” is already pretty instructive about what the scope and purpose of such a system is - managing content. So good, it looks like you’ve learned everything you need to know in this class...
+The name “Content Management Systems” is already pretty instructive about what the scope and purpose of such a system is - managing content. So, good, it looks like you’ve learned everything you need to know in this class...
 
 CMSs come in all shapes and sizes. There are innumerable choices to make when selecting one, and due to their variety selecting one is never an easy choice. We will cover the criteria for selecting a CMS in greater detail later, but lets get to the definition and characteristics of a CMS before we move on to the practical application of a CMS through WordPress. 
 
