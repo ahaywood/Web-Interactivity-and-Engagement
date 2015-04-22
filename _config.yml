@@ -13,7 +13,8 @@ title:               CMSs and WordPress
 tagline:             'Lessons and Materials for WIE Course'
 description:         'Collaborative lessons and materials for Web Interactivity and Enagement course.'
 url:                 http://jayres.github.io/Web-Interactivity-and-Engagement/
-baseurl:             /Web-Interactivity-and-Engagement/
+#baseurl:             /Web-Interactivity-and-Engagement/
+baseurl:             /
 paginate:            5
 
 # About/contact
