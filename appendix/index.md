@@ -11,10 +11,13 @@ The Appendix contains reference materials for the lessons.
 
 Contains relevant links for the course.
 
-
 #### <a href="/appendix/links-resources/#resources">Resources</a>
 
 Contains interesting resources that may be helpful for the course and beyond.
+
+#### <a href="/appendix/links-resources/#articles">Articles</a>
+
+Contains interesting articles that may be helpful for the course and beyond.
 
 ### PHP Lessons
 

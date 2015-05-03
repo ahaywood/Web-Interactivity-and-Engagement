@@ -69,13 +69,13 @@ Let’s walkthrough the Loop breaking down each step.
 
 WordPress creates a conditional statement to ask if there are any posts to display:
 
-```php
+``` php
 	if ( have_posts() ) {
 ```
 
 Next, inside of that conditional statement, WordPress directs that as long as there are posts to display, display the post:
 
-```php
+``` php
 while ( have_posts() ) {
 	the_post(); 
 ```
