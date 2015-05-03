@@ -23,7 +23,7 @@ title: Chapter 3&#58; Templating & Layouts
 	* Tutorial: Sidebars Includes
 * [Introduction to Styling WordPress](#introduction-to-styling-wordpress)
 
-## Templating and CMSs
+## <a name="templating-and-cmss">Templating and CMSs</a>
 
 **A Template** is defined as “anything that determines or serves as a pattern; a model.” - [http://dictionary.reference.com/browse/template](http://dictionary.reference.com/browse/template)
 
@@ -41,7 +41,7 @@ Another practical value of a template is that it allows uniformity in the presen
 
 So now that we know why nearly every CMS allows some level of templating, let’s explore WordPress’s extremely generous templating engine. 
 
-## Creating a Blank WordPress Template
+## <a name="creating-a-blank-wordpress-template">Creating a Blank WordPress Template</a>
 
 Since we want to understand WordPress from a fundamental level, we are going to start by walking through the primary display mechanism of the CMS, a template. 
 
@@ -195,7 +195,7 @@ Go to your site URL to verify that it has been enabled. You should see ONLY the 
 
 WordPress isn’t doing anything on the pages because you didn’t tell it to do anything for you. Don’t worry though, we will be adding WordPress functionality very shortly.
 
-## Grid Based Layouts
+## <a name="grid-based-layouts">Grid Based Layouts</a>
 
 A majority of modern web sites use a grid to determine where to place content. The advantages to a grid based layout is that you can place items on your site in a uniform manner. Many of the grid frameworks also make it very easy to have a fully responsible site with very little work.
 
@@ -253,7 +253,7 @@ You may also notice that this seems very similar to HTML tables:
 
 The idea of a “table based layout” has long since gone, but these responsive frameworks have taken the best parts of it without having all of the terrible table limitations. 
 
-## Linking to Files in a Template
+## <a name="linking-to-files-in-a-template">Linking to Files in a Template</a>
 
 Something you are probably more than familiar with, linking to files in a template changes slightly after you begin using a CMS. In WordPress, you can choose to link to external files through your Functions file, or by putting it in the head section, like you would with a regular HTML page. We will cover the more advanced file querying mechanism in later chapters.
 
@@ -390,7 +390,7 @@ Do you see how the container class has been added and then the site was laid out
 
 If you upload the index.php file to your server, you should now have a responsive website!
 
-## Separating Template Files
+## <a name="separating-template-files">Separating Template Files</a>
 
 When I say separating template files I mean the process of splitting up one template file into separate parts for the purpose of reusing code dynamically.  There is both a technical and design purpose in separating template files. 
 
@@ -574,7 +574,7 @@ Notice how we are using the bloginfo function that we used in the linking to the
 
 Double check that you did everything correctly by uploading the files to the server. Everything should look as it did before you separated the files. 
 
-## WordPress and PHP Templates
+## <a name="wordpress-and-php-templates">WordPress and PHP Templates</a>
 
 The only thing worth adding about WordPress and PHP that hasn’t been said in an earlier chapter is that I want you to consider how we had a completely capable website without adding much, if any, PHP. Appreciating how a PHP file can function without any PHP but how an HTML file cannot function with PHP is an important concept to grasp with regard to back end programming generally.
 
@@ -648,7 +648,7 @@ After saving and uploading, you should see the 5 posts of content in their entir
 
 You now have a dynamically working CMS integrated web page. 
 
-## Internal Pages and Posts
+## <a name="internal-pages-and-posts">Internal Pages and Posts</a>
 
 Having a front page is really important, but there will be times when you want to only display one post of content or one page of content that isn’t the front page. You will notice that the process for creating a page and for creating a post are almost identical!
 
@@ -899,7 +899,7 @@ Notice how simple this is? It is the exact same idea as the header.php and foote
 
 *Why did we separate the sidebar.php file?*
 
-## Introduction to Styling WordPress
+## <a name="introduction-to-styling-wordpress">Introduction to Styling WordPress</a>
 
 You will not want to do much styling for a blank template. Additionally, we already have a framework loading in and it will handle a significant amount of the basic styling we would otherwise use. This section is useful more as a way for you to see how CSS works with WordPress and to learn how to make basic changes in future lessons. 
 
