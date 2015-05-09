@@ -98,9 +98,18 @@ h3 {
   margin-top: 1.5rem;
   font-size: 1.5rem;
 }
-h4, h5, h6 {
+h4 {
   margin-top: 1rem;
   font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+h6 {
+  font-size: 1.0rem;
 }
 
 /* Body text */
