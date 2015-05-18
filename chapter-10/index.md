@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Chapter 10&#58; Project Walkthroughs and Tutorials
+title: Project Walkthroughs and Tutorials
 ---
 
 ## Table of Contents
@@ -39,17 +39,18 @@ The steps below outline the process in greater detail.
 1. Create a folder title “blank-template-yourname”
 
 2. Create the following files and place them in your template folder:
-	a. Index.php
-	b. Header.php
-	c. Footer.php
-	d. Functions.php
-	e. Page.php
-	f. Single.php
-	g. 404.php
-	h. Archive.php
-	i. Search.php
-	j. Sidebar.php
-	k. Style.css
+	* Index.php
+	* Header.php
+	* Footer.php
+	* Functions.php
+	* Page.php
+	* Single.php
+	* 404.php
+	* Archive.php
+	* Search.php
+	* Sidebar.php
+	* Style.css
+
 
 3. Follow along in class to make sure these files all work together.
 
