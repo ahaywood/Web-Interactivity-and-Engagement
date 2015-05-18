@@ -5,17 +5,17 @@ title: Chapter 5&#58; Content and the Content Manager
 
 ## Table of Contents
 
-* [Content Generally]()
+* [Content Generally](#content-generally)
 	* Portability of Content
 	* Handling Content
 	* Information Architecture
-* [Choosing a CMS]()
+* [Choosing a CMS](#choosing-a-cms)
 	* CMSs to Choose From
 	* Factors to Consider When Choosing
-* [Elements of Web Design and CMSs]()
-* [Wireframing and Mocking Up a Site for a CMS]()
+* [Elements of Web Design and CMSs](#elements-of-web-design-and-cmss)
+* [Wireframing and Mocking Up a Site for a CMS](#wireframing)
 
-## Content Generally
+## <a name="content-generally">Content Generally</a>
 
 Content “is information and experiences that provides value for an end-user or audience.” [Content - Wikipedia](http://en.wikipedia.org/wiki/Content_(media))
 
@@ -74,7 +74,7 @@ Structure of our content to the systems, users, and administrators of the conten
 
 Each CMS will have inherent biases to the content and the way it is organized. A blog CMS will treat organization differently than an image handling software. A version control solution will treat content differently than a ecommerce CMS. Developing a content strategy plan and an information architecture plan is a great first step to choosing a CMS.
 
-## Choosing a CMS
+## <a name="choosing-a-cms">Choosing a CMS</a>
 
 When you are choosing a CMS, don’t always go with the one that you are most comfortable with or that the client wants/already has.  Choosing a CMS is a very specific choice depending on the situation and whether you consider yourself more of a coder, administrator, or designer, having the ability to choose the system of a correct scale for a client is a useful skill. 
 
@@ -204,7 +204,7 @@ f. Local doctors office.
 
 *Do you see how there can be vaguery for each of these and several might fit the needs to the client?* 
 
-## Elements of Web Design and CMSs
+## <a name="elements-of-web-design-and-cmss">Elements of Web Design and CMSs</a>
 
 We understand what a CMS is and a process to select a CMS, but what about the other important aspects of web design we talked about earlier?
 
@@ -246,7 +246,7 @@ Having a CMS that can both stay out of the way of usability and enhance the expe
 
 *What role does a CMS play for the content manager’s usability?*
 
-## Wireframing and Mockup Up a Site for a CMS
+## <a name="wireframing">Wireframing and Mockup Up a Site for a CMS</a>
 
 ### Wireframes
 

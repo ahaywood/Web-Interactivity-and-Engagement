@@ -13,7 +13,7 @@ title: Chapter 10&#58; Project Walkthroughs and Tutorials
 * [Creating a Blog Site](#creating-a-blog-site)
 * [Creating a Business Site](#creating-a-business-site)
 	* Tutorial: Creating a Separate Blog Page
-* [In Class Critiques](#in-class-critiques)
+* [In-Class Critiques](#in-class-critiques)
 
 
 ## <a name="setting-up-version-control" style="color: #666">Setting Up Version Control</a>
@@ -124,7 +124,7 @@ You must present your project on one of the allowable dates. No more than two pe
 
 ### <span style="color: #666">Tutorial: Creating a Separate Blog Page</span>
 
-## <a name="in-class-critiques">In Class Critiques</a>
+## <a name="in-class-critiques">In-Class Critiques</a>
 
 After we submit the wireframes and mockups for each project, we are going to look at the designs as a class.  The benefit of doing this will be so that you can have some feedback from your fellow designers, but also so we can talk about what makes a CMS effective.
 
