@@ -34,6 +34,16 @@ Explains how the Loop works. (chapter 2)
 
 [Filezilla](https://filezilla-project.org/) - the FTP application that will be used during this course.
 
+### Wireframing Resources
+
+[Beginners Guide to Wireframing](http://webdesign.tutsplus.com/tutorials/workflow-tutorials/a-beginners-guide-to-wireframing/)
+
+[Balsamiq - Wireframing tool](https://balsamiq.com/)
+
+[Wireframe.cc - untested by me](https://wireframe.cc/)
+
+[Wireframing Information - Wikipedia](http://en.wikipedia.org/wiki/Website_wireframe)
+
 ### Site Speed:
 
 [Google PageSpeed Plugin](https://developers.google.com/speed/pagespeed/) - Chrome Plugin for monitoring site speed.
@@ -49,3 +59,11 @@ Explains how the Loop works. (chapter 2)
 [“Environmental Design with the Device API”](http://alistapart.com/article/environmental-design-with-the-device-api) - A List Apart
 
 [“Defining a Vision: Making Sure Your Work Matters“](http://alistapart.com/article/defining-a-vision-making-sure-your-work-matters) - A List Apart
+
+### Chapter 5: 
+
+[Your Content, Now Mobile - A List Apart](http://alistapart.com/article/your-content-now-mobile)
+
+[Strategic Content Management - A List Apart](http://alistapart.com/article/strategic-content-management)
+
+[Content Modelling: A Master Skill - A List Apart](http://alistapart.com/article/content-modelling-a-master-skill)
