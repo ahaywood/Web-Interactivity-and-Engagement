@@ -13,7 +13,7 @@ title: Chapter 6&#58; Storing and Using Content
 	* Security and Separating Systems
 * [WordPress and MySQL](#wordpress-and-mysql)
 	* MySQL
-* [Introduction to Metadata]()
+* [Introduction to Metadata](#introduction-to-metadata)
 * [Taxonomies](#taxonomies)
 	* Tutorial: Custom Taxonomies in WordPress
 
@@ -270,6 +270,9 @@ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 ?>
 </ul>
 ```
+
+Wow! That sure is a lot to take in. However, I urge you to go through the code and consider what each step does. It could be interesting. Just copying and pasting the code will not really make you a stronger programmer, but understanding what is happening will. 
+
 #### Step 5: Save and Upload
 
 If you added some values to your posts regarding your custom taxonomy, it should show up anywhere your sidebar is loaded in. 

@@ -52,11 +52,13 @@ Let’s add the code and then discuss what is happening here.
 
 <p class="file-name">function.php</p>
 ```php
+
+<?php 
 /*-------------- Enable Widgets--------------- */
 
 function blank_widgets_init() {
 	register_sidebar( array(
-		'name' => (‘First Widget'),
+		'name' => ('First Widget'),
 		'id' => 'first-widget',
 		'description' => 'Widget for our sidebar on pages', 
 		'before_widget' => '<div class="widget-sidebar">', 
@@ -66,6 +68,7 @@ function blank_widgets_init() {
 		));
 	}
 add_action('widgets_init', 'blank_widgets_init');
+
 ```
 
 You are going to want to be able to add widgets and change their options often, so being comfortable with what all of the options do will help you be able to understand this better and prevent mistakes later. Let’s talk about the code:
@@ -73,6 +76,7 @@ You are going to want to be able to add widgets and change their options often, 
 What you see here first is a WordPress function and the options for that function. It starts with the first part:
 
 ```php
+
 function blank_widgets_init() {
 ```
 
@@ -122,11 +126,13 @@ We already have one widget, so let’s see how we can add multiple to the same c
 
 <p class="file-name">function.php</p>
 ```php
+
+<?php 
 /*-------------- Enable Widgets--------------- */
 
 function blank_widgets_init() {
 	register_sidebar( array(
-		'name' => (‘First Widget'),
+		'name' => ('First Widget'),
 		'id' => 'first-widget',
 		'description' => 'Widget for our sidebar on pages', 
 		'before_widget' => '<div class="widget-sidebar">', 
@@ -136,9 +142,9 @@ function blank_widgets_init() {
 		));
 /*--- New Widget --- */
 	register_sidebar( array(
-		'name' => (‘Footer Widget One'),
-		'id' => ‘footer-widget-one’,
-		'description' => 'First widget for our footer’, 
+		'name' => ('Footer Widget One'),
+		'id' => 'footer-widget-one',
+		'description' => 'First widget for our footer', 
 		'before_widget' => '<div class="widget-footer">', 
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
@@ -146,9 +152,9 @@ function blank_widgets_init() {
 		));
 	/*--- Second New Widget --- */
 	register_sidebar( array(
-		'name' => (‘Footer Widget Two),
-		'id' => ‘footer-widget-two’,
-		''description' => Second widget for our footer’, 
+		'name' => ('Footer Widget Two'),
+		'id' => 'footer-widget-two’,
+		''description' => 'Second widget for our footer', 
 		'before_widget' => '<div class="widget-footer">', 
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
@@ -156,9 +162,9 @@ function blank_widgets_init() {
 		));
 	/*--- Third New Widget --- */
 	register_sidebar( array(
-		'name' => (‘Footer Widget Three),
-		'id' => ‘footer-widget-three’,
-		'description' => Third widget for our footer’, 
+		'name' => ('Footer Widget Three'),
+		'id' => 'footer-widget-three',
+		'description' => 'Third widget for our footer', 
 		'before_widget' => '<div class="widget-footer">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
@@ -179,13 +185,13 @@ Now that we have the actual widgets created, let’s add them to our footer. Thi
 ```html
 <footer class=”row”>
 	<div class=”four columns”>
-<?php dynamic_sidebar(‘footer-widget-one’); ?>
+<?php dynamic_sidebar('footer-widget-one'); ?>
 </div>
 	<div class=”four columns”>
-<?php dynamic_sidebar(‘footer-widget-two’); ?>
+<?php dynamic_sidebar('footer-widget-two'); ?>
 </div>
 	<div class=”four columns”>
-<?php dynamic_sidebar(‘footer-widget-three’); ?>
+<?php dynamic_sidebar('footer-widget-three'); ?>
 </div>
 </footer>
 </div> 
@@ -503,8 +509,7 @@ get_header(); ?>
 					while (have_posts()) : the_post(); ?> 							<h2><?php the_title(); ?></h2>
 						<?php the_content();
 					endwhile;
-				endif; ?>
-			<?php else : ?>
+			 else : ?>
 				<h1>Nothing Found</h1>
 				<p>Sorry, but nothing matched your search criteria. Please try again with different search terms.</p>
 			<?php endif; ?>
@@ -545,7 +550,7 @@ get_header(); ?>
 			<p>It looks like nothing was found at this location. Maybe try a search?</p>
 			
 			<h2>Try searching for what you need:</h2>
-			<?php get_search_form() ?>
+			<?php get_search_form(); ?>
 		</div>
 		<div class="four columns">
 			<?php get_sidebar(); ?>
@@ -599,10 +604,11 @@ The code I am using contains a WordPress function and a parameter of ‘thumbnai
    		while ( have_posts() ) {
         	the_post();?>
 			<h3><?php the_title(); ?></h3>
+			<?php 
 			if ( has_post_thumbnail() ) {
 				the_post_thumbnail('thumbnail');
 			}
-							<?php the_excerpt(); 
+			the_excerpt(); 
 			    } // end while
 			} // end if
 		?>
@@ -627,7 +633,7 @@ We are going to do almost the exact same thing we did above except throw a diffe
 			<?php if (have_posts()) :				
 				while (have_posts()) : the_post(); 
 				if ( has_post_thumbnail() ) { ?>
-					<div class=”post-thumbnail”><?php the_post_thumbnail('full'); ?></div>
+					<div class=”post-thumbnail”><?php the_post_thumbnail('large'); ?></div>
 				<?php } ?>
 					<h2><?php the_title(); ?></h2>
 					<?php the_content();
