@@ -121,6 +121,38 @@ You must present your project on one of the allowable dates. No more than two pe
 
 ## <a name="creating-a-blog-site" style="color: #666">Creating a Blog Site</a>
 
+You will mock up and then implement changes to the WordPress template to make a functioning blog and to suit your particular project needs. The site you are modifying will be the same site you are completing your “Post and Plugins” project on.
+
+1. Create two mock ups and wireframes of a design for your blog. These design may take inspiration from any source, but must contain significant and exploratory changes to the blank template (simple color and font changes will not be sufficient). Present two (2) entirely different designs and wireframes. To further clarify, the two wireframes should be made first and then the designs should overlay the wireframes. 
+
+2. Have your design approved by the professor. This does not mean you have to have your stylistic decisions ripped apart, but rather that your mockup needs to be approved so that it meets the project requirements. This approval will be made in class while you are presenting. 
+
+3. Rework your mockup into one, singular design and then submit it to the professor prior to beginning work. 
+
+4. Implement the design to your site:
+- index file
+- header file
+- footer file
+- single file
+- page file
+- any other custom files as needed. 
+
+#### Grading Rubric:
+
+	Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.
+
+**Design:** Did you provide an original, quality design beforehand? (Feel free to send new designs within a reasonable time before you begin your project if you have made any changes that were discussed in our critique): 35 points
+
+**Execution:** Using your design, do you effectively reproduce (or improve upon) your mocked up design?: 85 points
+
+**Consistency:** Do you use the same elements throughout your site, allowing it to be consistent throughout? (Same colors, fonts, padding, element width): 35 points 
+
+**Usability:** Is your site easy to use and does everything function correctly? (Nothing can be broken and elements must be easy to find): 25 points
+
+**Interactivity:** Did you include an interactive element? (Using some active element [i.e., javascript] or plugin to enhance the site): 15 points
+
+200 total points
+
 ## <a name="creating-a-business-site" style="color: #666">Creating a Business Site</a>
 
 ### <span style="color: #666">Tutorial: Creating a Separate Blog Page</span>
