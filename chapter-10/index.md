@@ -130,12 +130,12 @@ You will mock up and then implement changes to the WordPress template to make a 
 3. Rework your mockup into one, singular design and then submit it to the professor prior to beginning work. 
 
 4. Implement the design to your site:
-- index file
-- header file
-- footer file
-- single file
-- page file
-- any other custom files as needed. 
+	- index file
+	- header file
+	- footer file
+	- single file
+	- page file
+	- any other custom files as needed. 
 
 #### Grading Rubric:
 
