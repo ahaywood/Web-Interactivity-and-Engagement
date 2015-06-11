@@ -53,7 +53,7 @@ title: Chapter 1&#58; Introduction to WordPress and CMSs
 
 ## <a name="cmss">Content Management Systems (CMSs)</a>
 
-The name “Content Management Systems” is already pretty instructive about what the scope and purpose of such a system is - managing content. So, good, it looks like you’ve learned everything you need to know in this class...
+The name "Content Management Systems" is already pretty instructive about what the scope and purpose of such a system is - managing content. So, good, it looks like you've learned everything you need to know in this class...
 
 CMSs come in all shapes and sizes. There are innumerable choices to make when selecting one, and due to their variety selecting one is never an easy choice. We will cover the criteria for selecting a CMS in greater detail later, but lets get to the definition and characteristics of a CMS before we move on to the practical application of a CMS through WordPress. 
 
@@ -74,7 +74,7 @@ A content management system (Web CMS) is a bundled or stand-alone application to
 
 </div>
 
-Wow. Couldn’t have said it better myself. The only thing I would add, which almost every modern CMS has, is user management.
+Wow. Couldn't have said it better myself. The only thing I would add, which almost every modern CMS has, is user management.
 
 Here is the refined list of features of a CMS:
 
@@ -109,17 +109,17 @@ For purposes of this course, you will need to do this so that you are able to co
 
 #### a. Using Your Host to Help you Install WordPress
 
-The easiest way to get started with WordPress is to use a feature on your host for installing WordPress. Most hosts feature a “One Click Install” feature for WordPress. 
+The easiest way to get started with WordPress is to use a feature on your host for installing WordPress. Most hosts feature a "One Click Install" feature for WordPress. 
 
 I highly suggest you go this route with installing WordPress since it allows you to focus more on the template design and the conceptual level of this course and not get down in the weeds of system administration. 
 
-Consult your host’s documentation for any help you may need for installing WordPress with this process.  
+Consult your host's documentation for any help you may need for installing WordPress with this process.  
 
 #### b. Installing WordPress on your own
 
 If you are an ambitious person and want to know WordPress from the bottom up, maybe installing WordPress manually is the way to go. The process is by no means difficult, but for purposes of this course this task is irrelevant. 
 
-Details for how to install WordPress manually are clearly outline on the “Installing WordPress” in the Codex here: [https://codex.wordpress.org/Installing_WordPress](https://codex.wordpress.org/Installing_WordPress)
+Details for how to install WordPress manually are clearly outline on the "Installing WordPress" in the Codex here: [https://codex.wordpress.org/Installing_WordPress](https://codex.wordpress.org/Installing_WordPress)
 
 ## <a name="walkthrough-wordpress">Walkthrough of WordPress</a>
 
@@ -143,7 +143,7 @@ As a note, there are a few files you may need to edit that exist in the root of 
 
 <div class="message">You will never want to edit the wp-admin folder. If WordPress is updated it will overwrite any changes made here.</div>
 
-The wp-admin folder contains the files that tell WordPress how to function. The files here are not meant to be modified since they are the files that do all of the work that you don’t have to. The files here are changed whenever you update WordPress. WordPress defaults to updating automatically too, so any changes here would be overwritten if you have this setting enabled. But don’t worry about that - you are using this dynamic CMS exactly for the reason that you wouldn’t have to modify its core functionality. 
+The wp-admin folder contains the files that tell WordPress how to function. The files here are not meant to be modified since they are the files that do all of the work that you don't have to. The files here are changed whenever you update WordPress. WordPress defaults to updating automatically too, so any changes here would be overwritten if you have this setting enabled. But don't worry about that - you are using this dynamic CMS exactly for the reason that you wouldn't have to modify its core functionality. 
 
 ##### WP-CONTENT
 
@@ -178,7 +178,7 @@ The wp-includes folder contains the files that WordPress uses to support its pri
 
 ### WordPress Administration
 
-After you install WordPress and have logged into the WordPress Dashboard, you will come across a bunch of stuff you may not have seen before. Let’s walk through the different items in the Dashboard. The best way to follow this portion of the lesson is to be logged into the WordPress Dashboard and to see mess around to see how everything works.
+After you install WordPress and have logged into the WordPress Dashboard, you will come across a bunch of stuff you may not have seen before. Let's walk through the different items in the Dashboard. The best way to follow this portion of the lesson is to be logged into the WordPress Dashboard and to see mess around to see how everything works.
 
 Many of the definitions of the terms below are taken directly from the WordPress Codex.
 
@@ -186,7 +186,7 @@ The left-hand sidebar contains the primary navigation items for WordPress.
 
 #### i. Posts Tab
 
-> Also known as “articles” and sometimes incorrectly referred to as “blogs”. In WordPress, “posts” are articles that you write to populate your blog. 
+> Also known as "articles" and sometimes incorrectly referred to as "blogs". In WordPress, "posts" are articles that you write to populate your blog. 
 
 [https://codex.wordpress.org/Glossary#Post](https://codex.wordpress.org/Glossary#Post)
 
@@ -216,11 +216,11 @@ The Appearance Tab contains quite a bit of important administrative functionalit
 
 a. Menus: Allows you to make custom menus that can be placed in your template
 
-b. Widgets: Allows you to edit the information inside of Widgets. Widgets are “regions” you can put in your template that can carry a wide variety of functionality. Widgets are a great way to allow your content manager a way to make changes to theme’s regions without having to edit code. 
+b. Widgets: Allows you to edit the information inside of Widgets. Widgets are "regions" you can put in your template that can carry a wide variety of functionality. Widgets are a great way to allow your content manager a way to make changes to theme's regions without having to edit code. 
 
-c. Themes: The “skin” of the WordPress site. This tab is where you will enable or change the themes you have in the themes directory in wp-content.
+c. Themes: The "skin" of the WordPress site. This tab is where you will enable or change the themes you have in the themes directory in wp-content.
 
-For now, let’s move past these three very important elements. We will cover all three in much greater detail going forward. 
+For now, let's move past these three very important elements. We will cover all three in much greater detail going forward. 
 
 #### vi. Plugins Tab
 
@@ -236,7 +236,7 @@ The Users tab contains information and administration for users of your WordPres
 
 #### viii. Tools Tab
 
-The Tools tab is strange and might end up being more confusing than anything else if you don’t fully understand how limited it is in its usage. The Tools tab contains only a few items - none of which you will use for the direct purpose of this course. 
+The Tools tab is strange and might end up being more confusing than anything else if you don't fully understand how limited it is in its usage. The Tools tab contains only a few items - none of which you will use for the direct purpose of this course. 
 
 #### ix. Settings Tab
 
@@ -255,7 +255,7 @@ d. Discussion: Contains the settings for comments.
 e. Media: Contains settings for images. This is a place you can set your default Thumbnail size and the default resize settings for uploaded images. 
 
 f. Permalinks: Settings for how your site URLs work. 
-<div class="message">You will want to set the Permalink to be “Posts” as soon as you can. This is both SEO friendly and logical from a UI standpoint.</div>
+<div class="message">You will want to set the Permalink to be "Posts" as soon as you can. This is both SEO friendly and logical from a UI standpoint.</div>
 
 #### x. Toolbar:
 
@@ -265,11 +265,11 @@ f. Permalinks: Settings for how your site URLs work.
 
 [https://codex.wordpress.org/Toolbar](https://codex.wordpress.org/Toolbar)
 
-The Toolbar can also be accessed from any page if you are logged in to WordPress. Also called the “dockbar,” it is a very useful tool for providing quick administration of your WordPress site from anywhere on your site. 
+The Toolbar can also be accessed from any page if you are logged in to WordPress. Also called the "dockbar," it is a very useful tool for providing quick administration of your WordPress site from anywhere on your site. 
 
 ## <a name="lessons-applied">WordPress Lessons Applied to Other CMSs</a>
 
-WordPress is just one of MANY Content Management Systems that are available. We will talk about those other CMSs in future chapters, but let’s tie together the things we learned in this chapter thus far.  
+WordPress is just one of MANY Content Management Systems that are available. We will talk about those other CMSs in future chapters, but let's tie together the things we learned in this chapter thus far.  
 
 Some of the basic concepts of WordPress are universal to all (or most) CMSs.
 
@@ -279,7 +279,7 @@ Knowing that different levels of technical understanding exist in your organizat
 
 It is easy to envision a content manager who is a talented writer but has no technical skills. You would not want to give that person access or responsibility over delicate design or programming files for obvious reasons. 
 
-However, the same issue exists between the designer and the back end programmers and the server administrators. You probably wouldn’t want someone who is an expert in front end languages (HTML, CSS) making edits to a large application written in a back end language (PHP, Ruby) - and vice versa. 
+However, the same issue exists between the designer and the back end programmers and the server administrators. You probably wouldn't want someone who is an expert in front end languages (HTML, CSS) making edits to a large application written in a back end language (PHP, Ruby) - and vice versa. 
 
 Additionally, what if you want to make changes to the application itself but not to the visual look of the application (or vice versa)?
 
@@ -301,7 +301,7 @@ WordPress does this just as well as anyone, but keep in mind that this behavior 
 
 ### c. Widgets and Custom Menus
 
-Widgets and Custom menus are theme modifications that make the content manager’s life easier. These things allow you to integrate modifiable regions throughout the theme without forcing the content manager to have any extra technical training. 
+Widgets and Custom menus are theme modifications that make the content manager's life easier. These things allow you to integrate modifiable regions throughout the theme without forcing the content manager to have any extra technical training. 
 
 This concept of modifiable theme regions are fairly common and are useful for the designer to know how to effectively implement and useful for the content manager to know how to edit in the dashboard. 
 
@@ -315,7 +315,7 @@ Many other CMSs will ask you to distribute your content into permanent (pages) a
 
 ### e. Taxonomies
 
-We haven’t talked about this concept yet, but taxonomies are universal to CMSs. A taxonomy is basically any grouping of content. In WordPress it is used as tags or categories. Much, much more on this later. 
+We haven't talked about this concept yet, but taxonomies are universal to CMSs. A taxonomy is basically any grouping of content. In WordPress it is used as tags or categories. Much, much more on this later. 
 
 ### f. Dashboard Administration
 
@@ -344,45 +344,45 @@ This philosophy of easy to use content management is (or should be) core to ever
 
 ## <a name="languages-together">How do the Languages Work Together?</a>
 
-Every part of a web site is important in its overall operation. The interrelationship between the different software solutions and programming languages is often taken for granted when learning how to create web sites. This next lesson may be overly simple or obvious for you, but if you don’t have a solid understanding of how the languages work together, a lot of confusion may arise later on. 
+Every part of a web site is important in its overall operation. The interrelationship between the different software solutions and programming languages is often taken for granted when learning how to create web sites. This next lesson may be overly simple or obvious for you, but if you don't have a solid understanding of how the languages work together, a lot of confusion may arise later on. 
 
 ### Client Side (Front End) Languages:
 
-#### HTML: “The Practical One”
+#### HTML: "The Practical One"
 
 **Hypertext Markup Language (HTML)** is the language that browsers read to display web pages. Think of HTML as the language that provides structure and context to the webpage. For instance, if a paragraph is wrapped in a <p> tag, the browser (and you) will know that it is a paragraph. 
 
 HTML is a very simple language that has a lot of power (much of which is taken for granted). The current version of HTML that is supported by most modern browsers is HTML5.
 
-The most important thing to remember is that HTML is the language the browser reads and then parses (or translates into what you see on the page). So when you write HTML, you are “speaking” to the browser and then the browser works as the translator (parses) for the person accessing your site.
+The most important thing to remember is that HTML is the language the browser reads and then parses (or translates into what you see on the page). So when you write HTML, you are "speaking" to the browser and then the browser works as the translator (parses) for the person accessing your site.
 
 <div class="message">When I say you speak to the browser, I mean you create a file that the browser will read when it is loaded. Thinking of programming languages as actual languages is a good way to conceptualize how they work.</div>
 
-#### CSS: “The Pretty One”
+#### CSS: "The Pretty One"
 
-**Cascading Style Sheets (CSS)** affect the way that items look or how they are displayed. CSS is a language the browser reads (and then parses) to apply styling to the HTML elements. Just like with HTML, CSS is a language you “speak” to the browser and then the browser translates (parses) it for the person accessing your site. 
+**Cascading Style Sheets (CSS)** affect the way that items look or how they are displayed. CSS is a language the browser reads (and then parses) to apply styling to the HTML elements. Just like with HTML, CSS is a language you "speak" to the browser and then the browser translates (parses) it for the person accessing your site. 
 
-#### JavaScript: “The Fun One”
+#### JavaScript: "The Fun One"
 
-I will not try to overly simplify JavaScript like I have done for HTML and CSS. In the last few years JavaScript has been expanded from being “that thing jQuery is based on” to “the most dynamic and powerful language for application development.” 
+I will not try to overly simplify JavaScript like I have done for HTML and CSS. In the last few years JavaScript has been expanded from being "that thing jQuery is based on" to "the most dynamic and powerful language for application development." 
 
-For purposes of this example though, know that JavaScript tells the browsers what events to perform - thus it is “the fun one.” What JavaScript does is it allows the page in the browser to undergo changes depending on user conditions or events. It does this by integrating with the Document Object Model (DOM) of the browser. We will discuss JavaScript and DOM manipulation more in this course later.
+For purposes of this example though, know that JavaScript tells the browsers what events to perform - thus it is "the fun one." What JavaScript does is it allows the page in the browser to undergo changes depending on user conditions or events. It does this by integrating with the Document Object Model (DOM) of the browser. We will discuss JavaScript and DOM manipulation more in this course later.
 
-Like HTML and CSS, you “speak” JavaScript to the browser and the browser translates it (parses) to the person accessing your site.
+Like HTML and CSS, you "speak" JavaScript to the browser and the browser translates it (parses) to the person accessing your site.
 
 ### Server Side (Back End) Languages:
 
-#### PHP (or other back end languages): “The Workhorse”
+#### PHP (or other back end languages): "The Workhorse"
 
 So HTML gives structure, CSS gives style, and JavaScript gives functionality - what does PHP even need to exist for? 
 
-Let’s look at the Wikipedia entry for PHP for some information - [http://en.wikipedia.org/wiki/PHP](http://en.wikipedia.org/wiki/PHP) :
+Let's look at the Wikipedia entry for PHP for some information - [http://en.wikipedia.org/wiki/PHP](http://en.wikipedia.org/wiki/PHP) :
 
 > PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language… PHP code can be simply mixed with HTML code, or it can be used in combination with various templating engines and web frameworks. PHP code is usually processed by a PHP interpreter... After the PHP code is interpreted and executed, the web server sends resulting output to its client, usually in form of a part of the generated web page; for example, PHP code can generate a web page's HTML code, an image, or some other data.
 
 (Very) simply put, PHP allows a server to dynamically generate web pages. The output of the PHP is almost always HTML. All of PHP work happens on the server, while all of the HTML, CSS, and (almost all of the) JavaScript happens in the browser. This will be made clearer when we begin using PHP alongside HTML, CSS, and JavaScript. 
 
-Unlike HTML and CSS, you “speak” PHP to the server (not the browser) and the server speaks HTML to the browser (and the browser parses the HTML into a web page). 
+Unlike HTML and CSS, you "speak" PHP to the server (not the browser) and the server speaks HTML to the browser (and the browser parses the HTML into a web page). 
 
 *We now know that  PHP can generate HTML pages dynamically, but what does that mean and how is it useful?* 
 

@@ -25,27 +25,27 @@ title: Chapter 3&#58; Templating & Layouts
 
 ## <a name="templating-and-cmss">Templating and CMSs</a>
 
-**A Template** is defined as “anything that determines or serves as a pattern; a model.” - [http://dictionary.reference.com/browse/template](http://dictionary.reference.com/browse/template)
+**A Template** is defined as "anything that determines or serves as a pattern; a model." - [http://dictionary.reference.com/browse/template](http://dictionary.reference.com/browse/template)
 
-This concept of a “pattern” or a “model” is important to thinking about HOW templates work within a CMS, including WordPress.  
+This concept of a "pattern" or a "model" is important to thinking about HOW templates work within a CMS, including WordPress.  
 
 Most CMSs allow you to create a visual identity for your site outside of the default settings. This is so that the CMS itself can be expanded over a broader market than just internal audiences. 
 
-The practical reason for having “templates” exist on top of a CMS is somewhat obvious - to separate the functional aspects of the software environment from the visual aspects. The software provider (CMS creator) will want to make sure their software remains stable, but the customer (person using the CMS) will want to make changes so that the CMS is their own.
+The practical reason for having "templates" exist on top of a CMS is somewhat obvious - to separate the functional aspects of the software environment from the visual aspects. The software provider (CMS creator) will want to make sure their software remains stable, but the customer (person using the CMS) will want to make changes so that the CMS is their own.
 
-This dynamic between software stability and visual uniqueness is played out in every commercial software environment and the outcome is nearly always different. It is no different with CMSs (both open source and commercial). The level of permission that the designer will have to make changes to the CMS vary greatly. For this reason, the needs of a person to make changes to a template should be taken into account when deciding on which CMS to choose. Additionally, knowing your designer’s ability to make changes could make the limited changes be a selling point. 
+This dynamic between software stability and visual uniqueness is played out in every commercial software environment and the outcome is nearly always different. It is no different with CMSs (both open source and commercial). The level of permission that the designer will have to make changes to the CMS vary greatly. For this reason, the needs of a person to make changes to a template should be taken into account when deciding on which CMS to choose. Additionally, knowing your designer's ability to make changes could make the limited changes be a selling point. 
  
-Another practical value of a template is that it allows uniformity in the presentation of content. This “pattern” philosophy lets the content manager and the designer maintain uniformity/consistency throughout the template. 
+Another practical value of a template is that it allows uniformity in the presentation of content. This "pattern" philosophy lets the content manager and the designer maintain uniformity/consistency throughout the template. 
 
 *Why do you think uniformity is important?*
 
-So now that we know why nearly every CMS allows some level of templating, let’s explore WordPress’s extremely generous templating engine. 
+So now that we know why nearly every CMS allows some level of templating, let's explore WordPress's extremely generous templating engine. 
 
 ## <a name="creating-a-blank-wordpress-template">Creating a Blank WordPress Template</a>
 
 Since we want to understand WordPress from a fundamental level, we are going to start by walking through the primary display mechanism of the CMS, a template. 
 
-The WordPress template holds all of the files for content display throughout the site. Without a template, WordPress wouldn’t know how to display any of the information that is input through the Dashboard. It also wouldn’t know what CSS or JavaScript to add to modify the content it displays. 
+The WordPress template holds all of the files for content display throughout the site. Without a template, WordPress wouldn't know how to display any of the information that is input through the Dashboard. It also wouldn't know what CSS or JavaScript to add to modify the content it displays. 
 
 Every WordPress template needs certain files to make sure that the content is displayed.
 
@@ -67,7 +67,7 @@ Here is a list of the files you will add in the upcoming lessons for creating a 
 
 * **Archive.php:** A template file that displays groupings of past courses.
 
-* **Search.php:** The template file that displays search results from using WordPress’ built in search
+* **Search.php:** The template file that displays search results from using WordPress' built in search
 
 * **404.php:** The page that will display if there is a 404 error (page not found).
 
@@ -79,7 +79,7 @@ Very few CMSs will come with completely blank templates. Even WordPress provides
 
 In practice, you will never code a template from scratch. In fact, the only reason you would want to do that is because 1) you are taking a class about learning the concepts of CMSs, or 2) you make a LOT of templates for a specific CMS and making sure the specific details you rely on are included and nothing else is important to you.
 
-Even with our “from scratch” approach, I will still utilize external frameworks to add functionality (see Components). Many CMSs have preferred frameworks that they integrate well with, so sometimes knowing a CMS also includes knowing certain frameworks too. 
+Even with our "from scratch" approach, I will still utilize external frameworks to add functionality (see Components). Many CMSs have preferred frameworks that they integrate well with, so sometimes knowing a CMS also includes knowing certain frameworks too. 
 
 ### Tutorial: Creating a WordPress Template
 Making a template is a relatively easy process. The difficult part is making it look how you want it to. 
@@ -88,22 +88,22 @@ Making a template is a relatively easy process. The difficult part is making it 
 
 This step is the most important part of the template creation process. This blank template folder will contain all of your theme files and be the only folder you will upload to your server at any point in this project creation process. 
 
-I often will use a “development” folder off of my desktop that I work in. Make the folder easy to use.
+I often will use a "development" folder off of my desktop that I work in. Make the folder easy to use.
 
-<p class="message">Create folder titled “Firstname_Lastname_Blank_Template”</p>
+<p class="message">Create folder titled "Firstname_Lastname_Blank_Template"</p>
 
 #### Step 2: Create an index.php and a style.css file
 
-This step of this template creation should be very simple to you, since it should look like something you’ve done plenty of times before. We aren’t even going to add a bit of PHP to the template until we already have it activated and running. 
+This step of this template creation should be very simple to you, since it should look like something you've done plenty of times before. We aren't even going to add a bit of PHP to the template until we already have it activated and running. 
 
 Open your text editor and create two files:
 
-<p class="message">Create file titled “index.php” and save it in your Blank Template folder</p>
-<p class="message">Create file titled “style.css” and save it in your Blank Template folder</p>
+<p class="message">Create file titled "index.php" and save it in your Blank Template folder</p>
+<p class="message">Create file titled "style.css" and save it in your Blank Template folder</p>
 
 #### Step 3: Populate your index.php file
 
-Let’s remember something we already learned: PHP is merely a means to generate content to go inside of HTML. This means that PHP will work seamlessly with HTML already and any PHP file can have HTML, CSS, JavaScript, and any other language that a browser will parse. The only thing a PHP file cares about is the code inside of the <?php … ?> brackets. For this reason, we aren’t going to write a bit of PHP in the index.php file and that’s okay - because the server will see that there is no PHP in the file and just return the HTML we write to the browser. 
+Let's remember something we already learned: PHP is merely a means to generate content to go inside of HTML. This means that PHP will work seamlessly with HTML already and any PHP file can have HTML, CSS, JavaScript, and any other language that a browser will parse. The only thing a PHP file cares about is the code inside of the <?php … ?> brackets. For this reason, we aren't going to write a bit of PHP in the index.php file and that's okay - because the server will see that there is no PHP in the file and just return the HTML we write to the browser. 
 
 You may recognize this next bit of code we are going to add to the index.php file:
 
@@ -121,9 +121,9 @@ You may recognize this next bit of code we are going to add to the index.php fil
 
 ```
 
-Notice anything weird here? You shouldn’t. It is the basic setup for any HTML file you will ever create. 
+Notice anything weird here? You shouldn't. It is the basic setup for any HTML file you will ever create. 
 
-Let’s add some text in the 'body' section of the page:
+Let's add some text in the 'body' section of the page:
 
 <p class="file-name">index.php</p>
 ``` html
@@ -134,11 +134,11 @@ Let’s add some text in the 'body' section of the page:
 
 ```
 
-Save your file. Let’s move to the style.css file
+Save your file. Let's move to the style.css file
 
 #### Step 4: Populate your style.css file
 
-We don’t cover CSS much in this course because it is assumed that you already understand how to use it or to find resources that will help you be able to use it. I will occasionally include styling into a tutorial so that it is easier to understand the interplay of templating, PHP, and CSS. 
+We don't cover CSS much in this course because it is assumed that you already understand how to use it or to find resources that will help you be able to use it. I will occasionally include styling into a tutorial so that it is easier to understand the interplay of templating, PHP, and CSS. 
 
 WordPress gets the information about the template (metadata) from the style.css file. For this reason, we have to add the style.css file and some commented out information for our template to show up. I included some CSS so that we can get started.
 
@@ -183,17 +183,17 @@ To log into WordPress, visit the URL of your site (http://www.yoursite.com/wordp
 
 While in your Dashboard, go to the Appearance navigation item on the left hand side and then go to the Themes item. 
 
-You should be looking at a list of several different themes to enable, including one without a picture called “Firstname Blank Theme.”
+You should be looking at a list of several different themes to enable, including one without a picture called "Firstname Blank Theme."
 
 #### Step 3: Activate the theme
 
-Click on “Activate” on your theme.
+Click on "Activate" on your theme.
 
 #### Step 4: Make sure it works
 
 Go to your site URL to verify that it has been enabled. You should see ONLY the text you put in between the body section. This is a pretty reasonable thing to happen because it is the only thing you told WordPress to display. 
 
-WordPress isn’t doing anything on the pages because you didn’t tell it to do anything for you. Don’t worry though, we will be adding WordPress functionality very shortly.
+WordPress isn't doing anything on the pages because you didn't tell it to do anything for you. Don't worry though, we will be adding WordPress functionality very shortly.
 
 ## <a name="grid-based-layouts">Grid Based Layouts</a>
 
@@ -203,7 +203,7 @@ If you have a good amount of experience with grid based layouts, this following 
 
 ### Using a Grid
 
-For this class, we are going to use [Skeleton](http://getskeleton.com/) as our framework for responsive design and for basic styles. We are using this because it doesn’t have a lot of code and will allow you to customize without having any additional styles getting in the way. 
+For this class, we are going to use [Skeleton](http://getskeleton.com/) as our framework for responsive design and for basic styles. We are using this because it doesn't have a lot of code and will allow you to customize without having any additional styles getting in the way. 
 
 Many other grid systems use the same methodology for laying out a site as Skeleton. Here is how Skeleton uses it:
 
@@ -224,7 +224,7 @@ Many other grid systems use the same methodology for laying out a site as Skelet
 </div>
 ```
 
-If read through the code, you can see that Skeleton uses a 'div class=”container”' to hold everything inside of it. Then inside of the container, the 'div class=”row”' holds the 'div class=”# columns”'. Lastly, you see that the divs that hold the columns have two classes: a number class and the “columns” class. The number class is based on there being 12 parts to the full width. You can see how I used different numbers in the number class to demonstrate how it works. This will certainly make more sense once you apply it.
+If read through the code, you can see that Skeleton uses a 'div class="container"' to hold everything inside of it. Then inside of the container, the 'div class="row"' holds the 'div class="# columns"'. Lastly, you see that the divs that hold the columns have two classes: a number class and the "columns" class. The number class is based on there being 12 parts to the full width. You can see how I used different numbers in the number class to demonstrate how it works. This will certainly make more sense once you apply it.
 
 Simplifying what is happening above, you will see that the essential syntax is this (all HTML taken out for understanding purposes):
 
@@ -251,7 +251,7 @@ You may also notice that this seems very similar to HTML tables:
 </table>		
 ```
 
-The idea of a “table based layout” has long since gone, but these responsive frameworks have taken the best parts of it without having all of the terrible table limitations. 
+The idea of a "table based layout" has long since gone, but these responsive frameworks have taken the best parts of it without having all of the terrible table limitations. 
 
 ## <a name="linking-to-files-in-a-template">Linking to Files in a Template</a>
 
@@ -279,11 +279,11 @@ Now we are going to write our very first PHP for WordPress so that we can load s
 </head>
 ```
 
-The '<?php bloginfo(‘stylesheet_url’)_; ?>' portion of the code we added contains a built in WordPress function (bloginfo()) and a parameter that the function will use (‘stylesheet_url’). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. 
+The '<?php bloginfo('stylesheet_url')_; ?>' portion of the code we added contains a built in WordPress function (bloginfo()) and a parameter that the function will use ('stylesheet_url'). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. 
 
-Next we will create a folder inside of our theme folder (firstname_blank_theme) named “css”. Then download the Skeleton CSS file and put that file inside of the firstname_blank_theme/css folder. 
+Next we will create a folder inside of our theme folder (firstname_blank_theme) named "css". Then download the Skeleton CSS file and put that file inside of the firstname_blank_theme/css folder. 
 
-We are going to store all of our CSS files EXCEPT our style.css file in this folder. The style.css file needs to be in the theme’s root directory because it contains administrative information. 
+We are going to store all of our CSS files EXCEPT our style.css file in this folder. The style.css file needs to be in the theme's root directory because it contains administrative information. 
 
 Lastly we will add an @import to our style.css file for our Skeleton CSS file (downloaded from the Skeleton site.
 
@@ -299,7 +299,7 @@ When we save and upload our index and style.css file you should be able to see t
 
 This tutorial will show you how to implement the Skeleton Grid system. This will make your site responsive and the simplified layout should help you with your development. 
 
-Let’s remember what our current index.php page looks like:
+Let's remember what our current index.php page looks like:
 
 <p class="file-name">index.php:</p>
 ```html
@@ -320,7 +320,7 @@ Let’s remember what our current index.php page looks like:
 ```
 #### Step 1. Add HTML 5 Sytnax
 
-Let’s add some more HTML5 syntax so that we can have a blank template that is fuller and richer. 
+Let's add some more HTML5 syntax so that we can have a blank template that is fuller and richer. 
 
 <p class="file-name">index.php:</p>
 ```html
@@ -350,7 +350,7 @@ Basically we added 'header', 'footer' and some filler text. However, the site ma
 
 #### Step 2. Add Skeleton grid syntax
 
-Next, let’s implement the Skeleton grid system as we learned above. Note how we integrate the HTML5 elements as if they were divs. This is okay!
+Next, let's implement the Skeleton grid system as we learned above. Note how we integrate the HTML5 elements as if they were divs. This is okay!
 
 <p class="file-name">index.php:</p>
 ```html
@@ -362,20 +362,20 @@ Next, let’s implement the Skeleton grid system as we learned above. Note how w
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 	</head>
 	<body>
-		<div class=”container”>
-			<header class=”row”>
-				<div class=”twelve columns”>
+		<div class="container">
+			<header class="row">
+				<div class="twelve columns">
 					<h1>Blank WordPress Template</h1>
 					<p>This is my WordPress template.</p>
 				</div>
 			</header>
-			<section class=”row”>
-				<div class=”twelve columns”>
+			<section class="row">
+				<div class="twelve columns">
 					<p>Body content goes here.</p>
 				</div>
 			</section>
-			<footer class=”row”>
-				<div class=”twelve columns”>
+			<footer class="row">
+				<div class="twelve columns">
 					<p>Footer content goes here.</p>
 				</div>
 			</footer>
@@ -416,22 +416,22 @@ If we take our code from above, it is easy to see that there are clear differenc
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 	</head>
 	<body>
-		<div class=”container”>
-			<header class=”row”>
-				<div class=”twelve columns”>
+		<div class="container">
+			<header class="row">
+				<div class="twelve columns">
 					<h1>Blank WordPress Template</h1>
 					<p>This is my WordPress template.</p>
 				</div>
 			</header>
 			<!-- END OF HEADER - BEGIN SECTION CONTENT -->
-			<section class=”row”>
-				<div class=”twelve columns”>
+			<section class="row">
+				<div class="twelve columns">
 					<p>Body content goes here.</p>
 				</div>
 			</section>
 			<!-- BEGINNING OF FOOTER - END SECTION CONTENT -->
-			<footer class=”row”>
-				<div class=”twelve columns”>
+			<footer class="row">
+				<div class="twelve columns">
 					<p>Footer content goes here.</p>
 				</div>
 			</footer>
@@ -441,9 +441,9 @@ If we take our code from above, it is easy to see that there are clear differenc
 ```
 #### Step 2. Create Header and Footer file
 
-Next, let’s create two files:
-<p class="message">Create file titled “header.php” and save it in your Blank Template folder</p>
-<p class="message">Create file titled “footer.php” and save it in your Blank Template folder</p>
+Next, let's create two files:
+<p class="message">Create file titled "header.php" and save it in your Blank Template folder</p>
+<p class="message">Create file titled "footer.php" and save it in your Blank Template folder</p>
 
 #### Step 3. Chop up the index.php file
 
@@ -458,9 +458,9 @@ Next, let’s create two files:
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 	</head>
 	<body>
-		<div class=”container”>
-			<header class=”row”>
-				<div class=”twelve columns”>
+		<div class="container">
+			<header class="row">
+				<div class="twelve columns">
 					<h1>Blank WordPress Template</h1>
 					<h2>This is my WordPress template.</h2>
 				</div>
@@ -471,8 +471,8 @@ Next, let’s create two files:
 <p class="file-name">index.php:</p>
 
 ```html
-			<section class=”row”>
-				<div class=”twelve columns”>
+			<section class="row">
+				<div class="twelve columns">
 					<p>Body content goes here.</p>
 				</div>
 			</section>
@@ -481,8 +481,8 @@ Next, let’s create two files:
 <p class="file-name">footer.php:</p>
 ```html
 <!-- BEGINNING OF FOOTER - END SECTION CONTENT -->
-			<footer class=”row”>
-				<div class=”twelve columns”>
+			<footer class="row">
+				<div class="twelve columns">
 					<p>Footer content goes here.</p>
 				</div>
 			</footer>
@@ -498,8 +498,8 @@ Next we add the WordPress functions that link to the header and footer. These tw
 <p class="file-name">index.php:</p>
 ```html
 <?php get_header(); ?>
-	<section class=”row”>
-		<div class=”twelve columns”>
+	<section class="row">
+		<div class="twelve columns">
 			<p>Body content goes here.</p>
 		</div>
 	</section>
@@ -520,9 +520,9 @@ WordPress needs some additional functions in the header and footer to make sure 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 	</head>
 	<body>
-		<div class=”container”>
-			<header class=”row”>
-				<div class=”twelve columns”>
+		<div class="container">
+			<header class="row">
+				<div class="twelve columns">
 					<h1>Blank WordPress Template</h1>
 					<p>This is my WordPress template.</p>
 				</div>
@@ -533,8 +533,8 @@ WordPress needs some additional functions in the header and footer to make sure 
 <p class="file-name">footer.php:</p>
 ```html
 <!-- BEGINNING OF FOOTER - END SECTION CONTENT -->
-			<footer class=”row”>
-				<div class=”twelve columns”>
+			<footer class="row">
+				<div class="twelve columns">
 					<p>Footer content goes here.</p>
 				</div>
 			</footer>
@@ -546,7 +546,7 @@ WordPress needs some additional functions in the header and footer to make sure 
 
 #### Step 6. Make the Header Work Dynamically
 
-Let’s add some necessary items to our header now. We are going to add two built in WordPress functions to the header.php file where we are loading static content. 
+Let's add some necessary items to our header now. We are going to add two built in WordPress functions to the header.php file where we are loading static content. 
 
 <p class="file-name">header.php:</p>
 ``` html
@@ -558,9 +558,9 @@ Let’s add some necessary items to our header now. We are going to add two buil
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 	</head>
 	<body>
-		<div class=”container”>
-			<header class=”row”>
-				<div class=”twelve columns”>
+		<div class="container">
+			<header class="row">
+				<div class="twelve columns">
 					<h1><?php bloginfo('name'); ?></h1>
 					<p><?php bloginfo('description'); ?></p>
 				</div>
@@ -568,7 +568,7 @@ Let’s add some necessary items to our header now. We are going to add two buil
 <!-- END OF HEADER - BEGIN SECTION CONTENT -->
 ```
 
-Notice how we are using the bloginfo function that we used in the linking to the stylesheet, except we are using it here with different parameters inside the function. Instead of saying “Blank WordPress Template” we can now say whatever we want, from the WordPress admin. We changed nothing here but the text in between the 'h1' and 'p' tags because all we wanted to make happen was to have WordPress dynamically generate that content for us, not make it display differently. 
+Notice how we are using the bloginfo function that we used in the linking to the stylesheet, except we are using it here with different parameters inside the function. Instead of saying "Blank WordPress Template" we can now say whatever we want, from the WordPress admin. We changed nothing here but the text in between the 'h1' and 'p' tags because all we wanted to make happen was to have WordPress dynamically generate that content for us, not make it display differently. 
 
 #### Step 7. Save and Upload
 
@@ -576,15 +576,15 @@ Double check that you did everything correctly by uploading the files to the ser
 
 ## <a name="wordpress-and-php-templates">WordPress and PHP Templates</a>
 
-The only thing worth adding about WordPress and PHP that hasn’t been said in an earlier chapter is that I want you to consider how we had a completely capable website without adding much, if any, PHP. Appreciating how a PHP file can function without any PHP but how an HTML file cannot function with PHP is an important concept to grasp with regard to back end programming generally.
+The only thing worth adding about WordPress and PHP that hasn't been said in an earlier chapter is that I want you to consider how we had a completely capable website without adding much, if any, PHP. Appreciating how a PHP file can function without any PHP but how an HTML file cannot function with PHP is an important concept to grasp with regard to back end programming generally.
 
 ### Tutorial: Adding the WordPress Loop
 
-Now that we have done some PHP and have our index site split into three separate template files, let’s add the actual functionality of WordPress so that we aren’t just serving static content. 
+Now that we have done some PHP and have our index site split into three separate template files, let's add the actual functionality of WordPress so that we aren't just serving static content. 
 
 #### Step 1: Create Five Posts of Content
 
-Though this may seem tedious, it is important to have a subset of data to program off of. My suggestion is to make 5 posts with different headings and plenty of body text. You will do this by going into the Dashboard, clicking on “Posts” and then “Add New.” For each one, put a different heading and some filler content
+Though this may seem tedious, it is important to have a subset of data to program off of. My suggestion is to make 5 posts with different headings and plenty of body text. You will do this by going into the Dashboard, clicking on "Posts" and then "Add New." For each one, put a different heading and some filler content
 
 For example:
 
@@ -600,8 +600,8 @@ We already have our Index.php file split up so that it dynamically loads the hea
 
 ```html
 <?php get_header(); ?>
-	<section class=”row”>
-		<div class=”twelve columns”>
+	<section class="row">
+		<div class="twelve columns">
 			<p>Body content goes here.</p>
 		</div>
 	</section>
@@ -619,13 +619,13 @@ if ( have_posts() ) {
 } // end if
 ?>
 ```
-So let’s combine this code! By doing this, we will add the PHP functionality found in the Loop into the index.php page. 
+So let's combine this code! By doing this, we will add the PHP functionality found in the Loop into the index.php page. 
 
 <p class="file-name">index.php:</p>
 ```php
 <?php get_header(); ?>
-	<section class=”row”>
-		<div class=”twelve columns”>
+	<section class="row">
+		<div class="twelve columns">
 <!-- BEGIN LOOP -->
 			<?php 
 			if ( have_posts() ) {
@@ -650,9 +650,9 @@ You now have a dynamically working CMS integrated web page.
 
 ## <a name="internal-pages-and-posts">Internal Pages and Posts</a>
 
-Having a front page is really important, but there will be times when you want to only display one post of content or one page of content that isn’t the front page. You will notice that the process for creating a page and for creating a post are almost identical!
+Having a front page is really important, but there will be times when you want to only display one post of content or one page of content that isn't the front page. You will notice that the process for creating a page and for creating a post are almost identical!
 
-Before we move on, let’s discuss an important concept: Data Context
+Before we move on, let's discuss an important concept: Data Context
 
 ### Data Context
 
@@ -664,7 +664,7 @@ The **Data Context** is the Data that is being displayed based on a Context. I k
 
 The Data in a book is the words, images, etc.
 
-The Context in a book depends on a lot of factors. But let’s say we want to tell someone to read only Chapter 2 of a book. Then the Context iwe are talking is one chapter of a book. 
+The Context in a book depends on a lot of factors. But let's say we want to tell someone to read only Chapter 2 of a book. Then the Context iwe are talking is one chapter of a book. 
 
 Therefore the Data Context of this scenario is the words, images, etc. of chapter 2 of this book. 
 
@@ -672,7 +672,7 @@ Therefore the Data Context of this scenario is the words, images, etc. of chapte
 
 The Data is the objects inside of file folders inside the file cabinet. 
 
-The Context depends on what part of the file cabinet you want to look in. But let’s say we want to point someone to a single drawer with only the folders that start with the letter L. Then the Context we are talking about is one drawer of a whole file cabinet.
+The Context depends on what part of the file cabinet you want to look in. But let's say we want to point someone to a single drawer with only the folders that start with the letter L. Then the Context we are talking about is one drawer of a whole file cabinet.
 
 Therefore, the Data Context of this scenario is the file folders (and their contents) that begin with L in an entire file cabinet. 
 
@@ -680,23 +680,23 @@ Therefore, the Data Context of this scenario is the file folders (and their cont
 
 The Data is the words, images, metadata, etc. of a blog
 
-The Context depends on what part of the site you are querying. But let’s say we want to point someone to a single post in a blog. Then the Context we are talking about is one post of a whole blog’s website.
+The Context depends on what part of the site you are querying. But let's say we want to point someone to a single post in a blog. Then the Context we are talking about is one post of a whole blog's website.
 
 Therefore, the Data Context of this scenario is the words, images, metadata, etc. of a single blog post of a blog. 
 
-Got it? If so, let’s create a template files for these items. 
+Got it? If so, let's create a template files for these items. 
 
 ### Tutorial: Pages Template
 
-Remember, *“a Page is often used to present ‘static’ information about yourself or your site.”* Let’s add a template file knowing that anything we make that can be considered a “Page” will be displayed by this page. 
+Remember, *"a Page is often used to present 'static' information about yourself or your site."* Let's add a template file knowing that anything we make that can be considered a "Page" will be displayed by this page. 
 
 #### Step 1: Create a Page.php file
 
-<p class="message">Create file titled “page.php” in your theme folder</p>
+<p class="message">Create file titled "page.php" in your theme folder</p>
 
 #### Step 2: Add the Grid, Header, and Footer
 
-Let’s write some code for the Page.php file that we already understand. 
+Let's write some code for the Page.php file that we already understand. 
 
 <p class="file-name">page.php:</p>
 ```html
@@ -712,7 +712,7 @@ Let’s write some code for the Page.php file that we already understand.
 
 #### Step 3: Add the PHP to load the Page
 
-We discussed the “Data Context” above,  but here we are going to apply it to our code. Another thing to note about this code is that it should look almost identical to our loop (and the logic IS identical). We have added two important WordPress functions we will talk about after we add the PHP. 
+We discussed the "Data Context" above,  but here we are going to apply it to our code. Another thing to note about this code is that it should look almost identical to our loop (and the logic IS identical). We have added two important WordPress functions we will talk about after we add the PHP. 
 
 <p class="file-name">page.php:</p>
 ```php
@@ -733,9 +733,9 @@ We discussed the “Data Context” above,  but here we are going to apply it to
 <?php get_footer(); ?>
 ```
 
-The way that the PHP we added works looks a lot like the index.php loop. We do a test to see IF we have posts, then we define our data context by saying WHILE we have posts, let’s display the post. Though it works identical to the loop logically, the data context is entirely different. 
+The way that the PHP we added works looks a lot like the index.php loop. We do a test to see IF we have posts, then we define our data context by saying WHILE we have posts, let's display the post. Though it works identical to the loop logically, the data context is entirely different. 
 
-When you are templating (and just copying my code) it isn’t apparent, but there is an assumption occurring here. That assumption deals with routing, which is essentially applying a data context through a URL (please excuse that oversimplified definition). 
+When you are templating (and just copying my code) it isn't apparent, but there is an assumption occurring here. That assumption deals with routing, which is essentially applying a data context through a URL (please excuse that oversimplified definition). 
 
 To simplify that explanation, the PHP is being written with the assumption that the URL will contain the proper data context to display.
 
@@ -743,9 +743,9 @@ So this URL:
 	http://myblog.com/the-name-of-my-post 
 
 will return only the data found in the post (or page): 
-	“The Name of My Post.”
+	"The Name of My Post."
 
-WordPress handles all the routing for you because it is built in functionality. So you don’t need to worry about any of that, but know WHY the code that is essentially a loop functions differently on the front page than it does on the internal pages and posts. 
+WordPress handles all the routing for you because it is built in functionality. So you don't need to worry about any of that, but know WHY the code that is essentially a loop functions differently on the front page than it does on the internal pages and posts. 
 
 The second part to notice is the specifics of the content we are adding. This is a good opportunity to notice how easily PHP integrates with HTML. The part I am taking about is this:
 
@@ -758,29 +758,29 @@ The second part to notice is the specifics of the content we are adding. This is
 
 'the_title' and 'the_content' are both custom WordPress functions. 
 
-*What do you think these functions do? (hint, it’s quite obvious)*
+*What do you think these functions do? (hint, it's quite obvious)*
 
-You will notice that the_title is wrapped in 'h2' tags. This is easy to do because the PHP tags are closed and opened around them. This is how the PHP parser on the server know what is PHP and what isn’t. When the PHP parser sends the page to the client (person accessing the web page), it only parses the parts of the site wrapped in '<?php ?>' tags as PHP and the rest is sent as HTML and parsed PHP. 
+You will notice that the_title is wrapped in 'h2' tags. This is easy to do because the PHP tags are closed and opened around them. This is how the PHP parser on the server know what is PHP and what isn't. When the PHP parser sends the page to the client (person accessing the web page), it only parses the parts of the site wrapped in '<?php ?>' tags as PHP and the rest is sent as HTML and parsed PHP. 
 
 Wrapping PHP tags in HTML tags is such a common practice in WordPress templating that you should make sure you fully grasp this concept right now.
 
 #### Step 4. Save and Upload
 
-If you have a page to view, you should be able to see it in this template after you save and upload this file to your server. If you do not, make a page in the Dashboard (Pages -> Add New) and then click the “View Page” button in the Dashboard or in the Page itself. 
+If you have a page to view, you should be able to see it in this template after you save and upload this file to your server. If you do not, make a page in the Dashboard (Pages -> Add New) and then click the "View Page" button in the Dashboard or in the Page itself. 
 
 ### Tutorial: Posts Template
 
-Remember, *“posts are articles that you write to populate your blog.”* Let’s add a template file knowing that anything we make that can be considered a “Post” will be displayed by this page. 
+Remember, *"posts are articles that you write to populate your blog."* Let's add a template file knowing that anything we make that can be considered a "Post" will be displayed by this page. 
 
 * Posts are not templated as a post.php file, but rather by a single.php file. 
 
 #### Step 1: Create a Single.php file
 
-<p class="message">Create file titled “single.php” in your theme folder</p>
+<p class="message">Create file titled "single.php" in your theme folder</p>
 
 #### Step 2: Add the Grid, Header, and Footer
 
-Let’s write some code for the Single.php file that we already understand. 
+Let's write some code for the Single.php file that we already understand. 
 
 <p class="file-name">single.php:</p>
 ```html
@@ -817,11 +817,11 @@ This should look eerily similar to the Page tutorial above. That's because the l
 <?php get_footer(); ?>
 ```
 
-Notice any differences from page.php? You shouldn’t see any (except the comments). It is important to make sure you understand that though these template files are currently identical, we have separate files for pages and posts because they serve very different functions in the CMS and will probably want to be treated differently going forward. 
+Notice any differences from page.php? You shouldn't see any (except the comments). It is important to make sure you understand that though these template files are currently identical, we have separate files for pages and posts because they serve very different functions in the CMS and will probably want to be treated differently going forward. 
 
 #### Step 4. Save and Upload
 
-If you have a post to view, you should be able to see it in this template after you save and upload this file to your server. In the Dashboard click the “View Post” button in the Dashboard or in the Post itself. 
+If you have a post to view, you should be able to see it in this template after you save and upload this file to your server. In the Dashboard click the "View Post" button in the Dashboard or in the Post itself. 
 
 ### Tutorial: Sidebars Includes
 
@@ -847,7 +847,7 @@ The first step will be to modify the LAYOUT of our page.php file. I have taken o
 		</div>
 <!-- ADD IN A THREE WIDTH COLUMN - COMPLETE THE TWELVE REQUIREMENT WIDTH -->
 <!-- BEGIN SIDEBAR -->
-		<div class=”three columns”>
+		<div class="three columns">
 			<h3>Sidebar Text</h3>
 			<p>This is the sidebar content to put in here.</p>
 		</div>
@@ -860,7 +860,7 @@ First we broke up the row into two columns instead of one. We made one column a 
 
 #### Step 2: Create a Sidebar.php File
 
-<p class="message">Create a file called “sidebar.php” in your themes root folder.</p> 
+<p class="message">Create a file called "sidebar.php" in your themes root folder.</p> 
 
 #### Step 3: Separate the Sidebar from the Page
 
@@ -885,7 +885,7 @@ while (have_posts()) : the_post(); ?>
 			endif; ?>
 		</div>
 <!-- BEGIN SIDEBAR -->
-		<div class=”three columns”>
+		<div class="three columns">
 			<?php get_sidebar(); ?>
 		</div>
 <!-- END SIDEBAR -->
@@ -924,7 +924,7 @@ Text Domain: firstname_lastname_blank_template
 }
 ```
 
-Which is totally fine! That’s actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (H1, H2, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). 
+Which is totally fine! That's actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (H1, H2, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). 
 
 <p class="file-name">style.css</p>
 ```css

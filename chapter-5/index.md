@@ -17,9 +17,9 @@ title: Chapter 5&#58; Content and the Content Manager
 
 ## <a name="content-generally">Content Generally</a>
 
-Content “is information and experiences that provides value for an end-user or audience.” [Content - Wikipedia](http://en.wikipedia.org/wiki/Content_(media))
+Content "is information and experiences that provides value for an end-user or audience." [Content - Wikipedia](http://en.wikipedia.org/wiki/Content_(media))
 
-For us, **content** is text, images, video, audio, or anything that conveys information or experiences to a user. We will use this term generally because it isn’t important to get into the specifics or etymology of the term. What is important is that there is information that needs to be sent to a user effectively and efficiently. 
+For us, **content** is text, images, video, audio, or anything that conveys information or experiences to a user. We will use this term generally because it isn't important to get into the specifics or etymology of the term. What is important is that there is information that needs to be sent to a user effectively and efficiently. 
 
 Dealing with content can be a complicated affair. Before we can even begin to think about how to handle content through a CMS, we must first identify what content we are trying to manage.
 
@@ -37,23 +37,23 @@ We are going to look at three articles to get a better grasp of how content exis
 
 Making sure you are able to control where your content goes is important for numerous reasons. Having your blog posts show up on your site is one step, but also allowing RSS readers (or their equivalents) to display your blog posts could be cool too. Additionally, what if another site wants to use your content? What if a teacher wants to use the content in a lecture? 
 
-Isn’t having your content distributed as widely as possible a good thing? Well, maybe not always. The concept of portability with content is an important consideration when you are crafting your content strategy. For every instance where you would want visibility of your content, there may exist one where you don’t want it to be visible.
+Isn't having your content distributed as widely as possible a good thing? Well, maybe not always. The concept of portability with content is an important consideration when you are crafting your content strategy. For every instance where you would want visibility of your content, there may exist one where you don't want it to be visible.
 
-*What are some instances where you would want your content to be more visible? instances where you wouldn’t?*
+*What are some instances where you would want your content to be more visible? instances where you wouldn't?*
 
-Let’s say you do want your content to be widely distributed. If you do that, it would be nice to have it as easy to access as possible. And not only by users, but also by other systems that may want to use that content. This is the whole concept of an Open API platform. 
+Let's say you do want your content to be widely distributed. If you do that, it would be nice to have it as easy to access as possible. And not only by users, but also by other systems that may want to use that content. This is the whole concept of an Open API platform. 
 
-Additionally, you will want to “future-proof” your content early. Let’s read a passage from the [“Your Content, Now Mobile” article](http://alistapart.com/article/your-content-now-mobile): 
+Additionally, you will want to "future-proof" your content early. Let's read a passage from the ["Your Content, Now Mobile" article](http://alistapart.com/article/your-content-now-mobile): 
 
-<blockquote>“If you take the time to figure out the right way to get your content out there, you’ll have the freedom (and the flexibility) to get it everywhere. You can go back to thinking about the right design and development approaches for each platform, because you’ll already have a reusable base of content to work from.”</blockquote>
+<blockquote>"If you take the time to figure out the right way to get your content out there, you'll have the freedom (and the flexibility) to get it everywhere. You can go back to thinking about the right design and development approaches for each platform, because you'll already have a reusable base of content to work from."</blockquote>
 
-<blockquote>“By taking the time now to examine your content and structure it for maximum flexibility and reuse, you’ll be (better) prepared the next time a new gadget rolls around. You’ll have cleared out all the dead wood, by pruning outdated, badly written, and irrelevant content, which means all your users will have a better experience. You’ll have revised and updated your processes and tools for managing and maintaining content, which means all the content you create in every channel—print, desktop, mobile, TV, social—will be more closely governed.”</blockquote>
+<blockquote>"By taking the time now to examine your content and structure it for maximum flexibility and reuse, you'll be (better) prepared the next time a new gadget rolls around. You'll have cleared out all the dead wood, by pruning outdated, badly written, and irrelevant content, which means all your users will have a better experience. You'll have revised and updated your processes and tools for managing and maintaining content, which means all the content you create in every channel—print, desktop, mobile, TV, social—will be more closely governed."</blockquote>
 
 ### Handling Content
 
 We now know that we will want to consider how expansively our content should be used very early on in our design steps. After, we need to consider what approach we should use to implement our content management plan. 
 
-	I acknowledge that a “content management plan” or “content strategy” may not be an explicit plan for every project (certainly not the ones covered in this course), but considering the scope of how to use content will help you make better decisions as you go. 
+	I acknowledge that a "content management plan" or "content strategy" may not be an explicit plan for every project (certainly not the ones covered in this course), but considering the scope of how to use content will help you make better decisions as you go. 
 
 Content strategy is a key step in any design process.  You should read this article in its entirety: [Strategic Content Management - A List Apart](http://alistapart.com/article/strategic-content-management)
 
@@ -63,12 +63,12 @@ Content and the technology to manage content go hand in hand with the impression
 
 ### Information Architecture
 
-After making sure we know how we want to use our content and what methods we are going to use to handle the content, we will think about the overall organization and presentation of our content. That’s where information architecture comes in. 
+After making sure we know how we want to use our content and what methods we are going to use to handle the content, we will think about the overall organization and presentation of our content. That's where information architecture comes in. 
 
-	“Information architecture (IA) focuses on organizing, structuring, and labeling content in an effective and sustainable way.  The goal is to help users find information and complete tasks.” 
+	"Information architecture (IA) focuses on organizing, structuring, and labeling content in an effective and sustainable way.  The goal is to help users find information and complete tasks." 
 [Information Architecture Basics - Usability.gov](http://www.usability.gov/what-and-why/information-architecture.html)
 
-Read the [“Content Modelling: A Master Skill”](http://alistapart.com/article/content-modelling-a-master-skill) article to get a grasp on how one might think about using information architecture as a content planning tool. 
+Read the ["Content Modelling: A Master Skill"](http://alistapart.com/article/content-modelling-a-master-skill) article to get a grasp on how one might think about using information architecture as a content planning tool. 
 
 Structure of our content to the systems, users, and administrators of the content will shape the way people think about the content and how usable it will be to users. 
 
@@ -76,7 +76,7 @@ Each CMS will have inherent biases to the content and the way it is organized. A
 
 ## <a name="choosing-a-cms">Choosing a CMS</a>
 
-When you are choosing a CMS, don’t always go with the one that you are most comfortable with or that the client wants/already has.  Choosing a CMS is a very specific choice depending on the situation and whether you consider yourself more of a coder, administrator, or designer, having the ability to choose the system of a correct scale for a client is a useful skill. 
+When you are choosing a CMS, don't always go with the one that you are most comfortable with or that the client wants/already has.  Choosing a CMS is a very specific choice depending on the situation and whether you consider yourself more of a coder, administrator, or designer, having the ability to choose the system of a correct scale for a client is a useful skill. 
 
 ##### So how do we choose the right CMS? 
 
@@ -95,7 +95,7 @@ There are obviously a lot more than these 6 and this list may become out of date
 
 #### 1. WordPress
 
-**Description:** The world’s most popular CMS at this moment. WordPress was originally a blogging platform that has expanded into a full use CMS with a lot of extensibility. 
+**Description:** The world's most popular CMS at this moment. WordPress was originally a blogging platform that has expanded into a full use CMS with a lot of extensibility. 
 
 **Technical Specs:** PHP, MySQL
 
@@ -104,7 +104,7 @@ There are obviously a lot more than these 6 and this list may become out of date
 
 #### 2. [Drupal](http://en.wikipedia.org/wiki/Drupal)
 
-**Description:** “It is used as a back-end framework for at least 2.1% of all Web sites worldwide ranging from personal blogs to corporate, political, and government sites including WhiteHouse.gov and data.gov.uk. It is also used for knowledge management and business collaboration. The standard release of Drupal, known as Drupal core, contains basic features common to content management systems.”
+**Description:** "It is used as a back-end framework for at least 2.1% of all Web sites worldwide ranging from personal blogs to corporate, political, and government sites including WhiteHouse.gov and data.gov.uk. It is also used for knowledge management and business collaboration. The standard release of Drupal, known as Drupal core, contains basic features common to content management systems."
 
 **Technical Specs:** PHP, MySQL
 
@@ -176,19 +176,19 @@ The client might be the single biggest factor in your choice of a CMS. A lot wil
 ##### Things to consider about the client:
 
 1. *Current size of the organization*: Knowing the size of the organization will help you make a decision about the next factor (scale of the CMS). 
-2. *Potential future size of the organization*: You are going to want to make sure that if you choose a CMS, it will be able to grow with the organization. Obviously you won’t be a mind reader but you should inquire to both growth strategies that are currently in place. 
+2. *Potential future size of the organization*: You are going to want to make sure that if you choose a CMS, it will be able to grow with the organization. Obviously you won't be a mind reader but you should inquire to both growth strategies that are currently in place. 
 3. *Technological capabilities of the organization and its staff*: If the staff is not very technically able, you are going to want to consider the UI of the CMS from the content manager position a lot more heavily. 
 4.*Percentage of organizational operations that occur on the internet*: Not only percentage, but also the types of transactions the organization undertakes online. Your CMS is going to want to perform or integrate with tasks that are key to the business. So extensibility may play a bigger role depending on the type of business that the organization undertakes. 
 5. *Security needs of the organization*: This will be huge. A organization that needs a blog will have entirely different needs than an organization that handles sensitive documents and data (especially medical organizations). Make sure you are not giving them a solution that will come back to cause liability for that organization. I know getting into security can be both intimidating and overwhelming, but making sure you know of potential security concerns can help you make a decision or consult with others about what the best decision would be. 
 
 #### 5. Scale of the System
 
-You don’t want to get a CMS that is too big and slow when what you need is small and fast. This is obvious but is also an important consideration. Additionally, having a system that is the right scale, but also scalable to larger or smaller sizes will help you serve your client better if they do grow or shrink without having to make a huge jump in technology. 
+You don't want to get a CMS that is too big and slow when what you need is small and fast. This is obvious but is also an important consideration. Additionally, having a system that is the right scale, but also scalable to larger or smaller sizes will help you serve your client better if they do grow or shrink without having to make a huge jump in technology. 
 
 
-### Applying What We’ve Learned
+### Applying What We've Learned
 
-Let’s consider the following fact patterns and attempt to choose the best CMS from the above list.
+Let's consider the following fact patterns and attempt to choose the best CMS from the above list.
 
 a. Small neighborhood market that has trouble with people finding where it is.
 
@@ -208,13 +208,13 @@ f. Local doctors office.
 
 We understand what a CMS is and a process to select a CMS, but what about the other important aspects of web design we talked about earlier?
 
-Let’s talk briefly about the elements in the context of a CMS and CMS selection.
+Let's talk briefly about the elements in the context of a CMS and CMS selection.
 
 ### Environment:
 
 	Environment is essentially a grouping of concepts/items/situations related to the user at the time of accessing a resource.
 
-*Is there something inherent about a CMS that will affect the user when they’re accessing the resource?* 
+*Is there something inherent about a CMS that will affect the user when they're accessing the resource?* 
 
 ### Story
 
@@ -244,7 +244,7 @@ Having a CMS that can both stay out of the way of usability and enhance the expe
 
 *What role does a CMS play in the usability for users of your site?*
 
-*What role does a CMS play for the content manager’s usability?*
+*What role does a CMS play for the content manager's usability?*
 
 ## <a name="wireframing">Wireframing and Mockup Up a Site for a CMS</a>
 
@@ -252,7 +252,7 @@ Having a CMS that can both stay out of the way of usability and enhance the expe
 
 The process of wireframing may seem like busy work. However, it actually is a really, really important step in creating a new web site or other resource. 
 
-	“Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually being informed by a business objective and a creative idea. The wireframe depicts the page layout or arrangement of the website’s content, including interface elements and navigational systems, and how they work together. The wireframe usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content.[3] In other words, it focuses on what a screen does, not what it looks like”
+	"Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually being informed by a business objective and a creative idea. The wireframe depicts the page layout or arrangement of the website's content, including interface elements and navigational systems, and how they work together. The wireframe usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content.[3] In other words, it focuses on what a screen does, not what it looks like"
 
 [From Wikipedia - Website Wireframe](http://en.wikipedia.org/wiki/Website_wireframe)
 
@@ -262,7 +262,7 @@ There are many, many ways you can make a wireframe - from a pencil drawing to a 
 
 Well, in most design organizations you would take the wireframes and perform a critique of them, refine them, and repeat until you have a solid structure for the CSS specialists and the graphic designers to work with. Additionally, you would perform UI and UX testing and then further refine the structure. Additionally, the wireframes would be subject to change throughout the design process depending on changed circumstance. 
 
-For our course though, we are going to use a more “self-intuition” method of choosing and refining wireframes. However, they are an important step in the design process - even if we aren’t going to test the wireframes for effectiveness. 
+For our course though, we are going to use a more "self-intuition" method of choosing and refining wireframes. However, they are an important step in the design process - even if we aren't going to test the wireframes for effectiveness. 
 
 #### Wireframing Resources
 
@@ -288,4 +288,4 @@ Additionally, all of the technical specifications in the wireframe and project p
 
 Well, there is no tutorial here, only advice.
 
-Each person will, inevitably, have their own method for doing this. I tend to take my wireframes and copy them into Photoshop (or illustrator). I will then gather other project specifications such as colors, images, fonts, etc. and space out potential content. Having several versions of a single mockup is always a good idea. I will often start over from scratch several times so that I don’t get embedded in a single way of doing something.
+Each person will, inevitably, have their own method for doing this. I tend to take my wireframes and copy them into Photoshop (or illustrator). I will then gather other project specifications such as colors, images, fonts, etc. and space out potential content. Having several versions of a single mockup is always a good idea. I will often start over from scratch several times so that I don't get embedded in a single way of doing something.
