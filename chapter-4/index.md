@@ -17,6 +17,9 @@ title: Chapter 4&#58; Making a CMS Work for You
 		* Tutorial: Creating a 404 Page
 	* Using Images in the Template
 		* Tutorial: Adding Featured Images & Thumbnails to Theme
+	* Permalinks
+		* Tutorial: Adding Permalinks to WordPress
+
 * [Plugins](#plugins)
 	* Tutorial: Adding Plugins
 
@@ -584,8 +587,7 @@ WordPress does not enable featured images/thumbnails by default so you have to d
 
 <p class="file-name">functions.php</p>
 ```php
-
-/*--- Enable Post Thumbnails
+/*--- Enable Post Thumbnails ---*/
 add_theme_support( 'post-thumbnails' ); 
 
 ```
@@ -647,6 +649,88 @@ We are going to do almost the exact same thing we did above except throw a diffe
 We have full image size going in now, but we could also use "array( width, height)" to define a custom value to display - which we might want to in case we want strict uniformity. For now though, we will just use the full size image and deal with those specifics later - mostly because I have a better way of dealing with uniformity of images. 
 
 ##### Step 4: Save and Upload files
+
+### Permalinks
+
+[WordPress Codex - Permalinks](https://codex.wordpress.org/Using_Permalinks)
+
+#### Tutorial: Adding Permalinks to WordPress
+
+We will want to be able to easily click through our site for usability purposes. Having links to content is the sort of bare minimum thing that we will want to do, so WordPress handles this for us if we tell it to. 
+
+This will take two steps:
+
+* Add a link to our home page via our header
+* Add a link to individual posts from the loop on the front page. 
+
+We are going to focus on two Codex entries:
+
+* [WordPress Codex - Home URL](https://codex.wordpress.org/Function_Reference/home_url)
+* [WordPress Codex - The Permalink](https://codex.wordpress.org/Function_Reference/the_permalink)
+
+##### Step 1: Add a Link to Our Home Page in the Header
+
+It is incredibly common, if not expected, that you can access the main page of your site through a URL from the site title or logo. You might have the desire to change this expectation for your designs, but for our purposes we will do it this way. 
+
+We are going to add the home_url() function in an anchor’s href and wrap our site title in the anchor. 
+
+<p class="file-name">header.php</p>
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+<?php wp_head(); ?>
+        <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
+    </head>
+    <body>
+        <div class="container">
+            <header class="row">
+                <div class="twelve columns">
+<!-- ADD LINK TO HOME_URL -->
+                    <h1><a href="<?php $url = home_url('/'); echo $url; ?>"><?php bloginfo('name'); ?></a></h1>
+                    <p><?php bloginfo('description'); ?></p>
+                </div>
+            </header>
+```
+
+Again, note how we are switching between html and php in our template files. 
+
+##### Step 2: Add a Permalink to a Post in the Loop
+
+WordPress has a built in permalink system that you can change in the settings. However, even if you change the way that the link is output, the permalink function will continue to work in your loop (or elsewhere). 
+
+Let’s add the permalink to the post output in two ways, as a link that goes after the excerpt and one to the page title. 
+
+<p class="file-name">index.php</p>
+```html
+<?php get_header(); ?>
+<section class="row">
+    <div class="twelve columns">
+        <?php 
+        if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();?>
+<!-- ADD LINK TO THE TITLE -->
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <?php 
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('thumbnail');
+            }
+            the_excerpt(); ?>
+	<p><a href="<?php the_permalink(); ?>">Read More</a></p>
+<?php } // end while
+            } // end if
+        ?>
+    </div>
+</section>
+<?php get_footer(); ?>
+```
+Make sure you note that we exited and entered into PHP several times in this step. Being more comfortable with going in and out of PHP will help you become a better programmer overall. 
+
+##### Step 3: Save and Upload Files
+
+You should see a transformation of the way you can use the front page and your users will appreciate it. 
 
 ## <a name="plugins">Plugins</a>
 
