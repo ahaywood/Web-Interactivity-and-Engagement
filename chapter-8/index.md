@@ -77,7 +77,7 @@ This file must be placed within your theme directory for WordPress to read it.
 
 The only mandatory part of a custom template file is this bit of code:
 
-<p class="file-name">page_fullwidth.php</p>p>
+<p class="file-name">page_fullwidth.php</p>
 ```php 
 <?php 
 /* 
@@ -85,6 +85,7 @@ Template name: Full Width
 */ 
 ?>  
 ```
+
 This registers the custom template with WordPress automatically (it works simply and easily!)
 
 Of course this alone will not work because it does not give any code for the content. The easiest way to fix this is to copy the page.php code, paste it in this custom page, and edit it from there.
