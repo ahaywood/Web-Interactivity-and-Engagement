@@ -45,7 +45,102 @@ A Custom Post will be a completely new content type in the WordPress CMS. The us
 
 #### Tutorial: Adding Custom Post Type
 
-**Coming Soon**
+We are going to use the [Smashing Magazine - The Complete Guide To Custom Post Types](http://www.smashingmagazine.com/2012/11/08/complete-guide-custom-post-types/) guide for this tutorial. I am going to do it a bit different, but if I confuse you with my method feel free to reference it. 
+
+Before we get too deep into the tutorial let’s come up with a concept so that we can focus our understanding on a real world example. Our concept will be “Interesting Web Resources.” This will allow us to create links to interesting posts and brief descriptions of them. We could apply this as a method for linking to outside sources without clogging up our own content. 
+
+Since there is a lot of complicated PHP work in this tutorial, I am going to add the various parts much slower and talk about what is happening in more detail. 
+
+##### Step 1: Add the Register Function
+
+functions.php
+```php
+function custom_web_resources() {
+
+}
+add_action( 'init', 'custom_web_resources' );
+```
+You should recognize this code from the widget initialization code; The same concepts that are there apply here. You are creating a function and adding that function to WordPress through the add_action function.
+
+##### Step 2: Add the Custom WordPress Function
+
+Next we will add a WordPress function used for adding custom post types. It is called register_post_type and more information about it can be found here: [WordPress Codex - Function Reference - Register Post Type](https://codex.wordpress.org/Function_Reference/register_post_type)
+
+This codex entry can help you go through the next step of our tutorial if you are having trouble.
+
+functions.php
+```php
+function custom_web_resources() {
+$labels = array();
+$args = array();
+register_post_type( 'resources', $args ); 
+}
+add_action( 'init', 'custom_web_resources' );
+```
+
+As you can see, we used the register_post_type function to register a post type called ‘resources,’ included an empty array called $args, and included an empty array called $labels. The $args array is called where the function’s arguments would go. 
+
+This is done a bit different than the Smashing Magazine tutorial but I think it is a slightly better way to go about it. 
+
+##### Step 3: Add our Options into the Arrays
+
+There are numerous options that can be added to the register_post_type function. Instead of passing these options through directly, we are creating an object as an array to hold them. This will make our code a bit more organized and modular (which is a very good thing).
+
+functions.php
+```php
+function custom_web_resources() {
+$labels = array(
+/*--- Begin Labels Options ---*/
+
+    'name'               => _x( 'Links', 'post type general name' ),
+    'singular_name'      => _x( 'Link', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', weblink ),
+    'add_new_item'       => __( 'Add Link' ),
+    'edit_item'          => __( 'Edit Links ),
+    'new_item'           => __( 'New Link ),
+    'all_items'          => __( 'All Links ),
+    'view_item'          => __( 'View Links ),
+    'search_items'       => __( 'Search Links ),
+    'not_found'          => __( 'No links found' ),
+    'not_found_in_trash' => __( 'No links found in the Trash' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Web Links'
+
+);
+$args = array(
+/*--- Begin Arguments Options ---*/
+
+'labels' => $labels,
+'description'   => 'Place to put useful links to other web resources',
+'public'        => true,
+'menu_position' => 5,
+'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+'has_archive'   => true,
+
+);
+register_post_type( 'resources', $args ); 
+}
+add_action( 'init', 'custom_web_resources' );
+```
+One thing to notice is that the entire $labels array is brought in as an option to the $args array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. 
+
+Also, consider the ['_x'](https://codex.wordpress.org/Function_Reference/_x) and the ['__' functions](http://wpengineer.com/2237/whats-the-difference-between-__-_e-_x-and-_ex/) in the args array. *What do they do? How is this useful?*
+
+There are even more parameters that can be passed to the arguments. These can be found [in the WordPress Codex entry for the register_post_type function](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters). The one parameter we want to focus on is the “has_archive” parameter. This allows us to create an archive page to display these posts. 
+
+##### Step 5: Save and Upload
+
+After you save and upload, this is where the errors would become apparent. When you are adding big chunks of code 
+
+##### Step 6: Displaying the Custom Post
+
+If you are following with the Smashing Magazine tutorial, skip down to “Displaying your content.”
+
+We could create a custom archive page for our new custom post and then we will be able to view our posts in one central place (almost like a blog roll for our custom post type).
+
+However, WordPress will automatically route us to an archive of our posts if we use the name of our post type  (Links) at the end of the URL for our WordPress site (http://www.mysite.com/links). It will automatically use our archive.php file. The routing sets the data context to our custom posts. 
+
+If we wanted to create a custom archive page (which would be pretty reasonable) then you could simply create a PHP document named ‘archive-links.php’ or if you have a different name of the custom post it would be ‘archive-[custom-post-name].php’, and then add the appropriate code (probably copied from the existing archive.php file and then modified).
 
 ### Custom Page Templates
 
