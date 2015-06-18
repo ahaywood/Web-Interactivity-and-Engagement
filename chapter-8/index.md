@@ -53,7 +53,7 @@ Since there is a lot of complicated PHP work in this tutorial, I am going to add
 
 ##### Step 1: Add the Register Function
 
-functions.php
+<p class="file-name">functions.php</p>
 ```php
 function custom_web_resources() {
 
@@ -68,7 +68,7 @@ Next we will add a WordPress function used for adding custom post types. It is c
 
 This codex entry can help you go through the next step of our tutorial if you are having trouble.
 
-functions.php
+<p class="file-name">functions.php</p>
 ```php
 function custom_web_resources() {
 $labels = array();
@@ -86,7 +86,7 @@ This is done a bit different than the Smashing Magazine tutorial but I think it 
 
 There are numerous options that can be added to the register_post_type function. Instead of passing these options through directly, we are creating an object as an array to hold them. This will make our code a bit more organized and modular (which is a very good thing).
 
-functions.php
+<p class="file-name">functions.php</p>
 ```php
 function custom_web_resources() {
 $labels = array(
