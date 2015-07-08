@@ -155,6 +155,87 @@ You will mock up and then implement changes to the WordPress template to make a 
 
 ## <a name="creating-a-business-site" style="color: #666">Creating a Business Site</a>
 
+Taking everything you’ve learning throughout the semester, you will create a WordPress site for a client. Your role will be as a freelancer. The goal of this site will not be just as a blog, but as a full website for a small business. When you are done with this site, it should be completely stable and be able to be handed off to a content manager. 
+
+### Steps
+
+1. Wireframing: You will create at least 2 wireframes for your site for UI/UX testing purposes.
+
+2. Mock up: You will create at least 2 versions of a mockup of your site. These visual mockups should reflect your wireframes after they have been tested and modified. We will have an in-class critique on the two mockups.
+
+3. Make changes to your mockup from the critique and submit a final design prior to turning the Business Site in for grading.
+
+4. Implement your design into a completely fresh WordPress installation. The completely fresh WordPress installation should begin with a fresh copy of your blank template and be modified from that. 
+
+### Project Specifications
+
+Your site must contain the following elements:
+
+a. A clean WordPress install
+
+b. Usage of at least one plugin
+
+c. Integrated javascript (either through plugins or coded into the page)
+
+d. Well-manicured content (no filler except for blog pages)
+
+e. Be fully responsive
+
+f. Have multiple pages (including custom templates)
+
+g. Be well designed and demonstrate your knowledge and comfort with WordPress
+
+
+
+#### Grading Rubric:
+
+	Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.
+
+**Design:** Did you provide an original, quality design beforehand? (Feel free to send new designs within a reasonable time before you begin your project if you have taken away changes from our critique) 
+55 points
+
+**Execution:** Using your design, do you effectively reproduce (or improve upon) your mocked up design? 
+100 points
+
+**Consistency:** Do you use the same elements throughout your site, allowing it to be consistent throughout? (Same colors, fonts, padding, element width) 
+35 points
+
+**Usability:** Is your site easy to use and does everything function correctly? (Nothing can be broken and elements must be easy to find) 
+35 points
+
+**Interactivity:** Did you include an interactive element? (Using some active element [i.e., javascript] or plugin to enhance the site) 
+25 points
+
+**Project Formalities:** Submit the mockups, wireframes, and have all of the required elements listed above. 
+50 points
+
+300 total points
+
+### Mock Client Arrangement
+
+Students will have the option of creating a site for an actual client if they have one on board. Some good suggestions for an actual client might be a family member’s hobby or side business, a local and small non-profit, event, or sporting organization, or just something you are passionate about and want to promote from a business level. Any site that is not the mock client arrangement must be approved by the professor. 
+
+If you do not have an actual site (or don’t care to worry about one), you may choose the mock client arrangement below. A majority of students choose the mock client arrangement. 
+
+#### Client: 
+
+**Slick’s Auto Body**
+
+#### Expectation: 
+
+Slick wants to move his business into the 21st century and thinks having a dynamic, well designed website can help him make this step. He doesn’t want his site to look like everyone else’s so he is open to having some **radical designs** thrown at him. He wants to have **pages which tell customers about his shop, where it is located, some pricing plans, promotions, and a contact page**. Additionally, **he wants to have a blog
+that he can write cool tips and tricks about auto body work**. Lastly, he wants to make
+sure he is going to **rise in Google search rankings**.
+
+#### Your site must have the following pages:
+
+- Front page
+- About page
+- Pricing and Promotions
+- Contact and Locations
+- Blog page
+- Any other promotional pages you think Slick would benefit from
+
 ### <span style="color: #666">Tutorial: Creating a Separate Blog Page</span>
 
 ## <a name="in-class-critiques">In-Class Critiques</a>
