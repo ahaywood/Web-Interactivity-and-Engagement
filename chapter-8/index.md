@@ -262,3 +262,118 @@ If you don’t see the “Page Attributes” panel, then you have to click on �
 
 You can apply the idea of a Custom Page Template to any number of other scenarios where layout needs to be modified.
 
+## Custom Fields
+
+Coming Soon!
+
+https://codex.wordpress.org/Custom_Fields 
+
+## Shortcodes
+
+Also Coming Soon!!
+
+## Integrating Outside Resources
+
+In Chapter 7 we discussed the ways to link to a CSS or JavaScript file in WordPress. 
+
+There are three ways to link to “outside resources” in WordPress:
+
+Use a link in the header
+(For CSS) Use an @import in the stylesheet
+Use WordPress to enqueue the files and to handle dependencies. 
+
+Each of these methods has it ups and downs. Each of these methods has a compelling use case and when you are linking to files you should consider which method is best. 
+
+**Linking in the header** is the most common and oldest way of integrating outside resources into the web page. This generally looks like this:
+
+```html
+<script src=”javascript.js:></script>
+<!-- OR -->
+<link rel="stylesheet" type="text/css" href="stylesheet" />
+
+```
+
+The other way to do this is to use an **@import in the stylesheet** for CSS files. This usually looks like this:
+
+```css
+@import url(stylesheet.css);
+```
+
+The third way, **enqueuing files**, was covered in the previous chapter and is a convenient way to organize files and deal with dependencies, but is a bit more time intensive with a slightly higher learning curve. 
+
+As an example, I will demonstrate how to add a custom font using [Google Fonts](https://www.google.com/fonts). 
+
+### Tutorial: Adding a Custom Font
+
+#### Step 1: Find the Font you Want
+
+Google Fonts is a good place to find free fonts in a wide variety. There are numerous other services which allow for font integration (most paid), but for this tutorial I am going to use Google Fonts. 
+
+Navigate to [Google Fonts](https://www.google.com/fonts) and select a font you like. After you select the font, click on “Review” towards the bottom. If everything seems okay, click “Use.” Check the boxes for the variety of weights and variants that you will use. Remember that the more you choose the more site speed impact the font will have. 
+
+#### Step 2: Link to the Font in Your Stylesheet
+
+Google Fonts gives you three ways to link to the font:
+
+The header linking method
+The @import method (Which we will use)
+The JavaScript insert method (probably the better choice…)
+
+Copy the @import code from the “Use” tab and paste it into your style.css file. Here is an example of what it should look like:
+
+<p class="file-name">style.css</p>
+```css
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+```
+
+#### Step 3: Add the Font Family to your Webpage
+
+Assuming you will only want one font for your whole site, let’s add the font to our body in our style file.
+
+<p class="file-name">style.css</p>
+```css
+body, html {
+ font-family: 'Open Sans', sans-serif;
+}
+```
+
+You can find the font-family code on the Google Fonts page. They make it as easy as possible for you. 
+
+#### Step 4: Save and Upload
+
+
+## Child and Parent Themes
+
+The concept of a child and parent theme is generally available in almost every CMS. In WordPress they are a useful tool to maintaining structure in a template where there is multiple versions of a site with one overlying template. 
+
+We won't over-discuss Child and Parent Themes in this book, but will have a slight overview for informational purposes. It is important to know about from a conceptual standpoint. 
+
+A child theme is essentially a separate file structure that references a parent theme.  Child themes were created for making modifications to a theme, specifically one that is commercial in nature. The parent will be a fully operational theme in and of itself, but the child theme will modify the styles/structure of the parent theme for its own purposes. 
+
+[Child Themes](http://codex.wordpress.org/Child_Themes)
+
+[Tuts+ - Child Themes in WordPress](http://wp.tutsplus.com/tutorials/theme-development/child-themes-basics-and-creating-child-themes-in-wordpress/?search_index=7)
+
+Using a child theme has many advantages, including:
+
+- Child themes can be a great way to ensure that you are not modifying a theme that would otherwise be updated to a point where it will become un-updatable.  
+
+- Allows the user to do any number of things – including distinct multisite features – while allowing the admin to maintain a strong template infrastructure.
+
+- If we create a child theme we will not need to create a new theme from scratch which will translate into faster development time.
+
+There are a lot of free and commercial theme frameworks available which give us a wide range of functionality will not need too much customization in our child themes.
+
+If we use child themes as opposed to directly modifying the parent theme to suit our needs, we will easily be able to upgrade to a newer version of the parent theme without losing any of our customization.
+
+A lot of times parent themes not only provide the design but also include widgets and plugins which can be directly used if we create a child theme of that parent theme.
+
+If it’s a popular parent theme you are using, either free or commercial, it’s more likely to have fewer bugs and be more stable as it has been used and tested on multiple sites.
+Some of the disadvantages of child themes are:
+
+- A lot of the theme frameworks are very extensive and provide a lot of features which might not be useful to you. This makes frameworks complex and it would increase the time taken to learn and master the framework. 
+
+- It may also affect performance with multiple server side lookups and redundant or unused files. 
+
+In the more general outlook of CMSs, the idea of having themes that are subservient to a main theme is extremely common.  From a conceptual standpoint, WordPress itself is the parent and the theme is the child – though they obviously perform different functions.  With many commercial CMSs though, the parent may hold many styles and functions that will need to be modified.  Considering the structure of a CMS with the idea of parent/child or master/servant in mind will help you understand where to make changes and how they may affect a larger scheme. 
+
