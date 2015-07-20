@@ -5,27 +5,26 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 
 ## Table of Contents
 
-* [Custom Posts and Pages](#)
+* [Custom Posts and Pages](#custom-posts-and-pages)
 	* Custom Posts
 		* Tutorial: Adding Custom Post Type
 	* Custom Page Templates
 		* Tutorial: Adding a Custom Page Template
-* [Custom Fields](#)
+* [Custom Fields](#custom-fields)
 	* Tutorial: Using Custom Fields
-* [Shortcodes](#)
-	* CSS Based Tutorials
+* [Shortcodes](#shortcodes)
+* [CSS Based Tutorials](#css-based-tutorials)
 		* Tutorial: Styling the Search Bar
-* [Integrating Outside Resources](#)
+* [Integrating Outside Resources](#integrating-outside-resources)
 	* Tutorial: Custom Fonts
-* [Child and Parent Themes](#)
-* [Using MetaData](#)
+* [Child and Parent Themes](#child-and-parent-themes)
+* [Using MetaData](#using-metadata)
 	* Tutorial: Custom Fields
-* [Adding Functionality](#)
-	* Tutorial: Proper way to Link to CSS Files
+* [Adding Functionality](#adding-functionality)
 	* Tutorial: Creating a Separate Page for Blog Posts
 	* Tutorial: Integrating Breadcrumbs into your WordPress pages
 
-## Custom Posts and Pages
+## <a name="custom-posts-and-pages">Custom Posts and Pages</a>
 
 We know that WordPress has two ways to display content: Pages and Posts. As a reminder, pages are more permanent and posts and meant to be time-based. 
 
@@ -262,17 +261,17 @@ If you don’t see the “Page Attributes” panel, then you have to click on �
 
 You can apply the idea of a Custom Page Template to any number of other scenarios where layout needs to be modified.
 
-## Custom Fields
+## <a name="custom-fields">Custom Fields</a>
 
 Coming Soon!
 
 https://codex.wordpress.org/Custom_Fields 
 
-## Shortcodes
+## <a name="shortcodes">Shortcodes</a>
 
 Also Coming Soon!!
 
-## Integrating Outside Resources
+## <a name="integrating-outside-resources">Integrating Outside Resources</a>
 
 In Chapter 7 we discussed the ways to link to a CSS or JavaScript file in WordPress. 
 
@@ -342,7 +341,7 @@ You can find the font-family code on the Google Fonts page. They make it as easy
 #### Step 4: Save and Upload
 
 
-## Child and Parent Themes
+## <a name="child-and-parent-themes">Child and Parent Themes</a>
 
 The concept of a child and parent theme is generally available in almost every CMS. In WordPress they are a useful tool to maintaining structure in a template where there is multiple versions of a site with one overlying template. 
 
@@ -376,4 +375,15 @@ Some of the disadvantages of child themes are:
 - It may also affect performance with multiple server side lookups and redundant or unused files. 
 
 In the more general outlook of CMSs, the idea of having themes that are subservient to a main theme is extremely common.  From a conceptual standpoint, WordPress itself is the parent and the theme is the child – though they obviously perform different functions.  With many commercial CMSs though, the parent may hold many styles and functions that will need to be modified.  Considering the structure of a CMS with the idea of parent/child or master/servant in mind will help you understand where to make changes and how they may affect a larger scheme. 
+
+## <a name="using-metadata">Using MetaData</a>
+
+### Tutorial: Custom Fields
+
+## <a name="adding-functionality">Adding Functionality</a>
+
+This area is for various tutorials related to WordPress functionality. 
+
+### Tutorial: Creating a Separate Page for Blog Posts
+### Tutorial: Integrating Breadcrumbs into your WordPress pages
 
