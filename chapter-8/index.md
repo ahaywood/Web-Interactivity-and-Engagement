@@ -10,7 +10,7 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 		* Tutorial: Adding Custom Post Type
 	* Custom Page Templates
 		* Tutorial: Adding a Custom Page Template
-* [Custom Fields](#custom-fields)
+* [Using MetaData and Custom Fields](#custom-fields)
 	* Tutorial: Using Custom Fields
 * [Shortcodes](#shortcodes)
 * [CSS Based Tutorials](#css-based-tutorials)
@@ -18,8 +18,6 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 * [Integrating Outside Resources](#integrating-outside-resources)
 	* Tutorial: Custom Fonts
 * [Child and Parent Themes](#child-and-parent-themes)
-* [Using MetaData](#using-metadata)
-	* Tutorial: Custom Fields
 * [Adding Functionality](#adding-functionality)
 	* Tutorial: Creating a Separate Page for Blog Posts
 	* Tutorial: Integrating Breadcrumbs into your WordPress pages
