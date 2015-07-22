@@ -259,7 +259,7 @@ If you don’t see the “Page Attributes” panel, then you have to click on �
 
 You can apply the idea of a Custom Page Template to any number of other scenarios where layout needs to be modified.
 
-## <a name="custom-fields">Custom Fields</a>
+## <a name="custom-fields">Using MetaData and Custom Fields</a>
 
 Coming Soon!
 
@@ -373,10 +373,6 @@ Some of the disadvantages of child themes are:
 - It may also affect performance with multiple server side lookups and redundant or unused files. 
 
 In the more general outlook of CMSs, the idea of having themes that are subservient to a main theme is extremely common.  From a conceptual standpoint, WordPress itself is the parent and the theme is the child – though they obviously perform different functions.  With many commercial CMSs though, the parent may hold many styles and functions that will need to be modified.  Considering the structure of a CMS with the idea of parent/child or master/servant in mind will help you understand where to make changes and how they may affect a larger scheme. 
-
-## <a name="using-metadata">Using MetaData</a>
-
-### Tutorial: Custom Fields
 
 ## <a name="adding-functionality">Adding Functionality</a>
 
