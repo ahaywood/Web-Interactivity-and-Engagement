@@ -13,12 +13,13 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 * [Using MetaData and Custom Fields](#custom-fields)
 	* Tutorial: Using Custom Fields
 * [Shortcodes](#shortcodes)
-* [CSS Based Tutorials](#css-based-tutorials)
-		* Tutorial: Styling the Search Bar
 * [Integrating Outside Resources](#integrating-outside-resources)
 	* Tutorial: Custom Fonts
 * [Child and Parent Themes](#child-and-parent-themes)
-* [Adding Functionality](#adding-functionality)
+* [CSS Based Tutorials](#css-based-tutorials)
+    * Tutorial: Styling the Search Bar
+    * Tutorial: Sticky Header
+* [Adding Advanced Functionality](#adding-functionality)
 	* Tutorial: Creating a Separate Page for Blog Posts
 	* Tutorial: Integrating Breadcrumbs into your WordPress pages
 
@@ -267,7 +268,21 @@ https://codex.wordpress.org/Custom_Fields
 
 ## <a name="shortcodes">Shortcodes</a>
 
-Also Coming Soon!!
+Shortcodes are a great way to integrate high level functionality into the WordPress admin directly. Many plugins use shortcodes as a means for displaying their generated content. You can also use shortcodes as a means to integrate your own custom functionality into WordPress. 
+
+From the WordPress Codex:
+
+    The Shortcode API makes it easy to create shortcodes that support attributes like this:
+
+    [gallery id="123" size="medium"]
+
+    The API handles all the tricky parsing, eliminating the need for writing a custom regular expression for each shortcode. Helper functions are included for setting and fetching default attributes. The API supports both self-closing and enclosing shortcodes.
+
+[https://codex.wordpress.org/Shortcode_API](https://codex.wordpress.org/Shortcode_API)
+
+If you see a snippet of code in WordPress that is surrounded by two brackets (“[ ]”) then it is likely that you are dealing with a shortcode. The way they are used are defined by the function that created it. 
+
+Further down in the jQuery slider tutorial we will briefly include a mechanism to use shortcodes so you can see a tangible example. 
 
 ## <a name="integrating-outside-resources">Integrating Outside Resources</a>
 
@@ -374,10 +389,296 @@ Some of the disadvantages of child themes are:
 
 In the more general outlook of CMSs, the idea of having themes that are subservient to a main theme is extremely common.  From a conceptual standpoint, WordPress itself is the parent and the theme is the child – though they obviously perform different functions.  With many commercial CMSs though, the parent may hold many styles and functions that will need to be modified.  Considering the structure of a CMS with the idea of parent/child or master/servant in mind will help you understand where to make changes and how they may affect a larger scheme. 
 
-## <a name="adding-functionality">Adding Functionality</a>
+
+## <a name="css-based-tutorials">CSS Based Tutorials</a>
+
+### Tutorial: Styling the Search Bar
+
+The search bar is a really important tool for websites from a usability and functional UI standpoint. If you have a moderate to large size site, users will likely rely on this as one of the primary means of finding information. 
+
+Let’s work on styling the search bar on our site so that it is a bit prettier and also so that you will know how to style it in your own way later on. 
+
+A lot of the code for this tutorial comes from the [WordPress Codex entry for get_search_form.](https://codex.wordpress.org/Function_Reference/get_search_form)
+
+#### Step One: Locate the Search Bar and Create a File to Modify it
+
+First, let’s note where the search bar is located. Earlier when we created our theme, we included it in the header. 
+
+WordPress is loading the search form based off of its default settings. In order to create a better search form that suits our needs, we are going to recreate the search form and include it in our theme folder. 
+
+    Create “searchform.php” file and put it in your theme’s root directory
+
+#### Step Two: Add Code and Modify searchform.php
+
+WordPress will now use our newly created searchform.php in place of the default search form. Let’s add some code so that something will start to show up.
+
+<p class="file-name">searchform.php</p>
+```html
+<form role="search" method="get" class="search-form" action="' . esc_url(home_url('/')) . '">
+    <label>
+        <span class="screen-reader-text">' . _x('Search for:', 'label') . '</span>
+        <input type="search" class="search-field" placeholder="Search" value="' . get_search_query() . '" name="s" title="' . esc_attr_x('Search for:', 'label') . '" />
+    </label>
+    <input type="submit" class="search-submit" value="'. esc_attr_x('Search', 'submit button') .'" />
+</form>
+```
+
+This is the default for HTML5 in WordPress. Knowing what is happening here could be interesting from a knowledge standpoint so feel free to [delve into the GET method and how it works in search forms.](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data)
+
+#### Step Three: Modifying the Search Form for our Purposes
+
+The code for the Search Form is pretty solid for our purposes. We are going to add a CSS class to the code so that we can target it in the way we want. 
+
+<p class="file-name">searchform.php</p>
+```html
+<form role="search" method="get" class="search-form wie-search-form" action="' . esc_url( home_url('/')) . '">
+ <label>
+  <span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
+  <input type="search" class="search-field" placeholder="Search" value="' . get_search_query() . '" name="s" title="' . esc_attr_x('Search for:','label') . '" />
+ </label>
+ <input type="submit" class="search-submit" value="'. esc_attr_x('Search', 'submit button') .'" />
+</form>
+```
+
+Now that we have the classes identified, we can add CSS to make it look how we want. I am going to just get rid of the screen reader text in a way that will still allow it to be actually readable by a screen reader but not displayed by the browser to the average viewer. Note that this way of getting rid of content on a page is prefered to using display:none;. 
+
+<p class="file-name">style.css</p>
+```css
+.wie-search-form .screen-reader-text {
+    position: absolute;
+    left: -999em;
+    width: 1em;
+    overflow: hidden;
+}
+
+```
+
+#### Step Four: Save and Upload
+
+### Tutorial: Sticky Header Bar
+
+A very common element on websites is a sticky element on the page. We are going to use CSS only to make our header attach to the top of the page no matter what. There are more sophisticated methods using JavaScript, but for our needs we can get away with just using a few lines of CSS. 
+
+Essentially, we are going to use CSS’s positional elements (fixed) and then add values to the header element to make it fit in a way that is pleasing from a visual and UI standpoint. 
+
+#### Step One: Wrap the Header
+
+<p class="file-name">header.php</p>
+```html
+<div class=”header-container”>
+<!-- Put your header content here -->
+
+</div>
+```
+
+#### Step Two: Modify the CSS to Make it Work
+
+<p class="file-name">style.css</p>
+```css
+.header-container {
+   width:100%;
+   position:fixed;
+   top:0px;
+   z-index:2;
+}
+```
+
+Each rule here has it’s own purpose: The width makes sure it takes up the entire width of the window; the position: fixed tells the browser to make the div fix to its location on the screen; top:0px tells the distance from the top of the browser and; z-index is the value of the z parameter which control which items are on top of other items.(the default is 1 so a 2 would make it on top of everything else). 
+
+Step Three: Add Other Styling to the Header
+
+You can feel free to add other styling to the header to make sure it looks how you want. Here are some “ideas:”
+
+<p class="file-name">style.css</p>
+```css
+header {
+   height:50px;
+   background:#F0F0F0;
+   border-bottom:1px solid #CCC;
+   margin:0px auto;
+}
+```
+#### Step Four: Save and Upload
+
+## <a name="adding-functionality">Adding Advanced Functionality</a>
 
 This area is for various tutorials related to WordPress functionality. 
 
-### Tutorial: Creating a Separate Page for Blog Posts
+### Tutorial: Creating a separate blog page
+
+If you want to use WordPress as a fully functional CMS, you will probably need to separate the blog portion of WordPress into a separate area. There are ways to do this:
+
+The WordPress built in way (covered here: [http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/](http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/) which allows you to reconfigure your main page as a static page and your blog page as an internal page that can be queried. 
+Create a post query in a custom page and then assign that value to an existing page (covered here: [https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/](https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/)
+
+We are going to the second option because I prefer it as it is less confusing (for me at least).
+
+#### Step One: Create a Custom Page
+
+Earlier in this chapter we learned how to create a custom page template. Let’s go ahead and create a new file and populate it with our bare minimum code.
+
+    Create a file titled “blog_custom_page.php”
+
+Let’s copy page.php into this file. This will save us time and ensure we have some uniformity to start out with. 
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+<?php get_header(); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content();
+                endwhile;
+            endif; ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+
+#### Step Two: Add the Custom Page Requirements
+
+Since this is technically a custom page template, we need to follow the formalities of that. 
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+/*
+Template Name: Blog Posts
+*/
+<?php get_header(); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content();
+                endwhile;
+            endif; ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+
+#### Step Three: Adding a Custom Query for Posts
+
+The next step is basically about replacing the default code in the page with a custom query for all blog posts. This is a lot like the main index.php page except we need to be explicit about the data context and making sure we handle it correctly. 
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+/*
+Template Name: Blog Posts
+*/
+<?php get_header(); ?>
+<?php query_posts('post_type=post&post_status=publish&posts_per_page=10&paged='. get_query_var('paged')); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content();
+                endwhile;
+            endif; ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+If you look at the code closely you can see that the query loads the 10 most recent published pages. It also allows for pagination. 
+
+#### Step Four: Add Navigational Links
+
+We are going to want to add some navigational links into our code so that this blog page can do everything we need it to as a separate functioning blog roll. 
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+/*
+Template Name: Blog Posts
+*/
+<?php get_header(); ?>
+<?php query_posts('post_type=post&post_status=publish&posts_per_page=10&paged='. get_query_var('paged')); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content();
+                endwhile; ?>
+            <!-- Navigation -->
+            <div class="navigation">
+                <span class="newer"><?php previous_posts_link(__('« Newer','example')) ?></span> <span class="older"><?php next_posts_link(__('Older »','example')) ?></span>
+            </div>
+           <?php endif; ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+
+We put it at the end of our while loop because we want it to be outside of the loop, but still inside of the if statement about showing posts. If there are no posts then there will be no pagination. 
+
+#### Step Five: Reset the Query
+
+We are going to want to reset the query so that it knows when to stop.  
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+/*
+Template Name: Blog Posts
+*/
+<?php get_header(); ?>
+<?php query_posts('post_type=post&post_status=publish&posts_per_page=10&paged='. get_query_var('paged')); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content();
+                endwhile; ?>
+                <div class="navigation">
+                    <span class="newer"><?php previous_posts_link(__('« Newer','example')) ?></span> <span class="older"><?php next_posts_link(__('Older »','example')) ?></span>
+                </div>
+            <?php endif; 
+            wp_reset_query(); ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+
+#### Step Six: Making it a Fuller, More Useful Blog Page
+
+So the code above is sufficient for handling all of the needs of the blog page. I am going to add some other code just for error handling and for stylistic efforts. Read through the code so you understand what is happening at each stage. 
+
+<p class="file-name">blog_custom_page.php</p>
+```php
+/*
+Template Name: Blog Posts
+*/
+<?php get_header(); ?>
+<?php query_posts('post_type=post&post_status=publish&posts_per_page=10&paged='. get_query_var('paged')); ?>
+    <div class="row">
+        <div class="twelve columns">
+            <?php if (have_posts()) : 
+                while (have_posts()) : the_post(); ?> 
+                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    <?php the_excerpt(__('Continue reading »','example'));
+                endwhile; ?>
+                <div class="navigation">
+                    <span class="newer"><?php previous_posts_link(__('« Newer','example')) ?></span> <span class="older"><?php next_posts_link(__('Older »','example')) ?></span>
+                </div>
+                <?php else: ?>
+                <div class="404-section">
+                    <p><?php _e('None found.','example'); ?></p>
+                </div>
+            <?php endif; wp_reset_query(); ?>
+        </div>
+    </div>
+<?php get_footer(); ?>
+```
+
+Note how we added some 404 handling and better outlined the post content that will be displayed. 
+
+#### Step Seven: Save and Upload
+
+
 ### Tutorial: Integrating Breadcrumbs into your WordPress pages
 
