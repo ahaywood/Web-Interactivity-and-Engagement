@@ -9,12 +9,11 @@ title: Chapter 7&#58; Advanced Theme Development
     - Tutorial: Adding the Basic CSS for a Template
 - [JavaScript and Adding Functionality](#javascript-and-adding-functionality)
     - The wp-includes folder
-- WordPress Dynamic File Loading
+- [WordPress Dynamic File Loading]()
     - Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress
     - Tutorial: Adding a jQuery Slider to WordPress
-- PHP and Adding Functionality
 
-## <a name="css-and-template-development">CSS and Template Development
+## <a name="css-and-template-development">CSS and Template Development</a>
 
 In an ideal world you will have a complete team of individuals who do nothing but design and create a style guide and you will have a team that only does front end work (HTML, CSS, JavaScript) to realize the dreams of those designers and to properly implement the style guide. However, sometimes we will have to taken on several roles at the same time and be both the designer and the front end dev. This is okay though because having an understanding of both roles allows you to be better at each individually. Knowing the front end workflows and results/expectations (regardless of your role) is an important part of being a competent web professional. 
 
