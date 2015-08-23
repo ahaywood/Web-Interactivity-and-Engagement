@@ -348,6 +348,8 @@ More information about creating an archive page can be found on the codex here: 
 
 ##### Step 2: Create the shell of the archive.php page
 
+We are going to include much of the same code we used before to set the data context and to make sure we are loading the exact elements we want for the archive. 
+
 <p class="file-name">archive.php</p>
 ```html
 <?php 
@@ -363,7 +365,7 @@ get_header(); ?>
 <?php get_footer(); ?>
 ```
 
-##### Step 3: Add the functionality of the archive.php page
+##### Step 4: Add the functionality of the archive.php page
 
 <p class="file-name">archive.php</p>
 ```html
@@ -371,26 +373,77 @@ get_header(); ?>
 /* Template Name: Archive Page */
 
 get_header(); ?>
-	<div class="row">
-		<div class="twelve columns">
-<?php the_post(); ?>
-<!-- data context -->
-			<h2>Archives by Month:</h2>
-			<ul>
-				<?php wp_get_archives('type=monthly'); ?>
-			</ul>
-			<h2>Archives by Category:</h2>
-			<ul>
-				 <?php wp_list_categories(); ?>
-			</ul>
-		</div>
+	
+<div class="row">
+	<div class="twelve columns">
+		<?php if ( have_posts() ) : ?>
+			<h2>Archives</h2>
+			<?php
+			// The Loop
+			while ( have_posts() ) : the_post();?>
+			<!-- data context -->
+				<h2>
+					<a href="<?php the_permalink() ?>">
+						<?php the_title(); ?>
+					</a>
+				</h2>
+				<?php the_excerpt(); ?>
+			<?php endwhile; ?> <!-- End Loop -->
+		<?php endif; ?>
 	</div>
+</div>
+<div class="row">
+	<div class="twelve columns">
+		<h2>Archives by Month:</h2>
+		<ul>
+			<?php wp_get_archives('type=monthly'); ?>
+		</ul>
+		<h2>Archives by Category:</h2>
+		<ul>
+			 <?php wp_list_categories(); ?>
+		</ul>
+	</div>
+</div>
 <?php get_footer(); ?>
 ```
 
-In our archive page we are giving the user an opportunity to view by either month or by category. The WordPress function wp_get_archives will generate the information by month automatically because we passed the type=monthly parameter to it. 
+In the bottom of our archive page we are giving the user an opportunity to view by either month or by category. The WordPress function wp_get_archives will generate the information by month automatically because we passed the type=monthly parameter to it. 
 
-##### Step 4: Save and upload files
+
+##### Step 4: Add a Contingency
+
+There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an else statement to the if logic to address that situation.
+<p class="file-name">archive.php</p>
+```html
+<?php 
+/* Template Name: Archive Page */
+
+get_header(); ?>
+	
+<div class="row">
+	<div class="twelve columns">
+		<?php if ( have_posts() ) : ?>
+			<h2>Archives</h2>
+			<?php
+			// The Loop
+			while ( have_posts() ) : the_post();?>
+			<!-- data context -->
+				<h2>
+					<a href="<?php the_permalink() ?>">
+						<?php the_title(); ?>
+					</a>
+				</h2>
+				<?php the_excerpt(); ?>
+			<?php endwhile; ?> <!-- End Loop -->
+		<?php else: ?>
+			<p>Sorry, no posts matched your criteria.</p>
+		<?php endif; ?>
+	</div>
+</div>
+
+
+```
+##### Step 5: Save and upload files
 
 #### Tutorial: Creating a Search Page
 
