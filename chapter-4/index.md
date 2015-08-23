@@ -4,22 +4,20 @@ title: Chapter 4&#58; Making a CMS Work for You
 ---
 
 ## Table of Contents
-
 * [WordPress Customization](#wordpress-customization)
-	* Widgets
+	* [Widgets](#widgets)
 		* Tutorial: Adding Widgets
 		* Tutorial: Adding Multiple Widgets
-	* Menus
+	* [Menus](#menus)
 		* Tutorial: Adding a Dynamic Menu
-	* Supporting Pages
+	* [Supporting Pages](#supporting-pages)
 		* Tutorial: Creating an Archive Page
 		* Tutorial: Creating a Search Page
 		* Tutorial: Creating a 404 Page
-	* Using Images in the Template
+	* [Using Images in the Template](#using-images-in-the-template)
 		* Tutorial: Adding Featured Images & Thumbnails to Theme
-	* Permalinks
+	* [Permalinks](#permalinks)
 		* Tutorial: Adding Permalinks to WordPress
-
 * [Plugins](#plugins)
 	* Tutorial: Adding Plugins
 
@@ -29,7 +27,7 @@ We currently have gone through the bare minimum of what you could have to get by
 
 Everything we are doing to WordPress in this chapter is either a general web enhancement that any CMS would use, or a conceptual step forward on ways to organize functionality in a CMS. Widgets, menus, conditional templates, media management, and plugins are all things that are common to every major CMS.
 
-### Widgets
+### <a name="widgets">Widgets</a>
 
 In WordPress, a widget is spot in your template that can easily be changed from the Dashboard. Most CMSs have something like a "widget" though, more often than not, they are called something else. There are several built in Widgets that come with WordPress, but it is possible to add additional widgets to WordPress via plugins or manual coding. 
 
@@ -71,7 +69,7 @@ function blank_widgets_init() {
 		));
 	}
 add_action('widgets_init', 'blank_widgets_init');
-
+?>
 ```
 
 You are going to want to be able to add widgets and change their options often, so being comfortable with what all of the options do will help you be able to understand this better and prevent mistakes later. Let's talk about the code:
@@ -79,8 +77,9 @@ You are going to want to be able to add widgets and change their options often, 
 What you see here first is a WordPress function and the options for that function. It starts with the first part:
 
 ```php
-
+<?php 
 function blank_widgets_init() {
+?>
 ```
 
 This is creating a custom PHP function named blank_widgets_init(). You could name this whatever you want, but having an intelligible naming scheme will help you going forward. 
@@ -129,8 +128,6 @@ We already have one widget, so let's see how we can add multiple to the same cus
 
 <p class="file-name">function.php</p>
 ```php
-
-<?php 
 /*-------------- Enable Widgets--------------- */
 
 function blank_widgets_init() {
@@ -176,6 +173,7 @@ function blank_widgets_init() {
 
 }
 add_action('widgets_init', 'blank_widgets_init');
+
 ```
 
 The only thing we added was three more full register_sidebar functions and their options array. 
@@ -202,6 +200,7 @@ Now that we have the actual widgets created, let's add them to our footer. This 
 
 </body>
 </html>
+
 ```
 
 ##### Step 3: Save and Upload
@@ -210,7 +209,7 @@ Now that we have the actual widgets created, let's add them to our footer. This 
 
 Go to the WordPress Dashboard and drag widgets into the newly created Widget areas. You should see this content appear in the footer on the front page, and all of your pages and posts.
 
-### Menus
+### <a name="menus">Menus</a>
 
 WordPress has a built in menu system that allows you (or a content editor with correct permissions) to create dynamic menus in the Dashboard. This is incredibly useful for handing off a site you've created to a client and letting them make minor changes to the menu without too much risk of them destroying the site (though it is still very possible that adding too many items or other changes could make a mess of it all).
 
@@ -333,7 +332,7 @@ This is just one of many ways you make a menu appear. You can find numerous ways
 
 ##### Step 3: Save and Upload
 
-### Supporting Pages
+### <a name="supporting-pages">Supporting Pages</a>
 
 We have the front page, posts, and internal pages all ready to go. There are plenty of other situations where you may want to specific templates for. Here we are going to cover three common situations: an archive page, a search page, and a 404 page. 
 
@@ -567,7 +566,7 @@ Note that we have put a message saying that there is nothing at this URL, but al
 
 ##### Step 3: Save and Upload Files
 
-### Using Images in the Template
+### <a name="using-images-in-the-template">Using Images in the Template</a>
 
 Fewer design elements are discussed or handled more than images are. Not only do they tell a thousand words, but they also are pretty and can help you with your overall visual presentation of your design.
 
@@ -650,7 +649,7 @@ We have full image size going in now, but we could also use "array( width, heigh
 
 ##### Step 4: Save and Upload files
 
-### Permalinks
+### <a name="permalinks">Permalinks</a>
 
 [WordPress Codex - Permalinks](https://codex.wordpress.org/Using_Permalinks)
 
