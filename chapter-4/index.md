@@ -413,8 +413,10 @@ In the bottom of our archive page we are giving the user an opportunity to view 
 ##### Step 4: Add a Contingency
 
 There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an else statement to the if logic to address that situation.
+
 <p class="file-name">archive.php</p>
 ```html
+
 <?php 
 /* Template Name: Archive Page */
 
