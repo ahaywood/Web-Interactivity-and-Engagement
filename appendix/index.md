@@ -28,7 +28,7 @@ A basic introduction to PHP and very basic programming principles which will hel
 * [PHP Lesson 3: Arrays and Functions](#php-lesson-3)
 * [PHP Lesson 4: Conditional Logic](#php-lesson-4)
 * [PHP Lesson 5: Creating a Contact Form](#php-lesson-5)
-* [PHP Lesson 6: Recapping What We’ve Learned](#php-lesson-6)
+* [PHP Lesson 6: Recapping What We've Learned](#php-lesson-6)
 * [PHP Lesson 7: Object Oriented Programming](#php-lesson-7)
 * [PHP Lesson 8: Creating a CMS - coming soon](#php-lesson-8)
 
@@ -67,7 +67,7 @@ Of course you can have several php code blocks on a page, but you can never have
 
 I am aware that many of you already have experience and knowledge of many of the terms and concepts in this chapter so I will keep the discussion of them concise.
 
-Let’s cover some of the vocabulary for programming PHP. It won’t be extraordinarily useful to memorize terms, but becoming familiar with the terminology will help you be comfortable speaking the language of PHP (and any other programming languages for that matter). Furthermore, I find that talking through code as if you were reading it is the best way to understand (and to write) the code. You will hear me talk through the code in examples as we go forward.
+Let's cover some of the vocabulary for programming PHP. It won't be extraordinarily useful to memorize terms, but becoming familiar with the terminology will help you be comfortable speaking the language of PHP (and any other programming languages for that matter). Furthermore, I find that talking through code as if you were reading it is the best way to understand (and to write) the code. You will hear me talk through the code in examples as we go forward.
 
 #### Variables
 From the Dictionary:
@@ -88,7 +88,7 @@ $friday = "Monday"; //Same variable defined above given a different value
 ?>
 ```
 
-Variables begin with a $ in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer’s use of that variable. The format for a variable will often look like this: $variable = value; (note the semicolon ending the statement). 
+Variables begin with a $ in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer's use of that variable. The format for a variable will often look like this: $variable = value; (note the semicolon ending the statement). 
 
 #### Strings
 A string is merely the name given to a sequence of simple objects. In PHP, text is often referred to as a string. Of all of the types, strings are often the most static but can be modified in many ways using functions. 
@@ -98,16 +98,16 @@ A string is merely the name given to a sequence of simple objects. In PHP, text 
 
 $stringTest = "I am assigning this variable the value of this string, which everything inside of this sentence would be considered in PHP."; // This sentence is a string
 
-$stringTest2 = "string"; // A string doesn’t have to be a whole sentence, just an simple objects
+$stringTest2 = "string"; // A string doesn't have to be a whole sentence, just an simple objects
 
-$stringTest3 = "a 1 ewj ..." // In Fact, a string can be anything as long as it is the type ‘string’
+$stringTest3 = "a 1 ewj ..." // In Fact, a string can be anything as long as it is the type 'string'
 
 ?>
 ```
 
 #### Arrays
 
-Arrays allow the user to store multiple values in a special kind of variable called an array. It may be helpful to think of an array as a list. Let’s think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
+Arrays allow the user to store multiple values in a special kind of variable called an array. It may be helpful to think of an array as a list. Let's think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
 
 ```php
 <?php
@@ -125,7 +125,7 @@ $animals = array(
 ```
 
 
-Each item in an array is given a **key** (a.k.a. ‘index’). A key (or index) in this case is the number in which the item appears within the array starting with 0. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
+Each item in an array is given a **key** (a.k.a. 'index'). A key (or index) in this case is the number in which the item appears within the array starting with 0. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
 
 [PHP.net - Arrays](http://php.net/manual/en/language.types.array.php)
 
@@ -133,7 +133,7 @@ Each item in an array is given a **key** (a.k.a. ‘index’). A key (or index) 
 An associative array is a different type of array where the items in the array are given names instead of numbers.
 
 ##### Multidimensional arrays: 
-Multidimensional Arrays are arrays within arrays. Feel free to get into that as much as you’d like, just know that you can embed arrays inside of arrays. 
+Multidimensional Arrays are arrays within arrays. Feel free to get into that as much as you'd like, just know that you can embed arrays inside of arrays. 
 
 #### Superglobals
 
@@ -149,7 +149,7 @@ Booleans refer to any version of true or false (on or off/ I or O/ 1 or 0). In P
 <?php
 
 $areWeHavingFun = true //boolean value is true
-$areWeReally = ‘false’ //not a boolean, this is a string
+$areWeReally = 'false' //not a boolean, this is a string
 
 ?>
 ```
@@ -164,9 +164,9 @@ The "null" *value* acts like the boolean value, but represents a variable with n
  ```php
 <?php
 
-$var1 = $var2; // var1 is a null value because we haven’t set the value of var2
+$var1 = $var2; // var1 is a null value because we haven't set the value of var2
 
-$var1 = ‘null’; //var1 is no longer null because we have assigned it the value of a string ‘null’
+$var1 = 'null'; //var1 is no longer null because we have assigned it the value of a string 'null'
 
 $var1 = NULL; // var1 is again null, but is so because we have set it to be null.
 
@@ -180,9 +180,9 @@ A constant is an identifier (name) for a simple value. As the name suggests, tha
 
 ```php
 <?php
-define(‘FAVORITE_ANIMAL’, ‘Dogs’);
+define('FAVORITE_ANIMAL', 'Dogs');
 
-//Now our favorite animal will always be ‘Dogs’... always.
+//Now our favorite animal will always be 'Dogs'... always.
 
 ?>
 ```
@@ -193,7 +193,7 @@ define(‘FAVORITE_ANIMAL’, ‘Dogs’);
 
 ##### Integers
 
-Whole numbers are often referred to as ‘integers’ in PHP.
+Whole numbers are often referred to as 'integers' in PHP.
 
 ##### Floating Point number
 
@@ -223,7 +223,7 @@ An "else" statement is a gap filler for an if statement and is coupled with an i
 ```php
 <?php
 
-if ($sky = ‘blue) {
+if ($sky = "blue") {
 echo "Sunny";
 } else {
 	echo "Cloudy";
@@ -259,12 +259,12 @@ A function is defined to perform preset tasks. PHP has an exhaustive list of its
 [PHP.net - Functions](http://php.net/manual/en/language.functions.php)
 
 #### Object
-An ‘object’ is a sophisticated data type that can store and manipulate values. It is often made by creating a variable with a function and some room for a value (string, array, etc.). This object can then be used intermittently throughout the code.
+An 'object' is a sophisticated data type that can store and manipulate values. It is often made by creating a variable with a function and some room for a value (string, array, etc.). This object can then be used intermittently throughout the code.
 
 We will use objects often without explicitly stating they are objects. Much of the programming methodology we will use in this class will be "object oriented programming (OOP). "
 
 ##### Class
-A class is the code that defines an object’s features and can be regarded as a blueprint for making objects (think like in CSS). As with objects, we will use classes without stating they are classes. As an exercise, try to point out what constitutes an object and what constitutes a class. 
+A class is the code that defines an object's features and can be regarded as a blueprint for making objects (think like in CSS). As with objects, we will use classes without stating they are classes. As an exercise, try to point out what constitutes an object and what constitutes a class. 
 
 ### Basic skills:
 
@@ -272,13 +272,13 @@ A class is the code that defines an object’s features and can be regarded as a
 
 The easiest way to understand the formatting of PHP is to practice it. Slashes, semicolons, commas, periods, parentheses, and other symbols all have distinct functions in PHP. Knowing where everything goes is important to creating error free code. 
 
-A good thing about PHP is that if you have a semicolon out of place, the whole site will break and you will know you have a problem. The bad thing about PHP is that if you aren’t aware of which symbol is out of place, you could have a frustrating time trying to fix it. 
+A good thing about PHP is that if you have a semicolon out of place, the whole site will break and you will know you have a problem. The bad thing about PHP is that if you aren't aware of which symbol is out of place, you could have a frustrating time trying to fix it. 
 
-In this case, practice and attention to detail will help you understand the ‘syntax’ more quicker.
+In this case, practice and attention to detail will help you understand the 'syntax' more quicker.
 
 #### Commenting
 
-There are three ways to add comments in PHP and each has a specific use case. Commenting is a very important part of a programmer’s process. It allows you to leave notes for yourself and other programmers. Some practical uses include directions for editing, preventing certain lines of code from executing, giving credit where it is due, any waivers or warnings, and just little tidbits that you need to remember when stopping for the night. Additionally, it allows you to quickly cut out chunks of code you may need later. 
+There are three ways to add comments in PHP and each has a specific use case. Commenting is a very important part of a programmer's process. It allows you to leave notes for yourself and other programmers. Some practical uses include directions for editing, preventing certain lines of code from executing, giving credit where it is due, any waivers or warnings, and just little tidbits that you need to remember when stopping for the night. Additionally, it allows you to quickly cut out chunks of code you may need later. 
 
 ##### Single line comments
 
@@ -315,7 +315,7 @@ Of course, when you are using just HTML (or if you want to comment outside of th
 /* Setting Variable */
 $var1 = "variable"; // Equals Variable
 ?>
-<!-- back into HTML so we would set comments using HTML’s syntax -->
+<!-- back into HTML so we would set comments using HTML's syntax -->
 <h1>Heading One</h1>
 <p>The Variable equals <?php echo $var1; /* Echo value of var1 */ ?></p>
 ```
@@ -330,7 +330,7 @@ Be conscious of which single or double quotation marks you use when programming.
 
 This week we are going to work through some basics of PHP programming to produce some very, very simple results.
 
-First, let’s make sure we have XAMPP installed and running before we go. Check out this link for help installing XAMPP:
+First, let's make sure we have XAMPP installed and running before we go. Check out this link for help installing XAMPP:
 [XAMPP] (https://www.apachefriends.org/index.html)
 
 If you prefer using MAMP or WAMP then feel free to do so but I will not be able to support those applications if they are not working correctly. 
@@ -371,13 +371,13 @@ By adding the filename to the end of the URL, we will be able to see the content
 
 #### Step 5: Change HTML to PHP
 
-To demonstrate seamlessly PHP and HTML work together within the apache server, let’s change the extension of the .html file to .php. We can also make some changes to the content of our newly found php file so that it makes more sense. 
+To demonstrate seamlessly PHP and HTML work together within the apache server, let's change the extension of the .html file to .php. We can also make some changes to the content of our newly found php file so that it makes more sense. 
 
 What you should be learning now and will be reminded of repeatedly is that PHP and HTML work together without any problems. As long as the parser (in this case the Apache server) knows what is PHP and what is HTML, it will be able to send the correct code over the HTTP request. In this case, everything is HTML, so the server knows what to do with the file, even if the extension is .php. 
 
 #### Step 6: Copy the File as Lesson2.php 
 
-Let’s first copy this file as "lesson2.php" so that we retain our blank file for future lessons.
+Let's first copy this file as "lesson2.php" so that we retain our blank file for future lessons.
 
 #### Step 7: FINALLY Start Writing PHP
 
@@ -391,7 +391,7 @@ To begin our PHP programming careers, we are going to use the most tired example
   <title></title>
 </head>
 <body>
-<h1>Lesson 1</h1>
+<h1>Lesson 2</h1>
 <?php 
 echo "Foo"; //echoes "Foo"
 ?> 
@@ -411,21 +411,21 @@ As a side note, comments (again, I know) are important to use because you, as pr
 
 We are going to cover more about strings next. We have already "learned" about strings and we have already typed strings in this lesson. As a reminder, a string is merely the name given to a sequence of simple objects.
 
-The portion of the previous echo command that was a string was the portion between the quotation marks. You use quotes to surround a string. Let’s type out a sentence as a string.
+The portion of the previous echo command that was a string was the portion between the quotation marks. You use quotes to surround a string. Let's type out a sentence as a string.
 
 <p class="file-name">lesson2.php</p>
 ```php
 <?php echo "Web Interactivity and Engagement is the most fun"; ?>
 ```
 
-The sentence here is what we call a string. This may not seem mind blowing (which is probably isn’t), but we are going to throw another step into string construction with a concept known as concatenation which basically means we split up whatever item we are processing. This is a very useful technique for combining objects.
+The sentence here is what we call a string. This may not seem mind blowing (which is probably isn't), but we are going to throw another step into string construction with a concept known as concatenation which basically means we split up whatever item we are processing. This is a very useful technique for combining objects.
 
 <p class="file-name">lesson2.php</p>
 ```php
 <?php echo "Web Interactivity and Engagement" . "is the most fun"; ?>
 ```
 
-Now since these are merging together, let’s make sure that we are conscious of spacing and let’s do this in a way that works better from a programmatic standpoint - using variables. 
+Now since these are merging together, let's make sure that we are conscious of spacing and let's do this in a way that works better from a programmatic standpoint - using variables. 
 
 <p class="file-name">lesson2.php</p>
 ```php 
@@ -437,7 +437,7 @@ echo $stringTest
 ?>
 ```
 
-This would be more useful if you had a constant and then loaded in something dynamic in the other side of the echo function. Let’s set up this concept here:
+This would be more useful if you had a constant and then loaded in something dynamic in the other side of the echo function. Let's set up this concept here:
 
 <p class="file-name">lesson2.php</p>
 ```php 
@@ -451,7 +451,7 @@ echo $courseName . $courseFun;
 
 If you were loading the second part of the string dynamically, then you could change the opinion of my course based upon the user response, a conditional statement, or however you get the information into the php function.
 
-Let’s put this together so that it works as a whole webpage:
+Let's put this together so that it works as a whole webpage:
 
 <p class="file-name">lesson2.php</p>
 ```php
@@ -471,7 +471,7 @@ echo $courseName . $courseFun;
 
 ### Basic Math using PHP
 
-As a quick aside, let’s discuss a common use case for PHP - which is math functions. Calculators generally tend to work better than PHP, so I will just touch on this briefly. 
+As a quick aside, let's discuss a common use case for PHP - which is math functions. Calculators generally tend to work better than PHP, so I will just touch on this briefly. 
 
 #### Step 1: Add Math to the Lesson2.php File
 
@@ -483,7 +483,7 @@ As a quick aside, let’s discuss a common use case for PHP - which is math func
 <p>Nine - Seven = <?php echo 9 - 7; ?></p>
 <p>One Hundred / Six = <?php echo 100 / 6; ?></p>
 ```
-As you can see, using the symbols above allow you to do simple math fairly easily. Using these will come up a lot more often than you might imagine. Let’s extend this into something that will resemble a more common use case. 
+As you can see, using the symbols above allow you to do simple math fairly easily. Using these will come up a lot more often than you might imagine. Let's extend this into something that will resemble a more common use case. 
 
 #### Step 2: Add More Math to the Lesson2.php File
 
@@ -502,7 +502,7 @@ The use of variables is more likely in a dynamically generated content situation
 
 ### Arrays
 
-Let’s review about arrays. A good resource to help get your head wrapped around Arrays is [w3school - PHP Arrays](http://www.w3schools.com/php/php_arrays.asp). 
+Let's review about arrays. A good resource to help get your head wrapped around Arrays is [w3school - PHP Arrays](http://www.w3schools.com/php/php_arrays.asp). 
 
 Arrays - Allow the user to store multiple values in a special kind of variable called an array. Each item in an array is given a key/index. A key in this case is the number in which the item appears within the array starting with 0. These types of arrays are called index arrays.
 
@@ -517,7 +517,7 @@ $array1 = array("dogs", "hogs", "frogs", "clogs");
 
 Now what we have created here is an array with words that end with -ogs. Note that we assigned the array to a variable. This variable now holds the array as we have set it.
 
-Let’s also talk about the key/index value that we discussed earlier. In the array we created earlier, each item in the array was given an index value based on its placement in the array. Remember, the counting starts from 0 and goes up from there. So the key- value pair in the system would look like this:
+Let's also talk about the key/index value that we discussed earlier. In the array we created earlier, each item in the array was given an index value based on its placement in the array. Remember, the counting starts from 0 and goes up from there. So the key- value pair in the system would look like this:
 
 <table>
 <thead>
@@ -561,7 +561,7 @@ echo $array1[0];
 
 Associative Arrays are a different type of array where the items in the array are given names instead of numbers. This means that instead of the first item in the array having a key of 0, it could have a key of "name" or "foo" or "location." 
 
-You can use some information architecture to work through this in many ways, but let’s pretend we want to create a price list for grocery items. 
+You can use some information architecture to work through this in many ways, but let's pretend we want to create a price list for grocery items. 
 
 #### Step 2: Add Associative Arrays to Lesson2.php
 
@@ -655,7 +655,7 @@ During this class we are going to discuss conditional logic through two differen
 
 ### If/Else statements:
 
-To review, let’s re-look at conditional logic. We are going to learn about if statements and else statements first. With an if statement, we're trying to find something that's true. If the thing we're testing is true, then we'll continue executing the section of the code. Let’s do a simple if statement.
+To review, let's re-look at conditional logic. We are going to learn about if statements and else statements first. With an if statement, we're trying to find something that's true. If the thing we're testing is true, then we'll continue executing the section of the code. Let's do a simple if statement.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -668,7 +668,7 @@ if ($num1 > 50) {
 ?>
 ```
 
-If something is TRUE then the code inside of the "if" brackets will execute. This is convenient for situations where you want something to show up only if a condition is true. However, you will often want to have something execute for the instances where the item is FALSE, and that’s where else statements come into play.
+If something is TRUE then the code inside of the "if" brackets will execute. This is convenient for situations where you want something to show up only if a condition is true. However, you will often want to have something execute for the instances where the item is FALSE, and that's where else statements come into play.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -682,7 +682,7 @@ echo "The number one variable is smaller";
 ?>
 ```
 
-To add a third dimension to this, there is also the statement ELSEIF which allows you to add additional conditional statements (similar to an if statement) and then the else statement will output a result for any remaining options. Let’s modify our previous conditional to include that option.
+To add a third dimension to this, there is also the statement ELSEIF which allows you to add additional conditional statements (similar to an if statement) and then the else statement will output a result for any remaining options. Let's modify our previous conditional to include that option.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -695,16 +695,16 @@ if ($num1 < $num2) {
   } elseif ($num1 > $num2) {
     echo "The number one variable is larger";
   } else {
-    echo "They’re the same number!!";
+    echo "They are the same number!!";
   }
 ?>
 ```
 
 ### Loops
 
-Loops are conditional statements that perform tasks repeatedly. For instance, let’s say you have a hundred blog posts. It would be a lot easier to output a repeating list of your posts instead of having to tell the PHP to output each post manually through strings and an echo command. Remember our list of sales earlier where we had to specify the key of each object? What if we could just have a loop do that for us automatically?
+Loops are conditional statements that perform tasks repeatedly. For instance, let's say you have a hundred blog posts. It would be a lot easier to output a repeating list of your posts instead of having to tell the PHP to output each post manually through strings and an echo command. Remember our list of sales earlier where we had to specify the key of each object? What if we could just have a loop do that for us automatically?
 
-As you know already, WordPress’s entire existence is essentially created through the PHP loop functionality. Let’s type up a loop just so that we can see how it works.
+As you know already, WordPress's entire existence is essentially created through the PHP loop functionality. Let's type up a loop just so that we can see how it works.
 
 [W3 Schools - Looping](http://www.w3schools.com/php/php_looping_for.asp)
 
@@ -719,7 +719,7 @@ echo "<p>$num</p>";
 ?>
 ```
 
-What is occurring here is a task being repeated over and over until it is satisfied. In this case, we are finding odd numbers from 1 - 99 and listing them. The syntax may appear weird, but if you think about how PHP works, each statement complements another to create a working function. Let’s walk through the syntax and logic.
+What is occurring here is a task being repeated over and over until it is satisfied. In this case, we are finding odd numbers from 1 - 99 and listing them. The syntax may appear weird, but if you think about how PHP works, each statement complements another to create a working function. Let's walk through the syntax and logic.
 
 We create a "for" loop to repetitively complete a task
 In this case, the task we are performing is echoing the value of $num in paragraph tasks
@@ -748,7 +748,7 @@ Foreach is a different way to do a loop but with a vastly different approach fro
      </ul>
 ```
 
-The same concept of the for loop is being executed here, we are looping over a series of values so long as it remains true - which in this case means there are still objects in the array that haven’t been looped over.
+The same concept of the for loop is being executed here, we are looping over a series of values so long as it remains true - which in this case means there are still objects in the array that haven't been looped over.
 
 We can create our array using the array() syntax or reference an already existing array
 Use the foreach keyword to start the loop, followed by parentheses and brackets
@@ -761,7 +761,7 @@ The loop that is used the most and which WordPress relies is the "while" loop. I
 
 [W3 Schools - While Loop](http://www.w3schools.com/php/php_looping.asp)
 
-Let’s use a variation of the example included on the W3 Schools page:
+Let's use a variation of the example included on the W3 Schools page:
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -770,7 +770,7 @@ Let’s use a variation of the example included on the W3 Schools page:
 $x = 1;
 
 while ( $x <= 10 ) {
-	echo "X equals: " . $x; . "<br />";
+	echo "X equals: " . $x . "<br />";
 	$x++;
 }
 ?>
@@ -784,7 +784,7 @@ The loop then echoes the value of x plus some HTML
 Then the value of x is incrementally increased
 The loop starts over again until the statement is no longer true.
 
-Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. Many other languages have loops built in to the language but most aren’t as specific or flexible as PHP. 
+Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. Many other languages have loops built in to the language but most aren't as specific or flexible as PHP. 
 
 ### Functions
 
@@ -792,9 +792,9 @@ Functions are defined to perform preset tasks. PHP has an exhaustive list of its
 
 We have already dealt with the function "echo" which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
 
-Let’s start with the easiest to understand PHP building blocks (strings) and the functions to modify them. String functions allow you to output your string in different ways. This is the kind of function that would be useful for printing an excerpt of a string, or for printing out different versions of your string. Changing around the way data is displayed is a common and powerful tool. 
+Let's start with the easiest to understand PHP building blocks (strings) and the functions to modify them. String functions allow you to output your string in different ways. This is the kind of function that would be useful for printing an excerpt of a string, or for printing out different versions of your string. Changing around the way data is displayed is a common and powerful tool. 
 
-Let’s start off by creating  a string and then walk through the ways we can modify it. 
+Let's start off by creating  a string and then walk through the ways we can modify it. 
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -842,7 +842,7 @@ Note how the fourth function, the substring function, requires more input inform
 
 Knowing the functions that you are using is key to making sure that you are using the functions correctly. The PHP.net website has information about functions, so while you are learning which functions exist, you should look at the PHP.net site for more information about certain functions. For instance, [here is the PHP specification for the substr function](http://php.net/manual/en/function.substr.php).
 
-Let’s try another useful String function. This time we’re going to pass the string directly into the function instead of worrying about the variable definition.
+Let's try another useful String function. This time we're going to pass the string directly into the function instead of worrying about the variable definition.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -856,7 +856,7 @@ print $positionP;
 
 This is a string function that can allow you to locate a string or substring in another string.
 
-Let’s try it where there is no item in the string to find to see how a php function fails:
+Let's try it where there is no item in the string to find to see how a php function fails:
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -868,13 +868,13 @@ print $positionQ;
 </p>
 ```
 
-See how it returns nothing? That’s php’s way of returning a false result.
+See how it returns nothing? That's php's way of returning a false result.
 
-Let’s put this together with conditional logic to create something that resembles something useful.
+Let's put this together with conditional logic to create something that resembles something useful.
 
 <p class="file-name">lesson3.php</p>
 ```php
-<p>Is there a ‘P’ in Elephant? 
+<p>Is there a 'P' in Elephant? 
 <?php
 $elephantstring = "Elephant"; //set variable value
 $positionP = strpos($elephantstring, "p"); //set variable value
@@ -886,7 +886,7 @@ if ( $positionP) { //test if variable value is true or false
 ?>
 </p>
 
-<p>Is there a ‘Q’ in Elephant? 
+<p>Is there a 'Q' in Elephant? 
 <?php
 $positionQ = strpos($elephantstring, "q"); //set variable value
 if ( $positionQ ) { //test if variable value is true or false
@@ -898,7 +898,7 @@ if ( $positionQ ) { //test if variable value is true or false
 </p>
 ```
 
-Enough with strings for now. Let’s create a random number generator. This is easily done with PHP because there is already a function built in to do this.
+Enough with strings for now. Let's create a random number generator. This is easily done with PHP because there is already a function built in to do this.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -911,9 +911,9 @@ print rand(1, 1000);
 
 Now every time we refresh the page we get a new number. 
 
-Let’s work with an array function really quick just so we get a grasp of the diversity of types of functions.
+Let's work with an array function really quick just so we get a grasp of the diversity of types of functions.
 
-Let’s use the *array_push* function we can add items into our empty array. This allows us to keep a list of array items up to date and dynamic instead of static like we had before.
+Let's use the *array_push* function we can add items into our empty array. This allows us to keep a list of array items up to date and dynamic instead of static like we had before.
 
 [PHP.net - array_push](http://php.net/manual/en/function.array-push.php)
 
@@ -938,7 +938,7 @@ array_push($dogs, "Golden Retriever");
 <!--
 ## <a name="php-lesson-4">PHP Lesson 4: Conditional Logic</a>
 ## <a name="php-lesson-5">PHP Lesson 5: Creating a Contact Form</a>
-## <a name="php-lesson-6">PHP Lesson 6: Recapping What We’ve Learned</a>
+## <a name="php-lesson-6">PHP Lesson 6: Recapping What We've Learned</a>
 ## <a name="php-lesson-7">PHP Lesson 7: Object Oriented Programming</a>
 ## <a name="php-lesson-8">PHP Lesson 8: Creating a CMS - coming soon</a>
 -->
