@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 3&#58; Templating & Layouts &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 3&#58; Templating & Layouts</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#templating-and-cmss">Templating and CMSs</a></li>
+<li><a href="#creating-a-blank-wordpress-template">Creating a Blank WordPress Template</a>
+
+<ul>
+<li>Tutorial: Creating a WordPress Template</li>
+<li>Tutorial: Enabling the Blank Template</li>
+</ul></li>
+<li><a href="#grid-based-layouts">Grid-Based Layouts</a>
+
+<ul>
+<li>Linking to Files in a Template</li>
+<li>Tutorial: Implementing a Grid System</li>
+</ul></li>
+<li><a href="#separating-template-files">Separating Template Files</a>
+
+<ul>
+<li>Tutorial: Header and Footer</li>
+</ul></li>
+<li><a href="#wordpress-and-php-templates">WordPress and PHP Templates</a>
+
+<ul>
+<li>Tutorial: Adding the Loop</li>
+</ul></li>
+<li><a href="#internal-pages-and-posts">Internal Pages and Posts</a>
+
+<ul>
+<li>Data Context</li>
+<li>Tutorial: Pages Template</li>
+<li>Tutorial: Posts Template</li>
+<li>Tutorial: Sidebars Includes</li>
+</ul></li>
+<li><a href="#introduction-to-styling-wordpress">Introduction to Styling WordPress</a></li>
+</ul>
+
+<h2><a name="templating-and-cmss">Templating and CMSs</a></h2>
+
+<p><strong>A Template</strong> is defined as &quot;anything that determines or serves as a pattern; a model.&quot; - <a href="http://dictionary.reference.com/browse/template">http://dictionary.reference.com/browse/template</a></p>
+
+<p>This concept of a &quot;pattern&quot; or a &quot;model&quot; is important to thinking about HOW templates work within a CMS, including WordPress.  </p>
+
+<p>Most CMSs allow you to create a visual identity for your site outside of the default settings. This is so that the CMS itself can be expanded over a broader market than just internal audiences. </p>
+
+<p>The practical reason for having &quot;templates&quot; exist on top of a CMS is somewhat obvious - to separate the functional aspects of the software environment from the visual aspects. The software provider (CMS creator) will want to make sure their software remains stable, but the customer (person using the CMS) will want to make changes so that the CMS is their own.</p>
+
+<p>This dynamic between software stability and visual uniqueness is played out in every commercial software environment and the outcome is nearly always different. It is no different with CMSs (both open source and commercial). The level of permission that the designer will have to make changes to the CMS vary greatly. For this reason, the needs of a person to make changes to a template should be taken into account when deciding on which CMS to choose. Additionally, knowing your designer&#39;s ability to make changes could make the limited changes be a selling point. </p>
+
+<p>Another practical value of a template is that it allows uniformity in the presentation of content. This &quot;pattern&quot; philosophy lets the content manager and the designer maintain uniformity/consistency throughout the template. </p>
+
+<p><em>Why do you think uniformity is important?</em></p>
+
+<p>So now that we know why nearly every CMS allows some level of templating, let&#39;s explore WordPress&#39;s extremely generous templating engine. </p>
+
+<h2><a name="creating-a-blank-wordpress-template">Creating a Blank WordPress Template</a></h2>
+
+<p>Since we want to understand WordPress from a fundamental level, we are going to start by walking through the primary display mechanism of the CMS, a template. </p>
+
+<p>The WordPress template holds all of the files for content display throughout the site. Without a template, WordPress wouldn&#39;t know how to display any of the information that is input through the Dashboard. It also wouldn&#39;t know what CSS or JavaScript to add to modify the content it displays. </p>
+
+<p>Every WordPress template needs certain files to make sure that the content is displayed.</p>
+
+<p>Here is a list of the files you will add in the upcoming lessons for creating a template:</p>
+
+<ul>
+<li><p><strong>Index.php:</strong> By default, the front page of your WordPress site. </p></li>
+<li><p><strong>Header.php:</strong> The included file that holds your header section of your template.</p></li>
+<li><p><strong>Footer.php:</strong> The included file that holds the footer section of your template.</p></li>
+<li><p><strong>Style.css:</strong> The CSS file that holds your base CSS styles.</p></li>
+<li><p><strong>Functions.php:</strong> Houses all of your PHP Functions that you add to make WordPress do more, or to enable things WordPress already intends to do.</p></li>
+<li><p><strong>Page.php:</strong> The template file for your pages.</p></li>
+<li><p><strong>Single.php:</strong> The template file for your posts.</p></li>
+<li><p><strong>Archive.php:</strong> A template file that displays groupings of past courses.</p></li>
+<li><p><strong>Search.php:</strong> The template file that displays search results from using WordPress&#39; built in search</p></li>
+<li><p><strong>404.php:</strong> The page that will display if there is a 404 error (page not found).</p></li>
+</ul>
+
+<p>All of these files should seem fairly simple (with the functions file being the possible exception). You can actually create a template using only the index.php file and the style.css file - but having these additional files allows WordPress to function to its fullest power. </p>
+
+<h3>Blank Templates Generally</h3>
+
+<p>Very few CMSs will come with completely blank templates. Even WordPress provides you will several fully functional templates in case you have limited programming experience. </p>
+
+<p>In practice, you will never code a template from scratch. In fact, the only reason you would want to do that is because 1) you are taking a class about learning the concepts of CMSs, or 2) you make a LOT of templates for a specific CMS and making sure the specific details you rely on are included and nothing else is important to you.</p>
+
+<p>Even with our &quot;from scratch&quot; approach, I will still utilize external frameworks to add functionality (see Components). Many CMSs have preferred frameworks that they integrate well with, so sometimes knowing a CMS also includes knowing certain frameworks too. </p>
+
+<h3>Tutorial: Creating a WordPress Template</h3>
+
+<p>Making a template is a relatively easy process. The difficult part is making it look how you want it to. </p>
+
+<h4>Step 1: Create a folder for your blank template</h4>
+
+<p>This step is the most important part of the template creation process. This blank template folder will contain all of your theme files and be the only folder you will upload to your server at any point in this project creation process. </p>
+
+<p>I often will use a &quot;development&quot; folder off of my desktop that I work in. Make the folder easy to use.</p>
+
+<p class="message">Create folder titled "Firstname_Lastname_Blank_Template"</p>
+
+<h4>Step 2: Create an index.php and a style.css file</h4>
+
+<p>This step of this template creation should be very simple to you, since it should look like something you&#39;ve done plenty of times before. We aren&#39;t even going to add a bit of PHP to the template until we already have it activated and running. </p>
+
+<p>Open your text editor and create two files:</p>
+
+<p class="message">Create file titled "index.php" and save it in your Blank Template folder</p>
+
+<p class="message">Create file titled "style.css" and save it in your Blank Template folder</p>
+
+<h4>Step 3: Populate your index.php file</h4>
+
+<p>Let&#39;s remember something we already learned: PHP is merely a means to generate content to go inside of HTML. This means that PHP will work seamlessly with HTML already and any PHP file can have HTML, CSS, JavaScript, and any other language that a browser will parse. The only thing a PHP file cares about is the code inside of the &lt;?php … ?&gt; brackets. For this reason, we aren&#39;t going to write a bit of PHP in the index.php file and that&#39;s okay - because the server will see that there is no PHP in the file and just return the HTML we write to the browser. </p>
+
+<p>You may recognize this next bit of code we are going to add to the index.php file:</p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Notice anything weird here? You shouldn&#39;t. It is the basic setup for any HTML file you will ever create. </p>
+
+<p>Let&#39;s add some text in the &#39;body&#39; section of the page:</p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+<p>Save your file. Let&#39;s move to the style.css file</p>
+
+<h4>Step 4: Populate your style.css file</h4>
+
+<p>We don&#39;t cover CSS much in this course because it is assumed that you already understand how to use it or to find resources that will help you be able to use it. I will occasionally include styling into a tutorial so that it is easier to understand the interplay of templating, PHP, and CSS. </p>
+
+<p>WordPress gets the information about the template (metadata) from the style.css file. For this reason, we have to add the style.css file and some commented out information for our template to show up. I included some CSS so that we can get started.</p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
+<span class="c">Theme Name: FirstName Blank Theme</span>
+<span class="c">Theme URI: URL for FirstName Blank</span>
+<span class="c">Author: FirstName LastName</span>
+<span class="c">Description: Blank theme for WIE course</span>
+<span class="c">Version: 0.1</span>
+<span class="c">License: Open</span>
+<span class="c">Text Domain: firstname_lastname_blank_template</span>
+<span class="c">*/</span>
+
+<span class="o">*</span><span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000000</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Make sure you change the places in that commented out section that seem obvious. </p>
+
+<p>Save your style.css file.</p>
+
+<h4>Step 5: Upload your theme folder</h4>
+
+<p>We covered where everything is located in WordPress in the first chapter. If you are ever unsure about what belongs where, reference that information. </p>
+
+<p>The last step of creating a bare bones theme will to upload it to our server. As a reminder, you will upload all themes to the themes folder in the wp-content folder. Anytime you make a change to a file in WordPress and want it to go live in your template, you will upload it to the theme folder in your wp-content folder. </p>
+
+<h3>Tutorial: Activating a WordPress Template</h3>
+
+<p>This will be a relatively easy process which hardly warrants a tutorial, but since you are very early on with your experience with the WordPress admin, I wanted to make sure you were aware of how to do this. </p>
+
+<h4>Step 1: Log into your WordPress admin</h4>
+
+<p>To log into WordPress, visit the URL of your site (http://www.yoursite.com/wordpress-folder) and then go to the log in page (can be found at (http://www.yoursite.com/wordpress-folder/wp-admin or http://www.yoursite.com/wordpress-folder/wp-login.php). </p>
+
+<h4>Step 2: Go to Appearance -&gt; Themes</h4>
+
+<p>While in your Dashboard, go to the Appearance navigation item on the left hand side and then go to the Themes item. </p>
+
+<p>You should be looking at a list of several different themes to enable, including one without a picture called &quot;Firstname Blank Theme.&quot;</p>
+
+<h4>Step 3: Activate the theme</h4>
+
+<p>Click on &quot;Activate&quot; on your theme.</p>
+
+<h4>Step 4: Make sure it works</h4>
+
+<p>Go to your site URL to verify that it has been enabled. You should see ONLY the text you put in between the body section. This is a pretty reasonable thing to happen because it is the only thing you told WordPress to display. </p>
+
+<p>WordPress isn&#39;t doing anything on the pages because you didn&#39;t tell it to do anything for you. Don&#39;t worry though, we will be adding WordPress functionality very shortly.</p>
+
+<h2><a name="grid-based-layouts">Grid Based Layouts</a></h2>
+
+<p>A majority of modern web sites use a grid to determine where to place content. The advantages to a grid based layout is that you can place items on your site in a uniform manner. Many of the grid frameworks also make it very easy to have a fully responsible site with very little work.</p>
+
+<p>If you have a good amount of experience with grid based layouts, this following section may be overly simple for you. I am including it because 1) it is not obvious on its own and 2) MANY mistakes are made by misusing a grid system.</p>
+
+<h3>Using a Grid</h3>
+
+<p>For this class, we are going to use <a href="http://getskeleton.com/">Skeleton</a> as our framework for responsive design and for basic styles. We are using this because it doesn&#39;t have a lot of code and will allow you to customize without having any additional styles getting in the way. </p>
+
+<p>Many other grid systems use the same methodology for laying out a site as Skeleton. Here is how Skeleton uses it:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;six columns&quot;</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;six columns&quot;</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>Content for 1/3 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;five columns&quot;</span><span class="nt">&gt;</span>Content for 5/12 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>Content for 1/4 width column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>If read through the code, you can see that Skeleton uses a &#39;div class=&quot;container&quot;&#39; to hold everything inside of it. Then inside of the container, the &#39;div class=&quot;row&quot;&#39; holds the &#39;div class=&quot;# columns&quot;&#39;. Lastly, you see that the divs that hold the columns have two classes: a number class and the &quot;columns&quot; class. The number class is based on there being 12 parts to the full width. You can see how I used different numbers in the number class to demonstrate how it works. This will certainly make more sense once you apply it.</p>
+
+<p>Simplifying what is happening above, you will see that the essential syntax is this (all HTML taken out for understanding purposes):</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Container
+    Row
+        Column
+    Row
+        Column
+        Column
+        Column
+</code></pre></div>
+<p>You may also notice that this seems very similar to HTML tables:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>        
+</code></pre></div>
+<p>The idea of a &quot;table based layout&quot; has long since gone, but these responsive frameworks have taken the best parts of it without having all of the terrible table limitations. </p>
+
+<h2><a name="linking-to-files-in-a-template">Linking to Files in a Template</a></h2>
+
+<p>Something you are probably more than familiar with, linking to files in a template changes slightly after you begin using a CMS. In WordPress, you can choose to link to external files through your Functions file, or by putting it in the head section, like you would with a regular HTML page. We will cover the more advanced file querying mechanism in later chapters.</p>
+
+<p>As a review, here is the simple, HTML method for linking to a file:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Link to a CSS file --&gt;</span> 
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Link to a JavaScript file --&gt;</span> 
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;custom.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>Now we are going to write our very first PHP for WordPress so that we can load something dynamic. We are going to link to our style.css file and the skeleton.css framework file.</p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span>
+<span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div>
+<p>The &#39;&lt;?php bloginfo(&#39;stylesheet<em>url&#39;)</em>; ?&gt;&#39; portion of the code we added contains a built in WordPress function (bloginfo()) and a parameter that the function will use (&#39;stylesheet_url&#39;). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. </p>
+
+<p>Next we will create a folder inside of our theme folder (firstname<em>blank</em>theme) named &quot;css&quot;. Then download the Skeleton CSS file and put that file inside of the firstname<em>blank</em>theme/css folder. </p>
+
+<p>We are going to store all of our CSS files EXCEPT our style.css file in this folder. The style.css file needs to be in the theme&#39;s root directory because it contains administrative information. </p>
+
+<p>Lastly we will add an @import to our style.css file for our Skeleton CSS file (downloaded from the Skeleton site.</p>
+
+<p class="file-name">style.css:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;css/my_custom_style.css&quot;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+<p>When we save and upload our index and style.css file you should be able to see that they are loading. </p>
+
+<h3>Tutorial: Implementing a Grid System</h3>
+
+<p>This tutorial will show you how to implement the Skeleton Grid system. This will make your site responsive and the simplified layout should help you with your development. </p>
+
+<p>Let&#39;s remember what our current index.php page looks like:</p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4>Step 1. Add HTML 5 Sytnax</h4>
+
+<p>Let&#39;s add some more HTML5 syntax so that we can have a blank template that is fuller and richer. </p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;header&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/header&gt;</span>
+        <span class="nt">&lt;section&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/section&gt;</span>
+        <span class="nt">&lt;footer&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/footer&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Basically we added &#39;header&#39;, &#39;footer&#39; and some filler text. However, the site makes more sense from a layout perspective. If you upload the index.php file to your server now, you will see the changes as you have made them.</p>
+
+<h4>Step 2. Add Skeleton grid syntax</h4>
+
+<p>Next, let&#39;s implement the Skeleton grid system as we learned above. Note how we integrate the HTML5 elements as if they were divs. This is okay!</p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/section&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/footer&gt;</span>
+        <span class="nt">&lt;/div&gt;</span> <span class="c">&lt;!-- ends container --&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Do you see how the container class has been added and then the site was laid out using rows and columns? We added a columns div to each row because it is syntactically important to the grid system. Using the embedded methodology of the grid system is helpful, but you must strictly use it for it to work. </p>
+
+<h4>Step 3. Save and upload files</h4>
+
+<p>If you upload the index.php file to your server, you should now have a responsive website!</p>
+
+<h2><a name="separating-template-files">Separating Template Files</a></h2>
+
+<p>When I say separating template files I mean the process of splitting up one template file into separate parts for the purpose of reusing code dynamically.  There is both a technical and design purpose in separating template files. </p>
+
+<p>The technical reason for separating template files is to reduce file size and to ensure that there is file consistency.</p>
+
+<p>The design reason for separating template files is for consistency and ease of use of a templating engine. </p>
+
+<p>In the below tutorial we split off the header and the footer file. The reason for this is because we are going to want the header and the footer to be consistent throughout the site, but we are going to want the other template files to be different. By grouping the header and footer into separate files, we can easily reuse that code consistently.</p>
+
+<h3>Tutorial: Header and Footer</h3>
+
+<p>If we take our code from above, it is easy to see that there are clear differences between the sections (mostly thanks to HTML5 syntax). I have added comments in the below code for you to see where we are going to chop up the index.php file. </p>
+
+<h4>Step 1. Add Comments for Separation</h4>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+            <span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
+            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/section&gt;</span>
+            <span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/footer&gt;</span>
+        <span class="nt">&lt;/div&gt;</span> <span class="c">&lt;!-- ends container --&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4>Step 2. Create Header and Footer file</h4>
+
+<p>Next, let&#39;s create two files:
+<p class="message">Create file titled &quot;header.php&quot; and save it in your Blank Template folder</p>
+<p class="message">Create file titled &quot;footer.php&quot; and save it in your Blank Template folder</p></p>
+
+<h4>Step 3. Chop up the index.php file</h4>
+
+<p class="file-name">header.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;h2&gt;</span>This is my WordPress template.<span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+<span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
+</code></pre></div>
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/section&gt;</span>
+</code></pre></div>
+<p class="file-name">footer.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/footer&gt;</span>
+        <span class="nt">&lt;/div&gt;</span> <span class="c">&lt;!-- ends container --&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4>Step 4. Link to the header and footer</h4>
+
+<p>Next we add the WordPress functions that link to the header and footer. These two PHP functions are built in to the WordPress syntax and can be found in the WordPress Codex if you want to learn more about them.</p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h4>Step 5. Add additional WordPress functions to enhance functionality</h4>
+
+<p>WordPress needs some additional functions in the header and footer to make sure that some added features are included. One of these is the Dockbar that follows you throughout your site if you are logged in. Another is for various functional reasons that are not worth getting into - just do it.</p>
+
+<p class="file-name">header.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="cp">&lt;?php wp_head(); ?&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+<span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
+</code></pre></div>
+<p class="file-name">footer.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/footer&gt;</span>
+        <span class="nt">&lt;/div&gt;</span> <span class="c">&lt;!-- ends container --&gt;</span>
+    <span class="cp">&lt;?php wp_footer(); ?&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4>Step 6. Make the Header Work Dynamically</h4>
+
+<p>Let&#39;s add some necessary items to our header now. We are going to add two built in WordPress functions to the header.php file where we are loading static content. </p>
+
+<p class="file-name">header.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="cp">&lt;?php wp_head(); ?&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php bloginfo(&#39;name&#39;); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo(&#39;description&#39;); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+<span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
+</code></pre></div>
+<p>Notice how we are using the bloginfo function that we used in the linking to the stylesheet, except we are using it here with different parameters inside the function. Instead of saying &quot;Blank WordPress Template&quot; we can now say whatever we want, from the WordPress admin. We changed nothing here but the text in between the &#39;h1&#39; and &#39;p&#39; tags because all we wanted to make happen was to have WordPress dynamically generate that content for us, not make it display differently. </p>
+
+<h4>Step 7. Save and Upload</h4>
+
+<p>Double check that you did everything correctly by uploading the files to the server. Everything should look as it did before you separated the files. </p>
+
+<h2><a name="wordpress-and-php-templates">WordPress and PHP Templates</a></h2>
+
+<p>The only thing worth adding about WordPress and PHP that hasn&#39;t been said in an earlier chapter is that I want you to consider how we had a completely capable website without adding much, if any, PHP. Appreciating how a PHP file can function without any PHP but how an HTML file cannot function with PHP is an important concept to grasp with regard to back end programming generally.</p>
+
+<h3>Tutorial: Adding the WordPress Loop</h3>
+
+<p>Now that we have done some PHP and have our index site split into three separate template files, let&#39;s add the actual functionality of WordPress so that we aren&#39;t just serving static content. </p>
+
+<h4>Step 1: Create Five Posts of Content</h4>
+
+<p>Though this may seem tedious, it is important to have a subset of data to program off of. My suggestion is to make 5 posts with different headings and plenty of body text. You will do this by going into the Dashboard, clicking on &quot;Posts&quot; and then &quot;Add New.&quot; For each one, put a different heading and some filler content</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">My First Post
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</code></pre></div>
+<h4>Step 2: Adding the Loop</h4>
+
+<p>We already have our Index.php file split up so that it dynamically loads the header and footer. We have a grid system implemented and some filler content too. Here it is as a reminder:</p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>We also already have the loop from the previous chapter. Here is The Loop as a reminder:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">the_post</span><span class="p">();</span> 
+    <span class="p">}</span> <span class="c1">// end while</span>
+<span class="p">}</span> <span class="c1">// end if</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>So let&#39;s combine this code! By doing this, we will add the PHP functionality found in the Loop into the index.php page. </p>
+
+<p class="file-name">index.php:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;section class=&quot;row&quot;&gt;</span>
+<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
+<span class="x">&lt;!-- BEGIN LOOP --&gt;</span>
+<span class="x">            </span><span class="cp">&lt;?php</span> 
+            <span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">the_post</span><span class="p">();</span> 
+                <span class="p">}</span> <span class="c1">// end while</span>
+            <span class="p">}</span> <span class="c1">// end if</span>
+            <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;!-- END LOOP --&gt;</span>
+<span class="x">        &lt;/div&gt;</span>
+<span class="x">    &lt;/section&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>I have left plenty of room for you to see where I took out the filler content and placed the loop in there. If you need to remember what exactly the loop is doing, reference the previous chapter. </p>
+
+<h4>Step 3. Save and Upload</h4>
+
+<p>After saving and uploading, you should see the 5 posts of content in their entirety on the front page. </p>
+
+<p>You now have a dynamically working CMS integrated web page. </p>
+
+<h2><a name="internal-pages-and-posts">Internal Pages and Posts</a></h2>
+
+<p>Having a front page is really important, but there will be times when you want to only display one post of content or one page of content that isn&#39;t the front page. You will notice that the process for creating a page and for creating a post are almost identical!</p>
+
+<p>Before we move on, let&#39;s discuss an important concept: Data Context</p>
+
+<h3>Data Context</h3>
+
+<p>I am going to completely oversimplify this section because it is somewhat of an advanced concept, but it is an important concept to think about when working with a CMS. </p>
+
+<p>The <strong>Data Context</strong> is the Data that is being displayed based on a Context. I know, very instructive. Practical application of this concept will help demonstrate what I mean though. </p>
+
+<p><em>Example 1: A Book</em></p>
+
+<p>The Data in a book is the words, images, etc.</p>
+
+<p>The Context in a book depends on a lot of factors. But let&#39;s say we want to tell someone to read only Chapter 2 of a book. Then the Context iwe are talking is one chapter of a book. </p>
+
+<p>Therefore the Data Context of this scenario is the words, images, etc. of chapter 2 of this book. </p>
+
+<p><em>Example 2: A File Cabinet</em></p>
+
+<p>The Data is the objects inside of file folders inside the file cabinet. </p>
+
+<p>The Context depends on what part of the file cabinet you want to look in. But let&#39;s say we want to point someone to a single drawer with only the folders that start with the letter L. Then the Context we are talking about is one drawer of a whole file cabinet.</p>
+
+<p>Therefore, the Data Context of this scenario is the file folders (and their contents) that begin with L in an entire file cabinet. </p>
+
+<p><em>Example 3: A Blog</em></p>
+
+<p>The Data is the words, images, metadata, etc. of a blog</p>
+
+<p>The Context depends on what part of the site you are querying. But let&#39;s say we want to point someone to a single post in a blog. Then the Context we are talking about is one post of a whole blog&#39;s website.</p>
+
+<p>Therefore, the Data Context of this scenario is the words, images, metadata, etc. of a single blog post of a blog. </p>
+
+<p>Got it? If so, let&#39;s create a template files for these items. </p>
+
+<h3>Tutorial: Pages Template</h3>
+
+<p>Remember, <em>&quot;a Page is often used to present &#39;static&#39; information about yourself or your site.&quot;</em> Let&#39;s add a template file knowing that anything we make that can be considered a &quot;Page&quot; will be displayed by this page. </p>
+
+<h4>Step 1: Create a Page.php file</h4>
+
+<p class="message">Create file titled "page.php" in your theme folder</p>
+
+<h4>Step 2: Add the Grid, Header, and Footer</h4>
+
+<p>Let&#39;s write some code for the Page.php file that we already understand. </p>
+
+<p class="file-name">page.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Our Page<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Filler content for our page.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h4>Step 3: Add the PHP to load the Page</h4>
+
+<p>We discussed the &quot;Data Context&quot; above,  but here we are going to apply it to our code. Another thing to note about this code is that it should look almost identical to our loop (and the logic IS identical). We have added two important WordPress functions we will talk about after we add the PHP. </p>
+
+<p class="file-name">page.php:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
+<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
+<span class="x">&lt;!-- BEGIN PAGE PHP --&gt;</span>
+<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="cm">/* OUR DATA CONTEXT IS DEFINED  */</span>      
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
+<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">endwhile</span><span class="p">;</span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;!-- END PAGE PHP --&gt;</span>
+<span class="x">        &lt;/div&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>The way that the PHP we added works looks a lot like the index.php loop. We do a test to see IF we have posts, then we define our data context by saying WHILE we have posts, let&#39;s display the post. Though it works identical to the loop logically, the data context is entirely different. </p>
+
+<p>When you are templating (and just copying my code) it isn&#39;t apparent, but there is an assumption occurring here. That assumption deals with routing, which is essentially applying a data context through a URL (please excuse that oversimplified definition). </p>
+
+<p>To simplify that explanation, the PHP is being written with the assumption that the URL will contain the proper data context to display.</p>
+
+<p>So this URL: 
+    http://myblog.com/the-name-of-my-post </p>
+
+<p>will return only the data found in the post (or page): 
+    &quot;The Name of My Post.&quot;</p>
+
+<p>WordPress handles all the routing for you because it is built in functionality. So you don&#39;t need to worry about any of that, but know WHY the code that is essentially a loop functions differently on the front page than it does on the internal pages and posts. </p>
+
+<p>The second part to notice is the specifics of the content we are adding. This is a good opportunity to notice how easily PHP integrates with HTML. The part I am taking about is this:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">…</span>
+<span class="x">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">…</span>
+</code></pre></div>
+<p>&#39;the<em>title&#39; and &#39;the</em>content&#39; are both custom WordPress functions. </p>
+
+<p><em>What do you think these functions do? (hint, it&#39;s quite obvious)</em></p>
+
+<p>You will notice that the_title is wrapped in &#39;h2&#39; tags. This is easy to do because the PHP tags are closed and opened around them. This is how the PHP parser on the server know what is PHP and what isn&#39;t. When the PHP parser sends the page to the client (person accessing the web page), it only parses the parts of the site wrapped in &#39;&lt;?php ?&gt;&#39; tags as PHP and the rest is sent as HTML and parsed PHP. </p>
+
+<p>Wrapping PHP tags in HTML tags is such a common practice in WordPress templating that you should make sure you fully grasp this concept right now.</p>
+
+<h4>Step 4. Save and Upload</h4>
+
+<p>If you have a page to view, you should be able to see it in this template after you save and upload this file to your server. If you do not, make a page in the Dashboard (Pages -&gt; Add New) and then click the &quot;View Page&quot; button in the Dashboard or in the Page itself. </p>
+
+<h3>Tutorial: Posts Template</h3>
+
+<p>Remember, <em>&quot;posts are articles that you write to populate your blog.&quot;</em> Let&#39;s add a template file knowing that anything we make that can be considered a &quot;Post&quot; will be displayed by this page. </p>
+
+<ul>
+<li>Posts are not templated as a post.php file, but rather by a single.php file. </li>
+</ul>
+
+<h4>Step 1: Create a Single.php file</h4>
+
+<p class="message">Create file titled "single.php" in your theme folder</p>
+
+<h4>Step 2: Add the Grid, Header, and Footer</h4>
+
+<p>Let&#39;s write some code for the Single.php file that we already understand. </p>
+
+<p class="file-name">single.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Our Post<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Filler content for our post.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h4>Step 3: Add the PHP to load the Post</h4>
+
+<p>This should look eerily similar to the Page tutorial above. That&#39;s because the logic is the exact same and the defining data context concept is also the same. </p>
+
+<p class="file-name">single.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- BEGIN SINGLE PHP --&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :</span>
+<span class="cp">                /* OUR DATA CONTEXT IS DEFINED  */              </span>
+<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">            endif; ?&gt;</span>
+<span class="c">&lt;!-- END SINGLE PHP --&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>Notice any differences from page.php? You shouldn&#39;t see any (except the comments). It is important to make sure you understand that though these template files are currently identical, we have separate files for pages and posts because they serve very different functions in the CMS and will probably want to be treated differently going forward. </p>
+
+<h4>Step 4. Save and Upload</h4>
+
+<p>If you have a post to view, you should be able to see it in this template after you save and upload this file to your server. In the Dashboard click the &quot;View Post&quot; button in the Dashboard or in the Post itself. </p>
+
+<h3>Tutorial: Sidebars Includes</h3>
+
+<p>When you are doing this tutorial, think about the header and the footer. This is the EXACT same thing and if you understand how to link to a header or footer, you can link to a sidebar.</p>
+
+<h4>Step 1: Modify the Page.php File to have a Sidebar</h4>
+
+<p>The first step will be to modify the LAYOUT of our page.php file. I have taken out the old comments from the previous steps and added in new ones for this tutorial. </p>
+
+<p class="file-name">page.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- MAKE THIS COLUMN NINE WIDTH --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :           </span>
+<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">            endif; ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- ADD IN A THREE WIDTH COLUMN - COMPLETE THE TWELVE REQUIREMENT WIDTH --&gt;</span>
+<span class="c">&lt;!-- BEGIN SIDEBAR --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3&gt;</span>Sidebar Text<span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;p&gt;</span>This is the sidebar content to put in here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- END SIDEBAR --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>First we broke up the row into two columns instead of one. We made one column a nine width and the other a three width. This satisfies the requirement that the columns equal twelve. We then add filler content into the three width column so that there is something there. Feel free to upload the page.php file and check it out. </p>
+
+<h4>Step 2: Create a Sidebar.php File</h4>
+
+<p class="message">Create a file called "sidebar.php" in your themes root folder.</p> 
+
+<h4>Step 3: Separate the Sidebar from the Page</h4>
+
+<p>Now we are going to place the content that is between the Begin and End Sidebar comments into the Sidebar.php file. We will then modify the Page.php file to link to the sidebar.php file. </p>
+
+<p class="file-name">sidebar.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3&gt;</span>Sidebar Text<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is the sidebar content to put in here.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+<p class="file-name">page.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :           </span>
+<span class="cp">while (have_posts()) : the_post(); ?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">            endif; ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- BEGIN SIDEBAR --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- END SIDEBAR --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h4>Step 4: Save and Upload</h4>
+
+<p>Notice how simple this is? It is the exact same idea as the header.php and footer.php. </p>
+
+<p><em>Why did we separate the sidebar.php file?</em></p>
+
+<h2><a name="introduction-to-styling-wordpress">Introduction to Styling WordPress</a></h2>
+
+<p>You will not want to do much styling for a blank template. Additionally, we already have a framework loading in and it will handle a significant amount of the basic styling we would otherwise use. This section is useful more as a way for you to see how CSS works with WordPress and to learn how to make basic changes in future lessons. </p>
+
+<p>Our style.css file currently looks like this:</p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
+<span class="c">Theme Name: FirstName Blank Theme</span>
+<span class="c">Theme URI: URL for FirstName Blank</span>
+<span class="c">Author: FirstName LastName</span>
+<span class="c">Description: Blank theme for WIE course</span>
+<span class="c">Version: 0.1</span>
+<span class="c">License: Open</span>
+<span class="c">Text Domain: firstname_lastname_blank_template</span>
+<span class="c">*/</span>
+
+<span class="o">*</span><span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000000</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Which is totally fine! That&#39;s actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (H1, H2, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). </p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
+<span class="c">Theme Name: FirstName Blank Theme</span>
+<span class="c">Theme URI: URL for FirstName Blank</span>
+<span class="c">Author: FirstName LastName</span>
+<span class="c">Description: Blank theme for WIE course</span>
+<span class="c">Version: 0.1</span>
+<span class="c">License: Open</span>
+<span class="c">Text Domain: firstname_lastname_blank_template</span>
+<span class="c">*/</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h2</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">8</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>When you upload the CSS file, it should be apparent that there are immediate changes after you reload a page. We will definitely go into more advanced CSS with WordPress in the future - but I wanted to quickly touch on one of the biggest parts of template design. </p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

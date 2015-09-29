@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 5&#58; Content and the Content Manager &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 5&#58; Content and the Content Manager</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#content-generally">Content Generally</a>
+
+<ul>
+<li>Portability of Content</li>
+<li>Handling Content</li>
+<li>Information Architecture</li>
+</ul></li>
+<li><a href="#choosing-a-cms">Choosing a CMS</a>
+
+<ul>
+<li>CMSs to Choose From</li>
+<li>Factors to Consider When Choosing</li>
+</ul></li>
+<li><a href="#elements-of-web-design-and-cmss">Elements of Web Design and CMSs</a></li>
+<li><a href="#wireframing">Wireframing and Mocking Up a Site for a CMS</a></li>
+</ul>
+
+<h2><a name="content-generally">Content Generally</a></h2>
+
+<p>Content &quot;is information and experiences that provides value for an end-user or audience.&quot; <a href="http://en.wikipedia.org/wiki/Content_(media)">Content - Wikipedia</a></p>
+
+<p>For us, <strong>content</strong> is text, images, video, audio, or anything that conveys information or experiences to a user. We will use this term generally because it isn&#39;t important to get into the specifics or etymology of the term. What is important is that there is information that needs to be sent to a user effectively and efficiently. </p>
+
+<p>Dealing with content can be a complicated affair. Before we can even begin to think about how to handle content through a CMS, we must first identify what content we are trying to manage.</p>
+
+<p><em>What content would be difficult to distribute in WordPress?</em></p>
+
+<p>It is easy to think about one CMS managing all content effectively, but the reality is that content management is never so simple. Each type of content has different characteristics that make each unique in their management challenges. </p>
+
+<p>We are going to look at three articles to get a better grasp of how content exists and why it is important to consider the content before you even begin to design any resource to handle it. </p>
+
+<ul>
+<li><a href="http://alistapart.com/article/your-content-now-mobile">Your Content, Now Mobile - A List Apart</a></li>
+<li><a href="http://alistapart.com/article/strategic-content-management">Strategic Content Management - A List Apart</a></li>
+<li><a href="http://alistapart.com/article/content-modelling-a-master-skill">Content Modelling: A Master Skill - A List Apart</a></li>
+</ul>
+
+<h3>Portability of Content</h3>
+
+<p>Making sure you are able to control where your content goes is important for numerous reasons. Having your blog posts show up on your site is one step, but also allowing RSS readers (or their equivalents) to display your blog posts could be cool too. Additionally, what if another site wants to use your content? What if a teacher wants to use the content in a lecture? </p>
+
+<p>Isn&#39;t having your content distributed as widely as possible a good thing? Well, maybe not always. The concept of portability with content is an important consideration when you are crafting your content strategy. For every instance where you would want visibility of your content, there may exist one where you don&#39;t want it to be visible.</p>
+
+<p><em>What are some instances where you would want your content to be more visible? instances where you wouldn&#39;t?</em></p>
+
+<p>Let&#39;s say you do want your content to be widely distributed. If you do that, it would be nice to have it as easy to access as possible. And not only by users, but also by other systems that may want to use that content. This is the whole concept of an Open API platform. </p>
+
+<p>Additionally, you will want to &quot;future-proof&quot; your content early. Let&#39;s read a passage from the <a href="http://alistapart.com/article/your-content-now-mobile">&quot;Your Content, Now Mobile&quot; article</a>: </p>
+
+<blockquote>"If you take the time to figure out the right way to get your content out there, you'll have the freedom (and the flexibility) to get it everywhere. You can go back to thinking about the right design and development approaches for each platform, because you'll already have a reusable base of content to work from."</blockquote>
+
+<blockquote>"By taking the time now to examine your content and structure it for maximum flexibility and reuse, you'll be (better) prepared the next time a new gadget rolls around. You'll have cleared out all the dead wood, by pruning outdated, badly written, and irrelevant content, which means all your users will have a better experience. You'll have revised and updated your processes and tools for managing and maintaining content, which means all the content you create in every channel—print, desktop, mobile, TV, social—will be more closely governed."</blockquote>
+
+<h3>Handling Content</h3>
+
+<p>We now know that we will want to consider how expansively our content should be used very early on in our design steps. After, we need to consider what approach we should use to implement our content management plan. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">I acknowledge that a &quot;content management plan&quot; or &quot;content strategy&quot; may not be an explicit plan for every project (certainly not the ones covered in this course), but considering the scope of how to use content will help you make better decisions as you go. 
+</code></pre></div>
+<p>Content strategy is a key step in any design process.  You should read this article in its entirety: <a href="http://alistapart.com/article/strategic-content-management">Strategic Content Management - A List Apart</a></p>
+
+<p>Technology plays a big role in how we handle content. In olden days, people would manage content using file folders and whatever other sorting mechanisms suited a particular organization. However, with the emergence of computers as tools, content management (or organizing content in some cases) has become more efficient and complex. Databases, file structures, and metadata all help us organize our content more logically. CMSs and other administration mechanisms allow us to distribute, create, and alter content more effectively. With the emergence of more complicated tools comes the need for better planning and consideration of the content strategy. </p>
+
+<p>Content and the technology to manage content go hand in hand with the impression and effectiveness that your content will have on a user. </p>
+
+<h3>Information Architecture</h3>
+
+<p>After making sure we know how we want to use our content and what methods we are going to use to handle the content, we will think about the overall organization and presentation of our content. That&#39;s where information architecture comes in. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;Information architecture (IA) focuses on organizing, structuring, and labeling content in an effective and sustainable way.  The goal is to help users find information and complete tasks.&quot; 
+</code></pre></div>
+<p><a href="http://www.usability.gov/what-and-why/information-architecture.html">Information Architecture Basics - Usability.gov</a></p>
+
+<p>Read the <a href="http://alistapart.com/article/content-modelling-a-master-skill">&quot;Content Modelling: A Master Skill&quot;</a> article to get a grasp on how one might think about using information architecture as a content planning tool. </p>
+
+<p>Structure of our content to the systems, users, and administrators of the content will shape the way people think about the content and how usable it will be to users. </p>
+
+<p>Each CMS will have inherent biases to the content and the way it is organized. A blog CMS will treat organization differently than an image handling software. A version control solution will treat content differently than a ecommerce CMS. Developing a content strategy plan and an information architecture plan is a great first step to choosing a CMS.</p>
+
+<h2><a name="choosing-a-cms">Choosing a CMS</a></h2>
+
+<p>When you are choosing a CMS, don&#39;t always go with the one that you are most comfortable with or that the client wants/already has.  Choosing a CMS is a very specific choice depending on the situation and whether you consider yourself more of a coder, administrator, or designer, having the ability to choose the system of a correct scale for a client is a useful skill. </p>
+
+<h5>So how do we choose the right CMS?</h5>
+
+<p><em>Would Amazon want the same CMS as Delta Airlines?</em></p>
+
+<p><em>Would the Miami Dolphins need the same CMS as the Florida Aquarium?</em></p>
+
+<p><em>How about Mom and Pop shop vs. a multinational corporation?</em></p>
+
+<h3>CMSs to Choose From</h3>
+
+<p>I am going to list 6 CMSs that are currently in use. With them will be a brief (and vastly oversimplified) description of them with their strengths and weaknesses. I want you to consider how they all are able to perform different tasks better than others and what circumstances you could foresee for using them.</p>
+
+<p>There are obviously a lot more than these 6 and this list may become out of date rather quickly, so if nothing else use this section as a learning tool. If you want to add one or replace one with another that you know better, please feel free to do so through GitHub. </p>
+
+<h4>1. WordPress</h4>
+
+<p><strong>Description:</strong> The world&#39;s most popular CMS at this moment. WordPress was originally a blogging platform that has expanded into a full use CMS with a lot of extensibility. </p>
+
+<p><strong>Technical Specs:</strong> PHP, MySQL</p>
+
+<p><strong>Pros:</strong> Easy templating and modification, good community of support, easy to use UI, lots of plugins
+<strong>Cons:</strong> Potential security issues, limiting functionality without significant development, frequent updates.</p>
+
+<h4>2. <a href="http://en.wikipedia.org/wiki/Drupal">Drupal</a></h4>
+
+<p><strong>Description:</strong> &quot;It is used as a back-end framework for at least 2.1% of all Web sites worldwide ranging from personal blogs to corporate, political, and government sites including WhiteHouse.gov and data.gov.uk. It is also used for knowledge management and business collaboration. The standard release of Drupal, known as Drupal core, contains basic features common to content management systems.&quot;</p>
+
+<p><strong>Technical Specs:</strong> PHP, MySQL</p>
+
+<p><strong>Pros:</strong> Large community, PHP, lots of plugins (modules)
+<strong>Cons:</strong> Usability concerns, performance/scalability, outdated plugins (modules)</p>
+
+<h4><a href="http://en.wikipedia.org/wiki/Liferay">3. Liferay</a></h4>
+
+<p><strong>Description:</strong> Liferay Portal is a web platform that includes a built-in web content management system allowing users to build websites and portals as an assembly of themes, pages, portlets/gadgets and a common navigation. Liferay is sometimes described as a content management framework or a web application framework. Liferay&#39;s support for plugins extends into multiple programming languages, including support for PHP and Ruby portlets. Although Liferay offers a sophisticated programming interface for developers, no programming skills are required for basic website installation and administration.</p>
+
+<p><strong>Technical Specs:</strong> Java</p>
+
+<p><strong>Pros:</strong> Little to no development experience needed to implement, framework with a lot of other plugins, Scalable
+<strong>Cons:</strong> Java, huge learning curve, bulky</p>
+
+<h4><a href="http://en.wikipedia.org/wiki/Squarespace">4. SquareSpace</a></h4>
+
+<p><strong>Description:</strong> Squarespace is a SaaS-based content management system (CMS) which is composed of a website builder, blogging platform and hosting service. The service allows individuals and businesses to create and maintain websites and blogs.</p>
+
+<p><strong>Technical Specs:</strong> 100% in-browser editor.</p>
+
+<p><strong>Pros:</strong> Easy to use, all technical requirements are handled for you.</p>
+
+<p><strong>Cons:</strong> Limited functionality, no customization</p>
+
+<h4>5. A Homemade CMS</h4>
+
+<p><strong>Description:</strong> A special project from scratch that does exactly what the client wants and needs. </p>
+
+<p><strong>Technical Specs:</strong> Whatever you want or need</p>
+
+<p><strong>Pros:</strong> Nearly all needs are met - so the pros are unlimited.</p>
+
+<p><strong>Cons:</strong> Potentially infinite cost and project time. </p>
+
+<h4>6. A File Cabinet</h4>
+
+<p><strong>Description:</strong> A piece of metal that holds file folders.</p>
+
+<p><strong>Technical Specs:</strong> Whatever sorting methods the previous person used.</p>
+
+<p><strong>Pros:</strong> Simple and cost effective.</p>
+
+<p><strong>Cons:</strong> May be too simple and comes with no dynamic content management.</p>
+
+<h3>Factors to Consider When Choosing</h3>
+
+<p>This will by no means be an exhaustive list and depending on the project specifications each factor may have different importance. </p>
+
+<h4>1. Content</h4>
+
+<p>Making sure you know what type of content you are dealing with makes the weeding down portion of the CMS selection process a lot easier. Consider types of content and how the CMSs individually handle that type of content (if they do at all). </p>
+
+<h4>2. Portability and Distribution of Content</h4>
+
+<p>We talked about the importance of portability and distribution of content above, but how do we measure how well a CMS performs those tasks? This is not an easy question to answer, but the more you learn about this topic the better you will become a making decisions about how portable content is. </p>
+
+<p>We also want to make sure that we even want our content to be portable or distributable (see security concerns below). </p>
+
+<h4>3. Information Architecture</h4>
+
+<p>Many CMSs have built in information architecture structures. These are very, very important to consider when choosing. Also, if you have an IA plan coming into the selection process you will want to make sure your plan is executable under the CMSs you are reviewing. </p>
+
+<h4>4. Client</h4>
+
+<p>The client might be the single biggest factor in your choice of a CMS. A lot will depend on what the client wants and what they are capable of. Making sure you consult heavily with the client will help you get to the best fit for the client, but also will give you buy in for your decisions from the client (which will save you a lot of headaches down the road). </p>
+
+<h5>Things to consider about the client:</h5>
+
+<ol>
+<li><em>Current size of the organization</em>: Knowing the size of the organization will help you make a decision about the next factor (scale of the CMS). </li>
+<li><em>Potential future size of the organization</em>: You are going to want to make sure that if you choose a CMS, it will be able to grow with the organization. Obviously you won&#39;t be a mind reader but you should inquire to both growth strategies that are currently in place. </li>
+<li><em>Technological capabilities of the organization and its staff</em>: If the staff is not very technically able, you are going to want to consider the UI of the CMS from the content manager position a lot more heavily. 
+4.<em>Percentage of organizational operations that occur on the internet</em>: Not only percentage, but also the types of transactions the organization undertakes online. Your CMS is going to want to perform or integrate with tasks that are key to the business. So extensibility may play a bigger role depending on the type of business that the organization undertakes. </li>
+<li><em>Security needs of the organization</em>: This will be huge. A organization that needs a blog will have entirely different needs than an organization that handles sensitive documents and data (especially medical organizations). Make sure you are not giving them a solution that will come back to cause liability for that organization. I know getting into security can be both intimidating and overwhelming, but making sure you know of potential security concerns can help you make a decision or consult with others about what the best decision would be. </li>
+</ol>
+
+<h4>5. Scale of the System</h4>
+
+<p>You don&#39;t want to get a CMS that is too big and slow when what you need is small and fast. This is obvious but is also an important consideration. Additionally, having a system that is the right scale, but also scalable to larger or smaller sizes will help you serve your client better if they do grow or shrink without having to make a huge jump in technology. </p>
+
+<h3>Applying What We&#39;ve Learned</h3>
+
+<p>Let&#39;s consider the following fact patterns and attempt to choose the best CMS from the above list.</p>
+
+<p>a. Small neighborhood market that has trouble with people finding where it is.</p>
+
+<p>b. Large, local office supply store that wants to start selling online</p>
+
+<p>c. Florida non-profit that wants to have a larger public face.</p>
+
+<p>d.Internet startup that wants to sell doodads </p>
+
+<p>e. Internet startup that wants to sell consulting services</p>
+
+<p>f. Local doctors office.</p>
+
+<p><em>Do you see how there can be vaguery for each of these and several might fit the needs to the client?</em> </p>
+
+<h2><a name="elements-of-web-design-and-cmss">Elements of Web Design and CMSs</a></h2>
+
+<p>We understand what a CMS is and a process to select a CMS, but what about the other important aspects of web design we talked about earlier?</p>
+
+<p>Let&#39;s talk briefly about the elements in the context of a CMS and CMS selection.</p>
+
+<h3>Environment:</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Environment is essentially a grouping of concepts/items/situations related to the user at the time of accessing a resource.
+</code></pre></div>
+<p><em>Is there something inherent about a CMS that will affect the user when they&#39;re accessing the resource?</em> </p>
+
+<h3>Story</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Story encompasses the content and the display of the resource as a method of communicating a message.
+</code></pre></div>
+<p><em>What role does a CMS have in the story you tell? Should it have any role at all?</em></p>
+
+<h3>Aesthetics</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Aesthetics is about having a site that is enjoyable to be in.
+</code></pre></div>
+<p><em>How could a CMS help with the aesthetic quality of a CMS? How could it hinder it?</em></p>
+
+<h3>Performance</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Performance is the speed with which your information is obtained by the user, but also how efficiently the user is able to navigate to the information they seek. 
+</code></pre></div>
+<p>Performance is definitely one of the most important choices with a CMS. It is also one of the most tangible to measure (both in general web design and in CMS selection). A good CMS will consider performance in its infrastructure (especially for file handling and serving). </p>
+
+<p><em>Can a CMS solve all of your performance concerns? How can it relieve some of your performance concerns?</em></p>
+
+<h3>Usability</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Usability is the efficiency with which a user is able to use (or interact and perform tasks with) something. Making sure the user of your resource can do so in a positive and efficient manner is one of the biggest challenges of designers.
+</code></pre></div>
+<p>Having a CMS that can both stay out of the way of usability and enhance the experience for the content managers would be amazing. There are plenty of CMSs that do these two things, but inevitably situations will arise where usability frustrations come from the structure of the CMS. </p>
+
+<p><em>What role does a CMS play in the usability for users of your site?</em></p>
+
+<p><em>What role does a CMS play for the content manager&#39;s usability?</em></p>
+
+<h2><a name="wireframing">Wireframing and Mockup Up a Site for a CMS</a></h2>
+
+<h3>Wireframes</h3>
+
+<p>The process of wireframing may seem like busy work. However, it actually is a really, really important step in creating a new web site or other resource. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually being informed by a business objective and a creative idea. The wireframe depicts the page layout or arrangement of the website&#39;s content, including interface elements and navigational systems, and how they work together. The wireframe usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content.[3] In other words, it focuses on what a screen does, not what it looks like&quot;
+</code></pre></div>
+<p><a href="http://en.wikipedia.org/wiki/Website_wireframe">From Wikipedia - Website Wireframe</a></p>
+
+<p>There are many, many ways you can make a wireframe - from a pencil drawing to a photoshop mockup to using a web tool for help. The style of a mock up may differ for different organizations. Personally, I feel that anything that works in effectively conveying the UI, layout, and potential content is good enough though.</p>
+
+<p><em>After you make the wireframes, what would the next step be?</em></p>
+
+<p>Well, in most design organizations you would take the wireframes and perform a critique of them, refine them, and repeat until you have a solid structure for the CSS specialists and the graphic designers to work with. Additionally, you would perform UI and UX testing and then further refine the structure. Additionally, the wireframes would be subject to change throughout the design process depending on changed circumstance. </p>
+
+<p>For our course though, we are going to use a more &quot;self-intuition&quot; method of choosing and refining wireframes. However, they are an important step in the design process - even if we aren&#39;t going to test the wireframes for effectiveness. </p>
+
+<h4>Wireframing Resources</h4>
+
+<p><a href="http://webdesign.tutsplus.com/tutorials/workflow-tutorials/a-beginners-guide-to-wireframing/">Beginners Guide to Wireframing</a></p>
+
+<p><a href="https://balsamiq.com/">Balsamiq - Wireframing tool</a></p>
+
+<p><a href="https://wireframe.cc/">Wireframe.cc - untested by me</a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/Website_wireframe">Wireframing Information - Wikipedia</a></p>
+
+<h3>Visual Mockups</h3>
+
+<p>If there was a lot of vaguery in the wireframing process above, there will be even more in the visual mockup category. However, these are often the more important of the two for the client. </p>
+
+<h4>The visual mockup provides two benefits.</h4>
+
+<p>The first is that you are able to make design decisions from a more tactile standpoint. Having an accurate visual representation of the project will help you balance all of the design decisions early on in the process.  </p>
+
+<p>Additionally, all of the technical specifications in the wireframe and project proposal will not always convey the look, feel, and direction of the project. Clients are often non-technical and need something pretty to look at. Having something pretty to show them will help convey your direction with the project. </p>
+
+<h4>Making a visual mockup</h4>
+
+<p>Well, there is no tutorial here, only advice.</p>
+
+<p>Each person will, inevitably, have their own method for doing this. I tend to take my wireframes and copy them into Photoshop (or illustrator). I will then gather other project specifications such as colors, images, fonts, etc. and space out potential content. Having several versions of a single mockup is always a good idea. I will often start over from scratch several times so that I don&#39;t get embedded in a single way of doing something.</p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

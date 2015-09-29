@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 4&#58; Making a CMS Work for You &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 4&#58; Making a CMS Work for You</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#wordpress-customization">WordPress Customization</a>
+
+<ul>
+<li><a href="#widgets">Widgets</a>
+
+<ul>
+<li>Tutorial: Adding Widgets</li>
+<li>Tutorial: Adding Multiple Widgets</li>
+</ul></li>
+<li><a href="#menus">Menus</a>
+
+<ul>
+<li>Tutorial: Adding a Dynamic Menu</li>
+</ul></li>
+<li><a href="#supporting-pages">Supporting Pages</a>
+
+<ul>
+<li>Tutorial: Creating an Archive Page</li>
+<li>Tutorial: Creating a Search Page</li>
+<li>Tutorial: Creating a 404 Page</li>
+</ul></li>
+<li><a href="#using-images-in-the-template">Using Images in the Template</a>
+
+<ul>
+<li>Tutorial: Adding Featured Images &amp; Thumbnails to Theme</li>
+</ul></li>
+<li><a href="#permalinks">Permalinks</a>
+
+<ul>
+<li>Tutorial: Adding Permalinks to WordPress</li>
+</ul></li>
+</ul></li>
+<li><a href="#plugins">Plugins</a>
+
+<ul>
+<li>Tutorial: Adding Plugins</li>
+</ul></li>
+</ul>
+
+<h2><a name="wordpress-customization">WordPress Customization</a></h2>
+
+<p>We currently have gone through the bare minimum of what you could have to get by with a fully functional CMS at this point. The good thing about that is that everything we add from now on will make the CMS fuller and more useful. </p>
+
+<p>Everything we are doing to WordPress in this chapter is either a general web enhancement that any CMS would use, or a conceptual step forward on ways to organize functionality in a CMS. Widgets, menus, conditional templates, media management, and plugins are all things that are common to every major CMS.</p>
+
+<h3><a name="widgets">Widgets</a></h3>
+
+<p>In WordPress, a widget is spot in your template that can easily be changed from the Dashboard. Most CMSs have something like a &quot;widget&quot; though, more often than not, they are called something else. There are several built in Widgets that come with WordPress, but it is possible to add additional widgets to WordPress via plugins or manual coding. </p>
+
+<p>To learn more about widgets, read the Codex: <a href="http://codex.wordpress.org/WordPress_Widgets">http://codex.wordpress.org/WordPress_Widgets</a></p>
+
+<p><em>How do you think you could use widgets in specific situations? A blog? A business website? E-Commerce?</em></p>
+
+<h4>Tutorial: Adding Widgets</h4>
+
+<p>We are going to add &#39;places&#39; in the actual template for Widgets to live. We will work through adding a single widget in the sidebar and then show you how to add several in the footer.</p>
+
+<p>In this tutorial we will learn about defining functions, using WordPress built in functions, using an array to define options, and adding WordPress actions for additional functionality.</p>
+
+<h5>Step 1: Create Functions.php File</h5>
+
+<p class="message">Create a functions.php file in your theme's root folder </p>
+
+<h5>Step 2: Add Code For a Widget</h5>
+
+<p>The functions.php file is where you can add additional functionality the the WordPress CMS. This is for expanding the initial offering of WordPress, but also to specify some configuration and options that are already offered by WordPress. </p>
+
+<p>Let&#39;s add the code and then discuss what is happening here.</p>
+
+<p class="file-name">function.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<span class="cm">/*-------------- Enable Widgets--------------- */</span>
+
+<span class="k">function</span> <span class="nf">blank_widgets_init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">register_sidebar</span><span class="p">(</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="s1">&#39;First Widget&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;first-widget&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Widget for our sidebar on pages&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;before_widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;div class=&quot;widget-sidebar&quot;&gt;&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;after_widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;before_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;h2&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;after_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/h2&gt;&#39;</span>                        
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;widgets_init&#39;</span><span class="p">,</span> <span class="s1">&#39;blank_widgets_init&#39;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>You are going to want to be able to add widgets and change their options often, so being comfortable with what all of the options do will help you be able to understand this better and prevent mistakes later. Let&#39;s talk about the code:</p>
+
+<p>What you see here first is a WordPress function and the options for that function. It starts with the first part:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<span class="k">function</span> <span class="nf">blank_widgets_init</span><span class="p">()</span> <span class="p">{</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>This is creating a custom PHP function named blank<em>widgets</em>init(). You could name this whatever you want, but having an intelligible naming scheme will help you going forward. </p>
+
+<p>Then we are using the WordPress function &#39;register_sidebar()&#39; that tells WordPress to add a custom widget area that takes into account the options that you define inside the function. The options are pretty self explanatory:</p>
+
+<ul>
+<li>&#39;name&#39; is the name of the widget, </li>
+<li>&#39;id&#39; is the id of the widget that we are going to use later for identifying this specific widget area, </li>
+<li>&#39;description&#39; is the description of the widget, </li>
+<li>&#39;before_widget&#39; is the code that comes before the widget is included, </li>
+<li>&#39;after_widget&#39; is the code that comes after the widget is included, </li>
+<li>&#39;before_title&#39; is the code that comes before the widget is included, </li>
+<li>&#39;after_title&#39; is the code that comes after the widget is included.</li>
+</ul>
+
+<p>The final part &#39;add<em>action(&#39;widgets</em>init&#39;, &#39;blank<em>widgets</em>init&#39;);&#39; tells WordPress to include the custom PHP function we made that defines our widget functionality. </p>
+
+<h5>Step 3: Save and Upload your Functions.php File</h5>
+
+<p>If you upload the file now, you can go to Appearance -&gt; Widgets and see the widget area ready for you to modify. Drag one of the default widgets to the new widget, modify it appropriately, and then hit save. </p>
+
+<p>Nothing will show up on our template until we assign this widget to an area in the template so let&#39;s add this widget to the Sidebar.</p>
+
+<h5>Step 4: Adding the Widget to the Sidebar</h5>
+
+<p>We already have a sidebar assigned to the page.php file and it is a separate template file so that it is easy to include where we see fit. Let&#39;s open up our sidebar.php file and add the PHP code WordPress uses to load a widget into the template file. First, delete the filler content you have in your sidebar.php file and then add this:</p>
+
+<p class="file-name">sidebar.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;first-widget&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>The &#39;id&#39; that we defined in the options of the widget in functions.php is the parameter we use to call the widget using the dynamic_sidebar custom WordPress function. </p>
+
+<h5>Step 5: Save and Upload your Sidebar.php file</h5>
+
+<p>Once you upload the sidebar.php file (and the other files you have modified) you will see that whatever you put in your widget area will show up in your sidebar on page.php. </p>
+
+<h4>Tutorial: Adding Multiple Widgets</h4>
+
+<p>There is a slight distinction between adding one widget and multiple widgets, but running through it again will help you better understand the concepts you learned in the previous tutorial. </p>
+
+<h5>Step 1: Add More Widgets</h5>
+
+<p>We already have one widget, so let&#39;s see how we can add multiple to the same custom function we have.</p>
+
+<p class="file-name">function.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Widgets--------------- */</span>
+
+<span class="x">function blank_widgets_init() {</span>
+<span class="x">    register_sidebar( array(</span>
+<span class="x">        &#39;name&#39; =&gt; (&#39;First Widget&#39;),</span>
+<span class="x">        &#39;id&#39; =&gt; &#39;first-widget&#39;,</span>
+<span class="x">        &#39;description&#39; =&gt; &#39;Widget for our sidebar on pages&#39;, </span>
+<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-sidebar&quot;&gt;&#39;, </span>
+<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
+<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
+<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
+<span class="x">        ));</span>
+<span class="x">/*--- New Widget --- */</span>
+<span class="x">    register_sidebar( array(</span>
+<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget One&#39;),</span>
+<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-one&#39;,</span>
+<span class="x">        &#39;description&#39; =&gt; &#39;First widget for our footer&#39;, </span>
+<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;, </span>
+<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
+<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
+<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
+<span class="x">        ));</span>
+<span class="x">    /*--- Second New Widget --- */</span>
+<span class="x">    register_sidebar( array(</span>
+<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget Two&#39;),</span>
+<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-two&#39;,</span>
+<span class="x">        &#39;&#39;description&#39; =&gt; &#39;Second widget for our footer&#39;, </span>
+<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;, </span>
+<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
+<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
+<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
+<span class="x">        ));</span>
+<span class="x">    /*--- Third New Widget --- */</span>
+<span class="x">    register_sidebar( array(</span>
+<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget Three&#39;),</span>
+<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-three&#39;,</span>
+<span class="x">        &#39;description&#39; =&gt; &#39;Third widget for our footer&#39;, </span>
+<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;,</span>
+<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
+<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
+<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
+<span class="x">        ));</span>
+
+<span class="x">}</span>
+<span class="x">add_action(&#39;widgets_init&#39;, &#39;blank_widgets_init&#39;);</span>
+</code></pre></div>
+<p>The only thing we added was three more full register_sidebar functions and their options array. </p>
+
+<h5>Step 2: Add More Widget Areas</h5>
+
+<p>Now that we have the actual widgets created, let&#39;s add them to our footer. This will take two steps that are both important: 1. Separate the Footer into three equally sized columns, and 2. Add the dynamic_sidebar custom WordPress function. </p>
+
+<p class="file-name">footer.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-one&#39;); ?&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-two&#39;); ?&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-three&#39;); ?&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/div&gt;</span> 
+<span class="cp">&lt;?php wp_footer(); ?&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h5>Step 3: Save and Upload</h5>
+
+<h5>Step 4: Add More Widget Content in the Dashboard</h5>
+
+<p>Go to the WordPress Dashboard and drag widgets into the newly created Widget areas. You should see this content appear in the footer on the front page, and all of your pages and posts.</p>
+
+<h3><a name="menus">Menus</a></h3>
+
+<p>WordPress has a built in menu system that allows you (or a content editor with correct permissions) to create dynamic menus in the Dashboard. This is incredibly useful for handing off a site you&#39;ve created to a client and letting them make minor changes to the menu without too much risk of them destroying the site (though it is still very possible that adding too many items or other changes could make a mess of it all).</p>
+
+<p>For more in depth information about these subjects, go through the following links on the Codex:</p>
+
+<ul>
+<li><a href="https://codex.wordpress.org/Navigation_Menus">WordPress Codex: Navigation Menus</a></li>
+<li><a href="https://codex.wordpress.org/WordPress_Menu_User_Guide">WordPress Codex: WordPress Menu User Guide</a></li>
+</ul>
+
+<h4>Tutorial: Adding a Dynamic Menu</h4>
+
+<h5>Step 1: Enable Menus in Functions</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">As a note going forward, when I am adding a snippet to code to a file, I may not include the entire file, but rather just a portion of it. If this is the case, assume that you should place the code where I indicate or at the very bottom. 
+</code></pre></div>
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Menu --------------- */</span>
+
+<span class="x">add_theme_support(&#39;menus&#39;);</span>
+</code></pre></div>
+<p>Add this to the very bottom of the functions.php file, below the Widgets section.</p>
+
+<h5>Step 2: Add Menus to Your Template File</h5>
+
+<p>We are going do two things here: 1. Add a separate area in our header to house our menu, and 2. add code to hold the menu.</p>
+
+<p class="file-name">header.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="cp">&lt;?php wp_head(); ?&gt;</span>
+
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+<span class="c">&lt;!-- Add Menu Here --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php wp_nav_menu(array(</span>
+<span class="cp">            &#39;sort_column&#39; =&gt; &#39;menu_order&#39;, </span>
+<span class="cp">            &#39;container_class&#39; =&gt; &#39;blank-menu-header&#39;</span>
+<span class="cp">            ));?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>The WordPress function we used is &#39;wp<em>nav</em>menu()&#39;. We are using the options array here in a way we haven&#39;t before. We are defining an array explicitly with the array( ) object and then adding the options with their value (key/value pair). The options I included are sort<em>column and container</em>class. More information about this and the other options that are available can be found here: <a href="https://codex.wordpress.org/Function_Reference/wp_nav_menu">https://codex.wordpress.org/Function<em>Reference/wp</em>nav_menu</a></p>
+
+<h5>Step 3: Save and Upload</h5>
+
+<h5>Step 4: Create a Menu in the Dashboard</h5>
+
+<p>The last step for this will be to go to our Dashboard and actually create a menu (Appearance -&gt; Menus). Drag a couple of pages into the navigation menu or add links. When you hit save, it should show up on all of your pages and posts. </p>
+
+<h4>Tutorial: Styling an Inline Menu</h4>
+
+<p>I am including styling an inline menu here because I think it will help you see how CSS integrates with WordPress better. If you wish to have a different type of menu in the future, feel free to get rid of these changes and add your own. </p>
+
+<h5>Step 1: Identifying the Elements to Style</h5>
+
+<p>In the previous tutorial we covered adding a menu, but we didn&#39;t think about how to style it so when we enabled the menu it looked pretty hideous. </p>
+
+<p><em>How are we going to style something that is dynamically generated?</em></p>
+
+<p>When working with a CMS, there are always going to be inherent traits that the data is pushed into. This could involve classes for styling, ids for javascript behavior, or just any other metadata that may serve any other purpose. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Classes (.name-of-class) in HTML is used mostly for CSS. A Class is an identifier that can be used multiple times in a single page.
+
+Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier that should only be used once per page. 
+</code></pre></div>
+<p>In our menu, we added an object in our options array called &quot;container_class.&quot; The value associated with that option is &quot;blank-menu-header.&quot; This is how we are going to target that area with our CSS. If you inspect the menu you will see that there the class we added in the options is the class surrounding the whole menu. </p>
+
+<p>Using Google Chrome&#39;s &quot;Inspect this Element&quot; tool (right click on an object in a webpage to bring this up) is a great way to mess around with CSS in browser and to see what behavior is happening in your web page.</p>
+
+<h5>Step 2: Add CSS to Style.css</h5>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*--- Menu --- */</span>
+
+<span class="nc">.blank-menu-header</span> <span class="p">{</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> 
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> 
+    <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
+    <span class="k">list-style-image</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="nc">.blank-menu-header</span> <span class="nt">li</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">text-decoration</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>  
+    <span class="k">margin</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">0px</span> <span class="m">5px</span> <span class="m">40px</span><span class="p">;</span> 
+    <span class="k">font-weight</span><span class="o">:</span> <span class="m">300</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">1</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#cccccc</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This is just one of many ways you make a menu appear. You can find numerous ways to style a menu in different ways on other websites and tutorials (many of which are more elaborate than this one) so feel free to explore those.</p>
+
+<h5>Step 3: Save and Upload</h5>
+
+<h3><a name="supporting-pages">Supporting Pages</a></h3>
+
+<p>We have the front page, posts, and internal pages all ready to go. There are plenty of other situations where you may want to specific templates for. Here we are going to cover three common situations: an archive page, a search page, and a 404 page. </p>
+
+<h4>Tutorial: Creating an Archive Page</h4>
+
+<p>An archive page is useful for listing large amount of posts in a relatively short amount of space. With WordPress, you can use dates, taxonomies, or other metadata to sort your archived posts. We are going to demonstrate how to archive by month or by category. </p>
+
+<p>More information about creating an archive page can be found on the codex here: <a href="https://codex.wordpress.org/Creating_an_Archive_Index">https://codex.wordpress.org/Creating<em>an</em>Archive_Index</a>. </p>
+
+<h5>Step 1: Create an archive.php page</h5>
+
+<p class="message">Create an archive.php file in your theme's root folder</p>
+
+<h5>Step 2: Create the shell of the archive.php page</h5>
+
+<p>We are going to include much of the same code we used before to set the data context and to make sure we are loading the exact elements we want for the archive. </p>
+
+<p class="file-name">archive.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Archive Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>Archive<span class="nt">&lt;/h2&gt;</span>    
+            <span class="nt">&lt;p&gt;</span>Archive content goes here.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h5>Step 4: Add the functionality of the archive.php page</h5>
+
+<p class="file-name">archive.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Archive Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php if ( have_posts() ) : ?&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>Archives<span class="nt">&lt;/h2&gt;</span>
+            <span class="cp">&lt;?php</span>
+<span class="cp">            // The Loop</span>
+<span class="cp">            while ( have_posts() ) : the_post();?&gt;</span>
+            <span class="c">&lt;!-- data context --&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink() ?&gt;&quot;</span><span class="nt">&gt;</span>
+                        <span class="cp">&lt;?php the_title(); ?&gt;</span>
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/h2&gt;</span>
+                <span class="cp">&lt;?php the_excerpt(); ?&gt;</span>
+            <span class="cp">&lt;?php endwhile; ?&gt;</span> <span class="c">&lt;!-- End Loop --&gt;</span>
+        <span class="cp">&lt;?php endif; ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>Archives by Month:<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="cp">&lt;?php wp_get_archives(&#39;type=monthly&#39;); ?&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>Archives by Category:<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+             <span class="cp">&lt;?php wp_list_categories(); ?&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>In the bottom of our archive page we are giving the user an opportunity to view by either month or by category. The WordPress function wp<em>get</em>archives will generate the information by month automatically because we passed the type=monthly parameter to it. </p>
+
+<h5>Step 4: Add a Contingency</h5>
+
+<p>There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an else statement to the if logic to address that situation.</p>
+
+<p class="file-name">archive.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Archive Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php if ( have_posts() ) : ?&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>Archives<span class="nt">&lt;/h2&gt;</span>
+            <span class="cp">&lt;?php</span>
+<span class="cp">            // The Loop</span>
+<span class="cp">            while ( have_posts() ) : the_post();?&gt;</span>
+            <span class="c">&lt;!-- data context --&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink() ?&gt;&quot;</span><span class="nt">&gt;</span>
+                        <span class="cp">&lt;?php the_title(); ?&gt;</span>
+                    <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/h2&gt;</span>
+                <span class="cp">&lt;?php the_excerpt(); ?&gt;</span>
+            <span class="cp">&lt;?php endwhile; ?&gt;</span> <span class="c">&lt;!-- End Loop --&gt;</span>
+        <span class="cp">&lt;?php else: ?&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Sorry, no posts matched your criteria.<span class="nt">&lt;/p&gt;</span>
+        <span class="cp">&lt;?php endif; ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<h5>Step 5: Save and upload files</h5>
+
+<h4>Tutorial: Creating a Search Page</h4>
+
+<p>When a user searches your WordPress site (using WordPress&#39;s built in search functionality), they are going to want to see specific information based on their search query. That&#39;s where having a template page to display the results comes in handy. </p>
+
+<p>We are going to add a search bar to the header, create a new template page, and then add the code to make the search queries appear as we want them to. </p>
+
+<h5>Step 1: Create an search.php page</h5>
+
+<p class="message">Create a search.php file in your theme's root folder</p> 
+
+<h5>Step 2: Add a search bar in the header</h5>
+
+<p>You may have already added a search bar into a widget - so using that would lead you to the search page if you tried to use it. Regardless, we are going to add a search bar into the header where it is for many websites for UI purposes. </p>
+
+<p>The two things we will do is to split up the header into two columns and then add the WordPress function for a search bar. </p>
+
+<p class="file-name">header.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="cp">&lt;?php wp_head(); ?&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- Add Search Form --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php get_search_form(); ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php wp_nav_menu(array(</span>
+<span class="cp">            &#39;sort_column&#39; =&gt; &#39;menu_order&#39;, </span>
+<span class="cp">            &#39;container_class&#39; =&gt; &#39;blank-menu-header&#39;</span>
+<span class="cp">            ));?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<h5>Step 4: Build the search.php file</h5>
+
+<p class="file-name">search.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Search Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h5>Step 5: Add functionality to the search.php file</h5>
+
+<p>To walk through this file, we are going to include the header, the footer, and the grid system from all of the other files. Also, note the PHP comment at the top that says &quot;Template Name: Search Page.&quot; This is used for the identifying this file as a template file. </p>
+
+<p class="file-name">search.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Search Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php printf(__(&#39;Search Results for: %s&#39;), &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; ); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :</span>
+<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span>                                   <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">            endif; </span>
+<span class="cp">        ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span>
+            <span class="err">&lt;?</span><span class="na">php</span> <span class="na">get_sidebar</span><span class="err">();</span> <span class="err">?</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h5>Step 6: Create a condition if there is no search results</h5>
+
+<p>We already have a functioning search page, but what happens if there is no search results, we would want to make sure something instructive is included.</p>
+
+<p>To that end, we are going to use some conditional logic to make sure IF there is a result we will display that result, but if anything ELSE occurs, we will display a warning. Getting comfortable with conditional logic will help you considerably with programming going forward. </p>
+
+<p class="file-name">search.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template Name: Search Page */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if( have_posts() ) :?&gt;</span>
+                <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php printf(__(&#39;Search Results for: %s&#39;), &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; ); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+                <span class="cp">&lt;?php if (have_posts()) :</span>
+<span class="cp">                    while (have_posts()) : the_post(); ?&gt;</span>                           <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                        <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                    endwhile;</span>
+<span class="cp">             else : ?&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Nothing Found<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p&gt;</span>Sorry, but nothing matched your search criteria. Please try again with different search terms.<span class="nt">&lt;/p&gt;</span>
+            <span class="cp">&lt;?php endif; ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<h5>Step 7: Save and Upload Files</h5>
+
+<h4>Tutorial: Creating a 404 Page</h4>
+
+<p>A 404 page is for when someone queries your website with a URL that does not point to any actual page. Have an instructive 404 page can help you guide users throughout your site. </p>
+
+<p><em>What could you add to a 404 page to help get users to content they want?</em></p>
+
+<h5>Step 1: Create an 404.php page</h5>
+
+<p class="message">Create a 404.php file in your theme's root folder</p>
+
+<h5>Step 2: Add functionality to the 404 page</h5>
+
+<p class="file-name">404.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
+<span class="cp">/* Template: 404 page (Not Found) */</span>
+
+<span class="cp">get_header(); ?&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Not Found<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>This is somewhat embarrassing, isn&#39;t it?<span class="nt">&lt;/h2&gt;</span>
+            <span class="nt">&lt;p&gt;</span>It looks like nothing was found at this location. Maybe try a search?<span class="nt">&lt;/p&gt;</span>
+
+            <span class="nt">&lt;h2&gt;</span>Try searching for what you need:<span class="nt">&lt;/h2&gt;</span>
+            <span class="cp">&lt;?php get_search_form(); ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>Note that we have put a message saying that there is nothing at this URL, but also gave the user a way to find the information they wanted to see. Considering UI throughout the design process is, obviously, important. </p>
+
+<h5>Step 3: Save and Upload Files</h5>
+
+<h3><a name="using-images-in-the-template">Using Images in the Template</a></h3>
+
+<p>Fewer design elements are discussed or handled more than images are. Not only do they tell a thousand words, but they also are pretty and can help you with your overall visual presentation of your design.</p>
+
+<p>WordPress handles images internally by sorting them in the media section. You can also add them very easily in the Post/Page Dashboard. </p>
+
+<p>We are going to implement another way to use images with WordPress, the &quot;featured image.&quot; These are also referred to as &quot;thumbnails&quot; because of their original usages in the templating system. They are now used more dynamically as a thumbnail and a featured image (or for any of other things you could imagine). </p>
+
+<p><em>Why would you want to use a featured image on a post instead of just placing on in the post itself?</em></p>
+
+<h4>Tutorial: Adding Featured Images and Thumbnails to Theme</h4>
+
+<p>WordPress does not enable featured images/thumbnails by default so you have to do it before they can be used. We are going to enable them in the functions file, add them to our front page, and then add them to our posts.</p>
+
+<p><a href="https://codex.wordpress.org/Post_Thumbnails">WordPress Codex: Post Thumbnail</a></p>
+
+<h5>Step 1: Enabling in Functions file</h5>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*--- Enable Post Thumbnails ---*/</span>
+<span class="x">add_theme_support( &#39;post-thumbnails&#39; ); </span>
+</code></pre></div>
+<h5>Step 2: Adding Thumbnails to the index.php file</h5>
+
+<p>The code I am using contains a WordPress function and a parameter of &#39;thumbnail&#39; to define which size image we want to serve up here. Also, we want to make sure that we can use featured images only for those posts where there is a featured image - so we are wrapping the code in a conditional statement. </p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php </span>
+<span class="cp">        if ( have_posts() ) {</span>
+<span class="cp">        while ( have_posts() ) {</span>
+<span class="cp">            the_post();?&gt;</span>
+            <span class="nt">&lt;h3&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h3&gt;</span>
+            <span class="cp">&lt;?php </span>
+<span class="cp">            if ( has_post_thumbnail() ) {</span>
+<span class="cp">                the_post_thumbnail(&#39;thumbnail&#39;);</span>
+<span class="cp">            }</span>
+<span class="cp">            the_excerpt(); </span>
+<span class="cp">                } // end while</span>
+<span class="cp">            } // end if</span>
+<span class="cp">        ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>I also added some additional PHP so that we are loading only the specific items we want. You should already be familiar with the<em>title, but you have not seen the</em>excerpt yet. </p>
+
+<p>An <strong>Excerpt</strong> is merely a preview of the full text of the post. This allows you to not dump your entire post into the front page. Additionally, on the post dashboard you can manually add the excerpt if you don&#39;t like what they put. </p>
+
+<h5>Step 3: Adding featured image support to the post</h5>
+
+<p>We are going to do almost the exact same thing we did above except throw a different parameter into the WordPress function. </p>
+
+<p class="file-name">single.php:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :               </span>
+<span class="cp">                while (have_posts()) : the_post(); </span>
+<span class="cp">                if ( has_post_thumbnail() ) { ?&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;post-thumbnail&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_post_thumbnail(&#39;large&#39;); ?&gt;</span><span class="nt">&lt;/div&gt;</span>
+                <span class="cp">&lt;?php } ?&gt;</span>
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">            endif; ?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>We have full image size going in now, but we could also use &quot;array( width, height)&quot; to define a custom value to display - which we might want to in case we want strict uniformity. For now though, we will just use the full size image and deal with those specifics later - mostly because I have a better way of dealing with uniformity of images. </p>
+
+<h5>Step 4: Save and Upload files</h5>
+
+<h3><a name="permalinks">Permalinks</a></h3>
+
+<p><a href="https://codex.wordpress.org/Using_Permalinks">WordPress Codex - Permalinks</a></p>
+
+<h4>Tutorial: Adding Permalinks to WordPress</h4>
+
+<p>We will want to be able to easily click through our site for usability purposes. Having links to content is the sort of bare minimum thing that we will want to do, so WordPress handles this for us if we tell it to. </p>
+
+<p>This will take two steps:</p>
+
+<ul>
+<li>Add a link to our home page via our header</li>
+<li>Add a link to individual posts from the loop on the front page. </li>
+</ul>
+
+<p>We are going to focus on two Codex entries:</p>
+
+<ul>
+<li><a href="https://codex.wordpress.org/Function_Reference/home_url">WordPress Codex - Home URL</a></li>
+<li><a href="https://codex.wordpress.org/Function_Reference/the_permalink">WordPress Codex - The Permalink</a></li>
+</ul>
+
+<h5>Step 1: Add a Link to Our Home Page in the Header</h5>
+
+<p>It is incredibly common, if not expected, that you can access the main page of your site through a URL from the site title or logo. You might have the desire to change this expectation for your designs, but for our purposes we will do it this way. </p>
+
+<p>We are going to add the home_url() function in an anchor’s href and wrap our site title in the anchor. </p>
+
+<p class="file-name">header.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="cp">&lt;?php wp_head(); ?&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- ADD LINK TO HOME_URL --&gt;</span>
+                    <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php $url = home_url(&#39;/&#39;); echo $url; ?&gt;&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php bloginfo(&#39;name&#39;); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo(&#39;description&#39;); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+</code></pre></div>
+<p>Again, note how we are switching between html and php in our template files. </p>
+
+<h5>Step 2: Add a Permalink to a Post in the Loop</h5>
+
+<p>WordPress has a built in permalink system that you can change in the settings. However, even if you change the way that the link is output, the permalink function will continue to work in your loop (or elsewhere). </p>
+
+<p>Let’s add the permalink to the post output in two ways, as a link that goes after the excerpt and one to the page title. </p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php </span>
+<span class="cp">        if ( have_posts() ) {</span>
+<span class="cp">        while ( have_posts() ) {</span>
+<span class="cp">            the_post();?&gt;</span>
+<span class="c">&lt;!-- ADD LINK TO THE TITLE --&gt;</span>
+            <span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink(); ?&gt;&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
+            <span class="cp">&lt;?php </span>
+<span class="cp">            if ( has_post_thumbnail() ) {</span>
+<span class="cp">                the_post_thumbnail(&#39;thumbnail&#39;);</span>
+<span class="cp">            }</span>
+<span class="cp">            the_excerpt(); ?&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink(); ?&gt;&quot;</span><span class="nt">&gt;</span>Read More<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="cp">&lt;?php } // end while</span>
+<span class="cp">            } // end if</span>
+<span class="cp">        ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php get_footer(); ?&gt;</span>
+</code></pre></div>
+<p>Make sure you note that we exited and entered into PHP several times in this step. Being more comfortable with going in and out of PHP will help you become a better programmer overall. </p>
+
+<h5>Step 3: Save and Upload Files</h5>
+
+<p>You should see a transformation of the way you can use the front page and your users will appreciate it. </p>
+
+<h2><a name="plugins">Plugins</a></h2>
+
+<p>We already introduced plugins in the first chapter in the context of WordPress. As a reminder: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">A Plugin is a group of PHP functions that can extend the functionality present in a standard WordPress weblog. These functions may all be defined in one php file, or may be spread among more than one file. Usually, a plugin is a PHP file that can be uploaded to the &quot;wp-content/plugins&quot; directory on your webserver, where you have installed WordPress. Once you have uploaded the plugin file, you should be able to &quot;turn it on&quot; or Enable it from the &quot;Plugins&quot; page in the administration interface of your weblog. The WordPress source code contains hooks that can be used by plugins.
+</code></pre></div>
+<p><a href="https://codex.wordpress.org/Glossary#Plugin">https://codex.wordpress.org/Glossary#Plugin</a></p>
+
+<p>The concept of a &quot;plugin&quot; is universal to (nearly) all CMSs. It is a concept of adding functionality to a CMS without having a long development process. Extensibility is a huge bonus to using a CMS. If you didn&#39;t have plugins, you would have to 1) consider additional functionality from scratch, 2) consider the CMS you are trying to add functionality to, 3) develop and test that functionality inside of the CMS, and 4) pray that you didn&#39;t break anything (which hopefully testing addressed, but let&#39;s be honest about how that isn&#39;t always the case). </p>
+
+<p>So instead of going through that process, we can add a &quot;plugin&quot; to a CMS. In fact, the entire purpose of the functions.php file was originally to take the place of plugins as the primary way to add extensibility to WordPress. Plugins take over the necessity to manually code every bit of functionality you will want to add. </p>
+
+<p>Commercial CMSs may have an additional fee associated with its plugins. Additionally, even WordPress has many paid plugins. One of the first things you should do before entering into a large scale programming project (in general and for plugins) is to see what has been done before and to see if it would be economical to purchase a &quot;plugin&quot; as your solution. From a purely financial standpoint, this is often the best solution. </p>
+
+<p>The scope of plugins is vast. They can include everything from a custom post type to adding a slider to adding security features to adding SEO boosting mechanisms to complete site health monitoring to eCommerce functionality. In fact, if there is something you will want to do within a website, there is likely a plugin to help you along your way. </p>
+
+<p>So plugins sound like amazing additions to your site and will make you a master developer with the click of a button, right?</p>
+
+<p>Well, the biggest downside to plugins is that you are using someone else&#39;s code and project. Unless you dive into the plugin, it is tough to say WHAT is in the plugin. Sometimes an otherwise reliable plugin can grow to be out of date (if they don&#39;t release updates) or contain unknown vulnerabilities. </p>
+
+<p>Another downside is that the plugin may not integrate well into your system for any number or reasons. If you download a plugin that has conflict, there may be a problem that is somewhat difficult to troubleshoot. Additionally, this may not surface until later when you make changes to CSS or PHP and those changes have a detrimental effect. </p>
+
+<p>My biggest problem with plugins is that they are often bloated. A plugin designer will often make a plugin to comply with any number of systems and conditions. For instance, if there is a jQuery slider plugin, the designer must include EVERYTHING that is needed to run the slider. Also, they must make sure that the plugin works across a large number of different templating systems. Therefore, it has to be complete and as large as it needs to be. </p>
+
+<h3>Choosing a Plugin</h3>
+
+<p>There are a lot of factors to consider when choosing a plugin:</p>
+
+<ol>
+<li><p>The coordination with the CMS we are using</p></li>
+<li><p>The effectiveness of implementing the functionality we want to add </p></li>
+<li><p>The cost of the plugin (your developer time and the actual price the vendor may charge)</p></li>
+<li><p>Security and reliability (the most important!)</p></li>
+<li><p>If using the plugin is the easiest and best way to do this</p></li>
+<li><p>The added and unneeded bloat/extra functionality that the project does not need</p></li>
+</ol>
+
+<p>After taking into account all of these factors, you may end up determining that a plugin is not the best choice for this project. Often times, though, there will be a good fit for adding functionality and it will save you an enormous amount of time. </p>
+
+<p>With WordPress, we can add, enable, and remove plugins from the Dashboard under the &quot;Plugins&quot; tab. The best way to get more familiar with plugins is to actually add them.</p>
+
+<h3>Tutorial: Adding Plugins</h3>
+
+<p>Since plugin creation could be a course on its own, we are just going to introduce them and I will show you how to add plugins, and how to determine which plugins are trustworthy. We are not going to go into crafting plugins or modifying them.</p>
+
+<p>There are two easy ways to find plugins to add. The first is by visiting the <a href="https://wordpress.org/plugins/">WordPress plugins repository</a>. You can search through this list and browse through the best choices. </p>
+
+<p>The other way is to add plugins through your Dashboard.</p>
+
+<p class="message">Go to your Dashboard and click on the "Plugins" tab</p>
+
+<p>After looking around and clicking through the plugins tab, you will probably feel a bit overwhelmed. The problem is that there are so many plugins that it can be overwhelming to decide which ones we might need. So instead of just browsing the plugins list, let&#39;s brainstorm some functionality that we would like added to the site.</p>
+
+<p><em>What would you think would be a good plugin to add to almost any WordPress site?</em></p>
+
+<p>There are infinite possibilities here, but let&#39;s think about three plugins that I would consider to be useful for every website. They will add security, site monitoring, and SEO. Nothing flashy, but all super important things. I will only walk through the security plugin, since the other two require additional steps we will cover in future lessons. For your edification though, I suggest you undertake the other two plugins on your own. </p>
+
+<h4>Suggested plugins:</h4>
+
+<ul>
+<li>Security: Limit Login Attempts</li>
+<li>Site Monitoring: Google Analytics Plugin (requires a Google Analytics account)</li>
+<li>SEO: Google XML Sitemaps (is more useful with a Google Webmaster account)</li>
+</ul>
+
+<h4>Step One: Finding a Plugin</h4>
+
+<p>So I am being nice and telling you a plugin we will want to use. But in most cases you will not be entirely sure which one is best. So using a natural language search will benefit you greatly.</p>
+
+<p class="message">Click "Add New" at the top of the Plugins page on your Dashboard</p>
+
+<p class="message">Search for "Limit Login Attempts"</p>
+
+<h4>Step Two: Find the Best One</h4>
+
+<p>After you search this, you will see several search results - all of varying degrees of rating and naming. We are going to want to consider all of the relevant results and choose the one that is:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">* Up to date
+* Has a lot of positive ratings
+* Does what we actually want
+</code></pre></div>
+<p><em>What is it we want? Why do we want this?</em></p>
+
+<p>Luckily the one we want is up at the top and simply called &quot;Limit Login Attempts&quot; and has over 1 million downloads.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">As of writing this, this plugin is out of date and hasn&#39;t been modified in a long time. This would be a big no-no for most plugins, but in this case it should be alright.
+</code></pre></div>
+<h4>Step Three: Install the Plugin</h4>
+
+<p class="message">Click on the plugin you want</p>
+
+<p class="message">Read through the information</p>
+
+<p class="message">Click "Install Now"</p>
+
+<p>After you click &quot;Install Now&quot; WordPress will automatically download and install the plugin. This is one of the great benefits of using an internal plugin mechanism like the one WordPress has. </p>
+
+<h4>Step Four: Activate the Plugin</h4>
+
+<p>On the screen where you have the download dialogue, there is a link that allows you to activate the plugin immediately</p>
+
+<p class="message">Click "Activate Plugin</p>
+
+<p>Alternatively, you can activate a plugin from the main plugin dashboard screen.</p>
+
+<h4>Step Five: Configure the Plugin</h4>
+
+<p>After you activate the plugin, it will now show up in your site and be working. In the Limit Login Attempts plugin&#39;s case, the configuration appears under the &quot;Settings&quot; tab in your Dashboard. </p>
+
+<p class="message">Click on "Limit Login Attempts" under "Settings" in the Dashboard</p>
+
+<p>You will see a bunch of configuration options you can choose for this plugin. Feel free to go through it and change what you think is best. I personally leave the default settings for this plugin. </p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

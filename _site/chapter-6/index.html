@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 6&#58; Storing and Using Content &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 6&#58; Storing and Using Content</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#data-and-managing-data">Data and Managing Data</a>
+
+<ul>
+<li>Managing Data</li>
+</ul></li>
+<li><a href="#databases-and-cmss">Databases and CMSs</a>
+
+<ul>
+<li>Databases Generally</li>
+<li>Database Operations</li>
+<li>Security and Separating Systems</li>
+</ul></li>
+<li><a href="#wordpress-and-mysql">WordPress and MySQL</a>
+
+<ul>
+<li>MySQL</li>
+</ul></li>
+<li><a href="#introduction-to-metadata">Introduction to Metadata</a></li>
+<li><a href="#taxonomies">Taxonomies</a>
+
+<ul>
+<li>Tutorial: Custom Taxonomies in WordPress</li>
+</ul></li>
+</ul>
+
+<h2><a name="data-and-managing-data">Data and Managing Data</a></h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Data as a general concept refers to the fact that some existing information or knowledge is represented or coded in some form suitable for better usage or processing.
+</code></pre></div>
+<p><a href="http://en.wikipedia.org/wiki/Data">Wikipedia - Data</a></p>
+
+<p>I don&#39;t expect you to know the very specifics of the definition of &quot;data,&quot; but having an understanding of the term and how it should be used is important. Information can be transformed into data. Data is the actual information in a usable form. Usability in this case, of course, depends on the way you want to use it.</p>
+
+<p><em>Isn&#39;t &#39;content&#39; data? Can you think of when content is not data?</em></p>
+
+<h3>Managing Data</h3>
+
+<p>A lot of time and effort goes into managing data. However, WordPress and MySQL handle a lot of that work for us. In fact, most good CMSs and Database software solutions solve these problems for us. </p>
+
+<p>The topic of data management could be a course on its own, but for our purposes I just want you to appreciate the fact that WordPress handles a lot of our data management without having any real work on our part. </p>
+
+<p>Okay, so we know roughly what data is and we know that it is important that we manage it effectively. We know that data management is complicated from a structural and philosophical level. And we know that WordPress handles a lot of our data management for us. However, let&#39;s learn a bit about databases so that if you have to use a system that is not as simple you will be able to speak knowledgeably about it. </p>
+
+<h2><a name="databases-and-cmss">Databases and CMSs</a></h2>
+
+<h3>Databases Generally:</h3>
+
+<p>The term <strong>&quot;database&quot;</strong> is used in all sorts of other industries to describe <strong>any collection of things or information</strong>. </p>
+
+<p>In computer science, a database is often used to refer to a software solution that sorts information to be sorted and queried. We use MySQL for WordPress, but there are plenty of database solutions. Since discussing databases in extreme detail is well outside of the scope of this class, we are going to focus our discussion to CMS based databases. </p>
+
+<p>With &quot;relational databases,&quot; information is stored in a database in tables. There are other types of non-relational database storage systems (e.g., MongoDB), but most CMSs use a relational database system (e.g., MySQL). </p>
+
+<p>As a side note, I love MongoDB and use it for a lot of my projects. This guy explains the different between relational and non-relational databases a lot better than I could - <a href="http://www.ignoredbydinosaurs.com/2013/05/explaining-non-relational-databases-my-mom">Explaining Non-Relational Databases to My Mom</a></p>
+
+<p>In these relational databases, the information is stored in rows and columns. A row will contain a number of columns that are labeled and then store the particular information as it is sorted. </p>
+
+<p>The table knows how to group information based on the &quot;Primary Key.&quot; The primary key is a column in the table that indexes the table. This method of database production is referred to as a &quot;Relational Database&quot; because all of the items in the database relate to one another. </p>
+
+<p>Let&#39;s use WordPress as an example. WordPress will default to a numeric Primary Key. So the first post you make is given the index 0 (index keys generally start with 0 not 1) and the 100th post is given the number 99. </p>
+
+<p>Each column in the top organizational row is given its own unique name (i.e., Post Title) and all of the other items in that column (i.e., &quot;This is my first post&quot;) will be the data for that primary key and parameter. </p>
+
+<p>Each column next to the primary key will relate directly to the data for that primary key. If a column is empty it will be given a null value and be considered empty. </p>
+
+<p>The easiest way to think about it is to draw out a table with rows and columns. The top row is organizational and the first column is the primary key to help sort data. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">I know this is complicated, but stick with me...
+</code></pre></div>
+<h3>Database Operations</h3>
+
+<p>Now that we know about how a database stores information and how it sorts that information, let&#39;s talk briefly about what a database management system is able to do with this information. </p>
+
+<p>The obvious things that it can do include writing, editing, deleting, and reorganizing the information. But the power comes with interacting with other systems in delivering the information. The efficient sorting of information allows a CMS to query information sorted in a database.</p>
+
+<h4>An Example</h4>
+
+<p>As an example, let&#39;s say we want to view a post in WordPress called &quot;Fun with Web Design.&quot; In WordPress, the database queries for specific posts are controlled by the internal routing function (a.k.a. the URL). So if we were going to find this post, we could use the URL &quot;http://mywpsite.com/fun-with-web-design.&quot;</p>
+
+<p>The extremely oversimplified version of what happens behind-the-scenes is this:</p>
+
+<ol>
+<li>The server will tell WordPress what has been asked of it</li>
+<li>WordPress will take the URL as it has been presented to it</li>
+<li>WordPress will know that it should look for the URL string as it appears after the domain (&quot;fun-with-web-design&quot;)</li>
+<li>WordPress queries the database for the &quot;Post Title&quot; of &quot;Fun with Web Design.&quot; </li>
+<li>The Database will find that post title and return 1) the primary key of the post and 2) any other information that WordPress asked for (post content, image URLs, etc.)</li>
+<li>WordPress will run that data through the theme and display the web page</li>
+</ol>
+
+<h3>Security and Separating Systems</h3>
+
+<p>The obvious advantage of a database is having an organization structure for your data. Keeping the data separate from the application allows you to make the data more mobile/usable and also sort it from a separate server. </p>
+
+<p>Another advantage to a database is security. By having a secure system that stores all of the information for a site, it allows you to limit queries at the point of contact while maintaining the functionality of the site. As an example, this can be seen in Facebook, which allows you to view only your data from a database but not other people&#39;s data. </p>
+
+<h2><a name="wordpress-and-mysql">WordPress and MySQL</a></h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">WordPress requires a MySQL database to store all blog information, including posts, comments, metadata, and other information.
+</code></pre></div>
+<p><a href="http://codex.wordpress.org/Glossary#MySQL">WordPress Codex - MySQL</a></p>
+
+<p>The concept of an application interacting with a database is mostly universal. WordPress&#39; integration with MySQL is no different. Using an index key, WordPress will query information from the database depending on the user&#39;s query (often through the URL - or route). </p>
+
+<p>In fact, we directly discussed how WordPress works with MySQL in the examples above.</p>
+
+<p>For a complete understanding of how WordPress integrates with MySQL go to the <a href="http://codex.wordpress.org/Database_Description">WordPress Codex - Database Description</a></p>
+
+<h3>MySQL</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">MySQL is a popular choice of database for use in web applications, and is a central component of the widely used LAMP open source web application software stack… MySQL is a relational database management system (RDBMS), and ships with no GUI tools to administer MySQL databases or manage data contained within the databases. 
+</code></pre></div>
+<p><a href="http://en.wikipedia.org/wiki/MySQL">Wikipedia - MySQL</a></p>
+
+<p>I have pulled a lot from this article here - in quotes below: <a href="http://www.thesitewizard.com/faqs/what-is-mysql-database.shtml">What is MySQL? What is a Database? What is SQL?</a> because it&#39;s really good and you should read it fully if you want a better understanding of the topic. </p>
+
+<p>As we have established, web sites and other software need to receive data. Most of these systems that need data use a database to store, hold, and alter the data.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;To make it easy for other programs to access data through them, many database software support **a computer language called &quot;SQL&quot;** (often pronounced as &quot;sequel&quot;). SQL was specially designed for such a purpose. Programs that want the database software to handle the low-level work of managing data simply use that language to send it instructions.&quot;
+
+&quot;There are many databases that support the use of SQL to access their data, among them is MySQL. In other words, MySQL is just the brand of one database software, one of many. These databases are very popular among programs that run on websites which is why you often see one or both of them being advertised in the feature lists of web hosts, as well as being listed as one of the &quot;system requirements&quot; for certain web software (like blogs and content management systems).&quot;
+</code></pre></div>
+<p>You won&#39;t need to learn the programming language SQL or really learn how to use MySQL if you are a front end developer (or even a backend developer in some cases). WordPress handles a lot of the work for MySQL handling internally and it is done without your worrying about it. </p>
+
+<p>You may work with MySQL through a GUI interface (such as Workbench) or through a command line interface. Depending on the server type you are using, the command line interface will differ slightly, though the functionality is much the same.</p>
+
+<p>Luckily for us we will have limited interaction with the MySQL databases for this course and there will be very little that you will ever have to do with it. </p>
+
+<p>Hopefully you understand how databases work and if you are ever tasked with a problem with them you will at least have a starting point. Additionally, understanding how the database sends information will help you understand how WordPress pulls it.</p>
+
+<h2><a name="introduction-to-metadata">Introduction to Metadata</a></h2>
+
+<p>Metadata is any data about data. For our purposes, we will primarily be using metadata for WordPress in the context of taxonomies.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">The main purpose of metadata is to facilitate in the discovery of relevant information, more often classified as resource discovery. Metadata also helps organize electronic resources, provide digital identification, and helps support archiving and preservation of the resource. Metadata assists in resource discovery by &quot;allowing resources to be found by relevant criteria, identifying resources, bringing similar resources together, distinguishing dissimilar resources, and giving location information.&quot;
+</code></pre></div>
+<p><a href="http://en.wikipedia.org/wiki/Metadata">Wikipedia - Metadata</a></p>
+
+<p>There are two types of metadata (for our purposes): </p>
+
+<ol>
+<li>Descriptive metadata, </li>
+<li>Structural metadata</li>
+</ol>
+
+<p><br />
+<strong>Descriptive metadata</strong> is any data that describes or identifies information sources. Describing an item is useful for archiving or for sorting. Taxonomies would fall under the descriptive metadata context.</p>
+
+<p><strong>Structural metadata</strong> facilitates navigation and presentation of electronic resources. Some structural metadata helps provide structure to the data. For example, if we were looking at an image tag, the width and height would be the structural metadata. Additionally, structural metadata could also include the primary key in a mysql database. </p>
+
+<p><em>How else could you use &quot;data about data&quot; in a web site?</em></p>
+
+<h2><a name="taxonomies">Taxonomies</a></h2>
+
+<p>A taxonomy is not when you make a dead animal into a sculpture, it is a fancy term for grouping things together. </p>
+
+<p>Taxonomy is the practice and science of classification. In a wider, more general sense, it may refer to a classification of things or concepts, as well as to the principles underlying such a classification. </p>
+
+<p>Our experience with WordPress already has led us to two different types of taxonomies: Tags and Categories. A post or a page can be tagged with either a tag or a category. Either a tag or category object can be added or deleted whenever you&#39;d like. You can also use multiple categories and tags for each post and page if you&#39;d like or none at all.</p>
+
+<p>These two ways of grouping content work differently in one way, hierarchy. A category allows for a hierarchical sorting while a tag is merely a short phrase to describe the post/page.</p>
+
+<p>The WordPress Codex has a great and more in-depth explanation of taxonomies: <a href="http://codex.wordpress.org/Taxonomies">WordPress Codex - Taxonomies</a></p>
+
+<h3>Tags</h3>
+
+<p>Often, a tag is used for sorting and for identifying data. They can be used in a tag cloud or in other tag based sorting mechanisms. Tags were initially very popular for SEO reasons and because tag clouds were a thing for a period of time (though now they look dumb). </p>
+
+<p>From the WordPress Codex: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Tags can be made up on the fly, by simply typing them in. They can be seen on the site in the &#39;/tag/name&#39; types of URLs. Posts tend to have numerous tags, and they are generally displayed near posts or in the form of tag clouds.
+</code></pre></div>
+<h3>Categories</h3>
+
+<p>Often, a category is used to to sort information into an appropriate area. This can be used for site navigation or just general sorting. In WordPress categories also can be used to modify your URL structure if you set it up that way in the settings. These categories can then be seen on the site by using &#39;/category/name&#39; types of URLs. Categories tend to be pre-defined and broad ranging.</p>
+
+<p>Things get slightly more complicated and a lot more powerful with the addition of custom taxonomies…</p>
+
+<h3>Tutorial: Custom Taxonomies</h3>
+
+<p>We are going to use the example as outlined in the <a href="https://codex.wordpress.org/Taxonomies#Custom_Taxonomies">WordPress Codex - Custom Taxonomies</a>.</p>
+
+<p>For a second opinion, feel free to use this tutorial: <a href="http://code.tutsplus.com/tutorials/introducing-wordpress-3-custom-taxonomies--net-11658">Tuts+ - Custom Taxonomies</a></p>
+
+<p>For a third opinion, feel free to use this tutorial: <a href="http://wp.smashingmagazine.com/2012/01/04/create-custom-taxonomies-wordpress/">Smashing Magazine - Create Custom Tutorials</a></p>
+
+<p>Our project goal will be to create a taxonomy of different web development techniques that can be used alongside our existing categories.</p>
+
+<h4>Step 1: Add a Function to your Functions.php File</h4>
+
+<p>The first step in adding a new taxonomy is register the taxonomy with WordPress through your Functions file - which we know modifies the way WordPress works from a theme level. Feel free to add this code to the bottom or top, but not between any other open functions.</p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function custom_taxonomy_wie_init() {</span>
+<span class="x">}</span>
+<span class="x">add_action( &#39;init&#39;, &#39;custom_taxonomy_wie_init&#39; );</span>
+</code></pre></div>
+<p>This should look a LOT like the Widget registration process, and that&#39;s a good thing. </p>
+
+<h4>Step 2: Add Information About the Taxonomy</h4>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function custom_taxonomy_wie_init() {</span>
+<span class="x">    // create a new taxonomy</span>
+<span class="x">    register_taxonomy(</span>
+<span class="x">        &#39;webdevelopment&#39;,</span>
+<span class="x">        &#39;post&#39;,</span>
+<span class="x">        array(</span>
+<span class="x">            &#39;hierarchical&#39; =&gt; true,</span>
+<span class="x">                &#39;label&#39; =&gt; &#39;Web Development Types&#39;,</span>
+<span class="x">&#39;query_var&#39; =&gt; true</span>
+<span class="x">        )</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+<span class="x">add_action( &#39;init&#39;, &#39;custom_taxonomy_wie_init&#39; );</span>
+</code></pre></div>
+<p>The array of options has three different parameters:</p>
+
+<p>hierarchical (which asks whether the custom taxonomy will have the characteristics of embedded levels like a category)
+label (which is simple the label of the taxonomy that will be displayed)
+query_var (allows us to search and sort based on this custom taxonomy)</p>
+
+<h4>Step 3: Add Some Values to Your Taxonomy</h4>
+
+<p>From WordPress Codex: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Once you&#39;ve added a taxonomy, you&#39;ll find that WordPress creates a new meta box on posts for you. This new meta box looks almost exactly like the Tags box and will let you add tags to those posts.
+</code></pre></div>
+<p>To fully appreciate the custom taxonomy you should go into your Dashboard and add some values. If you are feeling uncreative, add &quot;JavaScript,&quot; &quot;CSS,&quot; and &quot;HTML.&quot;</p>
+
+<h4>Step 4: Implementing Some Use of the Custom Taxonomy</h4>
+
+<p>I must admit the Codex suggests some rather complicated methods for using the custom taxonomy (many of which are inane). We are going to use it to implement a list of our new custom taxonomy in our Sidebar.php file - so that if we include the sidebar file, we will know it will display the list of our custom taxonomy. </p>
+
+<p>We are going to use the WordPress function get_terms. More information can be found here: <a href="https://codex.wordpress.org/Function_Reference/get_terms">WordPress Codex - get_terms</a></p>
+
+<p>Here is what our sidebar currently looks like:</p>
+
+<p class="file-name">sidebar.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;first-widget&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Let&#39;s keep the widget, but add some functionality to display our custom taxonomy.</p>
+
+<p class="file-name">sidebar.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;first-widget&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;ul&gt;</span>
+<span class="cp">&lt;?php</span> 
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;orderby&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;hierarchical&#39;</span>      <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> 
+  <span class="p">);</span> 
+
+<span class="nv">$terms</span> <span class="o">=</span> <span class="nx">get_terms</span><span class="p">(</span><span class="s1">&#39;webdevelopment&#39;</span><span class="p">,</span> <span class="nv">$args</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span> <span class="nv">$terms</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nx">is_wp_error</span><span class="p">(</span> <span class="nv">$terms</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span> <span class="nv">$terms</span> <span class="p">);</span>
+    <span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nv">$term_list</span> <span class="o">=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$terms</span> <span class="k">as</span> <span class="nv">$term</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
+        <span class="nv">$term_list</span> <span class="o">.=</span> <span class="s1">&#39;&lt;a href=&quot;&#39;</span> <span class="o">.</span> <span class="nx">get_term_link</span><span class="p">(</span> <span class="nv">$term</span> <span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&quot; title=&quot;&#39;</span> <span class="o">.</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;View all post filed under %s&#39;</span><span class="p">,</span> <span class="s1">&#39;my_localization_domain&#39;</span> <span class="p">),</span> <span class="nv">$term</span><span class="o">-&gt;</span><span class="na">name</span> <span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&quot;&gt;&#39;</span> <span class="o">.</span> <span class="nv">$term</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s1">&#39;&lt;/a&gt;&#39;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nv">$count</span> <span class="o">!=</span> <span class="nv">$i</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$term_list</span> <span class="o">.=</span> <span class="s1">&#39; &amp;middot; &#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$term_list</span> <span class="o">.=</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="nv">$term_list</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</code></pre></div>
+<p>Wow! That sure is a lot to take in. However, I urge you to go through the code and consider what each step does. It could be interesting. Just copying and pasting the code will not really make you a stronger programmer, but understanding what is happening will. </p>
+
+<h4>Step 5: Save and Upload</h4>
+
+<p>If you added some values to your posts regarding your custom taxonomy, it should show up anywhere your sidebar is loaded in. </p>
+
+<p>Knowing how to do this is useful, but it also can allow you to solve a large number of problems that may not seem apparent right now. Data management is a problem you will only appreciate when it actually is a problem in front of you. </p>
+
+<p><em>Can you think of a way to make use of custom taxonomies outside of sorting?</em></p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

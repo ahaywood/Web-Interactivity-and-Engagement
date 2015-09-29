@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 7&#58; Advanced Theme Development &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 7&#58; Advanced Theme Development</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#css-and-template-development">CSS and Template Development</a>
+
+<ul>
+<li>Tutorial: Adding the Basic CSS for a Template</li>
+</ul></li>
+<li><a href="#javascript-and-adding-functionality">JavaScript and Adding Functionality</a>
+
+<ul>
+<li>The wp-includes folder</li>
+</ul></li>
+<li><a href="">WordPress Dynamic File Loading</a>
+
+<ul>
+<li>Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress</li>
+<li>Tutorial: Adding a jQuery Slider to WordPress</li>
+</ul></li>
+</ul>
+
+<h2><a name="css-and-template-development">CSS and Template Development</a></h2>
+
+<p>In an ideal world you will have a complete team of individuals who do nothing but design and create a style guide and you will have a team that only does front end work (HTML, CSS, JavaScript) to realize the dreams of those designers and to properly implement the style guide. However, sometimes we will have to taken on several roles at the same time and be both the designer and the front end dev. This is okay though because having an understanding of both roles allows you to be better at each individually. Knowing the front end workflows and results/expectations (regardless of your role) is an important part of being a competent web professional. </p>
+
+<p>CSS is (as we know) the language that makes things pretty. It is a very powerful language that controls much of what we see and do on a webpage. CSS is the primary tool that is used to bring a designer’s vision to life. So how is this relevant to template development?</p>
+
+<p>Well, CSS is merely a series of rules that the browser follows to display content. And a template is merely a series of rules that the browser (or server) follows to display content. CSS is only one part of a template, but is an integral part of how a template works. Making sure you are using CSS correctly can improve performance, organization, and portability. If you use CSS poorly, you will have bloat, bugs, and ugliness. </p>
+
+<p>This is worth pointing out because in templating, having highly specific CSS rules is counter-intuitive to the entire philosophy. It also can produce inconsistencies in the site and thus cause confusion (probably not, but it will at least look funky which can throw a user off). </p>
+
+<h3>Frameworks</h3>
+
+<p>One way we deal with the uniformity and efficiency issue with CSS is through frameworks. In this book we have already used the Skeleton framework which is a relatively small grid and style system to build off of. There are many other frameworks which are significantly more or less bloated. Frameworks like <a href="http://getbootstrap.com/">Bootstrap</a> tend to be a lot larger in file size but provide signficant additional services for their users. Skeleton is definitely on the slimmer side of frameworks but you should know that there are many parts of Skeleton that we will never use. </p>
+
+<p>Loading unused CSS rules is basically the worst part of CSS frameworks. When you have a larger framework like Bootstrap you are certainly sacrificing some site speed in lieu of development time (less time writing code but more time loading pages). The opposite is true for smaller frameworks.</p>
+
+<p>You have a few options with dealing with this problem:</p>
+
+<p>Accept the bloat and move on (and also accept the judgment of other web developers for having too much bloat)
+Don’t use a framework (obviously)
+Edit an existing framework to only contain the rules you need (could be a lot of work which would negate the whole reason you used a framework to begin with)
+Find the best framework that fits your needs as closely as possible and accept whatever judgment that may come</p>
+
+<p>Having knowledge about the range of frameworks available to you will help you make the best decision here. Also, it may be good to make your own framework at some point so that you can quickly spin up a site on the fly with only the rules you need for your project. </p>
+
+<h3>Minifying and CSS Preprocessing</h3>
+
+<p>Two common methods of dealing with bloat from CSS (and frameworks too) is using a CSS preprocessing language and also using a technique called minifying. </p>
+
+<h4>Minifying</h4>
+
+<p>You are probably well aware of the concept of minifying. Minifying is the process of taking development code and making it production ready by removing unnecessary spaces in the code. This is often done through a minifying command line tool or some other application. Many modern CMSs and application frameworks even have a minifying agent built in. Minifying is also not limited to CSS but also applies to any front end file that is loaded into a browser.</p>
+
+<p>For more information feel free to <a href="http://en.wikipedia.org/wiki/Minification_%28programming%29">read this article about minification</a>. </p>
+
+<p>One important note about minifying is that it should only be done when a file is ready to go into production. If you are presumptuous about minifying, it can lead to difficult in editing and modifying development level code. Making minifying part of your work flow is an important step though.</p>
+
+<h4>CSS Preprocessors (LESS/SASS)</h4>
+
+<p>CSS is a great language that is easy to use. However, it can become bulky and hard to manage on larger projects. Additionally, it is not the easiest to compartmentalize and there are some things aspects of other programming languages that could be implemented into CSS to make it easier to program.</p>
+
+<p>This is where a CSS preprocessor comes into play. In many ways, using LESS or SASS (both popular CSS preprocessors) is an industry standard. I will not teach these in this course, but I urge you to become familiar with at least one of them and believe that they are valuable and useful tools. </p>
+
+<p><a href="http://sass-lang.com/">SASS</a>:</p>
+
+<p>Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly, particularly with the help of the Compass style library.
+from <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">SASS Documentation</a></p>
+
+<p><a href="http://lesscss.org/">LESS</a>:</p>
+
+<p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themable and extendable.</p>
+
+<p>As you can see they basically do the exact same thing but have slightly different syntax. </p>
+
+<p>Being slightly familiar with both but focusing on using on is generally the standard for most web developers. Being comfortable with a CSS preprocessor can greatly speed up your development time and make you more marketable as a developer or project manager. </p>
+
+<h3>Tutorial: Adding the Basic CSS for a Template</h3>
+
+<p>After the interesting discussion about minifying and preprocessing, we are going to return to something more rudimentary - basic CSS for a template. Every template will need CSS so long as it is web based. Furthermore, as we discussed above, having standard and well thought out universal rules will make the template more effective, efficient, and speed up development time. </p>
+
+<p>This will involve the following:</p>
+
+<p>Pre-planning colors, spacing, and text
+Default text treatment
+Default headers treatment
+Some Utility classes
+Other Common Elements and Classes</p>
+
+<p>As a note, much of this would become incredibly easy with the correct usage of a CSS preprocessor and I urge you, as an exercise, to attempt to learn one of the above preprocessors while you work through this tutorial.</p>
+
+<h4>Step 1: Pre-planning Colors, Spacing, and Text</h4>
+
+<p>We should already have an idea of what our site will look like and what our goals will be. Making sure we have a clear UI flow and visual direction at this point is key. Some important information to gather at this point includes:</p>
+
+<p>Colors
+Fonts
+Potential functional requirements that rely on CSS (jQuery style elements, layout issues, content handling like images, etc.)</p>
+
+<p><em>So first off, what are the colors you are using?</em></p>
+
+<p><em>Have you chosen a font?</em> (Note: Use the Chapter 8 Tutorial: Custom Fonts to integrate custom font into your site)</p>
+
+<p><em>Can you make a short list of elements that will need styling?</em></p>
+
+<p>Image thumbnails?
+Quotes?
+Metadata handling?</p>
+
+<h4>Step 2: Default Text Treatment</h4>
+
+<p>There are a few primary text elements we will use going forward. The paragraph is a common one. Also just having text handled for other uses as a base will prove beneficial going forward. </p>
+
+<p>Let’s add some CSS for our text.</p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">*</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="k">font-weight</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="k">font-family</span><span class="o">:</span> <span class="n">XXX</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nt">p</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The asterisk selector means the rules in there will apply to the entire site. Since CSS uses a top-down hierarchy for rules, using the asterisk as a means for communicating default rules can be handy. But remember that you will not want redundant CSS in your site, so be careful about how much you put in there and how you are using this selector. </p>
+
+<p>I also want to point out that our Skeleton framework does a LOT of what we are doing here so be careful that we aren’t being unnecessary duplicitous (which we are - but I am showing you this as an example). </p>
+
+<h4>Step 3: Default Headers Treatment</h4>
+
+<p>The h1 - h6 elements are extraordinarily useful from a SEO and UI perspective. However, controlling their emphasis and usage is a big part of a template. When using your headers elements you can control how pages display and present information in a hierarchical fashion. </p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+<span class="k">font-weight</span><span class="o">:</span> <span class="m">600</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">3</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">8</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Because we used the asterisk selector to set a default font size, all of the ‘rem’s are relative to that size. Instead of setting a default size to these in pixels, we can use ‘rem’ to create a formulaic approach. This is useful for responsive design because we can change just the pixel size of a font at the top level of a CSS rule and all of the other text will adjust accordingly. </p>
+
+<h4>Step 4: Utility Classes</h4>
+
+<p>The concept of a utility class is that you will need to use classes in certain situations that are more based on layout and functionality more than visual standards. I am going to include two here, though there probably are plenty of other ones you may use in your coding process. The two I use are good for responsive design, common usage, and javascript integration and functionality.</p>
+
+<p>The first is a clear: both class which allows you to easily apply the clear both property to a layout without inlining styling or mucking up other CSS rules. </p>
+
+<p>The second is a hide class. The traditional display:none css rule is not actually the best way to hide something and has implications from an accessibility standpoint. We are going to use <a href="https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/">this csstricks.com solution for an alternative to display:none.</a></p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.clear</span> <span class="p">{</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.hide</span> <span class="p">{</span>
+<span class="k">position</span><span class="o">:</span> <span class="k">absolute</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="k">top</span><span class="o">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="k">left</span><span class="o">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4>Step 5: Other Common Elements and Classes</h4>
+
+<p>So without having a specific design, what else could there be? Well the answer is not much at all. And additionally, there isn’t much we would need outside of some layout functionality adjustments either. When using a framework you have a lot of your styling and layout done for you. I am going to add a couple of small things here, but remember that you will want to make sure you are using as little CSS as possible in your site. </p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.thumbnail-image</span> <span class="p">{</span>
+<span class="k">margin</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.featured-text</span> <span class="p">{</span>
+<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="k">font-weight</span><span class="o">:</span> <span class="m">600</span><span class="p">;</span>
+<span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>What other css styles would you put in here that I may have forgot?</em></p>
+
+<h2><a name="javascript-and-adding-functionality">JavaScript and Adding Functionality</a></h2>
+
+<p>As we discussed in a previous chapter, JavaScript is the “fun” language when it comes to web development. Of course this is a vast over simplification of the abilities of JavaScript. WordPress uses JavaScript for a bunch of different functions and using it to do what it is best at is one of the easiest ways to build on top of the WordPress framework. </p>
+
+<p>However, there are numerous considerations when you are working with a CMS and JavaScript. First off, you will want to consider the size of JavaScript files and how they could slow down your site. Second, you will want to make sure you are not adding potential errors or security issues to your site by adding additional JavaScript functionality. Third, you will have to make sure that there is not a conflict across the multiple JavaScript components that are scattered throughout the CMSs build. </p>
+
+<p><em>Can you think of another issue with adding JavaScript?</em></p>
+
+<h3>The wp-includes Folder</h3>
+
+<p>With WordPress there are additional, specific, concerns. Remember the wp-includes folder we discussed in earlier chapters? Well, we don’t want to mess with the contents of it, but let’s discuss how we can use it to our advantage (or how we might want to ignore its contents to our advantage. The wp-includes folder contains many files that WordPress uses (or may use) to perform specific behavior. Several of the files in this folder are JavaScript files (since JavaScript helps with how content behaves and displays). Some of the important components stored in this folder include jQuery, tinyMCE (a plugin for text editing in browser), and JSON support. There are also dozens of other JavaScript files which all do different and important things. </p>
+
+<h3>WordPress Dynamic File Loading</h3>
+
+<h4>Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress</h4>
+
+<p>WordPress uses a dynamic approach to linking to JavaScript files. Instead of linking to a js file in the header so that it loads on every page regardless of whether the code is being used, WordPress considers the context with which a JavaScript function is loaded to determine whether the dependent files need to be loaded. </p>
+
+<p>As a side note, we are going to link to JavaScript files that we are going to use in the next tutorial. </p>
+
+<p>The entirety of this tutorial is to load JavaScript files from our Functions.php file using a custom WordPress function. </p>
+
+<p>We will use <a href="https://codex.wordpress.org/Function_Reference/wp_enqueue_script">wp<em>enqueue</em>script</a> and <a href="https://codex.wordpress.org/Function_Reference/wp_enqueue_style">wp<em>enqueue</em>style</a> in this tutorial. </p>
+
+<p>First, let’s download the dependent js files we will need for the next tutorial. For our slider we will use <a href="http://bxslider.com/">bxslider, which is a responsive jQuery plugin</a>. We could use pretty much any JavaScript library for this tutorial and the code would be the same with the exception of the file name. </p>
+
+<p>I don’t advocate for or against bxSlider, but the syntax is simple enough that I believe a novice programmer can implement this product. </p>
+
+<h5>Step 1: Download Dependent Files</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Download the dependent bxSlider files (bxSlider.js and bxSlider.css)
+</code></pre></div>
+<h5>Step 2: Move the Dependent Files into the Correct Folder</h5>
+
+<p>We already have a folder for our CSS, but we want to make sure we stay organized as much as possible in our theme so we should do the same thing for our JavaScript files. We are going to create a js folder where we will store any of our JavaScript files in the future. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Create a ‘js’ folder in your theme’s directory
+
+
+Copy bxslider.js into the ‘js’ sub-folder
+
+
+Copy bxslider.css into the ‘css’ sub-folder
+</code></pre></div>
+<h5>Step 3: Enqueue the Files Using WordPress Functions</h5>
+
+<p>Now that we have the files in our theme folder, we should enqueue them properly. When I say “properly,” I mean in the manner that WordPress prefers. There is ultimately no difference from a performance standpoint when you link to the files in the header. However, WordPress has a built in mechanism for handling dependent files via the functions.php file. The purpose of doing it this way is to ensure that there are no duplicative files loading, such as multiple jQuery files - which is known to happen when adding plugins or different functionality. Additionally, WordPress handles the order of loading the enqueued files for you so that you don’t have to worry about a dependent file being loaded in the wrong place. Of course this is never perfect and will have to be monitored through production.</p>
+
+<p>Let’s go into our functions.php file and add the enqueuing. First we will do our CSS files. </p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue CSS Files-------------- */</span>
+
+<span class="x">function bxslider_css() {</span>
+<span class="x">    wp_enqueue_style(</span>
+<span class="x">        &#39;bxslider-css&#39;,</span>
+<span class="x">        get_template_directory_uri() . &#39;/css/bxslider.css&#39;</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, &#39;bxslider_css&#39;);</span>
+</code></pre></div>
+<p>Notice how much like our other functions.php code this is? Let’s add our javascript files now. <a href="https://codex.wordpress.org/Function_Reference/wp_enqueue_script">wp<em>enqueue</em>scripts</a></p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue js Files-------------- */</span>
+<span class="x">function bxslider_js() {</span>
+<span class="x">    wp_enqueue_script(</span>
+<span class="x">        &#39;bxslider-js&#39;,</span>
+<span class="x">        get_stylesheet_directory_uri() . &#39;/js/bxslider.js&#39;,</span>
+<span class="x">        array( &#39;jquery&#39; )</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+
+<span class="x">add_action( &#39;wp_enqueue_scripts&#39;, &#39;bxslider_js&#39; );</span>
+</code></pre></div>
+<p>One major thing to note here is that we are adding an array at the end with ‘jquery’ in it. This is because we want to use jQuery as a dependency for our bxslider plugin. This is WordPress’ way of handling this simply. </p>
+
+<h5>Step 4: Save and Upload</h5>
+
+<p>Make sure to save and upload both the functions.php file AND the bxslider files and folders you added. </p>
+
+<p>After you save and upload, make sure you check to see if the files are loading correctly via the “Network” tab in Chrome’s developer tools. </p>
+
+<h5>Step 5: Add the Rest of Our Dependent CSS Files to the Enqueue</h5>
+
+<p>We are already loading the skeleton and normalize css files to our site in the head, but let’s remove them from there and enqueue them in the same way we enqueued the bxSlider css files. </p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue CSS Files-------------- */</span>
+
+<span class="x">function bxslider_css() {</span>
+<span class="x">    wp_enqueue_style(</span>
+<span class="x">        &#39;bxslider-css&#39;,</span>
+<span class="x">        get_template_directory_uri() . &#39;/css/bxslider.css&#39;</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, &#39;bxslider_css&#39;);</span>
+
+<span class="x">function normalize_css() {</span>
+<span class="x">    wp_enqueue_style(</span>
+<span class="x">        &#39;normalize-css&#39;,</span>
+<span class="x">        get_template_directory_uri() . &#39;/css/normalize.css&#39;</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, normalize_css);</span>
+
+<span class="x">function skeleton_css() {</span>
+<span class="x">    wp_enqueue_style(</span>
+<span class="x">        &#39;skeleton-css&#39;,</span>
+<span class="x">        get_template_directory_uri() . &#39;/css/skeleton.css&#39;</span>
+<span class="x">    );</span>
+<span class="x">}</span>
+<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, skeleton_css);</span>
+</code></pre></div>
+<h5>Step 6: Save and Upload</h5>
+
+<p>Make sure nothing broke and that the files load correctly.</p>
+
+<h3>Tutorial: Adding a jQuery Slider to WordPress</h3>
+
+<h2>PHP and Adding Functionality</h2>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

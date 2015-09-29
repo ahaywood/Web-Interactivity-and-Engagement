@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Chapter 2&#58; The Dynamic Web &middot; CMSs and WordPress
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/poole.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/syntax.css">
+  <link rel="stylesheet" href="/Web-Interactivity-and-Engagement/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Web-Interactivity-and-Engagement/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/Web-Interactivity-and-Engagement/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+ <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item"><p>Collaborative lessons and materials for Web Interactivity and Enagement course.</p></div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/">Appendix</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-1/">Chapter 1&#58; Introduction to WordPress and CMSs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-2/">Chapter 2&#58; The Dynamic Web</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-3/">Chapter 3&#58; Templating & Layouts</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-4/">Chapter 4&#58; Making a CMS Work for You</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-5/">Chapter 5&#58; Content and the Content Manager</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-6/">Chapter 6&#58; Storing and Using Content</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-7/">Chapter 7&#58; Advanced Theme Development</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//appendix/links-resources/">Links & Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-10/">Project Walkthroughs and Tutorials</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v0.5.2</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://jayres.github.io/Web-Interactivity-and-Engagement/" title="Home">CMSs and WordPress</a>
+            <small>Lessons and Materials for WIE Course</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Chapter 2&#58; The Dynamic Web</h1>
+  <h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#php-wordpress">PHP and WordPress</a></li>
+<li><a href="#wordpress-loop">WordPress Loop</a></li>
+<li><a href="#component-web">The Component Based Web</a>
+
+<ul>
+<li>Upside of Components</li>
+<li>Downside of Components</li>
+<li>CMSs and Components</li>
+</ul></li>
+<li><a href="#elements">Elements of a Web Site</a>
+
+<ul>
+<li>Environment</li>
+<li>Story</li>
+<li>Aesthetics</li>
+<li>Performance</li>
+<li>Usability </li>
+</ul></li>
+</ul>
+
+<h2><a name="php-wordpress">PHP and WordPress</a></h2>
+
+<p>In the last chapter we discussed how all of the web languages work together. So where does WordPress fit into this scheme?</p>
+
+<p>WordPress is a PHP based content management system that generates content dynamically from a database. WordPress is (essentially) the name of a series of components and functions that perform tasks. The components that perform these tasks are written in PHP. </p>
+
+<p>Some of these tasks include:</p>
+
+<ul>
+<li><p>Writing content to the MySQL Database (where the information of the posts, pages, user info, etc.) is stored.</p></li>
+<li><p>Fetching the content sorted in the MySQL database</p></li>
+<li><p>Displaying the content that was fetched</p></li>
+<li><p>Performing manipulation to the data that is displayed</p></li>
+<li><p>Deleting or rewriting content in the MySQL database</p></li>
+<li><p>Managing User roles and responsibilities</p></li>
+</ul>
+
+<p>PHP is a server side language that provides directions to a PHP parser on the server to perform these tasks. As you work through the PHP lessons, the scope of how this works should become more apparrant. </p>
+
+<p>PHP is merely the language that WordPress uses to provide directions to the server&#39;s PHP parser to perform the tasks. This is why you will see a lot of custom WordPress syntax for simplifying these tasks from a developer&#39;s standpoint. Not having to think about many of the small details of website programming is key to CMSs and CMS design. </p>
+
+<p>The goal of WordPress is to make the performance of these tasks simple and seamless for the user and the content manager. As we work through the tutorials and projects, the scope of these functions will become more transparent and seem a bit less like magic.</p>
+
+<p>A good example of a WordPress component is the WordPress Loop. </p>
+
+<h2><a name="wordpress-loop">WordPress Loop</a></h2>
+
+<p>The &quot;Loop&quot; is the mechanism that WordPress uses to display content from the MySQL database repeatedly. </p>
+
+<p>From the <a href="https://codex.wordpress.org/The_Loop">WordPress Codex - The Loop</a>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">The Loop is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
+</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">the_post</span><span class="p">();</span> 
+    <span class="p">}</span> <span class="c1">// end while</span>
+<span class="p">}</span> <span class="c1">// end if</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Let&#39;s walkthrough the Loop breaking down each step.</p>
+
+<p>WordPress creates a conditional statement to ask if there are any posts to display:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    if ( have_posts() ) {</span>
+</code></pre></div>
+<p>Next, inside of that conditional statement, WordPress directs that as long as there are posts to display, display the post:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">while ( have_posts() ) {</span>
+<span class="x">    the_post(); </span>
+</code></pre></div>
+<p class="message">Conditional statements are covered in greater detail in the PHP lessons, but if you have not made it that far through those lessons, know that a conditional statement performs a check to see if "something" is true of false and then performs an action depending on the truthiness of that "something."</p>
+
+<p>Then you end the &quot;while&quot; conditional statement and then end the &quot;if&quot; conditional statement by closing the tags containing the PHP code.</p>
+
+<p>This simple PHP code contains a lot of power. WordPress is using its custom syntax and PHP to generate the content from all posts that are stored in your MySQL database. There is a lot that the WordPress software environment does to make sure this happens, but from a developer standpoint it is not necessary for you to specify all of the little details. </p>
+
+<p>Making sure that the code is wrapped in &quot;&lt;?php&quot; and &quot;?&gt;&quot; tags lets the server know that it should process this code as PHP and not just to send it as HTML. </p>
+
+<p>Additionally, there are a lot of parameters you can use (both in your code and in the WordPress admin) to manipulate how the simple Loop works. We will get into those things later.</p>
+
+<p>The concept of a &quot;loop&quot; is common to both CMSs and programming generally. The ability to repeat a task is paramount to a dynamic resource.</p>
+
+<h2><a name="component-web">The Component Based Web</a></h2>
+
+<p>As we&#39;ve said above, WordPress is a series of &quot;components&quot; that perform tasks. All of these little components of code make up the whole of the WordPress CMS. As a whole, WordPress is in itself a component of your WordPress website. You may add a jQuery slider, a contact form, or a CSS animation library to your WordPress site to perform other tasks that WordPress does not have built in. All of these individual parts will end up becoming the whole of your web site when it is ready to be published. </p>
+
+<p>As a philosophy, separating the individual functions of a resource is often referred to a &quot;component based&quot; approach. </p>
+
+<p>From Wikipedia - <a href="http://en.wikipedia.org/wiki/Component-based_software_engineering">Component-based Software Engineering:</a>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Component-based Software Engineering... emphasizes the separation of concerns in respect of the wide-ranging functionality available throughout a given software system. It is a reuse-based approach to defining, implementing and composing loosely coupled independent components into systems. This practice aims to bring about an equally wide-ranging degree of benefits in both the short-term and the long-term for the software itself and for organizations that sponsor such software.
+</code></pre></div>
+<p>There are many projects that are embracing the Component Based philosophy from the ground up. For example, <a href="https://www.polymer-project.org/">Polymer: https://www.polymer-project.org/</a></p>
+
+<p>The Polymer website says:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;Web Components usher in a new era of web development based on encapsulated and interoperable custom elements that extend HTML itself. Built atop these new standards, Polymer makes it easier and faster to create anything from a button to a complete application across desktop, mobile, and beyond.&quot;
+</code></pre></div>
+<p>Though this concept is not novel, applying this philosophy from the start of a project can help you manage your project easier.</p>
+
+<h3>Upside of Components</h3>
+
+<p>The upside to using components is huge. You can quickly add large amounts of functionality to a resource quickly with little to no programming work by adding a good component. </p>
+
+<p>We often take for granted the use of components, but imagine programming a DOM manipulating plugin (slider, UI, etc.) to a web site without using the powerful jQuery library. Each step of the creation of that plugin would have to be done manually from scratch. With the use of a component, we can painlessly make a site from being static to dynamic. </p>
+
+<h3>Downside of Components</h3>
+
+<p>Having a lot of different components working together can make for a confusing and complicated web of functionality. Without proper documentation and software management, component based development could create bugs and issues that may be hard to find.</p>
+
+<h3>CMSs and Components</h3>
+
+<p>WordPress makes the concept of components transparently obvious. You can quickly add a plugin, activate that plugin, and then use the additional functionality that comes from that plugin. </p>
+
+<p>Nearly all CMSs have a plugin library or API which allow for the addition of components in a relatively painless manner. </p>
+
+<p>Outside of plugins though, the addition of components can add extensibility to a CMS even where that CMS did not originally intend.</p>
+
+<p><em>How do you think a CMS could adopt functionality through an external component?</em></p>
+
+<h2><a name="elements">Elements of a Website</a></h2>
+
+<p>The design of every web page has many dimensions. We make both conscious and subconscious decisions about sites when designing, coding, and making technical decisions. It&#39;s easy to get caught in the mire of technical details and weighing how important a feature of a site can be. For that reason, I will discuss the details that go into a website in the context of five elements:</p>
+
+<ul>
+<li>Environment</li>
+<li>Story</li>
+<li>Aesthetics</li>
+<li>Performance</li>
+<li>Usability</li>
+</ul>
+
+<p>We will discuss these 5 elements and how each of them is equally important – especially when we are creating scalable systems that a wide variety of users will rely on.</p>
+
+<h3>1. Environment</h3>
+
+<p>Environment is essentially a grouping of concepts/items/situations related to the user at the time of accessing a resource. </p>
+
+<p>This may include the user&#39;s location, weather in their area, device they are accessing the site/resources on, noise in the area, connection speed, and loads of other situational considerations.  </p>
+
+<p>It is useful to take into account as many environmental factors as possible when you are creating a resource so that you can control potential negative influences surrounding your user&#39;s experience but also to take advantage of the user&#39;s environment to make functional enhancements.</p>
+
+<h4>i. Physical factors:</h4>
+
+<p>Serving a resource to a user will inevitably be hindered or enhanced by <strong>physical factors</strong> on the users end. This does not apply to just web resources, but every experience that a user will be a part of (in life and in design). Some factors could include weather, temperature, physical objects, location, time, or other users. </p>
+
+<p>An example of environmentally influenced situation would be a cell phone user that is trapped at a coffee shop by a rain storm. The physical factors in this example would be 1) a mobile device, 2) inclimate weather, 3) a cafe (location), and 4) possibly the fact that the user is crowded by other users who are experiencing the same thing. </p>
+
+<p><em>How could you use these factors to enhance a user&#39;s experience?</em></p>
+
+<h4>ii. Mental factors:</h4>
+
+<p><strong>Mental factors</strong> will be anything that the user is experiencing internally, generally controllable as a result to stimulus. This could mean stress, happiness, tiredness, or anger. </p>
+
+<p>An example would be a frustrated bank customer calling their bank to get an issue resolved. </p>
+
+<p><em>What benefits would you see in acknowledging and adjusting to these factors?</em></p>
+
+<h4>iii. Resource generated factors:</h4>
+
+<p><strong>Resource generated factors</strong> that you intentionally create (and are effective) can be one of the most positive and tangible experience enhancements for the user. A resource factor that you unintentionally create runs the risk of decreasing positive experiences for the user. Some resource generated factors could be connection speed, device speed, and user interface generally. </p>
+
+<p>An example of resource generated factors being applied could be a user opening a native application on their smart phone. </p>
+
+<p><em>What are some techniques to use these resource generated factors knowing that some of your users won&#39;t be on the newest devices in the best connection areas?</em></p>
+
+<p>Read <a href="http://alistapart.com/article/environmental-design-with-the-device-api">&quot;Environmental Design with the Device API,&quot;</a> an A List Apart article about using factors in the design of your resource. </p>
+
+<p class="message">API is short for application programming interface (API) and specifies how software components interact with each other. Essentially, it is a phrase that is used to describe anytime two programs interact with one another. For instance, the Twitter API is used for integrating Twitter into other software.</p>
+
+<h3>2. Story</h3>
+
+<p><strong>Story</strong> encompasses the content and the display of the resource as a method of communicating a message. </p>
+
+<p>Content includes text, photos, videos, and other informative items - but it also includes the method of delivery and stylistic decisions (note the overlay with other elements). It is easy to see the practical importance of effective storytelling in news, PR releases, and fiction/non-fiction. </p>
+
+<p>But storytelling is not limited to the sharing of knowledge, it can also be about the guided experience of a user. Having a narrative through design can help enhance the usability and enjoyment of the user and also allows you to communicate effectively. </p>
+
+<p class="message">Do not think of story as being limited by just the words and pictures on a site. The location of elements and stylistic decisions also weigh heavily on a user. Branding and other warm fuzzy feelings might also play a role in storytelling.</p>
+
+<p><em>Can you think of another useful perk of storytelling other than those I&#39;ve listed?</em></p>
+
+<h3>3. Aesthetics</h3>
+
+<p>Design is not always about beauty and beauty is not always about design. </p>
+
+<p><strong>Aesthetics</strong> (at least for the purposes of this lesson) is about having a site that is enjoyable to be in. </p>
+
+<p><a href="http://en.wikipedia.org/wiki/Aesthetics">From Wikipedia - Aesthetics</a></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(Aesthetics) is more scientifically defined as the study of sensory or sensori-emotional values, sometimes called judgments of sentiment and taste.
+</code></pre></div>
+<p>Think about color, shape, composition, organization, and space (especially space) whenever you are designing. And after you think about those elements, think about how they may be distracting or enhancing the ultimate goal of your resource.</p>
+
+<p>The philosophy of aesthetics makes the judgment of quality an extremely subjective matter. This is a good thing from an artistic standpoint, but makes designing an enjoyable website for a large group of users much more difficult, especially when designing for large to medium scale systems. </p>
+
+<p>For this reason, knowing the user or potential user is important for designing the overall aesthetics of the resource. Both the designer&#39;s personal &quot;aesthetic preference&quot; and the user base&#39;s &quot;aesthetic preference&quot; always will need to be balanced, but being conscious of both of these preferences will ease any potential disruption due to this element.</p>
+
+<p class="message">As an aside, I find that most people who come into this course either put themselves in the visual designer category or the code junkie category. When going through these lessons, consider which of the two you are stronger in and focus on the other. The code in this course is rather simple - so invest your efforts in expanding your design skills, but if you are a visual designer primarily, focus your efforts on understanding the coding concepts.</p>
+
+<p><em>What are some common design trends, popular frameworks, or design ideologies that are prevalent now? Why do you think they are so popular?</em></p>
+
+<h3>4. Performance</h3>
+
+<p><strong>Performance</strong> is the speed with which your information is obtained by the user, but also how efficiently the user is able to navigate to the information they seek. Performance can apply to a broad range of topics such as bandwidth, file size, number of queries, usability, amongst other things. </p>
+
+<p>Performance is the easiest element to measure and has the most tangible benefits (tangible meaning money) for a resource. A lot of time and money can (and should) be dumped into improving performance of a resource. Nearly an infinite amount of factors will weigh on the performance for each individual, but the strategy of tackling the largest possible performance factors will provide solutions for most performance issues. </p>
+
+<p><em>What are some additional performance factors you can think of?</em></p>
+
+<h4>Site Speed Monitoring</h4>
+
+<p>There are actual tools you can use to monitor the speed of your site that also help you improve performance. Spend some time messing around with these tools:</p>
+
+<ul>
+<li><p><a href="https://developers.google.com/speed/pagespeed/">Google PageSpeed Plugin: https://developers.google.com/speed/pagespeed/</a></p></li>
+<li><p><a href="http://yslow.org/">ySlow: http://yslow.org/</a></p></li>
+</ul>
+
+<p>This Yahoo Developer article,has a great walkthrough of how performance can be monitored: <a href="http://developer.yahoo.com/blogs/ydn/high-performance-sites-importance-front-end-performance-7160.html">http://developer.yahoo.com/blogs/ydn/high-performance-sites-importance-front-end-performance-7160.html</a></p>
+
+<p>We will talk more specifics about optimization and how a CMS can help influence performance later on in the course.</p>
+
+<h3>5. Usability</h3>
+
+<p><strong>Usability</strong> is the efficiency with which a user is able to use (or interact and perform tasks with) something. Making sure the user of your resource can do so in a positive and efficient manner is one of the biggest challenges of designers. </p>
+
+<p>The key for usability is that the user does not notice that your site is usable or not usable - you want them to seamlessly interact with the resource.</p>
+
+<h4>&quot;Is usability even important?&quot;</h4>
+
+<p>It is easy to sell usability. If your resource is very usable then people will have a more positive reaction to it. If it is less usable there is a large chance that people will just not use your resource. The best possible way to demonstrate the importance of usability (or any of these elements) to a decision maker is to provide data. We will talk more about the effectiveness of using data in decision making later in the course. </p>
+
+<h4>&quot;Users will just figure it out - why waste time nitpicking over details?&quot;</h4>
+
+<p>The worst mentality to take towards usability is &quot;If they can&#39;t use it, then it is their problem and they will learn.&quot; This &quot;brute force&quot; method is not ideal, but may be inevitable (think Facebook). A more &quot;seamless&quot; method is much more desirable and should be the goal of the designer. The need to balance the two methods with often arise - especially if you are putting something into the marketplace that has not been considered before. </p>
+
+<h4>&quot;How do I even know usability is being applied?&quot;</h4>
+
+<p>The good news is that there are methods in existence to measure and perfect usability. Some common methods include A/B testing, user feedback, and eye tracking software. </p>
+
+<p>Read <a href="http://alistapart.com/article/defining-a-vision-making-sure-your-work-matters">&quot;Defining a Vision: Making Sure Your Work Matters,&quot;</a> an A List Apart article.</p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
