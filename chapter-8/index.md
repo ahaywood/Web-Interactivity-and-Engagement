@@ -2,7 +2,7 @@
 layout: page
 title: Chapter 8&#58; Advanced  WordPress Customization
 ---
-
+  
 ## Table of Contents
 
 * [Custom Posts and Pages](#custom-posts-and-pages)
