@@ -25,12 +25,12 @@ A basic introduction to PHP and very basic programming principles which will hel
 
 * [PHP Lesson 1: Introduction to PHP](#php-lesson-1)
 * [PHP Lesson 2: Basic Building Blocks](#php-lesson-2)
-* [PHP Lesson 3: Arrays and Functions](#php-lesson-3)
-* [PHP Lesson 4: Conditional Logic](#php-lesson-4)
+* [PHP Lesson 3: Conditional Logic & Functions](#php-lesson-3)
+* [PHP Lesson 4: TBD](#php-lesson-4)
 * [PHP Lesson 5: Creating a Contact Form](#php-lesson-5)
-* [PHP Lesson 6: Recapping What We've Learned](#php-lesson-6)
+* [PHP Lesson 6: TBD](#php-lesson-6)
 * [PHP Lesson 7: Object Oriented Programming](#php-lesson-7)
-* [PHP Lesson 8: Creating a CMS - coming soon](#php-lesson-8)
+* [PHP Lesson 8: TBD](#php-lesson-8)
 
 ## PHP Lesson 1: Introduction to PHP
 
