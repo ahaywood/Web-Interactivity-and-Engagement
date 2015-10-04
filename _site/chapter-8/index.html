@@ -29,7 +29,6 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
-
  <body>
 
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
@@ -46,8 +45,6 @@
     
 
     
-    
-      
     
       
     
@@ -112,6 +109,12 @@
       
         
           <a class="sidebar-nav-item active" href="/Web-Interactivity-and-Engagement//chapter-8/">Chapter 8&#58; Advanced  WordPress Customization</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Web-Interactivity-and-Engagement//chapter-9/">Chapter 9&#58; Advanced Topics</a>
         
       
     
@@ -806,6 +809,51 @@ Create a post query in a custom page and then assign that value to an existing p
 <h4>Step Seven: Save and Upload</h4>
 
 <h3>Tutorial: Integrating Breadcrumbs into your WordPress pages</h3>
+
+<p>A “breadcrumb” is a UI tool that allows the user to follow their way through the information architecture in a logical manner. Implementing breadcrumbs in WordPress is a relatively simple task and can add another navigation element.
+There are several ways to add breadcrumbs to your site. The (possibly) easiest way to do this is through a plugin. But remember the ups and downs of plugins? Maybe you want to implement it in an integrated manner. </p>
+
+<h4>Step One: Add Code to the Functions File</h4>
+
+<p>Let’s start by editing the Functions.php file:</p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Breadcrumbs --------------*/</span>
+<span class="x">function add_breadcrumbs() {</span>
+<span class="x">    $post_ancestors = get_post_ancestors($post);</span>
+<span class="x">    if (count($post_ancestors)) {</span>
+<span class="x">        $top_page = array_pop($post_ancestors);</span>
+<span class="x">        $children = wp_list_pages(&#39;title_li=&amp;child_of=&#39; . $top_page . &#39;&amp;echo=0&#39;);</span>
+<span class="x">    } elseif (is_page()) {</span>
+<span class="x">        $children = wp_list_pages(&#39;title_li=&amp;child_of=&#39; . $post-&gt;ID . &#39;&amp;echo=0&amp;depth=2&#39;);</span>
+<span class="x">    }</span>
+<span class="x">    if (is_page() &amp;&amp; !is_front_page()) {</span>
+<span class="x">        $breadcrumb = &quot;&lt;nav id=&#39;breadcrumb&#39;&gt;&lt;ul&gt;&quot;;</span>
+<span class="x">        $breadcrumb .= &#39;&lt;li&gt;&lt;a href=&quot; &#39; . get_bloginfo(&#39;url&#39;) . &#39;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;&#39;;</span>
+<span class="x">        $post_ancestors = get_post_ancestors($post);</span>
+<span class="x">    if ($post_ancestors) {</span>
+<span class="x">        $post_ancestors = array_reverse($post_ancestors);</span>
+<span class="x">    foreach ($post_ancestors as $crumb)</span>
+<span class="x">        $breadcrumb .= &#39;&lt;li&gt;&lt;a href=&quot;&#39; . get_permalink($crumb) . &#39;&quot;&gt;&#39; . get_the_title($crumb) . &#39;&lt;/a&gt;&lt;/li&gt;&#39;;</span>
+<span class="x">    }</span>
+<span class="x">    $breadcrumb .= &#39;&lt;li&gt;&lt;strong&gt;&#39; . get_the_title() . &#39;&lt;/strong&gt;&lt;/li&gt;&#39;;</span>
+<span class="x">    $breadcrumb .= &quot;&lt;/ul&gt;&lt;/nav&gt;&quot;;</span>
+<span class="x">    echo $breadcrumb;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Let’s talk about what is happening here. First, we are initializing a function named “add_breadcrumbs” that is going to be the place for our function to operate. </p>
+
+<p>We are then going to use the WordPress function  <a href="https://codex.wordpress.org/Function_Reference/get_post_ancestors">get<em>post</em>ancestors</a> to generate an array of the subpages and the page hierarchy. The next conditional statement checks to see that there is anything worth executing - to avoid errors. The conditional statements after that are where we are generating our actual output depending on the array values we received from the get<em>post</em>ancestors function. We then iterate over the various values to generate a single output variable $breadcrumb.</p>
+
+<h4>Step Two: Add Code to Page</h4>
+
+<p>Next, let’s add the function we just created to our page.php file:</p>
+
+<p class="file-name">page.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">add_breadcrumbs</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>By adding this function we created, we are able to insert the functionality we created in step one anywhere on the site - and it will react dynamically. </p>
 
 </div>
 

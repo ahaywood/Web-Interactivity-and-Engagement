@@ -1,6 +1,8 @@
 # CMSs and WordPress - WIE Course Book
+### Course Materials and Lessons for Web Interactivity and Engagement Course
+
 Course Materials and Lessons for Web Interactivity and Engagement Course
 
-<a href="http://jayres.github.io/Web-Interactivity-and-Engagement/">Go to the Online Version of the Course Book</a>
+**[Go to the Online Version of the Course Book](http://jayres.github.io/Web-Interactivity-and-Engagement/)**
 
-<a href="#">Download the PDF of the Course Book</a> (coming soon)
+**Download the PDF of the Course Book (coming soon)**

@@ -679,6 +679,52 @@ Note how we added some 404 handling and better outlined the post content that wi
 
 #### Step Seven: Save and Upload
 
-
 ### Tutorial: Integrating Breadcrumbs into your WordPress pages
 
+A “breadcrumb” is a UI tool that allows the user to follow their way through the information architecture in a logical manner. Implementing breadcrumbs in WordPress is a relatively simple task and can add another navigation element.
+There are several ways to add breadcrumbs to your site. The (possibly) easiest way to do this is through a plugin. But remember the ups and downs of plugins? Maybe you want to implement it in an integrated manner. 
+
+#### Step One: Add Code to the Functions File
+
+Let’s start by editing the Functions.php file:
+
+<p class="file-name">functions.php</p>
+```php
+/*-------------- Enable Breadcrumbs --------------*/
+function add_breadcrumbs() {
+    $post_ancestors = get_post_ancestors($post);
+    if (count($post_ancestors)) {
+        $top_page = array_pop($post_ancestors);
+        $children = wp_list_pages('title_li=&child_of=' . $top_page . '&echo=0');
+    } elseif (is_page()) {
+        $children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&depth=2');
+    }
+    if (is_page() && !is_front_page()) {
+        $breadcrumb = "<nav id='breadcrumb'><ul>";
+        $breadcrumb .= '<li><a href=" ' . get_bloginfo('url') . '">Home</a></li>';
+        $post_ancestors = get_post_ancestors($post);
+    if ($post_ancestors) {
+        $post_ancestors = array_reverse($post_ancestors);
+    foreach ($post_ancestors as $crumb)
+        $breadcrumb .= '<li><a href="' . get_permalink($crumb) . '">' . get_the_title($crumb) . '</a></li>';
+    }
+    $breadcrumb .= '<li><strong>' . get_the_title() . '</strong></li>';
+    $breadcrumb .= "</ul></nav>";
+    echo $breadcrumb;
+    }
+}
+```
+Let’s talk about what is happening here. First, we are initializing a function named “add_breadcrumbs” that is going to be the place for our function to operate. 
+
+We are then going to use the WordPress function  [get_post_ancestors](https://codex.wordpress.org/Function_Reference/get_post_ancestors) to generate an array of the subpages and the page hierarchy. The next conditional statement checks to see that there is anything worth executing - to avoid errors. The conditional statements after that are where we are generating our actual output depending on the array values we received from the get_post_ancestors function. We then iterate over the various values to generate a single output variable $breadcrumb.
+
+#### Step Two: Add Code to Page
+
+Next, let’s add the function we just created to our page.php file:
+
+<p class="file-name">page.php</p>
+```php
+    <?php add_breadcrumbs(); ?>
+```
+
+By adding this function we created, we are able to insert the functionality we created in step one anywhere on the site - and it will react dynamically. 

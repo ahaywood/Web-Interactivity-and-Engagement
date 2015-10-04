@@ -906,7 +906,7 @@ Enough with strings for now. Let's create a random number generator. This is eas
 <?php 
 print rand(1, 1000);
 ?>
-<p>
+</p>
 ```
 
 Now every time we refresh the page we get a new number. 
