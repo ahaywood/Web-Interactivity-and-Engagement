@@ -26,8 +26,8 @@ A basic introduction to PHP and very basic programming principles which will hel
 * [PHP Lesson 1: Introduction to PHP](#php-lesson-1)
 * [PHP Lesson 2: Basic Building Blocks](#php-lesson-2)
 * [PHP Lesson 3: Conditional Logic & Functions](#php-lesson-3)
-* [PHP Lesson 4: TBD](#php-lesson-4)
-* [PHP Lesson 5: Creating a Contact Form](#php-lesson-5)
+* [PHP Lesson 4: Simple Contact Form](#php-lesson-4)
+* [PHP Lesson 5: Putting it All Together](#php-lesson-5)
 * [PHP Lesson 6: TBD](#php-lesson-6)
 * [PHP Lesson 7: Object Oriented Programming](#php-lesson-7)
 * [PHP Lesson 8: TBD](#php-lesson-8)
@@ -935,8 +935,313 @@ array_push($dogs, "Golden Retriever");
 
 <p>List of Dogs (post):<br /> <?php print_r($dogs); ?>
 ```
+
+## <a name="php-lesson-4">PHP Lesson 4: Simple Contact Form</a>
+
+Now that we have a grasp of the core concepts behind the PHP language, let’s make a very simple application of the language. 
+
+We are going to make a contact form. I am going to roughly use the [CSS Tricks Simple Contact Form](https://css-tricks.com/nice-and-simple-contact-form/) as a basis for our form. 
+
+### Step One: Create the files we will need
+
+	Create contact-form.php
+
+	Create thank-you.php
+
+	Create index.html
+
+	Create style.css
+
+Let’s place all of these files into a single folder. By pre-making the files we are going to be ready to add code as quickly as possible.
+
+### Step Two: Setup the Form
+
+Our index.html file will not have any PHP in it directly, but will use the HTML and HTTP form methods for passing values. Let’s set up the HTML page first and link to our style.css file. 
+
+<p class="file-name">index.html</p>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PHP Lesson 4: Simple Contact Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="/dependencies/skeleton.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
+			<h1>PHP Lesson 4</h1>
+			<h2>Simple Contact Form</h2>
+
+
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+```
+
+Now that we have the basis for the simple HTML document, let’s add the form elements
+
+<p class="file-name">index.html</p>
+```html
+<div class="twelve columns">
+	<h1>PHP Lesson 4</h1>
+	<h2>Simple Contact Form</h2>
+
+	<form>
+		<label for="Name">Name:</label>
+		<input type="text" name="Name" id="Name" />
+		
+		<label for="Email">Email:</label>
+		<input type="text" name="Email" id="Email" />
+		
+		<label for="Message">Message:</label><br />
+		<textarea name="Message" rows="20" cols="20" id="Message"></textarea>
+
+		<input type="submit" name="submit" value="Submit" class="submit-button" />
+	</form>
+
+</div>
+
+```
+
+Our form now has spaces for a name, an email, and a message. If you look at the form now, it appears to be sound - but nothing works correctly until we add an “action” or “method” into the form. 
+
+The “method” we are going to add is “post” which is an HTTP method for sending data. The “action” we are going to add is a link to our contact-form.php file. The contact-form.php file is going to house the functionality of our form. 
+
+<p class="file-name">index.html</p>
+```html
+<div class="twelve columns">
+	<h1>PHP Lesson 4</h1>
+	<h2>Simple Contact Form</h2>
+
+	<form method=”post” action=”contact-form.php”>
+		<label for="Name">Name:</label>
+		<input type="text" name="Name" id="Name" />
+		
+		<label for="Email">Email:</label>
+		<input type="text" name="Email" id="Email" />
+		
+		<label for="Message">Message:</label><br />
+		<textarea name="Message" rows="20" cols="20" id="Message"></textarea>
+
+		<input type="submit" name="submit" value="Submit" class="submit-button" />
+	</form>
+
+</div>
+
+```
+
+### Step Three: Setup the PHP Script
+
+The basis of our PHP form is going to be through the [mail function](http://php.net/manual/en/function.mail.php) which is a PHP function. 
+
+The way that this function works is by accepting some parameters inside of the parentheses after the function name. Here is the formatting for using this function:
+
+```php
+<?php
+mail ( string $to , string $subject , string $message [, string $additional_headers [, string $additional_parameters ]] )
+?>
+```
+
+So we know that we need to use the following parameters which we will represent as variables:
+
+	$to
+	$subject
+	$message
+
+We are also going to include an additional parameter so that we can include a “from” email address and the “name” from the form - though they aren’t required. 
+
+	$from
+	$name
+
+So the first thing we will do is set up the variables we need, and then add the “mail function”
+
+<p class="file-name">contact-form.php</p>
+```php
+$to = "";
+$subject = "";
+$name = "";
+$message = "";
+$from = "";
+
+mail($to, $subject, $body, "From: <$from>");
+```
+
+Let’s add the sample values into the variables and then attach the output of the function into a variable. This will allow us to use the output elsewhere. 
+
+<p class="file-name">contact-form.php</p>
+```php
+$to = "your-email@your-domain.com";
+$subject = "New Contact Form Submission";
+$message = "MESSAGE GOES HERE"; //input from form
+$from = "FROM EMAIL GOES HERE"; //input from form
+$name = "NAME GOES HERE"; //input from form
+
+$success = mail($to, $subject, $body, "From: <$from>");
+```
+
+Next, let’s’ build the $body variable so that it is sent in a proper way.
+
+<p class="file-name">contact-form.php</p>
+```php
+$body = "";
+$body .= "Name: ";
+$body .= $name;
+$body .= "\n";
+$body .= "Email: ";
+$body .= $from;
+$body .= "\n";
+$body .= "Message: ";
+$body .= $message;
+$body .= "\n";
+```
+
+You may not be familiar with this syntax, but what is occurring is the $body variable is being built bit by bit from the values of the other variables through the “.=” operator. 
+
+We will quickly add some data validation check. This will let us use a variable based system to return an error page if the data doesn’t work out how we want.
+
+<p class="file-name">contact-form.php</p>
+```php
+$validationOK=true;
+if (!$validationOK) {
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
+  exit;
+}
+```
+
+We are almost done. The form will mostly work at this point, but we want to make sure there is an action after the form is submitted. In this case, we are going to use the $success variable and attach it to a conditional statement which will either:
+Redirect the user to an error page, or
+Redirect the user to a success page with a “Thank You” message.
+
+<p class="file-name">contact-form.php</p>
+```php
+if ($success){
+print "<meta http-equiv=\"refresh\" content=\"0;URL=thank-you.php\">";
+}
+else {
+print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
+}
+```
+
+You may notice that there are two “URL” parameters in our conditional statement: thank-you.php and error.html. If there is a truthful value for the $success variable, then the user will be served up the thank-you.php document. If there is a falsey value for the $success variable, then the user will be served with the error.html document. We haven’t made the error.html document but if we wanted to we could and then perhaps place some helper text for the user. 
+
+The last step for the contact-form file is to add out $_POST superglobal variables into our various other variables. These $_POST superglobals will let us send data to our mail function which will let us send emails. 
+
+<p class="file-name">contact-form.php</p>
+```php
+$to = "your-email@your-domain.com";
+$subject = "New Contact Form Submission";
+$message = Trim(stripslashes($_POST['Message'])); 
+$from = Trim(stripslashes($_POST['Email'])); 
+$name = Trim(stripslashes($_POST['Name'])); 
+```
+
+This may seem weird, but what we have done is used the following PHP functions to modify the data coming out of the “Message”, “Email”, and “Name” form elements:
+
+[Trim](http://php.net/manual/en/function.trim.php)
+[Stripslashes](http://php.net/manual/en/function.stripslashes.php)
+
+
+Let’s piece together our entire contact-form.php file.
+
+<p class="file-name">contact-form.php</p>
+```php
+<?php
+
+$to = "your-email@your-domain.com";
+$subject = "New Contact Form Submission";
+$message = Trim(stripslashes($_POST['Message'])); 
+$from = Trim(stripslashes($_POST['Email'])); 
+$name = Trim(stripslashes($_POST['Name'])); 
+
+$validationOK=true;
+if (!$validationOK) {
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
+  exit;
+}
+
+$body = "";
+$body .= "Name: ";
+$body .= $name;
+$body .= "\n";
+$body .= "Email: ";
+$body .= $from;
+$body .= "\n";
+$body .= "Message: ";
+$body .= $message;
+$body .= "\n";
+
+$success = mail($to, $subject, $body, "From: <$from>");
+
+if ($success){
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=thank-you.php\">";
+}
+else{
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
+}
+?>
+```
+
+### Step Three: Setup the Thank You Page
+
+
+We are going to copy the code from our index.html file first and then take away all of the form components. This gives us a headstart for finishing this page quickly.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PHP Lesson 4: Simple Contact Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="/dependencies/skeleton.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+<div class="twelve columns">
+	<h1>PHP Lesson 4</h1>
+	<h2>Simple Contact Form</h2>
+
+
+</div>
+	</div>
+</div>
+</body>
+</html>
+```
+
+Let’s add a little message and a link back to the form itself.
+
+```html
+<div class="twelve columns">
+	<h1>PHP Lesson 4</h1>
+	<h2>Simple Contact Form</h2>
+<h3>Thanks!</h3>
+<p>Thank you for filling out this form.</p>
+<p><a href="index.html">Return to the Form</a></p>
+
+</div>
+```
+
+Now let’s try filling out the form to make sure it works.
+
+### Step Three: Styling Our Form
+
+Lastly, let’s add some styling to our form so that we have a good looking form that works. Part of the assignment will be that I expect you to add some styling of your own to make the form your own.
+
+### Step Four: Save and Upload
+
+Upload your files to your server, which must have PHP enabled, and then check to make sure your form works.
+
+
+
 <!--
-## <a name="php-lesson-4">PHP Lesson 4: Conditional Logic</a>
 ## <a name="php-lesson-5">PHP Lesson 5: Creating a Contact Form</a>
 ## <a name="php-lesson-6">PHP Lesson 6: Recapping What We've Learned</a>
 ## <a name="php-lesson-7">PHP Lesson 7: Object Oriented Programming</a>

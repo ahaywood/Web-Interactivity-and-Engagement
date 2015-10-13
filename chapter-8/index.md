@@ -414,12 +414,12 @@ WordPress will now use our newly created searchform.php in place of the default 
 
 <p class="file-name">searchform.php</p>
 ```html
-<form role="search" method="get" class="search-form" action="' . esc_url(home_url('/')) . '">
+<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
     <label>
-        <span class="screen-reader-text">' . _x('Search for:', 'label') . '</span>
-        <input type="search" class="search-field" placeholder="Search" value="' . get_search_query() . '" name="s" title="' . esc_attr_x('Search for:', 'label') . '" />
+        <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
     </label>
-    <input type="submit" class="search-submit" value="'. esc_attr_x('Search', 'submit button') .'" />
+    <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
 </form>
 ```
 
@@ -431,12 +431,12 @@ The code for the Search Form is pretty solid for our purposes. We are going to a
 
 <p class="file-name">searchform.php</p>
 ```html
-<form role="search" method="get" class="search-form wie-search-form" action="' . esc_url( home_url('/')) . '">
- <label>
-  <span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-  <input type="search" class="search-field" placeholder="Search" value="' . get_search_query() . '" name="s" title="' . esc_attr_x('Search for:','label') . '" />
- </label>
- <input type="submit" class="search-submit" value="'. esc_attr_x('Search', 'submit button') .'" />
+<form role="search" method="get" class="search-form wie-search-form" action="<?php echo home_url( '/' ); ?>">
+    <label>
+        <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+    </label>
+    <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
 </form>
 ```
 
@@ -454,6 +454,25 @@ Now that we have the classes identified, we can add CSS to make it look how we w
 ```
 
 #### Step Four: Save and Upload
+
+#### Step Five: Add Font Awesome Search Logo
+
+Let's say you want to make something more graphically interesting. We are going to add the Font Awesome package to our site so that we are able to use a bunch of cool icons relatively easily.
+
+It may seem excessive to add a whole css library for only one icon, but having the Font Awesome library in place allows us to use the other icons without even worrying about load time. Additionally, the Font Awesome CSS file often caches and the load time isn't all that bad when you have a visitor making repeated visits to your site. To make things better, there is even a content delivery network (CDN) link so that the load time is alleviated by allowing a concurrent connection.
+
+Let's add a link to Font Awesome into our header.
+
+<p class="file-name">header.php</p>
+```html
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+```
+
+Upload your header.php file and you will see that the **font-awesome.min.css** file is loading when you refresh your page. 
+
+Now, lets replace the "search" submit text with the new search icon!
+
+** COMING SOON **
 
 ### Tutorial: Sticky Header Bar
 
