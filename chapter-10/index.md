@@ -153,6 +153,16 @@ You will mock up and then implement changes to the WordPress template to make a 
 
 200 total points
 
+**Here is the wireframe I will be using for our Blog Site project:**
+
+<img src="../public/blog-site-wireframe01.jpg" width="100%" alt="visual mockup for Blog Site project" class="mockup-image" />
+
+**Here is the visual mockup I will be using for the Blog Site project:**
+
+<img src="../public/blog-site-mockup01.jpg" width="100%" alt="visual mockup for Blog Site project" class="mockup-image" />
+
+(Please note that the design is simple and meant to align with the lessons going forward - when you are making your visual mockup for the Blog Site, please consider a more challenging approach)
+
 ## <a name="creating-a-business-site" style="color: #666">Creating a Business Site</a>
 
 Taking everything you’ve learning throughout the semester, you will create a WordPress site for a client. Your role will be as a freelancer. The goal of this site will not be just as a blog, but as a full website for a small business. When you are done with this site, it should be completely stable and be able to be handed off to a content manager. 

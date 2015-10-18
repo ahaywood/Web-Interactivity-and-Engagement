@@ -184,8 +184,8 @@ The Appendix contains reference materials for the lessons.
 <li><a href="#php-lesson-1">PHP Lesson 1: Introduction to PHP</a></li>
 <li><a href="#php-lesson-2">PHP Lesson 2: Basic Building Blocks</a></li>
 <li><a href="#php-lesson-3">PHP Lesson 3: Conditional Logic &amp; Functions</a></li>
-<li><a href="#php-lesson-4">PHP Lesson 4: TBD</a></li>
-<li><a href="#php-lesson-5">PHP Lesson 5: Creating a Contact Form</a></li>
+<li><a href="#php-lesson-4">PHP Lesson 4: Simple Contact Form</a></li>
+<li><a href="#php-lesson-5">PHP Lesson 5: Putting it All Together</a></li>
 <li><a href="#php-lesson-6">PHP Lesson 6: TBD</a></li>
 <li><a href="#php-lesson-7">PHP Lesson 7: Object Oriented Programming</a></li>
 <li><a href="#php-lesson-8">PHP Lesson 8: TBD</a></li>
@@ -1018,8 +1018,273 @@ The loop starts over again until the statement is no longer true.</p>
 
 <span class="x">&lt;p&gt;List of Dogs (post):&lt;br /&gt; </span><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$dogs</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+<h2><a name="php-lesson-4">PHP Lesson 4: Simple Contact Form</a></h2>
+
+<p>Now that we have a grasp of the core concepts behind the PHP language, let’s make a very simple application of the language. </p>
+
+<p>We are going to make a contact form. I am going to roughly use the <a href="https://css-tricks.com/nice-and-simple-contact-form/">CSS Tricks Simple Contact Form</a> as a basis for our form. </p>
+
+<h3>Step One: Create the files we will need</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Create contact-form.php
+
+Create thank-you.php
+
+Create index.html
+
+Create style.css
+</code></pre></div>
+<p>Let’s place all of these files into a single folder. By pre-making the files we are going to be ready to add code as quickly as possible.</p>
+
+<h3>Step Two: Setup the Form</h3>
+
+<p>Our index.html file will not have any PHP in it directly, but will use the HTML and HTTP form methods for passing values. Let’s set up the HTML page first and link to our style.css file. </p>
+
+<p class="file-name">index.html</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>PHP Lesson 4: Simple Contact Form<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;/dependencies/skeleton.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>PHP Lesson 4<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>Simple Contact Form<span class="nt">&lt;/h2&gt;</span>
+
+
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Now that we have the basis for the simple HTML document, let’s add the form elements</p>
+
+<p class="file-name">index.html</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>PHP Lesson 4<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Simple Contact Form<span class="nt">&lt;/h2&gt;</span>
+
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Name&quot;</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;Name&quot;</span> <span class="na">id=</span><span class="s">&quot;Name&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Email&quot;</span><span class="nt">&gt;</span>Email:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="na">id=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Message&quot;</span><span class="nt">&gt;</span>Message:<span class="nt">&lt;/label&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;Message&quot;</span> <span class="na">rows=</span><span class="s">&quot;20&quot;</span> <span class="na">cols=</span><span class="s">&quot;20&quot;</span> <span class="na">id=</span><span class="s">&quot;Message&quot;</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">name=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="na">class=</span><span class="s">&quot;submit-button&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Our form now has spaces for a name, an email, and a message. If you look at the form now, it appears to be sound - but nothing works correctly until we add an “action” or “method” into the form. </p>
+
+<p>The “method” we are going to add is “post” which is an HTTP method for sending data. The “action” we are going to add is a link to our contact-form.php file. The contact-form.php file is going to house the functionality of our form. </p>
+
+<p class="file-name">index.html</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>PHP Lesson 4<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Simple Contact Form<span class="nt">&lt;/h2&gt;</span>
+
+    <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">”post”</span> <span class="na">action=</span><span class="s">”contact-form.php”</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Name&quot;</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;Name&quot;</span> <span class="na">id=</span><span class="s">&quot;Name&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Email&quot;</span><span class="nt">&gt;</span>Email:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="na">id=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;Message&quot;</span><span class="nt">&gt;</span>Message:<span class="nt">&lt;/label&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;Message&quot;</span> <span class="na">rows=</span><span class="s">&quot;20&quot;</span> <span class="na">cols=</span><span class="s">&quot;20&quot;</span> <span class="na">id=</span><span class="s">&quot;Message&quot;</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">name=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="na">class=</span><span class="s">&quot;submit-button&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<h3>Step Three: Setup the PHP Script</h3>
+
+<p>The basis of our PHP form is going to be through the <a href="http://php.net/manual/en/function.mail.php">mail function</a> which is a PHP function. </p>
+
+<p>The way that this function works is by accepting some parameters inside of the parentheses after the function name. Here is the formatting for using this function:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nb">mail</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$to</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$subject</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$message</span> <span class="p">[,</span> <span class="nx">string</span> <span class="nv">$additional_headers</span> <span class="p">[,</span> <span class="nx">string</span> <span class="nv">$additional_parameters</span> <span class="p">]]</span> <span class="p">)</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>So we know that we need to use the following parameters which we will represent as variables:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$to
+$subject
+$message
+</code></pre></div>
+<p>We are also going to include an additional parameter so that we can include a “from” email address and the “name” from the form - though they aren’t required. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$from
+$name
+</code></pre></div>
+<p>So the first thing we will do is set up the variables we need, and then add the “mail function”</p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$to = &quot;&quot;;</span>
+<span class="x">$subject = &quot;&quot;;</span>
+<span class="x">$name = &quot;&quot;;</span>
+<span class="x">$message = &quot;&quot;;</span>
+<span class="x">$from = &quot;&quot;;</span>
+
+<span class="x">mail($to, $subject, $body, &quot;From: &lt;$from&gt;&quot;);</span>
+</code></pre></div>
+<p>Let’s add the sample values into the variables and then attach the output of the function into a variable. This will allow us to use the output elsewhere. </p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$to = &quot;your-email@your-domain.com&quot;;</span>
+<span class="x">$subject = &quot;New Contact Form Submission&quot;;</span>
+<span class="x">$message = &quot;MESSAGE GOES HERE&quot;; //input from form</span>
+<span class="x">$from = &quot;FROM EMAIL GOES HERE&quot;; //input from form</span>
+<span class="x">$name = &quot;NAME GOES HERE&quot;; //input from form</span>
+
+<span class="x">$success = mail($to, $subject, $body, &quot;From: &lt;$from&gt;&quot;);</span>
+</code></pre></div>
+<p>Next, let’s’ build the $body variable so that it is sent in a proper way.</p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$body = &quot;&quot;;</span>
+<span class="x">$body .= &quot;Name: &quot;;</span>
+<span class="x">$body .= $name;</span>
+<span class="x">$body .= &quot;\n&quot;;</span>
+<span class="x">$body .= &quot;Email: &quot;;</span>
+<span class="x">$body .= $from;</span>
+<span class="x">$body .= &quot;\n&quot;;</span>
+<span class="x">$body .= &quot;Message: &quot;;</span>
+<span class="x">$body .= $message;</span>
+<span class="x">$body .= &quot;\n&quot;;</span>
+</code></pre></div>
+<p>You may not be familiar with this syntax, but what is occurring is the $body variable is being built bit by bit from the values of the other variables through the “.=” operator. </p>
+
+<p>We will quickly add some data validation check. This will let us use a variable based system to return an error page if the data doesn’t work out how we want.</p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$validationOK=true;</span>
+<span class="x">if (!$validationOK) {</span>
+<span class="x">  print &quot;&lt;meta http-equiv=\&quot;refresh\&quot; content=\&quot;0;URL=error.html\&quot;&gt;&quot;;</span>
+<span class="x">  exit;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>We are almost done. The form will mostly work at this point, but we want to make sure there is an action after the form is submitted. In this case, we are going to use the $success variable and attach it to a conditional statement which will either:
+Redirect the user to an error page, or
+Redirect the user to a success page with a “Thank You” message.</p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">if ($success){</span>
+<span class="x">print &quot;&lt;meta http-equiv=\&quot;refresh\&quot; content=\&quot;0;URL=thank-you.php\&quot;&gt;&quot;;</span>
+<span class="x">}</span>
+<span class="x">else {</span>
+<span class="x">print &quot;&lt;meta http-equiv=\&quot;refresh\&quot; content=\&quot;0;URL=error.html\&quot;&gt;&quot;;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>You may notice that there are two “URL” parameters in our conditional statement: thank-you.php and error.html. If there is a truthful value for the $success variable, then the user will be served up the thank-you.php document. If there is a falsey value for the $success variable, then the user will be served with the error.html document. We haven’t made the error.html document but if we wanted to we could and then perhaps place some helper text for the user. </p>
+
+<p>The last step for the contact-form file is to add out $<em>POST superglobal variables into our various other variables. These $</em>POST superglobals will let us send data to our mail function which will let us send emails. </p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$to = &quot;your-email@your-domain.com&quot;;</span>
+<span class="x">$subject = &quot;New Contact Form Submission&quot;;</span>
+<span class="x">$message = Trim(stripslashes($_POST[&#39;Message&#39;])); </span>
+<span class="x">$from = Trim(stripslashes($_POST[&#39;Email&#39;])); </span>
+<span class="x">$name = Trim(stripslashes($_POST[&#39;Name&#39;])); </span>
+</code></pre></div>
+<p>This may seem weird, but what we have done is used the following PHP functions to modify the data coming out of the “Message”, “Email”, and “Name” form elements:</p>
+
+<p><a href="http://php.net/manual/en/function.trim.php">Trim</a>
+<a href="http://php.net/manual/en/function.stripslashes.php">Stripslashes</a></p>
+
+<p>Let’s piece together our entire contact-form.php file.</p>
+
+<p class="file-name">contact-form.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$to</span> <span class="o">=</span> <span class="s2">&quot;your-email@your-domain.com&quot;</span><span class="p">;</span>
+<span class="nv">$subject</span> <span class="o">=</span> <span class="s2">&quot;New Contact Form Submission&quot;</span><span class="p">;</span>
+<span class="nv">$message</span> <span class="o">=</span> <span class="nx">Trim</span><span class="p">(</span><span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]));</span> 
+<span class="nv">$from</span> <span class="o">=</span> <span class="nx">Trim</span><span class="p">(</span><span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Email&#39;</span><span class="p">]));</span> 
+<span class="nv">$name</span> <span class="o">=</span> <span class="nx">Trim</span><span class="p">(</span><span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]));</span> 
+
+<span class="nv">$validationOK</span><span class="o">=</span><span class="k">true</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$validationOK</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">print</span> <span class="s2">&quot;&lt;meta http-equiv=</span><span class="se">\&quot;</span><span class="s2">refresh</span><span class="se">\&quot;</span><span class="s2"> content=</span><span class="se">\&quot;</span><span class="s2">0;URL=error.htm</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span><span class="p">;</span>
+  <span class="k">exit</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$body</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;Name: &quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;Email: &quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="nv">$from</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;Message: &quot;</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="nv">$message</span><span class="p">;</span>
+<span class="nv">$body</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+<span class="nv">$success</span> <span class="o">=</span> <span class="nb">mail</span><span class="p">(</span><span class="nv">$to</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="s2">&quot;From: &lt;</span><span class="si">$from</span><span class="s2">&gt;&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$success</span><span class="p">){</span>
+  <span class="k">print</span> <span class="s2">&quot;&lt;meta http-equiv=</span><span class="se">\&quot;</span><span class="s2">refresh</span><span class="se">\&quot;</span><span class="s2"> content=</span><span class="se">\&quot;</span><span class="s2">0;URL=thank-you.php</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+  <span class="k">print</span> <span class="s2">&quot;&lt;meta http-equiv=</span><span class="se">\&quot;</span><span class="s2">refresh</span><span class="se">\&quot;</span><span class="s2"> content=</span><span class="se">\&quot;</span><span class="s2">0;URL=error.htm</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h3>Step Three: Setup the Thank You Page</h3>
+
+<p>We are going to copy the code from our index.html file first and then take away all of the form components. This gives us a headstart for finishing this page quickly.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>PHP Lesson 4: Simple Contact Form<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;/dependencies/skeleton.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>PHP Lesson 4<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Simple Contact Form<span class="nt">&lt;/h2&gt;</span>
+
+
+<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Let’s add a little message and a link back to the form itself.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>PHP Lesson 4<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Simple Contact Form<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Thanks!<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;p&gt;</span>Thank you for filling out this form.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;index.html&quot;</span><span class="nt">&gt;</span>Return to the Form<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Now let’s try filling out the form to make sure it works.</p>
+
+<h3>Step Three: Styling Our Form</h3>
+
+<p>Lastly, let’s add some styling to our form so that we have a good looking form that works. Part of the assignment will be that I expect you to add some styling of your own to make the form your own.</p>
+
+<h3>Step Four: Save and Upload</h3>
+
+<p>Upload your files to your server, which must have PHP enabled, and then check to make sure your form works.</p>
+
 <!--
-## <a name="php-lesson-4">PHP Lesson 4: Conditional Logic</a>
 ## <a name="php-lesson-5">PHP Lesson 5: Creating a Contact Form</a>
 ## <a name="php-lesson-6">PHP Lesson 6: Recapping What We've Learned</a>
 ## <a name="php-lesson-7">PHP Lesson 7: Object Oriented Programming</a>

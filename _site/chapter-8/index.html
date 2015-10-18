@@ -566,12 +566,12 @@ Some of the disadvantages of child themes are:</p>
 <p>WordPress will now use our newly created searchform.php in place of the default search form. Let’s add some code so that something will start to show up.</p>
 
 <p class="file-name">searchform.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&#39; . esc_url(home_url(&#39;/&#39;)) . &#39;&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&lt;?php echo home_url( &#39;/&#39; ); ?&gt;&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span>&#39; . _x(&#39;Search for:&#39;, &#39;label&#39;) . &#39;<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Search&quot;</span> <span class="na">value=</span><span class="s">&quot;&#39; . get_search_query() . &#39;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&#39; . esc_attr_x(&#39;Search for:&#39;, &#39;label&#39;) . &#39;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search …&#39;, &#39;placeholder&#39; ) ?&gt;&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo get_search_query() ?&gt;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&#39;. esc_attr_x(&#39;Search&#39;, &#39;submit button&#39;) .&#39;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search&#39;, &#39;submit button&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div>
 <p>This is the default for HTML5 in WordPress. Knowing what is happening here could be interesting from a knowledge standpoint so feel free to <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data">delve into the GET method and how it works in search forms.</a></p>
@@ -581,12 +581,12 @@ Some of the disadvantages of child themes are:</p>
 <p>The code for the Search Form is pretty solid for our purposes. We are going to add a CSS class to the code so that we can target it in the way we want. </p>
 
 <p class="file-name">searchform.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form wie-search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&#39; . esc_url( home_url(&#39;/&#39;)) . &#39;&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;label&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span>&#39; . _x( &#39;Search for:&#39;, &#39;label&#39; ) . &#39;<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Search&quot;</span> <span class="na">value=</span><span class="s">&quot;&#39; . get_search_query() . &#39;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&#39; . esc_attr_x(&#39;Search for:&#39;,&#39;label&#39;) . &#39;&quot;</span> <span class="nt">/&gt;</span>
- <span class="nt">&lt;/label&gt;</span>
- <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&#39;. esc_attr_x(&#39;Search&#39;, &#39;submit button&#39;) .&#39;&quot;</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form wie-search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&lt;?php echo home_url( &#39;/&#39; ); ?&gt;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search …&#39;, &#39;placeholder&#39; ) ?&gt;&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo get_search_query() ?&gt;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search&#39;, &#39;submit button&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div>
 <p>Now that we have the classes identified, we can add CSS to make it look how we want. I am going to just get rid of the screen reader text in a way that will still allow it to be actually readable by a screen reader but not displayed by the browser to the average viewer. Note that this way of getting rid of content on a page is prefered to using display:none;. </p>
@@ -600,6 +600,23 @@ Some of the disadvantages of child themes are:</p>
 <span class="p">}</span>
 </code></pre></div>
 <h4>Step Four: Save and Upload</h4>
+
+<h4>Step Five: Add Font Awesome Search Logo</h4>
+
+<p>Let&#39;s say you want to make something more graphically interesting. We are going to add the Font Awesome package to our site so that we are able to use a bunch of cool icons relatively easily.</p>
+
+<p>It may seem excessive to add a whole css library for only one icon, but having the Font Awesome library in place allows us to use the other icons without even worrying about load time. Additionally, the Font Awesome CSS file often caches and the load time isn&#39;t all that bad when you have a visitor making repeated visits to your site. To make things better, there is even a content delivery network (CDN) link so that the load time is alleviated by allowing a concurrent connection.</p>
+
+<p>Let&#39;s add a link to Font Awesome into our header.</p>
+
+<p class="file-name">header.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<p>Upload your header.php file and you will see that the <strong>font-awesome.min.css</strong> file is loading when you refresh your page. </p>
+
+<p>Now, lets replace the &quot;search&quot; submit text with the new search icon!</p>
+
+<p>** COMING SOON **</p>
 
 <h3>Tutorial: Sticky Header Bar</h3>
 
