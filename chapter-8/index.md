@@ -457,6 +457,8 @@ Now that we have the classes identified, we can add CSS to make it look how we w
 
 #### Step Five: Add Font Awesome Search Logo
 
+**This area is optional and significantly changes the functionality of the UI**
+
 Let's say you want to make something more graphically interesting. We are going to add the Font Awesome package to our site so that we are able to use a bunch of cool icons relatively easily.
 
 It may seem excessive to add a whole css library for only one icon, but having the Font Awesome library in place allows us to use the other icons without even worrying about load time. Additionally, the Font Awesome CSS file often caches and the load time isn't all that bad when you have a visitor making repeated visits to your site. To make things better, there is even a content delivery network (CDN) link so that the load time is alleviated by allowing a concurrent connection.
@@ -470,9 +472,61 @@ Let's add a link to Font Awesome into our header.
 
 Upload your header.php file and you will see that the **font-awesome.min.css** file is loading when you refresh your page. 
 
-Now, lets replace the "search" submit text with the new search icon!
+Now, lets replace the searchform.php content and add some CSS rules.
 
-** COMING SOON **
+We are going to leverage our Skeleton grid to layout the search form. Notice how we are using the wie-hide utility class on the elements we don't want to see. 
+
+<p class="file-name">searchform.php</p>
+```php
+<div class="row">
+    <div class="nine columns">
+        <form role="search" method="get" class="search-form wie-search-form" action="<?php echo home_url( '/' ); ?>">
+                <span class="screen-reader-text wie-hide"><?php echo _x( 'Search for:', 'label' ) ?></span>
+                <input type="search" class="search-field wie-search-field" value="<?php echo get_search_query() ?>" name="s" />
+            <input type="submit" class="search-submit wie-search-submit wie-hide" value="" />
+        </form>
+    </div>
+    <div class="three columns search-bar-icon">
+        <i class="fa fa-search fa-2x"></i>
+    </div>
+</div>
+
+```
+
+Replace all of the Search Bar CSS you have added thus far. Since we are getting rid of some of the elements, we will want to modify the whole thing. 
+
+<p class="file-name">style.css</p>
+```css
+/*--- Search Bar CSS ---*/
+
+.search-bar-icon { 
+    border: none; 
+    color: #666; 
+    text-align: center;
+    padding: 5px; 
+    background-color: #fff;
+    margin: 0;
+    min-height: 45px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
+}
+input[type="search"] {
+    border: none; 
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    border-left: 1px solid #666;
+    min-height: 45px; 
+    font-size: 1.2rem;
+    padding: 0;
+    width: 100%;
+    border-radius: inherit;
+    margin:0;
+    background-color: #fff;
+}
+```
+
+Now upload your files and you should have a search form with a search icon. Feel free to mess around with this to get your own desired result. 
 
 ### Tutorial: Sticky Header Bar
 
