@@ -603,6 +603,8 @@ Some of the disadvantages of child themes are:</p>
 
 <h4>Step Five: Add Font Awesome Search Logo</h4>
 
+<p><strong>This area is optional and significantly changes the functionality of the UI</strong></p>
+
 <p>Let&#39;s say you want to make something more graphically interesting. We are going to add the Font Awesome package to our site so that we are able to use a bunch of cool icons relatively easily.</p>
 
 <p>It may seem excessive to add a whole css library for only one icon, but having the Font Awesome library in place allows us to use the other icons without even worrying about load time. Additionally, the Font Awesome CSS file often caches and the load time isn&#39;t all that bad when you have a visitor making repeated visits to your site. To make things better, there is even a content delivery network (CDN) link so that the load time is alleviated by allowing a concurrent connection.</p>
@@ -614,9 +616,56 @@ Some of the disadvantages of child themes are:</p>
 </code></pre></div>
 <p>Upload your header.php file and you will see that the <strong>font-awesome.min.css</strong> file is loading when you refresh your page. </p>
 
-<p>Now, lets replace the &quot;search&quot; submit text with the new search icon!</p>
+<p>Now, lets replace the searchform.php content and add some CSS rules.</p>
 
-<p>** COMING SOON **</p>
+<p>We are going to leverage our Skeleton grid to layout the search form. Notice how we are using the wie-hide utility class on the elements we don&#39;t want to see. </p>
+
+<p class="file-name">searchform.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;row&quot;&gt;</span>
+<span class="x">    &lt;div class=&quot;nine columns&quot;&gt;</span>
+<span class="x">        &lt;form role=&quot;search&quot; method=&quot;get&quot; class=&quot;search-form wie-search-form&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">home_url</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
+<span class="x">                &lt;span class=&quot;screen-reader-text wie-hide&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Search for:&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span> <span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
+<span class="x">                &lt;input type=&quot;search&quot; class=&quot;search-field wie-search-field&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_search_query</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&quot; name=&quot;s&quot; /&gt;</span>
+<span class="x">            &lt;input type=&quot;submit&quot; class=&quot;search-submit wie-search-submit wie-hide&quot; value=&quot;&quot; /&gt;</span>
+<span class="x">        &lt;/form&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">    &lt;div class=&quot;three columns search-bar-icon&quot;&gt;</span>
+<span class="x">        &lt;i class=&quot;fa fa-search fa-2x&quot;&gt;&lt;/i&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Replace all of the Search Bar CSS you have added thus far. Since we are getting rid of some of the elements, we will want to modify the whole thing. </p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*--- Search Bar CSS ---*/</span>
+
+<span class="nc">.search-bar-icon</span> <span class="p">{</span> 
+    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
+    <span class="k">color</span><span class="o">:</span> <span class="m">#666</span><span class="p">;</span> 
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span> 
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">min-height</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
+    <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;search&quot;</span><span class="o">]</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
+    <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">min-height</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span> 
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now upload your files and you should have a search form with a search icon. Feel free to mess around with this to get your own desired result. </p>
 
 <h3>Tutorial: Sticky Header Bar</h3>
 

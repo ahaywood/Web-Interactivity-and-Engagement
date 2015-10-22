@@ -28,9 +28,9 @@ A basic introduction to PHP and very basic programming principles which will hel
 * [PHP Lesson 3: Conditional Logic & Functions](#php-lesson-3)
 * [PHP Lesson 4: Simple Contact Form](#php-lesson-4)
 * [PHP Lesson 5: Putting it All Together](#php-lesson-5)
-* [PHP Lesson 6: TBD](#php-lesson-6)
+* [PHP Lesson 6: Database Integration and PHP](#php-lesson-6)
 * [PHP Lesson 7: Object Oriented Programming](#php-lesson-7)
-* [PHP Lesson 8: TBD](#php-lesson-8)
+* [PHP Lesson 8: Tying JavaScript and PHP Programming together](#php-lesson-8)
 
 ## PHP Lesson 1: Introduction to PHP
 
@@ -1240,10 +1240,623 @@ Lastly, let’s add some styling to our form so that we have a good looking form
 Upload your files to your server, which must have PHP enabled, and then check to make sure your form works.
 
 
+## <a name="php-lesson-5">PHP Lesson 5: Putting it all Together: Inputs and Outputs</a>
+
+So we know a bit about the building blocks and we have come to use them as examples. However, learning about these building blocks in a concrete way requires application. 
+
+The list of elements we are going to use in this tutorial is as follows:
+
+* Variables
+* Strings
+* Arrays
+* Functions
+* Conditional Statements
+<br /><br />
+
+You should feel comfortable with all of these going forward.
+
+### Tutorial Concept
+
+So let us imagine that we have a very, very basic content management system that we want to use. This content management system is so basic that it has no database connection for storing data and merely updates the values in the page (hope you don’t close it or refresh)!
+
+However, this is a good place to start because we are going to need to build the portion of the application that works without a database before we integrate it with a database. This is a common thing to do when you are creating a prototype for an application.
+
+In our application, we are going to imagine ourselves as a zoo. We need to keep track of our animals and might want more information about them.
+
+### Step 1: Create The Structure for the Application
+
+Every step of an application requires some design before any steps of coding are taken into consideration. Sometimes you may make changes to the design based on coding restrictions, but the design is key. Let’s create a sample data architecture and a front end for our application. 
+
+#### Data Architecture/Model
+
+* Animal
+	* Name
+	* Type
+	* Size
+	* Location
+	* Date of Acquisition
+
+<br /><br />
+Looking at our data architecture, it is clear that there is an overarching value of the animal name with many other values associated with that animal name. This seems to work out for us, but how are we going to make this look?
+
+#### Front End Structure
+
+Let’s use one of the most basic HTML layout structures to lay this out - the table. Obviously tables are mostly useless nowadays, but their simplicity and syntactical hierarchy makes them a good example in this case. 
+
+<p class="file-name">index.php</p>
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample Zoo App</title>
+</head>
+<body>
+
+<h1>Sample Zoo Application</h1>
+
+<h2>Add an Animal</h2>
+<form>
+Name: <input type="text" name="name"><br />
+Type: <input type="text" name="type"><br />
+Size: <input type="text" name="size"><br />
+Location: <input type="text" name="location"><br />
+Date of Acquisition: <input type="text" name="doa"><br />
+<input type="submit" name="submit" value="Submit">
+</form>
+
+<h2>Animal List</h2>
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Type</td>
+			<td>Size</td>
+			<td>Location</td>
+			<td>Date of Acquisition</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Sample1</td>
+			<td>Sample1</td>
+			<td>Sample1</td>
+			<td>Sample1</td>
+			<td>01/01/0001</td>
+		</tr>
+		<tr>
+			<td>Sample2</td>
+			<td>Sample2</td>
+			<td>Sample2</td>
+			<td>Sample2</td>
+			<td>01/01/0001</td>
+		</tr>
+		<tr>
+			<td>Sample3</td>
+			<td>Sample3</td>
+			<td>Sample3</td>
+			<td>Sample3</td>
+			<td>01/01/0001</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
+```
+
+This simple HTML template should work to show you all of the data architecture as a sample. Using simple HTML we could easily envision a display of all of the animals if we hard coded it that way. In fact, there exist situations where this may be useful. But we are not talking about someone’s house pets - this is a big zoo and there are a LOT of animals - so we are going to need to build something that is dynamic.
+
+I also want to reiterate that making the design of the data and the application makes the remaining design process a lot more simple. Make sure you are planning in detail the specifications of the project before you dive into the coding.
+
+### Step 2: Use Baseline Data to Ensure Output
+
+So ultimately we are going to want to generate some new entries from a form - but for now we are going to want to make sure we have our PHP code correctly set up to display some text. We have learned about multidimensional arrays briefly earlier, but let’s implement them to store our data.
+
+<p class="file-name">index.php</p>
+```php
+<?php 
+
+$animals = array(
+array(“Elly”, “elephant”, “10”, “0012”, “02/07/2006”),
+array(“Fred”, “gorilla”, “7”, “0001”, “03/08/2005”),
+array(“Squeaky”, “mouse”, “2”, “0008”, “04/09/2004”),
+array(“Sam”, “cougar”, “5”, “0004”, “05/11/2003”),
+array(“Rib”, “frog”, “2”, “0007”, “06/21/2002”),
+array(“Karen”, “parrot”, “3”, “0009”, “07/31/2001”)
+);
+?>
+```
+
+### Step 3: Output the Sample Data
+
+Now that we have some actual sample data to deal with, let’s talk about how this data exists. Back in Lesson 2 we talked about keys/indexes. As a reminder, the key refers to the placement of the item in the array. For example:
+
+	$animals[0][1] => “elephant”
+
+This is because the first array’s ([0]) second item ([1]) is the string “elephant”.
+
+	$animals[3][4] => “05/11/2003”
+
+This is because the fourth array’s ([3]) fifth item ([4]) is the string “05/11/2003”.
+
+Our data model in a relational sense would look like this:
+
+<table>
+<thead>
+<tr>
+			<td>Key</td>
+<td>Name [0]</td>
+			<td>Type [1]</td>
+			<td>Size [2]</td>
+<td>Location [3]</td>
+<td>Date of Acquisition [4]</td>
+</tr>
+	</thead>
+	<tbody>
+<tr>
+			<td>0</td>
+<td>Elly</td>
+			<td>elephant</td>
+			<td>10</td>
+<td>0012</td>
+<td>02/07/2006</td>
+</tr>
+<tr>
+			<td>1</td>
+<td>Fred</td>
+			<td>gorilla</td>
+			<td>7</td>
+<td>0001</td>
+<td>03/08/2005</td>
+</tr>
+<tr>
+			<td>2</td>
+<td>Squeaky</td>
+			<td>mouse</td>
+			<td>2</td>
+<td>0008</td>
+<td>04/09/2004</td>
+</tr>
+<tr>
+			<td>3</td>
+<td>Sam</td>
+			<td>cougar</td>
+			<td>5</td>
+<td>0004</td>
+<td>05/11/2003</td>
+</tr>
+<tr>
+			<td>4</td>
+<td>Rib</td>
+			<td>frog</td>
+			<td>2</td>
+<td>0007</td>
+<td>06/21/2002</td>
+<tr>
+<tr>
+			<td>5</td>
+<td>Karen</td>
+			<td>parrot</td>
+			<td>3</td>
+<td>0009</td>
+<td>07/31/2001</td>
+</tr>
+	</tbody>
+</table>
+
+I am spending a lot of time making sure you understand how data sits in the application because it is also how data sits in a database. **Having an understanding of data organizations allows you to map out complex applications more efficiently**. Being able to create stable and efficient applications is just as important than being able to build them at all
+
+Now that we have a good understanding of the sample data, let’s output the sample data. Using a loop, we are able to go through and print all of the data. Think of the WordPress loop and how it works compared to how this loop works.
+
+<p class="file-name">index.php</p>
+```php
+<?php
+if ( $animals ) { //if there is an $animals array then...
+	$animalVal = 0; //set variable for iteration
+	$animalsCount = count($animals);
+while ( $animalsVal <=  $animalsCount ) { 
+// we need to make sure there is a count of the items in the array so that we don’t iterate over empty items in the array	
+?>
+<tr>
+	<td>
+		<?php echo $animals[$animalVal][0]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][1]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal]2]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][3]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][4]; ?>
+	</td>
+</tr>
+<?php 
+$animalVal++ //increase the value of animalVal
+} // end while
+} // end if
+?>
+```
+
+There is a lot happening here:
+
+We set a variable to be the value of 0
+We are looping through the array
+We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
+We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. 
+
+This looping of values from the array need to be put into our hardcoded table from Step One. 
+
+<p class="file-name">index.php</p>
+```php
+<h2>Animal List</h2>
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Type</td>
+			<td>Size</td>
+			<td>Location</td>
+			<td>Date of Acquisition</td>
+		</tr>
+	</thead>
+	<tbody>
+
+<?php
+if ( $animals ) { //if there is an $animals array then...
+	$animalVal = 0; //set variable for iteration
+while ( $animals ) { //so long as there is still an $animals array then...	
+?>
+<tr>
+	<td>
+		<?php echo $animals[$animalVal][0]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][1]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal]2]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][3]; ?>
+	</td>
+	<td>
+		<?php echo $animals[$animalVal][4]; ?>
+	</td>
+</tr>
+<?php 
+$animalVal++ //increase the value of animalVal
+} // end while
+} // end if
+?>
+	</tbody>
+</table>
+```
+
+We now are iterating through our array one step at a time and outputting it into the table. This is a huge step in our process is our first step in creating dynamically generated web pages. 
+
+### Step 3: Using Forms to Submit Data
+
+Having a static list of objects is not very interesting and it can hardly be called an application. Let’s create a form that submits data to the array we have.
+
+Remember in Lesson 2 when we used array_push? Well, that is going to be the basis for our form submission here.
+
+Let’s start by looking at the form we created in Step One.
+
+<p class="file-name">index.php</p>
+```html
+<form>
+Name: <input type="text" name="name"><br />
+Type: <input type="text" name="type"><br />
+Size: <input type="text" name="size"><br />
+Location: <input type="text" name="location"><br />
+Date of Acquisition: <input type="text" name="doa"><br />
+<input type="submit" name="submit" value="Submit">
+</form>
+
+```
+
+This form doesn’t do anything because we haven’t wired it up to do anything. Forms are a very powerful part of the HTML language. It allows you to make submissions to both internal and external sources from the page. 
+
+[Learn more about forms](http://www.w3schools.com/html/html_forms.asp)
+
+<p class="file-name">index.php</p>
+```html
+<form method=”post” action=””>
+Name: <input type="text" name="name" value=””><br />
+Type: <input type="text" name="type" value=””><br />
+Size: <input type="text" name="size" value=””><br />
+Location: <input type="text" name="location" value=””><br />
+Date of Acquisition: <input type="text" name="doa" value=””><br />
+<input type="submit" name="submit" value="Submit">
+</form>
+
+```
+
+In this code, we are doing three things (one of them not completely defined yet):
+
+We are giving it the method “post” which defines what happens when the form is submitted
+We are giving the form an action which tells the form how to behave. Our action is currently blank but we are going to define that action with PHP. 
+We are giving the inputs an empty value which will be used for the form submission.
+
+The value parameter is used to pass a value to the “post” event. Please note that none of this is PHP but rather HTML. The next thing we will do is to create some blank variable placeholders for our PHP form submission.
+
+<p class="file-name">index.php</p>
+```php
+<?php
+// Define variables and set empty values
+$animalName = “”; 
+$animalType = “”; 
+$animalSize = “”; 
+$animalLocation = “”; 
+$animalDoa = “”; 
+?>
+```
+
+These variables are going to hold the information that is submitted through the form. Let’s place the variables dynamically into the inputs.
+
+```php
+<form method=”post” action=””>
+Name: <input type="text" name="name" value=”<?php echo $animalName;?>
+”><br />
+Type: <input type="text" name="type" value=”<?php echo $animalType;?>
+”><br />
+Size: <input type="text" name="size" value=”<?php echo $animalSize;?>
+”><br />
+Location: <input type="text" name="location" value=”<?php echo $animalLocation;?>
+”><br />
+Date of Acquisition: <input type="text" name="doa" value=”<?php echo $animalDoa;?>
+”><br />
+<input type="submit" name="submit" value="Submit">
+</form>
+
+```
+
+We are taking the variable and inputting it into value. When the variable changes, so will the value.
+
+A major part of using forms in PHP involves the use of one of PHP’s most powerful and attractive features: *Superglobals*. 
+
+Superglobals get their name because their scope is universal. They are built in variables that are used for receiving and sending data, often over HTTP. Even if that last sentence was gobbledegook for you, know that they are very powerful variables you can use to simplify the effort needed for sending and receiving data. The syntax for a superglobal is $_POST - which is to say it starts with a $_ and then adds in the name of the global variable. 
+
+We are going to use $_POST and $_SERVER. You can [learn more about superglobals at PHP.net](http://php.net/manual/en/language.variables.superglobals.php)
+
+Let’s add some of these super powered variables into our code. The $_POST superglobal pushes the value it receives. The $_SERVER superglobal has many options it can accept so that it does different things. If you want to look into this in greater detail, I recommend you check out the pages for the appropriate superglobals:
+
+* [$_POST](http://php.net/manual/en/reserved.variables.post.php)
+* [$_SERVER](http://php.net/manual/en/reserved.variables.server.php)
+<br /><br />
+
+<p class="file-name">index.php</p>
+```php
+<?php
+
+// define variables and set to empty values
+$animalName = "";
+$animalType = "";
+$animalSize = "";
+$animalLocation = "";
+$animalDoa = "";
+
+// redefine variables if the form is submitted using the $_POST superglobal
+$animalName = animalValidation($_POST["name"]);
+$animalType = animalValidation($_POST["type"]);
+$animalSize = animalValidation($_POST["size"]);
+$animalLocation = animalValidation($_POST["location"]);
+$animalDoa = animalValidation($_POST["doa"]);
+?>
+```
+
+
+By adding the $_POST superglobal, we allow the variable to be redefined by the form field of the specified name.
+
+Let’s set up our form so that it is functioning as a PHP HTTP form.
+
+<p class="file-name">index.php</p>
+```html
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	Name: <input type="text" name="name" value="<?php echo $animalName;?>"><br />
+	Type: <input type="text" name="type" value="<?php echo $animalType;?>"><br />
+	Size: <input type="text" name="size" value="<?php echo $animalSize;?>"><br />
+	Location: <input type="text" name="location" value="<?php echo $animalLocation;?>"><br />
+	Date of Acquisition: <input type="text" name="doa" value="<?php echo $animalDoa;?>"><br />
+	<input type="submit" name="submit" value="Submit">
+</form>
+```
+
+The superglobal we added is $_SERVER with the option of “PHP_SELF” which tells the $_SERVER superglobal that the server is existing in the same window frame. Which works for us since we want to update the page like a single page app. The weird thing you may not understand is the htmlspecialchars function we are putting in front of the superglobal. This is a PHP function that converts any special characters to HTML. 
+
+This is the first step of preventing unwanted behavior from happening that we will do in this little application. Let’s add some more data validation and conditional steps into the application so that we aren’t letting the user mess anything up. 
+
+<p class="file-name">index.php</p>
+```php
+<?php
+// define variables and set to empty values
+$animalName = "";
+$animalType = "";
+$animalSize = "";
+$animalLocation = "";
+$animalDoa = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $animalName = animalValidation($_POST["name"]);
+  $animalType = animalValidation($_POST["type"]);
+  $animalSize = animalValidation($_POST["size"]);
+  $animalLocation = animalValidation($_POST["location"]);
+  $animalDoa = animalValidation($_POST["doa"]);
+}
+function animalValidation($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  Name: <input type="text" name="name" value="<?php echo $animalName;?>"><br />
+  Type: <input type="text" name="type" value="<?php echo $animalType;?>"><br />
+  Size: <input type="text" name="size" value="<?php echo $animalSize;?>"><br />
+  Location: <input type="text" name="location" value="<?php echo $animalLocation;?>"><br />
+  Date of Acquisition: <input type="text" name="doa" value="<?php echo $animalDoa;?>"><br />
+  <input type="submit" name="submit" value="Submit">
+</form>
+```
+
+Here’s what we added:
+
+* A conditional statement using the $_SERVER superglobal to ensure that a POST event occurs before it changes the variables
+* A custom function (oh yeah, did you know you can define your own functions in PHP too?) that uses three built in PHP functions to output the input (algorithm). Do you see how the use of the $data variable works?
+* Then we applied that custom function into the $_POST superglobal behavior we added earlier. 
+* Lastly, we need to add the array_push behavior so that there is a new item added into the array.
+<br /><br />
+
+<p class="file-name">index.php</p>
+```php
+<?php
+  array_push($animals,
+	array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
+  );
+?>
+```
+
+Let’s put our whole PHP functionality thing together:
+
+<p class="file-name">index.php</p>
+```php
+<?php
+$animalName = "";
+$animalType = "";
+$animalSize = "";
+$animalLocation = "";
+$animalDoa = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $animalName = animalValidation($_POST["name"]);
+  $animalType = animalValidation($_POST["type"]);
+  $animalSize = animalValidation($_POST["size"]);
+  $animalLocation = animalValidation($_POST["location"]);
+  $animalDoa = animalValidation($_POST["doa"]);
+}
+function animalValidation($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	Name: <input type="text" name="name" value="<?php echo $animalName;?>"><br />
+	Type: <input type="text" name="type" value="<?php echo $animalType;?>"><br />
+	Size: <input type="text" name="size" value="<?php echo $animalSize;?>"><br />
+	Location: <input type="text" name="location" value="<?php echo $animalLocation;?>"><br />
+	Date of Acquisition: <input type="text" name="doa" value="<?php echo $animalDoa;?>"><br />
+	<input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+	array_push($animals,
+		array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
+	);
+?>
+```
+
+### Step 4: Put Everything Together and Try it Out
+
+Let’s add the form function and the table function as start adding some new animals!
+
+<p class="file-name">index.php</p>
+```php
+<?php
+$animalName = "";
+$animalType = "";
+$animalSize = "";
+$animalLocation = "";
+$animalDoa = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $animalName = animalValidation($_POST["name"]);
+  $animalType = animalValidation($_POST["type"]);
+  $animalSize = animalValidation($_POST["size"]);
+  $animalLocation = animalValidation($_POST["location"]);
+  $animalDoa = animalValidation($_POST["doa"]);
+}
+function animalValidation($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	Name: <input type="text" name="name" value="<?php echo $animalName;?>"><br />
+	Type: <input type="text" name="type" value="<?php echo $animalType;?>"><br />
+	Size: <input type="text" name="size" value="<?php echo $animalSize;?>"><br />
+	Location: <input type="text" name="location" value="<?php echo $animalLocation;?>"><br />
+	Date of Acquisition: <input type="text" name="doa" value="<?php echo $animalDoa;?>"><br />
+	<input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+  array_push($animals,
+	array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
+  );
+?>
+
+<h2>Animal List</h2>
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Type</td>
+			<td>Size</td>
+			<td>Location</td>
+			<td>Date of Acquisition</td>
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+	if ( $animals ) { //if there is an $animals array then...
+		$animalVal = 0; //set variable for iteration
+	while ( $animals ) { //so long as there is still an $animals array then...	
+	?>
+	<tr>
+		<td>
+			<?php echo $animals[$animalVal][0]; ?>
+		</td>
+		<td>
+			<?php echo $animals[$animalVal][1]; ?>
+		</td>
+		<td>
+			<?php echo $animals[$animalVal]2]; ?>
+		</td>
+		<td>
+			<?php echo $animals[$animalVal][3]; ?>
+		</td>
+		<td>
+			<?php echo $animals[$animalVal][4]; ?>
+		</td>
+	</tr>
+	<?php 
+	$animalVal++ //increase the value of animalVal
+	} // end while
+	} // end if
+	?>
+	</tbody>
+</table>
+```
+
+### Step Five: Disappointment
+
+Have you noticed that the form does not submit more than once successfully? Why is that?
+
+Well, the post request that we are using sends data to the array, but if you attempt to send it again, it will just overwrite that portion of the array with the new information. The way to fix this is to do some database integration. Which leads us to the next lesson.
 
 <!--
-## <a name="php-lesson-5">PHP Lesson 5: Creating a Contact Form</a>
-## <a name="php-lesson-6">PHP Lesson 6: Recapping What We've Learned</a>
+## <a name="php-lesson-6">PHP Lesson 6: Database Integration and PHP</a>
 ## <a name="php-lesson-7">PHP Lesson 7: Object Oriented Programming</a>
 ## <a name="php-lesson-8">PHP Lesson 8: Creating a CMS - coming soon</a>
 -->
