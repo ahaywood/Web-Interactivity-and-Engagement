@@ -1495,40 +1495,42 @@ Date of Acquisition: <span class="nt">&lt;input</span> <span class="na">type=</s
 <p class="file-name">index.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">if</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//if there is an $animals array then...</span>
-    <span class="nv">$animalVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//set variable for iteration</span>
+    <span class="nv">$animalsVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//set variable for iteration</span>
     <span class="nv">$animalsCount</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$animals</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span> <span class="nv">$animalsVal</span> <span class="o">&lt;=</span>  <span class="nv">$animalsCount</span> <span class="p">)</span> <span class="p">{</span> 
 <span class="c1">// we need to make sure there is a count of the items in the array so that we don’t iterate over empty items in the array </span>
 <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">&lt;tr&gt;</span>
 <span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/td&gt;</span>
 <span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/td&gt;</span>
 <span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">]</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/td&gt;</span>
 <span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/td&gt;</span>
 <span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/td&gt;</span>
 <span class="x">&lt;/tr&gt;</span>
 <span class="cp">&lt;?php</span> 
-<span class="nv">$animalVal</span><span class="o">++</span> <span class="c1">//increase the value of animalVal</span>
+<span class="nv">$animalsVal</span><span class="o">++</span> <span class="c1">//increase the value of animalVal</span>
 <span class="p">}</span> <span class="c1">// end while</span>
 <span class="p">}</span> <span class="c1">// end if</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>There is a lot happening here:</p>
 
-<p>We set a variable to be the value of 0
-We are looping through the array
-We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
-We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. </p>
+<ul>
+<li>We set a variable to be the value of 0</li>
+<li>We are looping through the array</li>
+<li>We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.</li>
+<li>We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. </li>
+</ul>
 
 <p>This looping of values from the array need to be put into our hardcoded table from Step One. </p>
 
@@ -1547,35 +1549,45 @@ We are also outputting the value of the array inside of a table structure. Make 
 <span class="x">    &lt;tbody&gt;</span>
 
 <span class="cp">&lt;?php</span>
-<span class="k">if</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//if there is an $animals array then...</span>
-    <span class="nv">$animalVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//set variable for iteration</span>
-<span class="k">while</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//so long as there is still an $animals array then...  </span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//if there is an $animals array then...</span>
+        <span class="nv">$animalsVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//set variable for iteration</span>
+        <span class="nv">$animalsCount</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$animals</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span> <span class="nv">$animalsVal</span> <span class="o">&lt;=</span>  <span class="nv">$animalsCount</span> <span class="p">)</span> <span class="p">{</span> 
+        <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;tr&gt;</span>
+<span class="x">            &lt;td&gt;</span>
+<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;/td&gt;</span>
+<span class="x">            &lt;td&gt;</span>
+<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;/td&gt;</span>
+<span class="x">            &lt;td&gt;</span>
+<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;/td&gt;</span>
+<span class="x">            &lt;td&gt;</span>
+<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;/td&gt;</span>
+<span class="x">            &lt;td&gt;</span>
+<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;/td&gt;</span>
+<span class="x">        &lt;/tr&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span> 
+        <span class="nv">$animalsVal</span><span class="o">++</span> <span class="c1">//increase the value of animalVal</span>
+        <span class="p">}</span> <span class="c1">// end while</span>
+        <span class="nb">unset</span><span class="p">(</span><span class="nv">$animalsVal</span><span class="p">);</span>
+    <span class="p">}</span> <span class="c1">// end if</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;tr&gt;</span>
-<span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/td&gt;</span>
-<span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/td&gt;</span>
-<span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">]</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/td&gt;</span>
-<span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/td&gt;</span>
-<span class="x">    &lt;td&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/td&gt;</span>
-<span class="x">&lt;/tr&gt;</span>
-<span class="cp">&lt;?php</span> 
-<span class="nv">$animalVal</span><span class="o">++</span> <span class="c1">//increase the value of animalVal</span>
-<span class="p">}</span> <span class="c1">// end while</span>
-<span class="p">}</span> <span class="c1">// end if</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/tbody&gt;</span>
+
+<span class="x">&lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div>
+<p>Two important things to note that I added:</p>
+
+<ol>
+<li><p>I subtracted 1 from the count variable value because the count function starts at 1 but the array key starts at 0 - so that&#39;s why you were probably getting an error.</p></li>
+<li><p>I added an &quot;unset&quot; function to the $animalsVal variable so that it is not stored in memory even though we aren&#39;t using it anymore - plus this will prevent future issues. </p></li>
+</ol>
+
 <p>We now are iterating through our array one step at a time and outputting it into the table. This is a huge step in our process is our first step in creating dynamically generated web pages. </p>
 
 <h3>Step 3: Using Forms to Submit Data</h3>
@@ -1827,7 +1839,7 @@ We are giving the inputs an empty value which will be used for the form submissi
   <span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 
-<span class="x">&lt;h2&gt;Animal List&lt;/h2&gt;</span>
+<span class="x">&lt;h3&gt;Animal List&lt;/h3&gt;</span>
 <span class="x">&lt;table&gt;</span>
 <span class="x">    &lt;thead&gt;</span>
 <span class="x">        &lt;tr&gt;</span>
@@ -1840,32 +1852,33 @@ We are giving the inputs an empty value which will be used for the form submissi
 <span class="x">    &lt;/thead&gt;</span>
 <span class="x">    &lt;tbody&gt;</span>
 <span class="x">    </span><span class="cp">&lt;?php</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//if there is an $animals array then...</span>
-        <span class="nv">$animalVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//set variable for iteration</span>
-    <span class="k">while</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//so long as there is still an $animals array then...  </span>
-    <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;tr&gt;</span>
-<span class="x">        &lt;td&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/td&gt;</span>
-<span class="x">        &lt;td&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/td&gt;</span>
-<span class="x">        &lt;td&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">]</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/td&gt;</span>
-<span class="x">        &lt;td&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/td&gt;</span>
-<span class="x">        &lt;td&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/td&gt;</span>
-<span class="x">    &lt;/tr&gt;</span>
-<span class="x">    </span><span class="cp">&lt;?php</span> 
-    <span class="nv">$animalVal</span><span class="o">++</span> <span class="c1">//increase the value of animalVal</span>
-    <span class="p">}</span> <span class="c1">// end while</span>
-    <span class="p">}</span> <span class="c1">// end if</span>
-    <span class="cp">?&gt;</span><span class="x"></span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nv">$animals</span> <span class="p">)</span> <span class="p">{</span> 
+            <span class="nv">$animalsCount</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$animals</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> 
+            <span class="nv">$animalsVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+            <span class="k">while</span> <span class="p">(</span> <span class="nv">$animalsVal</span> <span class="o">&lt;=</span>  <span class="nv">$animalsCount</span> <span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                &lt;tr&gt;</span>
+<span class="x">                    &lt;td&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                    &lt;/td&gt;</span>
+<span class="x">                    &lt;td&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                    &lt;/td&gt;</span>
+<span class="x">                    &lt;td&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                    &lt;/td&gt;</span>
+<span class="x">                    &lt;td&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                    &lt;/td&gt;</span>
+<span class="x">                    &lt;td&gt;</span>
+<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$animals</span><span class="p">[</span><span class="nv">$animalsVal</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">                    &lt;/td&gt;</span>
+<span class="x">                &lt;/tr&gt;</span>
+<span class="x">              </span><span class="cp">&lt;?php</span> 
+              <span class="nv">$animalsVal</span><span class="o">++</span><span class="p">;</span> 
+          <span class="p">}</span> <span class="c1">// end while</span>
+          <span class="nb">unset</span><span class="p">(</span><span class="nv">$animalsVal</span><span class="p">);</span>
+        <span class="p">}</span> <span class="c1">// end if</span>
+        <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">    &lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div>

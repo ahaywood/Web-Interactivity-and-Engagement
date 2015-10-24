@@ -1451,30 +1451,30 @@ Now that we have a good understanding of the sample data, let’s output the sam
 ```php
 <?php
 if ( $animals ) { //if there is an $animals array then...
-	$animalVal = 0; //set variable for iteration
+	$animalsVal = 0; //set variable for iteration
 	$animalsCount = count($animals);
 while ( $animalsVal <=  $animalsCount ) { 
 // we need to make sure there is a count of the items in the array so that we don’t iterate over empty items in the array	
 ?>
 <tr>
 	<td>
-		<?php echo $animals[$animalVal][0]; ?>
+		<?php echo $animals[$animalsVal][0]; ?>
 	</td>
 	<td>
-		<?php echo $animals[$animalVal][1]; ?>
+		<?php echo $animals[$animalsVal][1]; ?>
 	</td>
 	<td>
-		<?php echo $animals[$animalVal]2]; ?>
+		<?php echo $animals[$animalsVal][2]; ?>
 	</td>
 	<td>
-		<?php echo $animals[$animalVal][3]; ?>
+		<?php echo $animals[$animalsVal][3]; ?>
 	</td>
 	<td>
-		<?php echo $animals[$animalVal][4]; ?>
+		<?php echo $animals[$animalsVal][4]; ?>
 	</td>
 </tr>
 <?php 
-$animalVal++ //increase the value of animalVal
+$animalsVal++ //increase the value of animalVal
 } // end while
 } // end if
 ?>
@@ -1482,10 +1482,10 @@ $animalVal++ //increase the value of animalVal
 
 There is a lot happening here:
 
-We set a variable to be the value of 0
-We are looping through the array
-We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
-We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. 
+* We set a variable to be the value of 0
+* We are looping through the array
+* We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
+* We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. 
 
 This looping of values from the array need to be put into our hardcoded table from Step One. 
 
@@ -1505,35 +1505,43 @@ This looping of values from the array need to be put into our hardcoded table fr
 	<tbody>
 
 <?php
-if ( $animals ) { //if there is an $animals array then...
-	$animalVal = 0; //set variable for iteration
-while ( $animals ) { //so long as there is still an $animals array then...	
+	if ( $animals ) { //if there is an $animals array then...
+		$animalsVal = 0; //set variable for iteration
+		$animalsCount = count($animals) - 1;
+		while ( $animalsVal <=  $animalsCount ) { 
+		?>
+		<tr>
+			<td>
+				<?php echo $animals[$animalsVal][0]; ?>
+			</td>
+			<td>
+				<?php echo $animals[$animalsVal][1]; ?>
+			</td>
+			<td>
+				<?php echo $animals[$animalsVal][2]; ?>
+			</td>
+			<td>
+				<?php echo $animals[$animalsVal][3]; ?>
+			</td>
+			<td>
+				<?php echo $animals[$animalsVal][4]; ?>
+			</td>
+		</tr>
+		<?php 
+		$animalsVal++ //increase the value of animalVal
+		} // end while
+		unset($animalsVal);
+	} // end if
 ?>
-<tr>
-	<td>
-		<?php echo $animals[$animalVal][0]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalVal][1]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalVal]2]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalVal][3]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalVal][4]; ?>
-	</td>
-</tr>
-<?php 
-$animalVal++ //increase the value of animalVal
-} // end while
-} // end if
-?>
-	</tbody>
+
+</tbody>
 </table>
 ```
+Two important things to note that I added:
+
+1. I subtracted 1 from the count variable value because the count function starts at 1 but the array key starts at 0 - so that's why you were probably getting an error.
+
+2. I added an "unset" function to the $animalsVal variable so that it is not stored in memory even though we aren't using it anymore - plus this will prevent future issues. 
 
 We now are iterating through our array one step at a time and outputting it into the table. This is a huge step in our process is our first step in creating dynamically generated web pages. 
 
@@ -1806,7 +1814,7 @@ function animalValidation($data) {
   );
 ?>
 
-<h2>Animal List</h2>
+<h3>Animal List</h3>
 <table>
 	<thead>
 		<tr>
@@ -1819,32 +1827,33 @@ function animalValidation($data) {
 	</thead>
 	<tbody>
 	<?php
-	if ( $animals ) { //if there is an $animals array then...
-		$animalVal = 0; //set variable for iteration
-	while ( $animals ) { //so long as there is still an $animals array then...	
-	?>
-	<tr>
-		<td>
-			<?php echo $animals[$animalVal][0]; ?>
-		</td>
-		<td>
-			<?php echo $animals[$animalVal][1]; ?>
-		</td>
-		<td>
-			<?php echo $animals[$animalVal]2]; ?>
-		</td>
-		<td>
-			<?php echo $animals[$animalVal][3]; ?>
-		</td>
-		<td>
-			<?php echo $animals[$animalVal][4]; ?>
-		</td>
-	</tr>
-	<?php 
-	$animalVal++ //increase the value of animalVal
-	} // end while
-	} // end if
-	?>
+	if ( $animals ) { 
+            $animalsCount = count($animals) - 1; 
+            $animalsVal = 0; 
+            while ( $animalsVal <=  $animalsCount ) { ?>
+                <tr>
+                    <td>
+                    <?php echo $animals[$animalsVal][0]; ?>
+                    </td>
+                    <td>
+                    <?php echo $animals[$animalsVal][1]; ?>
+                    </td>
+                    <td>
+                    <?php echo $animals[$animalsVal][2]; ?>
+                    </td>
+                    <td>
+                    <?php echo $animals[$animalsVal][3]; ?>
+                    </td>
+                    <td>
+                    <?php echo $animals[$animalsVal][4]; ?>
+                    </td>
+                </tr>
+              <?php 
+              $animalsVal++; 
+          } // end while
+          unset($animalsVal);
+        } // end if
+        ?>
 	</tbody>
 </table>
 ```
