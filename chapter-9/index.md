@@ -95,13 +95,102 @@ Additionally, you can always add new elements to the plan as you go and test, bu
 * [12 Useful Techniques For Good User Interface Design](http://www.smashingmagazine.com/2009/01/12-useful-techniques-for-good-user-interface-design-in-web-applications/) - Old but still useful
 * More to be added (if you have any to add, make a push request)
 
+## <a name="seo-techniques-in-a-cms">SEO Techniques in a CMS</a>
 
+SEO is short for Search Engine Optimization, which translates to trying to get your site to appear as high as possible on search sites (Google, Bing). SEO is one of the most important considerations for a business operating online (or in person as well). I am sure you are somewhat knowledgeable about SEO already, but we are going to discuss the topic in the form of strategy and techniques with regard to CMSs.
+
+### SEO Strategy
+
+The first thing we will consider is strategy. Consider [this Business Insider article for a list of 10 basic SEO tips](http://www.businessinsider.com/10-basic-seo-tips-everyone-should-know-2010-1?op=1).
+
+Taking SEO into account from the start of a project will help you create a structure that is already successful on launch. 
+
+*How do each of these 10 basic tips work with a content management system plan?*
+
+Google provides a document that helps you analyze and enhance your site’s SEO. This is the sort of document you should memorize and should be built into any plan for a website that you have. 
+
+[The Google SEO Starter Guide](http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf)
+
+*After looking through this, what is one big thing you can do to improve your SEO immediately?*
+
+#### Monitoring where you stand
+
+The first thing that the Business Insider article suggests is that you make sure you are able to see whether your SEO is working in the first place. Any analytics monitoring should always include SEO data. 
+
+The method by which people measure success of SEO is referred to as “page rank.” Having a strong page rank means your site appears highly for specific search results. 
+
+There are many commercial and open source tools to monitor analytics and search engine strength. Some tools include [Google Webmaster Tools (https://www.google.com/webmasters/tools/)](https://www.google.com/webmasters/tools/) and [Bing Webmaster Tools (http://www.bing.com/toolbox/webmaster)](http://www.bing.com/toolbox/webmaster). Having a good monitoring structure built into your site will help you find strengths and weaknesses in your SEO strategy.
+
+#### Specific SEO Elements
+
+Within your coding you are able to take steps to ensure that your SEO will jump. Some of these elements include keywords, link backs, alt tags and description tags, and headers. Though even with all of these, there is one much more important way to ensure your SEO rises. We will talk about that later.
+
+##### Keywords
+
+One of the most misunderstood aspects of SEO are keywords. In ancient times, SEO was driven by meta tags full of keywords. This was due mostly to the less advanced algorithms that were used to search and led to savvy web developers plugging in lots of words in the head of the pages. However, as search algorithms got smarter they realized that the spamming of keywords were not a good indicator of quality. 
+
+Now, keywords are used in a more subtle way and yet carry much more importance. Search bots no longer scan for keywords as stand alone content (as much), but rather look inside of site content. This site content includes titles, page text, URLs, image names and alt tags, and in description text. For a less aggressive SEO strategy, consider the places where search algorithms rank keywords the strongest, page headers and the site title tag. 
+
+*What is a good strategy to getting your content managers to use accurate keywords?*
+
+##### Link Backs
+
+A link back is a link from one site to another - where the resource chooses to link back to the original linker. This is extremely effective when you have other websites link to you, but you can also leverage this for internal linking. One common way to do this is to have links to relevant articles or archives within your own posts/pages. Make sure that the links have text in them that points to their relevance, not just randomness - bots know what works and what doesn’t. 
+
+#### Ultimate SEO Technique, REVEALED!
+
+Wow, this ultimate technique must be really great, right? Well it is - and the good news is you can use it right now if you wanted. 
+
+The secret to good SEO is to **have a site that is healthy, safe, and clearly organized.** Most web crawlers will look for this information before they take anything else into account. So what can you do to ensure this? 
+
+1. **Healthy**: Have your site be fast and optimized. Make sure you aren’t loading too much extraneous stuff
+2. **Safe**: No malware and have an SSL certificate. I know for this course we will probably not worry about SSL certificates, but making sure the data is coming and going securely makes a difference in one's SEO rank.
+3. **Clearly Organized**: Using the elements listed above is step one (headers, description tags, etc.). Step two is to make sure that your content is organized in a logical manner, is navigable easily, and makes sense. This sounds a lot like UI, doesn’t it? Well, the bots that scan sites are quite advanced and are able to know when the content is good or bad - and when it is organized well or poorly. 
+
+Basically, the secret to good SEO is to have a good website. 
+
+#### Other SEO Techniques
+
+* Sitemaps
+* Search Friendly URLs
+* Avoiding Flash (deprecated anyway…)
+* Image Description Tags
+* Link to Others (beware of link farms)
+
+### SEO Techniques
+
+#### Google SEO Starter Guide
+
+Let’s look at [The Google SEO Starter Guide](http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf) and find some techniques to implement into our site.
+
+*Which singular item did you choose from before? Can you implement that right now?*
+
+*Which item in this guide probably does not apply to you? Any?*
+
+#### Schema.org
+
+[From the schema site](http://schema.org/): 
+
+	This site provides a collection of schemas, i.e., html tags, that webmasters can use to markup their pages in ways recognized by major search providers. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results, making it easier for people to find the right web pages.
+
+	Many sites are generated from structured data, which is often stored in databases. When this data is formatted into HTML, it becomes very difficult to recover the original structured data. Many applications, especially search engines, can benefit greatly from direct access to this structured data. On-page markup enables search engines to understand the information on web pages and provide richer search results in order to make it easier for users to find relevant information on the web. Markup can also enable new tools and applications that make use of the structure.
+
+	A shared markup vocabulary makes it easier for webmasters to decide on a markup schema and get the maximum benefit for their efforts. So, in the spirit of sitemaps.org, search engines have come together to provide a shared collection of schemas that webmasters can use.
+
+Essentially, schema is a series of html indicators you can include in a site that will allow the search engines to automatically pull information from them. This is EXTREMELY useful in a CMS environment because the markup can go in the template and then as the site changes, the information fed to search engines will change with it. This allows you to add things like side bars in Google, or information about location, contact info, etc. for searches. 
+
+*What do you think you can add to help your site work better with SEO using Schema.org?*
+
+As a sidenote, Bing Webmaster Tools has a great tool for automatically adding this markup.
+
+##### Tutorial: Integrating Schema.org
+
+Coming Soon!
 
 ## <a name="effective-resource-management-in-large-scale-systems">Effective Resource Management in Large Scale Systems</a>
 ## <a name="monitoring-your-site">Monitoring Your Site</a>
 ### Tutorial: Integrating Google Analytics in WordPress
-## <a name="seo-techniques-in-a-cms">SEO Techniques in a CMS</a>
-### Tutorial: Optimizing WordPress for SEO
+
 ## <a name="styling-for-maximum-readability">Styling for Maximum Readability</a>
 ## <a name="various-readings">Various Readings</a>
 ### “Evoking Trust" and "Knowing Everything”
