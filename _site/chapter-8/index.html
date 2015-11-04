@@ -185,13 +185,15 @@
 
 <ul>
 <li>Tutorial: Custom Fonts</li>
+<li><a href="#enqueuing-files-in-wordpress">Tutorial: Enqueuing Files in WordPress</a></li>
 </ul></li>
 <li><a href="#child-and-parent-themes">Child and Parent Themes</a></li>
 <li><a href="#css-based-tutorials">CSS Based Tutorials</a>
 
 <ul>
-<li>Tutorial: Styling the Search Bar</li>
-<li>Tutorial: Sticky Header</li>
+<li><a href="#styling-the-search-bar">Tutorial: Styling the Search Bar</a></li>
+<li><a href="#sticky-header">Tutorial: Sticky Header</a></li>
+<li><a href="#circular-images">Tutorial: Circular Images</a></li>
 </ul></li>
 <li><a href="#adding-functionality">Adding Advanced Functionality</a>
 
@@ -508,6 +510,67 @@ The JavaScript insert method (probably the better choice…)</p>
 
 <h4>Step 4: Save and Upload</h4>
 
+<h3><a name="enqueuing-files-in-wordpress">Tutorial: Enqueuing Files in WordPress</a></h3>
+
+<p>We have learned a few ways to include files in WordPress using means that you could use in any web application. However, it is possible to enqueue files through the functions file to do so dynamically. This can be useful when you are not needing a file on every page of your site. Additionally, in WordPress, you can specify any dependencies that the script may need. Hopefully you can see how useful this can be.</p>
+
+<p>We are going to implement a jQuery slider. Sliders generally have little UI value and are pretty out of style for web development, but they are a common element that is frequently requested (in spite of what I have just said) and also make for a good example for integration. </p>
+
+<p>I will use <a href="http://unslider.com/">unslider</a> which is the first slider I got when I googled jQuery Slider. </p>
+
+<h4>Step One: Gather Dependent Files</h4>
+
+<p>Let’s first download the unslider.js file (minified) and then place it into a subfolder in our theme titled “js”.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. Download unslider.js file
+
+2. Create “js” folder in our theme
+
+3. Place unslider.js file into our theme/js/ folder. 
+</code></pre></div>
+<h4>Step Two: Enqueue the Unslider File</h4>
+
+<p>We are going to open our functions.php file and use a WordPress function called wp<em>enqueue</em>scripts to load the file dynamically. If you want to learn more about this function and some additional (and cool) things you can do to make it more dynamic yet, <a href="https://codex.wordpress.org/Function_Reference/wp_enqueue_script">go to the WordPress codex entry for wp<em>enqueue</em>scripts</a>.</p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">enqueue_unslider</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script</span>
+        <span class="s1">&#39;unslider&#39;</span><span class="p">,</span> <span class="c1">//name of our script (id)</span>
+        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/js/unslider.js&#39;</span><span class="p">,</span> <span class="c1">//file loc</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">)</span> <span class="c1">//dependencies</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;enqueue_unslider&#39;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>What is happening here should be familiar to you from the other code we have put into the functions file in the past, but I will walk through this because there are other new things here. </p>
+
+<ol>
+<li>We create a function to house our behavior.</li>
+<li>We use the WordPress function to enqueue the script.</li>
+<li>Input some parameters that the functions wants/needs. Note the dependencies array - where we are adding jquery to our enqueuing dynamically.</li>
+<li>Close out the function and then use the add_action function to make it work. </li>
+</ol>
+
+<h4>Step Three: Save and Upload</h4>
+
+<p>You should be able to see the unslider file loading now. </p>
+
+<h4>Step Four: CSS Files Too!</h4>
+
+<p>You can also use this method for CSS files too. All you have to do is point to the CSS file and this will work.</p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">enqueue_randomcss</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script</span>
+        <span class="s1">&#39;random-css&#39;</span><span class="p">,</span> <span class="c1">//name of our script (id)</span>
+        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/css/random.css&#39;</span> <span class="c1">//location of the file</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="nx">enqueue_css</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 <h2><a name="child-and-parent-themes">Child and Parent Themes</a></h2>
 
 <p>The concept of a child and parent theme is generally available in almost every CMS. In WordPress they are a useful tool to maintaining structure in a template where there is multiple versions of a site with one overlying template. </p>
@@ -546,7 +609,7 @@ Some of the disadvantages of child themes are:</p>
 
 <h2><a name="css-based-tutorials">CSS Based Tutorials</a></h2>
 
-<h3>Tutorial: Styling the Search Bar</h3>
+<h3><a name="styling-the-search-bar">Tutorial: Styling the Search Bar</a></h3>
 
 <p>The search bar is a really important tool for websites from a usability and functional UI standpoint. If you have a moderate to large size site, users will likely rely on this as one of the primary means of finding information. </p>
 
@@ -667,7 +730,7 @@ Some of the disadvantages of child themes are:</p>
 </code></pre></div>
 <p>Now upload your files and you should have a search form with a search icon. Feel free to mess around with this to get your own desired result. </p>
 
-<h3>Tutorial: Sticky Header Bar</h3>
+<h3><a name="sticky-header">Tutorial: Sticky Header Bar</a></h3>
 
 <p>A very common element on websites is a sticky element on the page. We are going to use CSS only to make our header attach to the top of the page no matter what. There are more sophisticated methods using JavaScript, but for our needs we can get away with just using a few lines of CSS. </p>
 
@@ -706,6 +769,31 @@ Some of the disadvantages of child themes are:</p>
 <span class="p">}</span>
 </code></pre></div>
 <h4>Step Four: Save and Upload</h4>
+
+<h3><a name="circular-images">Tutorial: Circular Images</a></h3>
+
+<p>This isn&#39;t even a difficult thing to do so I won&#39;t even make it like tutorial. There is a CSS-only way to make images appear to be circular. </p>
+
+<p>As an aside, it helps if the image has a square format so tht there isn&#39;t too much cut off. In WordPress you can set your thumbnail size to be square and then apply this style to it to give the circular image effect.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;imagelocation&quot;</span> <span class="na">class=</span><span class="s">&quot;circular-image&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.circular-image</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>See! Super easy.</p>
+
+<p>If you want to make it even more error proof, you can add some other classes to ensure that it works more uniformily. </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;imagelocation&quot;</span> <span class="na">class=</span><span class="s">&quot;circular-image profile-image&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.circular-image</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.profile-image</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>See how I used two classes to ensure that I can reuse either bunch of code however I wish?</p>
 
 <h2><a name="adding-functionality">Adding Advanced Functionality</a></h2>
 

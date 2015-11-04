@@ -15,10 +15,12 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 * [Shortcodes](#shortcodes)
 * [Integrating Outside Resources](#integrating-outside-resources)
 	* Tutorial: Custom Fonts
+    * [Tutorial: Enqueuing Files in WordPress](#enqueuing-files-in-wordpress)
 * [Child and Parent Themes](#child-and-parent-themes)
 * [CSS Based Tutorials](#css-based-tutorials)
-    * Tutorial: Styling the Search Bar
-    * Tutorial: Sticky Header
+    * [Tutorial: Styling the Search Bar](#styling-the-search-bar)
+    * [Tutorial: Sticky Header](#sticky-header)
+    * [Tutorial: Circular Images](#circular-images)
 * [Adding Advanced Functionality](#adding-functionality)
 	* Tutorial: Creating a Separate Page for Blog Posts
 	* Tutorial: Integrating Breadcrumbs into your WordPress pages
@@ -353,6 +355,70 @@ You can find the font-family code on the Google Fonts page. They make it as easy
 
 #### Step 4: Save and Upload
 
+### <a name="enqueuing-files-in-wordpress">Tutorial: Enqueuing Files in WordPress</a>
+
+We have learned a few ways to include files in WordPress using means that you could use in any web application. However, it is possible to enqueue files through the functions file to do so dynamically. This can be useful when you are not needing a file on every page of your site. Additionally, in WordPress, you can specify any dependencies that the script may need. Hopefully you can see how useful this can be.
+
+We are going to implement a jQuery slider. Sliders generally have little UI value and are pretty out of style for web development, but they are a common element that is frequently requested (in spite of what I have just said) and also make for a good example for integration. 
+
+I will use [unslider](http://unslider.com/) which is the first slider I got when I googled jQuery Slider. 
+
+#### Step One: Gather Dependent Files
+
+Let’s first download the unslider.js file (minified) and then place it into a subfolder in our theme titled “js”.
+
+    1. Download unslider.js file
+
+    2. Create “js” folder in our theme
+
+    3. Place unslider.js file into our theme/js/ folder. 
+
+#### Step Two: Enqueue the Unslider File
+
+We are going to open our functions.php file and use a WordPress function called wp_enqueue_scripts to load the file dynamically. If you want to learn more about this function and some additional (and cool) things you can do to make it more dynamic yet, [go to the WordPress codex entry for wp_enqueue_scripts](https://codex.wordpress.org/Function_Reference/wp_enqueue_script).
+
+<p class="file-name">functions.php</p>
+```php
+<?php
+function enqueue_unslider() {
+    wp_enqueue_script( //function to enqueue script
+        'unslider', //name of our script (id)
+        get_template_directory_uri() . '/js/unslider.js', //file loc
+        array('jquery') //dependencies
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_unslider');
+?>
+```
+
+What is happening here should be familiar to you from the other code we have put into the functions file in the past, but I will walk through this because there are other new things here. 
+
+1. We create a function to house our behavior.
+2. We use the WordPress function to enqueue the script.
+3. Input some parameters that the functions wants/needs. Note the dependencies array - where we are adding jquery to our enqueuing dynamically.
+4. Close out the function and then use the add_action function to make it work. 
+
+#### Step Three: Save and Upload
+
+You should be able to see the unslider file loading now. 
+
+#### Step Four: CSS Files Too!
+
+You can also use this method for CSS files too. All you have to do is point to the CSS file and this will work.
+
+<p class="file-name">functions.php</p>
+```php
+<?php
+function enqueue_randomcss() {
+    wp_enqueue_script( //function to enqueue script
+        'random-css', //name of our script (id)
+        get_template_directory_uri() . '/css/random.css' //location of the file
+    );
+}
+add_action('wp_enqueue_scripts', enqueue_css);
+?>
+```
+
 
 ## <a name="child-and-parent-themes">Child and Parent Themes</a>
 
@@ -392,7 +458,7 @@ In the more general outlook of CMSs, the idea of having themes that are subservi
 
 ## <a name="css-based-tutorials">CSS Based Tutorials</a>
 
-### Tutorial: Styling the Search Bar
+### <a name="styling-the-search-bar">Tutorial: Styling the Search Bar</a>
 
 The search bar is a really important tool for websites from a usability and functional UI standpoint. If you have a moderate to large size site, users will likely rely on this as one of the primary means of finding information. 
 
@@ -528,7 +594,7 @@ input[type="search"] {
 
 Now upload your files and you should have a search form with a search icon. Feel free to mess around with this to get your own desired result. 
 
-### Tutorial: Sticky Header Bar
+### <a name="sticky-header">Tutorial: Sticky Header Bar</a>
 
 A very common element on websites is a sticky element on the page. We are going to use CSS only to make our header attach to the top of the page no matter what. There are more sophisticated methods using JavaScript, but for our needs we can get away with just using a few lines of CSS. 
 
@@ -572,6 +638,45 @@ header {
 }
 ```
 #### Step Four: Save and Upload
+
+### <a name="circular-images">Tutorial: Circular Images</a>
+
+This isn't even a difficult thing to do so I won't even make it like tutorial. There is a CSS-only way to make images appear to be circular. 
+
+As an aside, it helps if the image has a square format so tht there isn't too much cut off. In WordPress you can set your thumbnail size to be square and then apply this style to it to give the circular image effect.
+
+```html
+<img src="imagelocation" class="circular-image" />
+
+```
+
+```css
+.circular-image {
+    border-radius: 50%;
+}
+```
+
+See! Super easy.
+
+If you want to make it even more error proof, you can add some other classes to ensure that it works more uniformily. 
+
+```html
+<img src="imagelocation" class="circular-image profile-image" />
+
+```
+
+```css
+.circular-image {
+    border-radius: 50%;
+}
+.profile-image {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+}
+```
+
+See how I used two classes to ensure that I can reuse either bunch of code however I wish?
 
 ## <a name="adding-functionality">Adding Advanced Functionality</a>
 
