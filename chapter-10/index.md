@@ -196,7 +196,6 @@ f. Have multiple pages (including custom templates)
 g. Be well designed and demonstrate your knowledge and comfort with WordPress
 
 
-
 #### Grading Rubric:
 
 	Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.
@@ -245,6 +244,14 @@ sure he is going to **rise in Google search rankings**.
 - Contact and Locations
 - Blog page
 - Any other promotional pages you think Slick would benefit from
+
+#### Sample Mockup
+
+**Here is the visual mockup I will be using for the Blog Site project:**
+
+<img src="../public/slicks-mockup01.jpg" width="100%" alt="visual mockup for slick's front page" class="mockup-image" />
+
+<img src="../public/slicks-mockup02.jpeg" width="100%" alt="visual mockup for slick's internal pages" class="mockup-image" />
 
 ### <span style="color: #666">Tutorial: Creating a Separate Blog Page</span>
 
