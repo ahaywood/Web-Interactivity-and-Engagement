@@ -167,7 +167,7 @@
 <li>Custom Posts
 
 <ul>
-<li>Tutorial: Adding Custom Post Type</li>
+<li><a href="#adding-custom-post-type">Tutorial: Adding Custom Post Type</a></li>
 </ul></li>
 <li>Custom Page Templates
 
@@ -198,8 +198,9 @@
 <li><a href="#adding-functionality">Adding Advanced Functionality</a>
 
 <ul>
-<li>Tutorial: Creating a Separate Page for Blog Posts</li>
-<li>Tutorial: Integrating Breadcrumbs into your WordPress pages</li>
+<li><a href="#integrating-a-jquery-slider">Tutorial: Integrating a jQuery Slider</a></li>
+<li><a href="#creating-a-separate-blog-page">Tutorial: Creating a Separate Page for Blog Posts</a></li>
+<li><a href="#integrating-breadcrumbs-into-wordpress">Tutorial: Integrating Breadcrumbs into WordPress</a></li>
 </ul></li>
 </ul>
 
@@ -221,7 +222,7 @@
 
 <p><em>Can you think of some uses for a custom post type?</em></p>
 
-<h4>Tutorial: Adding Custom Post Type</h4>
+<h4><a name="adding-custom-post-type">Tutorial: Adding Custom Post Type</a></h4>
 
 <p>We are going to use the <a href="http://www.smashingmagazine.com/2012/11/08/complete-guide-custom-post-types/">Smashing Magazine - The Complete Guide To Custom Post Types</a> guide for this tutorial. I am going to do it a bit different, but if I confuse you with my method feel free to reference it. </p>
 
@@ -262,39 +263,41 @@
 <p>There are numerous options that can be added to the register<em>post</em>type function. Instead of passing these options through directly, we are creating an object as an array to hold them. This will make our code a bit more organized and modular (which is a very good thing).</p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function custom_web_resources() {</span>
-<span class="x">$labels = array(</span>
-<span class="x">/*--- Begin Labels Options ---*/</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">custom_web_resources</span><span class="p">()</span> <span class="p">{</span>
+<span class="nv">$labels</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<span class="cm">/*--- Begin Labels Options ---*/</span>
 
-<span class="x">    &#39;name&#39;               =&gt; _x( &#39;Links&#39;, &#39;post type general name&#39; ),</span>
-<span class="x">    &#39;singular_name&#39;      =&gt; _x( &#39;Link&#39;, &#39;post type singular name&#39; ),</span>
-<span class="x">    &#39;add_new&#39;            =&gt; _x( &#39;Add New&#39;, weblink ),</span>
-<span class="x">    &#39;add_new_item&#39;       =&gt; __( &#39;Add Link&#39; ),</span>
-<span class="x">    &#39;edit_item&#39;          =&gt; __( &#39;Edit Links ),</span>
-<span class="x">    &#39;new_item&#39;           =&gt; __( &#39;New Link ),</span>
-<span class="x">    &#39;all_items&#39;          =&gt; __( &#39;All Links ),</span>
-<span class="x">    &#39;view_item&#39;          =&gt; __( &#39;View Links ),</span>
-<span class="x">    &#39;search_items&#39;       =&gt; __( &#39;Search Links ),</span>
-<span class="x">    &#39;not_found&#39;          =&gt; __( &#39;No links found&#39; ),</span>
-<span class="x">    &#39;not_found_in_trash&#39; =&gt; __( &#39;No links found in the Trash&#39; ), </span>
-<span class="x">    &#39;parent_item_colon&#39;  =&gt; &#39;&#39;,</span>
-<span class="x">    &#39;menu_name&#39;          =&gt; &#39;Web Links&#39;</span>
+    <span class="s1">&#39;name&#39;</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Links&#39;</span><span class="p">,</span> <span class="s1">&#39;post type general name&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;singular_name&#39;</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Link&#39;</span><span class="p">,</span> <span class="s1">&#39;post type singular name&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;add_new&#39;</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Add New&#39;</span><span class="p">,</span> <span class="nx">weblink</span> <span class="p">),</span>
+    <span class="s1">&#39;add_new_item&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Add Link&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;edit_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Edit Links&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;new_item&#39;</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;New Link&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;all_items&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;All Links&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;view_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;View Links&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;search_items&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Search Links&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;not_found&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No links found&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;not_found_in_trash&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No links found in the Trash&#39;</span> <span class="p">),</span> 
+    <span class="s1">&#39;parent_item_colon&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;menu_name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;Web Links&#39;</span>
 
-<span class="x">);</span>
-<span class="x">$args = array(</span>
-<span class="x">/*--- Begin Arguments Options ---*/</span>
+<span class="p">);</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<span class="cm">/*--- Begin Arguments Options ---*/</span>
 
-<span class="x">&#39;labels&#39; =&gt; $labels,</span>
-<span class="x">&#39;description&#39;   =&gt; &#39;Place to put useful links to other web resources&#39;,</span>
-<span class="x">&#39;public&#39;        =&gt; true,</span>
-<span class="x">&#39;menu_position&#39; =&gt; 5,</span>
-<span class="x">&#39;supports&#39;      =&gt; array( &#39;title&#39;, &#39;editor&#39;, &#39;thumbnail&#39;, &#39;excerpt&#39;, &#39;comments&#39; ),</span>
-<span class="x">&#39;has_archive&#39;   =&gt; true,</span>
+<span class="s1">&#39;labels&#39;</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
+<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Place to put useful links to other web resources&#39;</span><span class="p">,</span>
+<span class="s1">&#39;public&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="s1">&#39;menu_position&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+<span class="s1">&#39;supports&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;excerpt&#39;</span><span class="p">,</span> <span class="s1">&#39;comments&#39;</span> <span class="p">),</span>
+<span class="s1">&#39;has_archive&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
 
-<span class="x">);</span>
-<span class="x">register_post_type( &#39;resources&#39;, $args ); </span>
-<span class="x">}</span>
-<span class="x">add_action( &#39;init&#39;, &#39;custom_web_resources&#39; );</span>
+<span class="p">);</span>
+<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">&#39;resources&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
+<span class="p">}</span>
+<span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_web_resources&#39;</span> <span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>One thing to notice is that the entire $labels array is brought in as an option to the $args array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. </p>
 
@@ -537,7 +540,9 @@ The JavaScript insert method (probably the better choice…)</p>
     <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script</span>
         <span class="s1">&#39;unslider&#39;</span><span class="p">,</span> <span class="c1">//name of our script (id)</span>
         <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/js/unslider.js&#39;</span><span class="p">,</span> <span class="c1">//file loc</span>
-        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">)</span> <span class="c1">//dependencies</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">),</span> <span class="c1">//dependencies</span>
+        <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">//version - left blank</span>
+        <span class="k">true</span> <span class="c1">//load in footer</span>
     <span class="p">);</span>
 <span class="p">}</span>
 <span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;enqueue_unslider&#39;</span><span class="p">);</span>
@@ -554,7 +559,7 @@ The JavaScript insert method (probably the better choice…)</p>
 
 <h4>Step Three: Save and Upload</h4>
 
-<p>You should be able to see the unslider file loading now. </p>
+<p>You should be able to see the unslider file loading now.</p>
 
 <h4>Step Four: CSS Files Too!</h4>
 
@@ -571,6 +576,21 @@ The JavaScript insert method (probably the better choice…)</p>
 <span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="nx">enqueue_css</span><span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+<h3>Tutorial: Properly Enqueuing jQuery in WordPress</h3>
+
+<p>WordPress comes default with a copy of jQuery. However, that copy is not always the version that you may want/need. In the case of the unslider plugin we added in the previous tutoral, we will need to use a different version than the default one that WordPress uses.</p>
+
+<p>We are going to change the version of jQuery loaded by deregistering the WordPress default and modifying WordPress to include the latest jQuery version. </p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nx">wp_deregister_script</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span>
+
+<span class="nx">wp_enqueue_script</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">,</span> <span class="s1">&#39;http://code.jquery.com/jquery-latest.min.js&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>What we are doing here is first removing the jQuery default script using the wp<em>deregister</em>script function and then using the wp<em>enqueue</em>script to include the new version of jQuery in its place. Make sure to add this higher than your unslider code in WordPress because we want it to load before the unslider.js file does. </p>
+
 <h2><a name="child-and-parent-themes">Child and Parent Themes</a></h2>
 
 <p>The concept of a child and parent theme is generally available in almost every CMS. In WordPress they are a useful tool to maintaining structure in a template where there is multiple versions of a site with one overlying template. </p>
@@ -799,7 +819,216 @@ Some of the disadvantages of child themes are:</p>
 
 <p>This area is for various tutorials related to WordPress functionality. </p>
 
-<h3>Tutorial: Creating a separate blog page</h3>
+<h3><a name="integrating-a-jquery-slider">Tutorial: Integrating a jQuery Slider</a></h3>
+
+<p>Earlier, we enqueued a jQuery plugin called <a href="http://unslider.com/">Unslider</a> and made sure our jQuery was set to the latest version. If you haven&#39;t done that yet, please reference the <a href="#enqueuing-files-in-wordpress">Enqueuing Files in WordPress</a> lecture.</p>
+
+<p>We are going to go through this tutorial very methodically, but this is because it is very important that we consider the order in which items are loaded into the page. I will first outline the order of the components and then we will go on adding the code to our footer. You can <a href="http://unslider.com/">see the Unslider tutorial here</a>. </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- First is our slider CSS--&gt;</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nc">.banner</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- Second is our &quot;Banner&quot; slider code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is a slide.<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is another slide.<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is a final slide.<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- Third we include jQuery --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//code.jquery.com/jquery-latest.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- Fourth we include the Unslider.js --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//unslider.com/unslider.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- Lastly we use a javascript function to initialize the unslider behavior --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.banner&#39;</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p>The CSS is not important about which order it is in, but everything else is. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let&#39;s proceed.</p>
+
+<h4>Step One: Add Unslider Initiation</h4>
+
+<p>At the bottom of the footer.php file we will add the initiator for unslider. </p>
+
+<p class="file-name">footer.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;!-- Begin Unslider Initiator --&gt;    </span>
+<span class="x">&lt;script&gt;</span>
+<span class="x">    $(function() {</span>
+<span class="x">        $(&#39;.banner&#39;).unslider();</span>
+<span class="x">    });</span>
+<span class="x">&lt;/script&gt;</span>
+<span class="x">&lt;!-- End Unslider Initiator --&gt;</span>
+
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Note how we placed it ALL the way at the bottom so that it is the last thing our page loads. We can also use other javascript techniques to ensure that it loads after the page loads, but for now we will use this method. </p>
+
+<p>Upload this file and ensure that everything is in order.</p>
+
+<h3>Step Two: Adding Filler Unslider Code</h3>
+
+<p>Let&#39;s work right out of our index.php file for now, though this code should be completely transferable. </p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is a slide.<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is another slide.<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>This is a final slide.<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>and our CSS...</p>
+
+<p class="file-name">style.css</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="nc">.banner</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<p>Now let&#39;s load all of our files up and if the text in the index doesn&#39;t slide by, then there is something wrong. </p>
+
+<h4>Step Three: Integrating WordPress into the Slider</h4>
+
+<p>We are going to make a custom post type in order to create our slides. If you forget the ins and outs of custom post types, <a href="#adding-custom-post-type">reference the Custom Post Type lecture</a>. </p>
+
+<p class="file-name">functions.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">slider_tutorial</span><span class="p">()</span> <span class="p">{</span>
+<span class="nv">$labels</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;name&#39;</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Slides&#39;</span><span class="p">,</span> <span class="s1">&#39;post type general name&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;singular_name&#39;</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Slide&#39;</span><span class="p">,</span> <span class="s1">&#39;post type singular name&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;add_new&#39;</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Add New&#39;</span><span class="p">,</span> <span class="s1">&#39;slides&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;add_new_item&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Add Slide&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;edit_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Edit Slides&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;new_item&#39;</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;New Slide&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;all_items&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;All Slides&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;view_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;View Slides&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;search_items&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Search Slides&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;not_found&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No slides found&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;not_found_in_trash&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No slides found in the Trash&#39;</span> <span class="p">),</span> 
+    <span class="s1">&#39;parent_item_colon&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;menu_name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span>
+
+<span class="p">);</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<span class="cm">/*--- Begin Arguments Options ---*/</span>
+
+<span class="s1">&#39;labels&#39;</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
+<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Slides for our Unslider integration&#39;</span><span class="p">,</span>
+<span class="s1">&#39;public&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="s1">&#39;menu_position&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+<span class="s1">&#39;supports&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;excerpt&#39;</span><span class="p">),</span>
+<span class="s1">&#39;has_archive&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+
+<span class="p">);</span>
+<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">&#39;slider&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
+<span class="p">}</span>
+<span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="s1">&#39;slider_tutorial&#39;</span> <span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>This will allow us to have a special post type to loop through. Upload the funtions file and verify that everything works correctly. You should see your post type in your WordPress Dashboard. </p>
+
+<h4>Step Three: Integrate the Custom Post into the Slider Code</h4>
+
+<p>Let&#39;s set up the HTML for our post type and then we can set it up as PHP loading from our new post type. </p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide01.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Slide One Title<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide02.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Slide Twp Title<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide03.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Slide Three Title<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>The good thing about this slider plugin is that it very flexible. If you want to set up your slider differently, consider how you would do that now.</p>
+
+<p>Let&#39;s modify this code to include our custom post type.</p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slides&#39;</span> <span class="p">);</span>
+
+    <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">while</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">the_post</span><span class="p">();</span>
+        <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">          &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">          &lt;div class=&#39;content&#39;&gt;</span>
+<span class="x">            </span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">          &lt;/div&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="s1">&#39;No Slides&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>This will generate the content from our custom post. Now let&#39;s integrate this into the code we created above.</p>
+
+<p class="file-name">index.php</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;banner&quot;&gt;</span>
+<span class="x">    &lt;ul&gt;</span>
+<span class="cp">&lt;?php</span>
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slides&#39;</span> <span class="p">);</span>
+
+    <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">while</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">the_post</span><span class="p">();</span>
+        <span class="cm">/*--- Build Thumbnail URL ---*/</span>
+        <span class="nv">$thumb_id</span> <span class="o">=</span> <span class="nx">get_post_thumbnail_id</span><span class="p">();</span>
+        <span class="nv">$thumb_url_array</span> <span class="o">=</span> <span class="nx">wp_get_attachment_image_src</span><span class="p">(</span><span class="nv">$thumb_id</span><span class="p">,</span> <span class="s1">&#39;thumbnail-size&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="nv">$thumb_url</span> <span class="o">=</span> <span class="nv">$thumb_url_array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;li style=&quot;background-image: url(&#39;</span><span class="cp">&lt;?php</span> <span class="nv">$thumb_url</span><span class="cp">?&gt;</span><span class="x">&#39;);&quot;&gt;</span>
+<span class="x">                &lt;div class=&quot;slides-message&quot;&gt;</span>
+<span class="x">                    &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">                    &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+<span class="x">                &lt;/div&gt;</span>
+<span class="x">            &lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="s1">&#39;No Slides&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;/ul&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+</code></pre></div>
+<h4>Step Four: Style, Save, and Upload</h4>
+
+<h3><a name="creating-a-separate-blog-page">Tutorial: Creating a Separate Blog Page</a></h3>
 
 <p>If you want to use WordPress as a fully functional CMS, you will probably need to separate the blog portion of WordPress into a separate area. There are ways to do this:</p>
 
@@ -962,7 +1191,7 @@ Create a post query in a custom page and then assign that value to an existing p
 
 <h4>Step Seven: Save and Upload</h4>
 
-<h3>Tutorial: Integrating Breadcrumbs into your WordPress pages</h3>
+<h3><a name="integrating-breadcrumbs-into-wordpress">Tutorial: Integrating Breadcrumbs into your WordPress pages</a></h3>
 
 <p>A “breadcrumb” is a UI tool that allows the user to follow their way through the information architecture in a logical manner. Implementing breadcrumbs in WordPress is a relatively simple task and can add another navigation element.
 There are several ways to add breadcrumbs to your site. The (possibly) easiest way to do this is through a plugin. But remember the ups and downs of plugins? Maybe you want to implement it in an integrated manner. </p>

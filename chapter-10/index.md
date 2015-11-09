@@ -12,7 +12,6 @@ title: Project Walkthroughs and Tutorials
 * [Class Presentations](#class-presentations)
 * [Creating a Blog Site](#creating-a-blog-site)
 * [Creating a Business Site](#creating-a-business-site)
-	* Tutorial: Creating a Separate Blog Page
 * [In-Class Critiques](#in-class-critiques)
 
 
@@ -187,13 +186,15 @@ b. Usage of at least one plugin
 
 c. Integrated javascript (either through plugins or coded into the page)
 
-d. Well-manicured content (no filler except for blog pages)
+d. Well-manicured content (no filler allowed, except for blog pages)
 
 e. Be fully responsive
 
-f. Have multiple pages (including custom templates)
+f. Have a [separate blog index page](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-8/#creating-a-separate-blog-page)
 
-g. Be well designed and demonstrate your knowledge and comfort with WordPress
+g. Have multiple pages (including custom templates)
+
+h. Be well designed and demonstrate your knowledge and comfort with WordPress
 
 
 #### Grading Rubric:
@@ -242,7 +243,7 @@ sure he is going to **rise in Google search rankings**.
 - About page
 - Pricing and Promotions
 - Contact and Locations
-- Blog page
+- [Blog page](http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-8/#creating-a-separate-blog-page)
 - Any other promotional pages you think Slick would benefit from
 
 #### Sample Mockup
@@ -252,8 +253,6 @@ sure he is going to **rise in Google search rankings**.
 <img src="../public/slicks-mockup01.jpg" width="100%" alt="visual mockup for slick's front page" class="mockup-image" />
 
 <img src="../public/slicks-mockup02.jpeg" width="100%" alt="visual mockup for slick's internal pages" class="mockup-image" />
-
-### <span style="color: #666">Tutorial: Creating a Separate Blog Page</span>
 
 ## <a name="in-class-critiques">In-Class Critiques</a>
 

@@ -7,7 +7,7 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 
 * [Custom Posts and Pages](#custom-posts-and-pages)
 	* Custom Posts
-		* Tutorial: Adding Custom Post Type
+		* [Tutorial: Adding Custom Post Type](#adding-custom-post-type)
 	* Custom Page Templates
 		* Tutorial: Adding a Custom Page Template
 * [Using MetaData and Custom Fields](#custom-fields)
@@ -22,8 +22,9 @@ title: Chapter 8&#58; Advanced  WordPress Customization
     * [Tutorial: Sticky Header](#sticky-header)
     * [Tutorial: Circular Images](#circular-images)
 * [Adding Advanced Functionality](#adding-functionality)
-	* Tutorial: Creating a Separate Page for Blog Posts
-	* Tutorial: Integrating Breadcrumbs into your WordPress pages
+    * [Tutorial: Integrating a jQuery Slider](#integrating-a-jquery-slider)
+	* [Tutorial: Creating a Separate Page for Blog Posts](#creating-a-separate-blog-page)
+	* [Tutorial: Integrating Breadcrumbs into WordPress](#integrating-breadcrumbs-into-wordpress)
 
 ## <a name="custom-posts-and-pages">Custom Posts and Pages</a>
 
@@ -43,7 +44,7 @@ A Custom Post will be a completely new content type in the WordPress CMS. The us
 
 *Can you think of some uses for a custom post type?*
 
-#### Tutorial: Adding Custom Post Type
+#### <a name="adding-custom-post-type">Tutorial: Adding Custom Post Type</a>
 
 We are going to use the [Smashing Magazine - The Complete Guide To Custom Post Types](http://www.smashingmagazine.com/2012/11/08/complete-guide-custom-post-types/) guide for this tutorial. I am going to do it a bit different, but if I confuse you with my method feel free to reference it. 
 
@@ -88,6 +89,7 @@ There are numerous options that can be added to the register_post_type function.
 
 <p class="file-name">functions.php</p>
 ```php
+<?php
 function custom_web_resources() {
 $labels = array(
 /*--- Begin Labels Options ---*/
@@ -96,11 +98,11 @@ $labels = array(
     'singular_name'      => _x( 'Link', 'post type singular name' ),
     'add_new'            => _x( 'Add New', weblink ),
     'add_new_item'       => __( 'Add Link' ),
-    'edit_item'          => __( 'Edit Links ),
-    'new_item'           => __( 'New Link ),
-    'all_items'          => __( 'All Links ),
-    'view_item'          => __( 'View Links ),
-    'search_items'       => __( 'Search Links ),
+    'edit_item'          => __( 'Edit Links' ),
+    'new_item'           => __( 'New Link' ),
+    'all_items'          => __( 'All Links' ),
+    'view_item'          => __( 'View Links' ),
+    'search_items'       => __( 'Search Links' ),
     'not_found'          => __( 'No links found' ),
     'not_found_in_trash' => __( 'No links found in the Trash' ), 
     'parent_item_colon'  => '',
@@ -121,6 +123,7 @@ $args = array(
 register_post_type( 'resources', $args ); 
 }
 add_action( 'init', 'custom_web_resources' );
+?>
 ```
 One thing to notice is that the entire $labels array is brought in as an option to the $args array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. 
 
@@ -384,7 +387,9 @@ function enqueue_unslider() {
     wp_enqueue_script( //function to enqueue script
         'unslider', //name of our script (id)
         get_template_directory_uri() . '/js/unslider.js', //file loc
-        array('jquery') //dependencies
+        array('jquery'), //dependencies
+        '', //version - left blank
+        true //load in footer
     );
 }
 add_action('wp_enqueue_scripts', 'enqueue_unslider');
@@ -400,7 +405,7 @@ What is happening here should be familiar to you from the other code we have put
 
 #### Step Three: Save and Upload
 
-You should be able to see the unslider file loading now. 
+You should be able to see the unslider file loading now.
 
 #### Step Four: CSS Files Too!
 
@@ -419,6 +424,22 @@ add_action('wp_enqueue_scripts', enqueue_css);
 ?>
 ```
 
+### Tutorial: Properly Enqueuing jQuery in WordPress
+
+WordPress comes default with a copy of jQuery. However, that copy is not always the version that you may want/need. In the case of the unslider plugin we added in the previous tutoral, we will need to use a different version than the default one that WordPress uses.
+
+We are going to change the version of jQuery loaded by deregistering the WordPress default and modifying WordPress to include the latest jQuery version. 
+
+<p class="file-name">functions.php</p>
+```php
+<?php
+wp_deregister_script('jquery');
+
+wp_enqueue_script('jquery', 'http://code.jquery.com/jquery-latest.min.js','','',true);
+?>
+```
+
+What we are doing here is first removing the jQuery default script using the wp_deregister_script function and then using the wp_enqueue_script to include the new version of jQuery in its place. Make sure to add this higher than your unslider code in WordPress because we want it to load before the unslider.js file does. 
 
 ## <a name="child-and-parent-themes">Child and Parent Themes</a>
 
@@ -682,7 +703,235 @@ See how I used two classes to ensure that I can reuse either bunch of code howev
 
 This area is for various tutorials related to WordPress functionality. 
 
-### Tutorial: Creating a separate blog page
+### <a name="integrating-a-jquery-slider">Tutorial: Integrating a jQuery Slider</a>
+
+Earlier, we enqueued a jQuery plugin called [Unslider](http://unslider.com/) and made sure our jQuery was set to the latest version. If you haven't done that yet, please reference the [Enqueuing Files in WordPress](#enqueuing-files-in-wordpress) lecture.
+
+We are going to go through this tutorial very methodically, but this is because it is very important that we consider the order in which items are loaded into the page. I will first outline the order of the components and then we will go on adding the code to our footer. You can [see the Unslider tutorial here](http://unslider.com/). 
+
+```html
+<!-- First is our slider CSS-->
+<style type="text/css">
+    .banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+    .banner ul li { float: left; }
+</style>
+
+<!-- Second is our "Banner" slider code -->
+<div class="banner">
+    <ul>
+        <li>This is a slide.</li>
+        <li>This is another slide.</li>
+        <li>This is a final slide.</li>
+    </ul>
+</div>
+<!-- Third we include jQuery -->
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- Fourth we include the Unslider.js -->
+<script src="//unslider.com/unslider.min.js"></script>
+<!-- Lastly we use a javascript function to initialize the unslider behavior -->
+<script>
+$(function() {
+    $('.banner').unslider();
+});
+</script>
+```
+
+The CSS is not important about which order it is in, but everything else is. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let's proceed.
+
+#### Step One: Add Unslider Initiation
+
+At the bottom of the footer.php file we will add the initiator for unslider. 
+
+<p class="file-name">footer.php</p>
+```php
+
+</div>
+    <?php wp_footer(); ?>
+
+<!-- Begin Unslider Initiator -->    
+<script>
+    $(function() {
+        $('.banner').unslider();
+    });
+</script>
+<!-- End Unslider Initiator -->
+
+</body>
+</html>
+
+```
+
+Note how we placed it ALL the way at the bottom so that it is the last thing our page loads. We can also use other javascript techniques to ensure that it loads after the page loads, but for now we will use this method. 
+
+Upload this file and ensure that everything is in order.
+
+### Step Two: Adding Filler Unslider Code
+
+Let's work right out of our index.php file for now, though this code should be completely transferable. 
+
+<p class="file-name">index.php</p>
+```html
+<div class="banner">
+    <ul>
+        <li>This is a slide.</li>
+        <li>This is another slide.</li>
+        <li>This is a final slide.</li>
+    </ul>
+</div>
+``` 
+
+and our CSS...
+
+<p class="file-name">style.css</p>
+```css
+    .banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+    .banner ul li { float: left; }
+```
+
+Now let's load all of our files up and if the text in the index doesn't slide by, then there is something wrong. 
+
+#### Step Three: Integrating WordPress into the Slider
+
+We are going to make a custom post type in order to create our slides. If you forget the ins and outs of custom post types, [reference the Custom Post Type lecture](#adding-custom-post-type). 
+
+<p class="file-name">functions.php</p>
+```php
+<?php
+function slider_tutorial() {
+$labels = array(
+    'name'               => _x( 'Slides', 'post type general name' ),
+    'singular_name'      => _x( 'Slide', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'slides' ),
+    'add_new_item'       => __( 'Add Slide' ),
+    'edit_item'          => __( 'Edit Slides' ),
+    'new_item'           => __( 'New Slide' ),
+    'all_items'          => __( 'All Slides' ),
+    'view_item'          => __( 'View Slides' ),
+    'search_items'       => __( 'Search Slides' ),
+    'not_found'          => __( 'No slides found' ),
+    'not_found_in_trash' => __( 'No slides found in the Trash' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Slider'
+
+);
+$args = array(
+/*--- Begin Arguments Options ---*/
+
+'labels' => $labels,
+'description'   => 'Slides for our Unslider integration',
+'public'        => true,
+'menu_position' => 6,
+'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt'),
+'has_archive'   => true,
+
+);
+register_post_type( 'slider', $args ); 
+}
+add_action( 'init', 'slider_tutorial' );
+
+?>
+```
+
+This will allow us to have a special post type to loop through. Upload the funtions file and verify that everything works correctly. You should see your post type in your WordPress Dashboard. 
+
+#### Step Three: Integrate the Custom Post into the Slider Code
+
+Let's set up the HTML for our post type and then we can set it up as PHP loading from our new post type. 
+
+<p class="file-name">index.php</p>
+```html
+<div class="banner">
+    <ul>
+        <li style="background-image: url('slide01.jpg');">
+            <div class="slides-message">
+                <h1>Slide One Title</h1>
+                <p>This is where the excerpt for the slides will go</p>
+            </div>
+        </li>
+        <li style="background-image: url('slide02.jpg');">
+            <div class="slides-message">
+                <h1>Slide Twp Title</h1>
+                <p>This is where the excerpt for the slides will go</p>
+            </div>
+        </li>
+        <li style="background-image: url('slide03.jpg');">
+            <div class="slides-message">
+                <h1>Slide Three Title</h1>
+                <p>This is where the excerpt for the slides will go</p>
+            </div>
+        </li>
+    </ul>
+</div>
+``` 
+
+The good thing about this slider plugin is that it very flexible. If you want to set up your slider differently, consider how you would do that now.
+
+Let's modify this code to include our custom post type.
+
+<p class="file-name">index.php</p>
+```php
+<?php
+    $args = array( 'post_type' => 'Slides' );
+
+    $slides = new WP_Query( $args );
+    if( $slides->have_posts() ) {
+      while( $slides->have_posts() ) {
+        $slides->the_post();
+        ?>
+          <h1><?php the_title() ?></h1>
+          <div class='content'>
+            <?php the_excerpt() ?>
+          </div>
+        <?php
+      }
+    }
+    else {
+      echo 'No Slides';
+    }
+?>
+```
+
+This will generate the content from our custom post. Now let's integrate this into the code we created above.
+
+<p class="file-name">index.php</p>
+```php
+<div class="banner">
+    <ul>
+<?php
+    $args = array( 'post_type' => 'Slides' );
+
+    $slides = new WP_Query( $args );
+    if( $slides->have_posts() ) {
+      while( $slides->have_posts() ) {
+        $slides->the_post();
+        /*--- Build Thumbnail URL ---*/
+        $thumb_id = get_post_thumbnail_id();
+        $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+        $thumb_url = $thumb_url_array[0];
+        ?>
+            <li style="background-image: url('<?php $thumb_url?>');">
+                <div class="slides-message">
+                    <h1><?php the_title() ?></h1>
+                    <p><?php the_excerpt() ?></p>
+                </div>
+            </li>
+        <?php
+      }
+    }
+    else {
+      echo 'No Slides';
+    }
+?>
+    </ul>
+</div>
+```
+
+#### Step Four: Style, Save, and Upload
+
+### <a name="creating-a-separate-blog-page">Tutorial: Creating a Separate Blog Page</a>
 
 If you want to use WordPress as a fully functional CMS, you will probably need to separate the blog portion of WordPress into a separate area. There are ways to do this:
 
@@ -857,7 +1106,7 @@ Note how we added some 404 handling and better outlined the post content that wi
 
 #### Step Seven: Save and Upload
 
-### Tutorial: Integrating Breadcrumbs into your WordPress pages
+### <a name="integrating-breadcrumbs-into-wordpress">Tutorial: Integrating Breadcrumbs into your WordPress pages</a>
 
 A “breadcrumb” is a UI tool that allows the user to follow their way through the information architecture in a logical manner. Implementing breadcrumbs in WordPress is a relatively simple task and can add another navigation element.
 There are several ways to add breadcrumbs to your site. The (possibly) easiest way to do this is through a plugin. But remember the ups and downs of plugins? Maybe you want to implement it in an integrated manner. 
@@ -906,3 +1155,5 @@ Next, let’s add the function we just created to our page.php file:
 ```
 
 By adding this function we created, we are able to insert the functionality we created in step one anywhere on the site - and it will react dynamically. 
+
+
