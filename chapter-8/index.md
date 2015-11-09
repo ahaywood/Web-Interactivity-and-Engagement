@@ -874,7 +874,7 @@ Let's modify this code to include our custom post type.
 <p class="file-name">index.php</p>
 ```php
 <?php
-    $args = array( 'post_type' => 'Slides' );
+    $args = array( 'post_type' => 'Slider' ); //Menu item name
 
     $slides = new WP_Query( $args );
     if( $slides->have_posts() ) {
@@ -901,8 +901,7 @@ This will generate the content from our custom post. Now let's integrate this in
 <div class="banner">
     <ul>
 <?php
-    $args = array( 'post_type' => 'Slides' );
-
+    $args = array( 'post_type' => 'Slider' );
     $slides = new WP_Query( $args );
     if( $slides->have_posts() ) {
       while( $slides->have_posts() ) {
@@ -912,7 +911,7 @@ This will generate the content from our custom post. Now let's integrate this in
         $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
         $thumb_url = $thumb_url_array[0];
         ?>
-            <li style="background-image: url('<?php $thumb_url?>');">
+            <li style="background-image: url('<?php echo $thumb_url ?>');" class="slide-container">
                 <div class="slides-message">
                     <h1><?php the_title() ?></h1>
                     <p><?php the_excerpt() ?></p>
@@ -930,6 +929,31 @@ This will generate the content from our custom post. Now let's integrate this in
 ```
 
 #### Step Four: Style, Save, and Upload
+
+Here is some sample styling, but you can repurpose this for however you want.
+
+```css
+.banner { 
+    position: relative; 
+    overflow: auto; 
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+.banner li { 
+    list-style: none;
+}
+.banner ul li { 
+    float: left; 
+}
+.slide-container {
+    height: 300px;
+}
+.slides-message {
+    margin: 50px 0 0 20px;
+    padding:20px 0 20px 10px;
+    color: #fff;
+}
+```
 
 ### <a name="creating-a-separate-blog-page">Tutorial: Creating a Separate Blog Page</a>
 

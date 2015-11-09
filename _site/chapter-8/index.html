@@ -974,7 +974,7 @@ Some of the disadvantages of child themes are:</p>
 
 <p class="file-name">index.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slides&#39;</span> <span class="p">);</span>
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span> <span class="p">);</span> <span class="c1">//Menu item name</span>
 
     <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
     <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
@@ -999,8 +999,7 @@ Some of the disadvantages of child themes are:</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;banner&quot;&gt;</span>
 <span class="x">    &lt;ul&gt;</span>
 <span class="cp">&lt;?php</span>
-    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slides&#39;</span> <span class="p">);</span>
-
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span> <span class="p">);</span>
     <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
     <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">while</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
@@ -1010,7 +1009,7 @@ Some of the disadvantages of child themes are:</p>
         <span class="nv">$thumb_url_array</span> <span class="o">=</span> <span class="nx">wp_get_attachment_image_src</span><span class="p">(</span><span class="nv">$thumb_id</span><span class="p">,</span> <span class="s1">&#39;thumbnail-size&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
         <span class="nv">$thumb_url</span> <span class="o">=</span> <span class="nv">$thumb_url_array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
         <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">            &lt;li style=&quot;background-image: url(&#39;</span><span class="cp">&lt;?php</span> <span class="nv">$thumb_url</span><span class="cp">?&gt;</span><span class="x">&#39;);&quot;&gt;</span>
+<span class="x">            &lt;li style=&quot;background-image: url(&#39;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$thumb_url</span> <span class="cp">?&gt;</span><span class="x">&#39;);&quot; class=&quot;slide-container&quot;&gt;</span>
 <span class="x">                &lt;div class=&quot;slides-message&quot;&gt;</span>
 <span class="x">                    &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
 <span class="x">                    &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
@@ -1028,6 +1027,28 @@ Some of the disadvantages of child themes are:</p>
 </code></pre></div>
 <h4>Step Four: Style, Save, and Upload</h4>
 
+<p>Here is some sample styling, but you can repurpose this for however you want.</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.banner</span> <span class="p">{</span> 
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> 
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> 
+    <span class="k">margin-top</span><span class="o">:</span><span class="m">25px</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> 
+    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> 
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="nc">.slide-container</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.slides-message</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">50px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span><span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3><a name="creating-a-separate-blog-page">Tutorial: Creating a Separate Blog Page</a></h3>
 
 <p>If you want to use WordPress as a fully functional CMS, you will probably need to separate the blog portion of WordPress into a separate area. There are ways to do this:</p>
