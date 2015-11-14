@@ -9,6 +9,7 @@ title: Chapter 9&#58; Advanced Topics
     * Effective Design Elements
     * UI/UX as Part of a Plan
 * [Effective Resource Management in Large Scale Systems](#effective-resource-management-in-large-scale-systems)
+    * [Tutorial: Specifying your Image Sizes in WordPress](#specifiying-your-image-sizes-in-wordpress)
 * [Monitoring Your Site](#monitoring-your-site)
     * Tutorial: Integrating Google Analytics in WordPress
 * [SEO Techniques in a CMS](#seo-techniques-in-a-cms)
@@ -188,6 +189,143 @@ As a sidenote, Bing Webmaster Tools has a great tool for automatically adding th
 Coming Soon!
 
 ## <a name="effective-resource-management-in-large-scale-systems">Effective Resource Management in Large Scale Systems</a>
+
+“Content management” shares some issues with resource management, however they also diverge at some points. While the terms “content” and “resource” are very vague, the methods by which we deal with them are unique. When we say “resource management,” we are more concerned with the efficient and organized access to resources, not what is or is not a resource. This is directly related to the “Performance” branch of the web elements. 
+
+Some examples of effective web resource management would include:
+
+* A low latency web server
+* Well organized media folders
+* Clean and efficient application code
+* Utilize the protocols (i.e., HTTP) efficiently for serving files
+* Intelligent information architecture
+
+These are not simple goals to achieve, but are important for successful systems, especially when the systems may become large and have a wider reaching audience. 
+
+How are some ways we can make sure we are managing our resources correctly? Let’s start by thinking about these things:
+
+1. Make sure your system is the right size
+2. Make sure your system is able to change sizes
+3. Make sure you have backups (of both data and personnel)
+4. Document your site (Github and/or documentation)
+5. Always find ways to improve!
+<br /><br />
+
+*Can you think of another way to make sure you are managing resources efficiently?* 
+
+### Specific Techniques to Optimize Resource Management
+
+It is easy to talk about resource management as a theory, but applying it can be much more difficult. In fact, the difference between a good developer and a great developer is often found in efficiency and organization. So what are some things you can do to make sure you are outputting efficient and organized resources (or in this case, code)?
+
+#### 1. Use a CSS Preprocessor (correctly)
+
+Duplicated CSS code is one of the most common and easy to fix issues with site speed. Being incredibly organized is a lot easier than using a system that allows you to compartmentalize and take an object-oriented approach to your styling. 
+
+You can learn more about CSS preprocessing and minifying here: [http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development](http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development)
+
+#### 2. Conditional Loading of Files
+
+This one is obvious. Don’t load files you don’t need. The implementation of this is a bit more difficult though. Consider your system and try to make the loading occur after the page load to determine which files need to be loaded. [Reference the conditional loading tutorial for some ideas](http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-8/#enqueuing-files-in-wordpress).
+
+#### 3. CDN (Content Delivery Networks)
+
+Until everything supports HTTP2, you are only able to send one file concurrently over a single connection. This has a big impact on the order you load your files (smallest first) and how many files you can load (as few as possible). Using a CDN is a good way to avoid this concurrent file restriction. Some common CDNs we use are jQuery, Font Awesome, and Google Fonts. 
+
+The downside to CDNs is that you are reliant on their speed and dependability. Make sure you trust the CDN you are using and keep duplicates of the dependent files on your servers (in case they are no longer hosted). 
+
+#### 4. Images, Images, Images
+
+This one is also obvious but can’t really be overstated. Even large media sites have issues with loading the correct size images on the correct devices. There are hundreds of articles with both justification and techniques on the internet for ensuring the correct file size loads. 
+
+#### 5. Optimizing Hosting Services
+
+Don’t use GoDaddy or another host service that has bad latency from the start. Shared servers are often slower than dedicated hosts. A good cloud hosting company may only drop your latency (and thus your load time) by milliseconds (though, sometimes in the hundreds) but when aggregated on the whole could affect your site speed considerably - and thus your user base and the company’s bottom line. 
+
+However, until you need to scale up to a stronger hosting environment, you probably don’t want to dump money into such a service. This is where the “make sure your system is the right size” issue and the “make sure your system is able to change sizes” issues converge.
+
+*What are some other techniques you can think of for efficient resource management?*
+
+### <a name="specifiying-your-image-sizes-in-wordpress">Tutorial: Specifying your Image Sizes in WordPress</a>
+
+Since we have emphasized that images are the single biggest performance issue for large scale systems, let’s implement a strict image policy into WordPress. By only using the exact sizes for our images, we will avoid a loss of quality and also avoid loading oversized images. 
+
+Luckily for us, WordPress has some built in image editing to account for optimized images. Let’s identify our ideal image sizes for our template and then make those sizes the default sizes. 
+
+#### Step One: Define our Image Sizes
+
+For our site there are a few default image sizes:
+
+* Thumbnail: 150px x 150px (for post and page thumbnails)
+* Medium: 300px x 300px
+* Large: 1024px x 1024px
+* Full: Whatever size the image was uploaded to.
+<br /><br />
+
+These may not correspond with your theme or your site at all though. You are able to override these sizes, but let’s make use of WordPress functionality to strictly define the sizes of some of our images we know we will use. Take some time to figure out what image sizes exist in your template. 
+
+For us, let’s imagine we are going to use the following sizes in certain situations:
+
+* Front page slider images: 940px x 300px
+* Thumbnails for posts: 200px x 200px
+* Profile Images: 200px x 300px
+<br /><br />
+
+*Are you using a ton of different image sizes throughout and wouldn’t it be better if you had more uniformity?*
+
+#### Step Two: Set Image Sizes in WordPress
+
+WordPress uses the “add_image_size” function to allow you to define your custom images. Let’s register these sizes in our functions file and then add a condition for us to display them as a selection mechanism in the image selection screen. You must have theme support post thumbnails enabled for this to work. 
+
+```php
+<?php
+add_image_size( 'front-slider', 940, 300, true ); // width, height, crop
+add_image_size( 'blog-post-thumbnails', 200, 200, true );
+add_image_size( 'profile-images', 200, 300, true );
+
+// Register the image sizes
+function wie_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'front-slider' => __( 'Front Slider Image' ),
+        'blog-post-thumbnails' => __( 'Blog Post Thumbnails' ),
+        'profile-images' => __( 'Profile Images' ),
+    ) );
+}
+add_filter( 'image_size_names', wie_custom_image_sizes );
+?>
+```
+
+#### Step Three: Reference New Image Sizes
+
+Let’s use our blog-post-thumbnails custom size in our regular loop as demonstration.
+
+```php
+<?php
+query_posts('offset=1');
+if ( have_posts() ) {
+    while ( have_posts() ) {
+        the_post();
+        if ( has_post_thumbnail() ) { ?>
+            <div class="post-thumbnail-front">
+                <?php the_post_thumbnail(blog-post-thumbnails); ?>
+            </div> 
+        <?php } ?>
+        <h3><?php the_title(); ?></h3>
+        <?php the_excerpt(); ?>
+        <p><a href="<?php the_permalink(); ?>">Read More</a></p>
+        <div class="clear"></div>
+    <?php }
+}  else {
+    echo "No Posts, sorry";
+} ?>
+```
+
+#### Step Four: Save and Upload
+
+You should now see the image size changed. You can also implement the other sizes however you see fit. 
+
+Reference: [Adding and Using WordPress Custom Image Sizes: A Guide to the Best Thing Ever](http://wpshout.com/adding-using-custom-image-sizes-wordpress-guide-best-thing-ever/)
+
+
 ## <a name="monitoring-your-site">Monitoring Your Site</a>
 ### Tutorial: Integrating Google Analytics in WordPress
 

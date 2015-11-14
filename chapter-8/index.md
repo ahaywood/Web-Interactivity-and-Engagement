@@ -14,13 +14,14 @@ title: Chapter 8&#58; Advanced  WordPress Customization
 	* Tutorial: Using Custom Fields
 * [Shortcodes](#shortcodes)
 * [Integrating Outside Resources](#integrating-outside-resources)
-	* Tutorial: Custom Fonts
+	* [Tutorial: Custom Fonts](#custom-fonts)
     * [Tutorial: Enqueuing Files in WordPress](#enqueuing-files-in-wordpress)
 * [Child and Parent Themes](#child-and-parent-themes)
 * [CSS Based Tutorials](#css-based-tutorials)
     * [Tutorial: Styling the Search Bar](#styling-the-search-bar)
     * [Tutorial: Sticky Header](#sticky-header)
     * [Tutorial: Circular Images](#circular-images)
+    * [Tutorial: CSS3 Animation Integration](#css3-animation-integration)
 * [Adding Advanced Functionality](#adding-functionality)
     * [Tutorial: Integrating a jQuery Slider](#integrating-a-jquery-slider)
 	* [Tutorial: Creating a Separate Page for Blog Posts](#creating-a-separate-blog-page)
@@ -320,7 +321,7 @@ The third way, **enqueuing files**, was covered in the previous chapter and is a
 
 As an example, I will demonstrate how to add a custom font using [Google Fonts](https://www.google.com/fonts). 
 
-### Tutorial: Adding a Custom Font
+### <a name="custom-fonts">Tutorial: Custom Fonts</a>
 
 #### Step 1: Find the Font you Want
 
@@ -698,6 +699,75 @@ If you want to make it even more error proof, you can add some other classes to 
 ```
 
 See how I used two classes to ensure that I can reuse either bunch of code however I wish?
+
+
+### <a name="css3-animation-integration">Tutorial: CSS3 Animation Integration</a>
+
+There are hundreds of different CSS only animations you can use to easily add some interesting UI to your site.
+
+Here are some useful links to expand your knowledge:
+
+[A Beginner’s Introduction to CSS Animation - WebDesign Tuts+](http://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068)
+
+[animation Property - CSS Tricks](https://css-tricks.com/almanac/properties/a/animation/)
+
+[CSS3 Animations - W3Schools](http://www.w3schools.com/css/css3_animations.asp)
+[Five Ways to Animate Responsibly](https://24ways.org/2014/five-ways-to-animate-responsibly/)
+
+#### Add a Hover Effect to a Menu
+
+First we are going to add some different CSS animations to our menu - which is a great place to encourage and emphasize interaction (thus improving click-through rate). 
+
+Let's start with a simple menu structure. If we are building this menu dynamically, you can imagine that the code below is how it might exist after it is rendered server-side. 
+
+```html
+<ul class="menu-container">
+    <li class="menu-item">Item One</li>
+    <li class="menu-item">Item Two</li>
+    <li class="menu-item">Item Three</li>
+    <li class="menu-item">Item Four</li>
+</ul>
+```
+
+Below you can see just one of many different CSS3 properties. Here we are using the transform property to scale the object 1.2 times bigger on hover.
+
+```css
+.menu-item:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2); 
+    transform: scale(1.2);
+}
+```
+
+#### Adding a Hover Effect to Our Images
+
+Images are used a LOT and they can be both instructive and pretty. As far as being a UI benefit though, they rarely perform up to their potential. For our site though, we are going to want to let users know that some images are just there as content, while others are links (and thus interactive). We could do this a dozen or so ways, but let's an animation where if you hover over an image that is a link, it moves on the page a bit.
+
+Sample HTML:
+
+```html
+
+<a href="Link to Anywhere"><img src="image source" alt="image description" /></a>
+```
+
+Our CSS:
+
+```css
+
+a img:hover {
+    box-shadow:
+        1px 1px #999,
+        3px 3px #999,
+        5px 5px #999;
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+}
+```
+
+This CSS will add a box-shadow to any image on the site that is also a link. 
+
+
+
 
 ## <a name="adding-functionality">Adding Advanced Functionality</a>
 
