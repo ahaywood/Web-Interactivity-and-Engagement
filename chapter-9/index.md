@@ -325,11 +325,82 @@ You should now see the image size changed. You can also implement the other size
 
 Reference: [Adding and Using WordPress Custom Image Sizes: A Guide to the Best Thing Ever](http://wpshout.com/adding-using-custom-image-sizes-wordpress-guide-best-thing-ever/)
 
-
 ## <a name="monitoring-your-site">Monitoring Your Site</a>
+
+Making sure you are keeping track of what is happening in your site and the behavior of your users is crucial to a successful website. Business sites and blog sites may have different audiences and concerns regarding content, but all types of sites will need to gather and analyze data.
+
+There are plenty of tools, both paid and free, to monitor your site’s analytics. Additionally, if you have a more complicated and/or busier site then you will need to also consider analytics for your server and database.
+
+A very good (and free) analytics platform is Google Analytics. This application can get you pretty far into your analytics and makes for a good introduction into collection and analyzing analytics. 
+
+
 ### Tutorial: Integrating Google Analytics in WordPress
 
+*Coming Soon*
+
 ## <a name="styling-for-maximum-readability">Styling for Maximum Readability</a>
+As a general rule, you are going to want to make sure the content you present is visible and readable. You don’t need me to tell you that though. The first step to attaining this goal is to avoid obvious distractions (backgrounds behind text, lack of contrast, text too small or too big, etc.). If you follow that first step, odds are people won’t complain too much about your site’s readability. However, you will probably want to aim higher than “good enough.”
+
+Many of the statements below are suggestions and are based off an assumption that you are using a readable system font. As with all things in design, there are trends which carry weight and differing opinions about what is best - so a lot of the things I say below are based off a representative set of research and experiences. 
+
+### Reset CSS Document
+
+One huge way to make sure your site is as readable as possible is to ensure that all styles from the user agent (i.e., the browser) are overwritten right off the bat. There are many ways to implement a CSS Reset, but one easy and free way to do so is to include Normalize at the top of your CSS file tree. 
+
+[Normalize CSS](https://necolas.github.io/normalize.css/)
+
+### Headings
+
+The primary use of headers is not to spread different sized text throughout your site, but rather to organize content in a logical manner. If all of your headings (h1, h2, h3, …) were the same size it would still be possible for you to organize your site logically without worrying about things being different sizes. However, headings are often used in a manner where size is taken into consideration. 
+
+It is okay to use headings with size as one of the properties of their hierarchy, but remember that their primary function is that of content organization. Readability is not just limited to the ability to see the words, but also the ability to parse the content efficiently and accurately. 
+
+### Body Copy
+
+As a general rule, the base font size should be 14px or 16px. I tend to prefer 16px because it is better to go too big as opposed to too small. 
+
+**Line height** is the space between rows of text. you generally will want the space between to be 1.5 times your font size. This allows your text room to breathe without creating a break in the scannability of the text. 
+
+**Line length** is determined by the number of characters per line. It is possible to implement a complicated method for enforcing a strict rule to this, but estimating based off of your font size is usually fine. There are differing opinions about how wide this should be, with opinions ranging from 50 - 75 characters depending on factors such as font choice, font size, and font weight (and letter spacing if you are deviating from the default).  This is further complicated by different screen sizes for responsive design (a mobile screen may want LESS than that for each line to be readable. Make sure you are testing your line length as you would test anything.
+
+Since we are using a grid system in class that has a default width of around 940px and our default font size supports about 120 - 150 for a full width screen on desktop. This means we would want our reading area to be about 50% of the full width (in our case, six columns). On mobile it handles the text much better but you may want to watch out for variations and ensure uniformity. 
+
+Also, it is generally accepted that **serif fonts are easier to read** than sans serif fonts. There is a definite trend towards using sans serif fonts, but consider implementing two fonts - one for body text and one for headings and other text. 
+
+### General Concerns
+
+Contrast is a huge issue, especially for those who have accessibility issues. As a base, you want to have the lightest color background (i.e., white) with the darkest color text (i.e., black).
+
+Letter spacing (a.k.a., kerning) is the space between letters and plays a HUGE roll in readability. It is mostly unwise to mess with a font’s default letter spacing if you are using a major font (times new roman, arial, etc.). 
+
+### Putting it all together
+
+Let’s create a sample css document that maximizes our readability requirements. You may find this css document boring, but it is a good place to start and then whenever you make a change, you can consider it accordingly. 
+
+```css
+body {
+    font: /*insert your base font here - may be sans serif */;
+    font-size: 16px;
+color: #000;
+background: #fff;
+}
+
+p {
+    font: /*insert a serif font here */;
+    line-height: 1.5rem;
+}
+```
+
+[Readability: the Optimal Line Length - Baymard Institute ](http://baymard.com/blog/line-length-readability)
+[Read-able: Web Readability Test Tool](http://read-able.com/)
+[Balancing Line Length - Smashing Magazine ](http://www.smashingmagazine.com/2014/09/balancing-line-length-font-size-responsive-web-design/)
+
+### Tutorial: Implement Changes to Our Site for Readability
+We are going to want to go through the following steps to enhance our site’s readability using what we learned above.
+
+1. Integrate the CSS into our site
+2. Make sure our text areas are six columns wide
+3. Make sure headers are used correctly
+
 ## <a name="various-readings">Various Readings</a>
-### “Evoking Trust" and "Knowing Everything”
-### "What is Code?"
+*Coming Soon*

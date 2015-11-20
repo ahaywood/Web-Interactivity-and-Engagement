@@ -867,6 +867,29 @@ Some of the disadvantages of child themes are:</p>
 </code></pre></div>
 <p>This CSS will add a box-shadow to any image on the site that is also a link. </p>
 
+<h4>Using Keyframes to Define Animation Behavior</h4>
+
+<p>The other examples were very simple methods for animating object, but CSS3 animations are much more powerful than simple hover effects. I must include a warning here which is this: don&#39;t overdo the animations in your site. A good, subtle animation can make the site come alive but a busy, distracting animation can make the site look cheap and gimmicky.</p>
+
+<p><a href="https://css-tricks.com/snippets/css/keyframe-animation-syntax/">CSS Tricks - Keyframe Animations</a></p>
+
+<p>Let&#39;s define a simple keyframe animation and then consider some other applications. We are going to add a color variety to a button when you hover (I know... more hover...). As a note, you can use keyframe to define any number of other functionalities other than effects. </p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Define the Animation */</span>
+<span class="k">@keyframes</span> <span class="nt">button-rainbow</span> <span class="p">{</span>
+    <span class="nt">0</span><span class="o">%</span>   <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
+    <span class="nt">25</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">orange</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
+    <span class="nt">50</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">200px</span><span class="p">;}</span>
+    <span class="nt">75</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">200px</span><span class="p">;}</span>
+    <span class="nt">100</span><span class="o">%</span> <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
+<span class="p">}</span>
+
+<span class="c">/* Add the Animation and Properties to the Object */</span>
+<span class="nc">.rainbow-button</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="nb">purple</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">name</span><span class="o">:</span> <span class="n">button</span><span class="o">-</span><span class="n">rainbow</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">duration</span><span class="o">:</span> <span class="m">4s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2><a name="adding-functionality">Adding Advanced Functionality</a></h2>
 
 <p>This area is for various tutorials related to WordPress functionality. </p>
