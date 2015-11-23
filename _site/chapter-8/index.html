@@ -907,9 +907,17 @@ Some of the disadvantages of child themes are:</p>
 <p>We are going to go through this tutorial very methodically, but this is because it is very important that we consider the order in which items are loaded into the page. I will first outline the order of the components and then we will go on adding the code to our footer. You can <a href="http://unslider.com/">see the Unslider tutorial here</a>. </p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- First is our slider CSS--&gt;</span>
 <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-    <span class="nc">.banner</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="p">}</span>
-    <span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
-    <span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.unslider</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="k">height</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">8</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="k">z-index</span><span class="o">:</span><span class="m">10</span><span class="p">}</span>
+    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="k">none</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">2</span><span class="p">;</span><span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="k">left</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">20px</span><span class="p">}</span>
 <span class="nt">&lt;/style&gt;</span>
 
 <span class="c">&lt;!-- Second is our &quot;Banner&quot; slider code --&gt;</span>
@@ -924,15 +932,15 @@ Some of the disadvantages of child themes are:</p>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//code.jquery.com/jquery-latest.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="c">&lt;!-- Fourth we include the Unslider.js --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//unslider.com/unslider.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;path/to/js/files/unslider.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- Lastly we use a javascript function to initialize the unslider behavior --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.banner&#39;</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
-<span class="p">});</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.banner&#39;</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
+    <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
-<p>The CSS is not important about which order it is in, but everything else is. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let&#39;s proceed.</p>
+<p>Make sure everything is in the correct order you&#39;d want it parsed in. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let&#39;s proceed.</p>
 
 <h4>Step One: Add Unslider Initiation</h4>
 
@@ -944,7 +952,7 @@ Some of the disadvantages of child themes are:</p>
 
 <span class="x">&lt;!-- Begin Unslider Initiator --&gt;    </span>
 <span class="x">&lt;script&gt;</span>
-<span class="x">    $(function() {</span>
+<span class="x">    jQuery(document).ready(function($) {</span>
 <span class="x">        $(&#39;.banner&#39;).unslider();</span>
 <span class="x">    });</span>
 <span class="x">&lt;/script&gt;</span>
@@ -973,9 +981,17 @@ Some of the disadvantages of child themes are:</p>
 <p>and our CSS...</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="nc">.banner</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="p">}</span>
-    <span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
-    <span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="nc">.unslider</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="k">height</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">8</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="k">z-index</span><span class="o">:</span><span class="m">10</span><span class="p">}</span>
+    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="k">none</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">2</span><span class="p">;</span><span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="k">left</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">20px</span><span class="p">}</span>
 </code></pre></div>
 <p>Now let&#39;s load all of our files up and if the text in the index doesn&#39;t slide by, then there is something wrong. </p>
 

@@ -813,9 +813,17 @@ We are going to go through this tutorial very methodically, but this is because 
 ```html
 <!-- First is our slider CSS-->
 <style type="text/css">
-    .banner { position: relative; overflow: auto; }
-    .banner li { list-style: none; }
-    .banner ul li { float: left; }
+    .unslider{overflow:auto}
+    .unslider-wrap{position:relative}
+    .unslider-wrap.unslider-carousel li{float:left}
+    .unslider-vertical>ul{height:100%}
+    .unslider-vertical li{float:none;width:100%}
+    .unslider-fade{position:relative}
+    .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}
+    .unslider-fade .unslider-wrap li.unslider-active{z-index:10}
+    .unslider li{list-style:none;margin:0;padding:0;border:none}
+    .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}
+    .unslider-arrow.next{left:auto;right:20px}
 </style>
 
 <!-- Second is our "Banner" slider code -->
@@ -830,16 +838,16 @@ We are going to go through this tutorial very methodically, but this is because 
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- Fourth we include the Unslider.js -->
-<script src="//unslider.com/unslider.min.js"></script>
+<script src="path/to/js/files/unslider.js"></script>
 <!-- Lastly we use a javascript function to initialize the unslider behavior -->
 <script>
-$(function() {
-    $('.banner').unslider();
-});
+    jQuery(document).ready(function($) {
+        $('.banner').unslider();
+    });
 </script>
 ```
 
-The CSS is not important about which order it is in, but everything else is. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let's proceed.
+Make sure everything is in the correct order you'd want it parsed in. If you are having trouble with this, just inspect your page and look for 1. a console error or, 2. make sure the code is loaded in this order. Okay, let's proceed.
 
 #### Step One: Add Unslider Initiation
 
@@ -853,7 +861,7 @@ At the bottom of the footer.php file we will add the initiator for unslider.
 
 <!-- Begin Unslider Initiator -->    
 <script>
-    $(function() {
+    jQuery(document).ready(function($) {
         $('.banner').unslider();
     });
 </script>
@@ -887,9 +895,17 @@ and our CSS...
 
 <p class="file-name">style.css</p>
 ```css
-    .banner { position: relative; overflow: auto; }
-    .banner li { list-style: none; }
-    .banner ul li { float: left; }
+    .unslider{overflow:auto}
+    .unslider-wrap{position:relative}
+    .unslider-wrap.unslider-carousel li{float:left}
+    .unslider-vertical>ul{height:100%}
+    .unslider-vertical li{float:none;width:100%}
+    .unslider-fade{position:relative}
+    .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}
+    .unslider-fade .unslider-wrap li.unslider-active{z-index:10}
+    .unslider li{list-style:none;margin:0;padding:0;border:none}
+    .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}
+    .unslider-arrow.next{left:auto;right:20px}
 ```
 
 Now let's load all of our files up and if the text in the index doesn't slide by, then there is something wrong. 
