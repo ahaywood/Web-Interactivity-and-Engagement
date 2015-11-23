@@ -268,9 +268,11 @@ You can apply the idea of a Custom Page Template to any number of other scenario
 
 ## <a name="custom-fields">Using MetaData and Custom Fields</a>
 
-Coming Soon!
+When working with any CMS, there is likely going to be a need to expand the CMS’s functionality from its core. One thing you may want to add to a CMS is custom fields to place content into the page/post from the user admin. Some use cases for this would be to add a location, a sub-title, another featured image or literally any other item of data that you can imagine. 
 
-https://codex.wordpress.org/Custom_Fields 
+[We have already talked about metadata](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-6/#introduction-to-metadata) and have some understanding of how broad the overarching concept of data about data can be. Through custom fields, we are able to use and implement functionality from the metadata. Custom fields are insanely powerful if you consider the scope of what you are able to do - which is essentially limitless. However, there is always the other side of the coin: inserting custom fields requires additional labor by and training of the content manager. Make sure you consider the client and their abilities - and also make sure you implement the custom fields with sufficient error proofing. 
+
+[https://codex.wordpress.org/Custom_Fields](https://codex.wordpress.org/Custom_Fields )
 
 ## <a name="shortcodes">Shortcodes</a>
 
@@ -289,6 +291,10 @@ From the WordPress Codex:
 If you see a snippet of code in WordPress that is surrounded by two brackets (“[ ]”) then it is likely that you are dealing with a shortcode. The way they are used are defined by the function that created it. 
 
 Further down in the jQuery slider tutorial we will briefly include a mechanism to use shortcodes so you can see a tangible example. 
+
+### Tutorial: Using Shortcodes
+
+*Coming Soon*
 
 ## <a name="integrating-outside-resources">Integrating Outside Resources</a>
 
@@ -766,7 +772,32 @@ a img:hover {
 
 This CSS will add a box-shadow to any image on the site that is also a link. 
 
+#### Using Keyframes to Define Animation Behavior
 
+The other examples were very simple methods for animating object, but CSS3 animations are much more powerful than simple hover effects. I must include a warning here which is this: don't overdo the animations in your site. A good, subtle animation can make the site come alive but a busy, distracting animation can make the site look cheap and gimmicky.
+
+[CSS Tricks - Keyframe Animations](https://css-tricks.com/snippets/css/keyframe-animation-syntax/)
+
+Let's define a simple keyframe animation and then consider some other applications. We are going to add a color variety to a button when you hover (I know... more hover...). As a note, you can use keyframe to define any number of other functionalities other than effects. 
+
+```css
+/* Define the Animation */
+@keyframes button-rainbow {
+    0%   {background-color: red; left:0px; top:0px;}
+    25%  {background-color: orange; left:200px; top:0px;}
+    50%  {background-color: yellow; left:200px; top:200px;}
+    75%  {background-color: green; left:0px; top:200px;}
+    100% {background-color: blue; left:0px; top:0px;}
+}
+
+/* Add the Animation and Properties to the Object */
+.rainbow-button:hover {
+    background-color: purple;
+    animation-name: button-rainbow;
+    animation-duration: 4s;
+}
+
+```
 
 
 ## <a name="adding-functionality">Adding Advanced Functionality</a>

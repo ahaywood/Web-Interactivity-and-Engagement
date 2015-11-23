@@ -381,8 +381,8 @@ Let’s create a sample css document that maximizes our readability requirements
 body {
     font: /*insert your base font here - may be sans serif */;
     font-size: 16px;
-color: #000;
-background: #fff;
+    color: #000;
+    background: #fff;
 }
 
 p {
