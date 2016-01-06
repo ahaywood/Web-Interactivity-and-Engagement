@@ -6,8 +6,8 @@ title: Project Walkthroughs and Tutorials
 ## Table of Contents
 
 * [Setting Up Version Control](#setting-up-version-control)
-	* Tutorial: Walkthrough of Github
-	* Tutorial: Setting up a Github Project
+	* Walkthrough of Github
+	* Setting up a Github Project
 * [Creating a Blank Template](#creating-a-blank-template)
 * [Class Presentations](#class-presentations)
 * [Creating a Blog Site](#creating-a-blog-site)
@@ -17,9 +17,43 @@ title: Project Walkthroughs and Tutorials
 
 ## <a name="setting-up-version-control" style="color: #666">Setting Up Version Control</a>
 
-### <span style="color: #666">Tutorial: Walkthrough of Github</span>
+Hopefully you all have some experience with some sort of version control up to this point. Not only is version control good for project management generally, it also lets others see your code and potentially help you if you are having an issue. For this course, version control will be key in 1) letting me see your code, 2) letting me see your progress, 3) learning best practices for web development, and 4) letting me or others help you if you are having trouble. 
 
-### <span style="color: #666">Tutorial: Setting up a Github Project</span>
+There are a lot of different version control solutions of varying quality and features. Depending on your comfort with command line, server setup, and financial resources you will want to choose a version control system that best suits your development environment. A VC (Version Control) system should be chosen based on numerous factors other than how technical you are or how much you can afford, but it mostly deals with the organization (how many people and their expertise) and how secure you want your content to be. For this class, it is required that you use Github for your projects.
+
+###  Walkthrough of Github
+
+The version control mechanism we are going to use for this course is Github. Since we are going to want a VC that is publicly available, free, and easy to use I have chosen Github. I apologize in advance if there are slight differences between a Mac Github experience and a Windows/Linux experience. 
+
+#### Step One: Create a Github Account and Log in
+
+From here we will poke around through the website and see where everything is located and what it does. I highly suggest you work through the Github Bootcamp tutorials that are available once you log in. 
+
+#### Step Two: Get to Know Git
+
+Here is some terminology that you should know going into this:
+
+**[Github Glossary](https://help.github.com/articles/github-glossary/)**
+
+**Git**: Git is just one method of version control of many. It has become the most popular method for implementing version control, though others exist and are still widely used. 
+
+**Commit**: "A commit, or "revision", is an individual change to a file (or set of files)." Commits are the basis of version control because they allow you to identify changes to your project in a step-by-step approach. 
+
+**Push**: "Pushing refers to sending your committed changes to a remote repository"
+
+**Pull**: "Pull refers to when you are fetching in changes and merging them."
+
+**Fork/Branch**: "A branch is a parallel version of a repository." Branches allow you to modify another repository without having to modify the master. A Fork is similar to this, except the copy of the repository lives on your account. The difference, in practice, is generally that a branch will eventually be merged into the master if it is needed while a fork will be kept on your account (though many people make push/pull requests if the forked repository fixes something). 
+
+**Readme**: A Readme file contains descriptive information about the project. It is often an "md" file which stands for Markdown. Markdown is a simplified templating language which makes organizing the descriptive information easy.
+
+
+###  Setting up a Github Project
+
+Luckily, GitHub has a good introduction section after you log in. Follow along with the "GitHub Bootcamp"  to set up a place for our blank template. 
+
+We are going to follow along and set up a new repository titled "WIE-Blank-Template" or something like that...
+
 
 ## <a name="creating-a-blank-template">Creating a Blank Template</a>
 
@@ -35,7 +69,7 @@ The steps below outline the process in greater detail.
 
 ### Project Requirements:
 
-1. Create a folder title “blank-template-yourname”
+1. Create a folder title "blank-template-yourname"
 
 2. Create the following files and place them in your template folder:
 	* Index.php
@@ -55,7 +89,7 @@ The steps below outline the process in greater detail.
 
 4. When you have created these files and the class has progressed to the end of this series of lectures, zip these files and email them to me.
 
-5. Make sure you keep a separate zipped copy of these files separate from the “Modify a Wordpress Template” files so that you can reuse these files for your final project.
+5. Make sure you keep a separate zipped copy of these files separate from the "Modify a Wordpress Template" files so that you can reuse these files for your final project.
 
 ### Using These Course Materials
 
@@ -85,7 +119,7 @@ Completion of this project can be done by following along with the following tut
 
 	This project is very specific to the Web Interactivity and Engagement Course - if you are using this course book for your general knowledge, disregard this section.
 
-You will be assigned a different “element” of web development as outlined in the [“Elements of a Website” lecture](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements) here: [http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements)
+You will be assigned a different "element" of web development as outlined in the ["Elements of a Website" lecture](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements) here: [http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements)
 
 This project is intended to bring a more academic understanding of a fundamental idea of web development through a specific topic that will be instructive to both you and the other members of the course. 
 
@@ -120,7 +154,7 @@ You must present your project on one of the allowable dates. No more than two pe
 
 ## <a name="creating-a-blog-site" style="color: #666">Creating a Blog Site</a>
 
-You will mock up and then implement changes to the WordPress template to make a functioning blog and to suit your particular project needs. The site you are modifying will be the same site you are completing your “Post and Plugins” project on.
+You will mock up and then implement changes to the WordPress template to make a functioning blog and to suit your particular project needs. The site you are modifying will be the same site you are completing your "Post and Plugins" project on.
 
 1. Create two mock ups and wireframes of a design for your blog. These design may take inspiration from any source, but must contain significant and exploratory changes to the blank template (simple color and font changes will not be sufficient). Present two (2) entirely different designs and wireframes. To further clarify, the two wireframes should be made first and then the designs should overlay the wireframes. 
 
@@ -276,6 +310,6 @@ I (obviously) expect the class to be professional during critiques. Making sure 
 
 The two least useful things to say in a critique are:
 
-1. “I just don’t like that…. I don’t know why, but it just doesn’t work” and 
+1. "I just don’t like that…. I don’t know why, but it just doesn’t work" and 
 
-2. “oh my gosh, that is sooooo beautiful and I just love it”
+2. "oh my gosh, that is sooooo beautiful and I just love it"
