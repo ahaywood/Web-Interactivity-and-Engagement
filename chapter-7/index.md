@@ -9,7 +9,7 @@ title: Chapter 7&#58; Advanced Theme Development
     - Tutorial: Adding the Basic CSS for a Template
 - [JavaScript and Adding Functionality](#javascript-and-adding-functionality)
     - The wp-includes folder
-- [WordPress Dynamic File Loading]()
+- [WordPress Dynamic File Loading](#wordpress-dynamic-file-loading)
     - Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress
     - Tutorial: Adding a jQuery Slider to WordPress
 
@@ -213,7 +213,7 @@ However, there are numerous considerations when you are working with a CMS and J
 
 With WordPress there are additional, specific, concerns. Remember the wp-includes folder we discussed in earlier chapters? Well, we don’t want to mess with the contents of it, but let’s discuss how we can use it to our advantage (or how we might want to ignore its contents to our advantage. The wp-includes folder contains many files that WordPress uses (or may use) to perform specific behavior. Several of the files in this folder are JavaScript files (since JavaScript helps with how content behaves and displays). Some of the important components stored in this folder include jQuery, tinyMCE (a plugin for text editing in browser), and JSON support. There are also dozens of other JavaScript files which all do different and important things. 
 
-### WordPress Dynamic File Loading
+### <a name="wordpress-dynamic-file-loading">WordPress Dynamic File Loading</a>
 
 #### Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress
 
