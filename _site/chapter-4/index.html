@@ -680,8 +680,8 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <span class="cp">            endif; </span>
 <span class="cp">        ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span>
-            <span class="err">&lt;?</span><span class="na">php</span> <span class="na">get_sidebar</span><span class="err">();</span> <span class="err">?</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 
@@ -696,27 +696,31 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <p class="file-name">search.php</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
 <span class="cp">/* Template Name: Search Page */</span>
-
 <span class="cp">get_header(); ?&gt;</span>
 
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
-            <span class="cp">&lt;?php if( have_posts() ) :?&gt;</span>
-                <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php printf(__(&#39;Search Results for: %s&#39;), &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; ); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php if( have_posts() ) :?&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>
+                <span class="cp">&lt;?php printf(</span>
+<span class="cp">                    __(&#39;Search Results for: %s&#39;), </span>
+<span class="cp">                    &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; );</span>
+<span class="cp">                ?&gt;</span>
+            <span class="nt">&lt;/h1&gt;</span>
 
-                <span class="cp">&lt;?php if (have_posts()) :</span>
-<span class="cp">                    while (have_posts()) : the_post(); ?&gt;</span>                           <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                        <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                    endwhile;</span>
-<span class="cp">             else : ?&gt;</span>
-                <span class="nt">&lt;h1&gt;</span>Nothing Found<span class="nt">&lt;/h1&gt;</span>
-                <span class="nt">&lt;p&gt;</span>Sorry, but nothing matched your search criteria. Please try again with different search terms.<span class="nt">&lt;/p&gt;</span>
-            <span class="cp">&lt;?php endif; ?&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
-            <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :</span>
+<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span>                       <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();</span>
+<span class="cp">                endwhile;</span>
+<span class="cp">         else : ?&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Nothing Found<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Sorry, but nothing matched your search criteria. Please try again with different search terms.<span class="nt">&lt;/p&gt;</span>
+        <span class="cp">&lt;?php endif; ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 
 <span class="cp">&lt;?php get_footer(); ?&gt;</span>
 </code></pre></div>
