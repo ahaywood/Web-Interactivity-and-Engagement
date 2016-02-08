@@ -6,7 +6,7 @@ highlighter:         pygments
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-relative_permalinks: true
+#relative_permalinks: true
 
 # Setup
 title:               CMSs and WordPress
@@ -15,7 +15,7 @@ description:         'Collaborative lessons and materials for Web Interactivity 
 url:                 http://jayres.github.io/Web-Interactivity-and-Engagement/
 baseurl:             /Web-Interactivity-and-Engagement/
 #baseurl:             /
-paginate:            5
+#paginate:            5
 
 # About/contact
 author:
