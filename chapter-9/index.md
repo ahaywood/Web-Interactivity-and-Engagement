@@ -15,6 +15,7 @@ title: Chapter 9&#58; Advanced Topics
 * [SEO Techniques in a CMS](#seo-techniques-in-a-cms)
     * Tutorial: Optimizing WordPress for SEO
 * [Styling for Maximum Readability](#styling-for-maximum-readability)
+* [Security Primer](#security-primer)
 * [Various Readings](#various-readings)
     * “Evoking Trust" and "Knowing Everything”
     * "What is Code?"
@@ -402,5 +403,52 @@ We are going to want to go through the following steps to enhance our site’s r
 2. Make sure our text areas are six columns wide
 3. Make sure headers are used correctly
 
+## <a name="security-primer">Security Primer</a>
+
+Security is something that should be taken VERY seriously. I want to say that **I am not a security expert by any means**, but can speak to some basic techniques in web security that can prevent obvious attempts at your site’s security. Every major website (and company) has either security personnel on staff or security consultancy on call. It is one of the most complicated parts of any IT organization and requires high levels of specialty and experience to do effectively. 
+
+### Basics of Web Security
+
+The reality is that most “attacks” on web sites and computers are due to users following bad protocol. The essential things to know when it comes to web security are generally obvious. Here is a list of some of the obvious ones: 
+
+* Have difficult to guess passwords
+* Make sure your passwords aren’t written down on your desk (or in an email/text/other easy to read medium)
+* Take advantage of two step authentication when available
+* Share your passwords as little as possible
+* Change your passwords frequently
+* Update your sites/servers/resources often
+* Take special care with personal information and/or data
+* Monitor your resources to make sure there is no suspicious behavior
+* Don’t put strange files/programs onto your server, and…
+* Make sure you trust all of the files/programs you do end up using.
+
+The reason this list is obvious is because it has been so ingrained into our computer use. However, these simple rules are also the places where most breaches in security occur so ensure that you follow them and implement them into your resources.
+
+### SSL and HTTPS
+
+Using HTTPS as opposed to HTTP is a good way to prevent a lot of issues with security and it also is a boost to SEO. 
+
+For a site to use HTTPS, there must be an SSL certificate in place. An SSL Certificate allows for an encrypted handshake to take place between the browser and the server - this preventing data from being skimmed.
+
+The only downside to using an SSL certificate is the continued cost to attach it to your site. The cost is rather minor and every functioning site that has server communication (and primarily authentication) should have an SSL certificate. Most hosts will have an easy setup for including an SSL certificate so that your site can operate over HTTPS. 
+
+[Google - Getting Started with SSL](https://support.google.com/adwords/answer/2580401?hl=en)
+
+### WordPress Security
+
+WordPress gets a bad rap for being insecure. It is rarely WordPress that is insecure though, but rather the users who fail to follow the basics of web security listed above. 
+
+Here are a few steps you can take to improve your security situation for WordPress:
+
+* Keep your WordPress installation up to date! This is the easiest and most important of all the security steps.
+* Use SSL (see above).
+* Have a unique username and hard to guess password - this means deleting your “admin” user completely. This will prevent most brute force attacks.
+* Change the location of your WordPress login. [ManageWP Blog - Change WordPress Login URL](https://managewp.com/change-your-wordpress-login-url)
+* Limit login attempts (plugins available).
+* Turn off comments and make sure you manage user accounts carefully. One slip up from one user is all you need to make your site vulnerable. 
+
 ## <a name="various-readings">Various Readings</a>
-*Coming Soon*
+
+### [“Evoking Online Trust” by Seth Godin](http://sethgodin.typepad.com/seths_blog/2013/11/evoking-online-trust.html)
+
+### [“Never Heard of It” by Lyza Danger Gardner](http://alistapart.com/column/never-heard-of-it)
