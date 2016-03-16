@@ -274,17 +274,19 @@ Metadata handling?</p>
 <p>Let’s add some CSS for our text.</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">*</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-<span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-<span class="k">font-weight</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
-<span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
-<span class="k">font-family</span><span class="o">:</span> <span class="n">XXX</span><span class="p">;</span> 
+<div class="highlight"><pre><code class="language-css" data-lang="css">
+<span class="o">*</span> <span class="p">{</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="nl">line-height</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="nl">font-weight</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="nl">font-family</span><span class="p">:</span> <span class="n">XXX</span><span class="p">;</span> 
 <span class="p">}</span>
 
 <span class="nt">p</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.0rem</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>The asterisk selector means the rules in there will apply to the entire site. Since CSS uses a top-down hierarchy for rules, using the asterisk as a means for communicating default rules can be handy. But remember that you will not want redundant CSS in your site, so be careful about how much you put in there and how you are using this selector. </p>
 
@@ -295,27 +297,29 @@ Metadata handling?</p>
 <p>The h1 - h6 elements are extraordinarily useful from a SEO and UI perspective. However, controlling their emphasis and usage is a big part of a template. When using your headers elements you can control how pages display and present information in a hierarchical fashion. </p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
-<span class="k">font-weight</span><span class="o">:</span> <span class="m">600</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+<span class="nl">font-weight</span><span class="p">:</span> <span class="m">600</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h1</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">3</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">3.0rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h2</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">2.4rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h3</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">2.2rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h4</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">8</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.8rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h5</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.4rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h6</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2rem</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <p>Because we used the asterisk selector to set a default font size, all of the ‘rem’s are relative to that size. Instead of setting a default size to these in pixels, we can use ‘rem’ to create a formulaic approach. This is useful for responsive design because we can change just the pixel size of a font at the top level of a CSS rule and all of the other text will adjust accordingly. </p>
 
@@ -328,12 +332,12 @@ Metadata handling?</p>
 <p>The second is a hide class. The traditional display:none css rule is not actually the best way to hide something and has implications from an accessibility standpoint. We are going to use <a href="https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/">this csstricks.com solution for an alternative to display:none.</a></p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.clear</span> <span class="p">{</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.clear</span> <span class="p">{</span> <span class="nl">clear</span><span class="p">:</span><span class="nb">both</span><span class="p">;</span> <span class="p">}</span>
 
 <span class="nc">.hide</span> <span class="p">{</span>
-<span class="k">position</span><span class="o">:</span> <span class="k">absolute</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="k">top</span><span class="o">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="k">left</span><span class="o">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="nl">top</span><span class="p">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="nl">left</span><span class="p">:</span> <span class="m">-9999px</span> <span class="cp">!important</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4>Step 5: Other Common Elements and Classes</h4>
@@ -342,15 +346,15 @@ Metadata handling?</p>
 
 <p class="file-name">style.css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.thumbnail-image</span> <span class="p">{</span>
-<span class="k">margin</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
-<span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#000</span><span class="p">;</span>
+<span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#000</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.featured-text</span> <span class="p">{</span>
-<span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
-<span class="k">font-weight</span><span class="o">:</span> <span class="m">600</span><span class="p">;</span>
-<span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2rem</span><span class="p">;</span>
+<span class="nl">font-weight</span><span class="p">:</span> <span class="m">600</span><span class="p">;</span>
+<span class="nl">text-transform</span><span class="p">:</span> <span class="nb">uppercase</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><em>What other css styles would you put in here that I may have forgot?</em></p>
@@ -384,12 +388,12 @@ Metadata handling?</p>
 <p>I don’t advocate for or against bxSlider, but the syntax is simple enough that I believe a novice programmer can implement this product. </p>
 
 <h5>Step 1: Download Dependent Files</h5>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Download the dependent bxSlider files (bxSlider.js and bxSlider.css)
+<div class="highlight"><pre><code class="language-" data-lang="">Download the dependent bxSlider files (bxSlider.js and bxSlider.css)
 </code></pre></div>
 <h5>Step 2: Move the Dependent Files into the Correct Folder</h5>
 
 <p>We already have a folder for our CSS, but we want to make sure we stay organized as much as possible in our theme so we should do the same thing for our JavaScript files. We are going to create a js folder where we will store any of our JavaScript files in the future. </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Create a ‘js’ folder in your theme’s directory
+<div class="highlight"><pre><code class="language-" data-lang="">Create a ‘js’ folder in your theme’s directory
 
 
 Copy bxslider.js into the ‘js’ sub-folder
@@ -404,29 +408,29 @@ Copy bxslider.css into the ‘css’ sub-folder
 <p>Let’s go into our functions.php file and add the enqueuing. First we will do our CSS files. </p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue CSS Files-------------- */</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*------------- Enqueue CSS Files-------------- */
 
-<span class="x">function bxslider_css() {</span>
-<span class="x">    wp_enqueue_style(</span>
-<span class="x">        &#39;bxslider-css&#39;,</span>
-<span class="x">        get_template_directory_uri() . &#39;/css/bxslider.css&#39;</span>
-<span class="x">    );</span>
-<span class="x">}</span>
-<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, &#39;bxslider_css&#39;);</span>
+function bxslider_css() {
+    wp_enqueue_style(
+        'bxslider-css',
+        get_template_directory_uri() . '/css/bxslider.css'
+    );
+}
+add_action('wp_enqueue_scripts', 'bxslider_css');
 </code></pre></div>
 <p>Notice how much like our other functions.php code this is? Let’s add our javascript files now. <a href="https://codex.wordpress.org/Function_Reference/wp_enqueue_script">wp<em>enqueue</em>scripts</a></p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue js Files-------------- */</span>
-<span class="x">function bxslider_js() {</span>
-<span class="x">    wp_enqueue_script(</span>
-<span class="x">        &#39;bxslider-js&#39;,</span>
-<span class="x">        get_stylesheet_directory_uri() . &#39;/js/bxslider.js&#39;,</span>
-<span class="x">        array( &#39;jquery&#39; )</span>
-<span class="x">    );</span>
-<span class="x">}</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*------------- Enqueue js Files-------------- */
+function bxslider_js() {
+    wp_enqueue_script(
+        'bxslider-js',
+        get_stylesheet_directory_uri() . '/js/bxslider.js',
+        array( 'jquery' )
+    );
+}
 
-<span class="x">add_action( &#39;wp_enqueue_scripts&#39;, &#39;bxslider_js&#39; );</span>
+add_action( 'wp_enqueue_scripts', 'bxslider_js' );
 </code></pre></div>
 <p>One major thing to note here is that we are adding an array at the end with ‘jquery’ in it. This is because we want to use jQuery as a dependency for our bxslider plugin. This is WordPress’ way of handling this simply. </p>
 
@@ -441,31 +445,31 @@ Copy bxslider.css into the ‘css’ sub-folder
 <p>We are already loading the skeleton and normalize css files to our site in the head, but let’s remove them from there and enqueue them in the same way we enqueued the bxSlider css files. </p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*------------- Enqueue CSS Files-------------- */</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*------------- Enqueue CSS Files-------------- */
 
-<span class="x">function bxslider_css() {</span>
-<span class="x">    wp_enqueue_style(</span>
-<span class="x">        &#39;bxslider-css&#39;,</span>
-<span class="x">        get_template_directory_uri() . &#39;/css/bxslider.css&#39;</span>
-<span class="x">    );</span>
-<span class="x">}</span>
-<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, &#39;bxslider_css&#39;);</span>
+function bxslider_css() {
+    wp_enqueue_style(
+        'bxslider-css',
+        get_template_directory_uri() . '/css/bxslider.css'
+    );
+}
+add_action('wp_enqueue_scripts', 'bxslider_css');
 
-<span class="x">function normalize_css() {</span>
-<span class="x">    wp_enqueue_style(</span>
-<span class="x">        &#39;normalize-css&#39;,</span>
-<span class="x">        get_template_directory_uri() . &#39;/css/normalize.css&#39;</span>
-<span class="x">    );</span>
-<span class="x">}</span>
-<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, normalize_css);</span>
+function normalize_css() {
+    wp_enqueue_style(
+        'normalize-css',
+        get_template_directory_uri() . '/css/normalize.css'
+    );
+}
+add_action('wp_enqueue_scripts', normalize_css);
 
-<span class="x">function skeleton_css() {</span>
-<span class="x">    wp_enqueue_style(</span>
-<span class="x">        &#39;skeleton-css&#39;,</span>
-<span class="x">        get_template_directory_uri() . &#39;/css/skeleton.css&#39;</span>
-<span class="x">    );</span>
-<span class="x">}</span>
-<span class="x">add_action(&#39;wp_enqueue_scripts&#39;, skeleton_css);</span>
+function skeleton_css() {
+    wp_enqueue_style(
+        'skeleton-css',
+        get_template_directory_uri() . '/css/skeleton.css'
+    );
+}
+add_action('wp_enqueue_scripts', skeleton_css);
 </code></pre></div>
 <h5>Step 6: Save and Upload</h5>
 

@@ -275,7 +275,8 @@
 <p>You may recognize this next bit of code we are going to add to the index.php file:</p>
 
 <p class="file-name">index.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>
 <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
@@ -283,6 +284,7 @@
 <span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
+
 </code></pre></div>
 <p>Notice anything weird here? You shouldn&#39;t. It is the basic setup for any HTML file you will ever create. </p>
 
@@ -293,6 +295,7 @@
     <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
     <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
+
 </code></pre></div>
 <p>Save your file. Let&#39;s move to the style.css file</p>
 
@@ -303,20 +306,21 @@
 <p>WordPress gets the information about the template (metadata) from the style.css file. For this reason, we have to add the style.css file and some commented out information for our template to show up. I included some CSS so that we can get started.</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
-<span class="c">Theme Name: FirstName Blank Theme</span>
-<span class="c">Theme URI: URL for FirstName Blank</span>
-<span class="c">Author: FirstName LastName</span>
-<span class="c">Description: Blank theme for WIE course</span>
-<span class="c">Version: 0.1</span>
-<span class="c">License: Open</span>
-<span class="c">Text Domain: firstname_lastname_blank_template</span>
-<span class="c">*/</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">
+<span class="c">/*
+Theme Name: FirstName Blank Theme
+Theme URI: URL for FirstName Blank
+Author: FirstName LastName
+Description: Blank theme for WIE course
+Version: 0.1
+License: Open
+Text Domain: firstname_lastname_blank_template
+*/</span>
 
 <span class="o">*</span><span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#000000</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#000000</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Make sure you change the places in that commented out section that seem obvious. </p>
@@ -364,17 +368,17 @@
 <p>For this class, we are going to use <a href="http://getskeleton.com/">Skeleton</a> as our framework for responsive design and for basic styles. We are using this because it doesn&#39;t have a lot of code and will allow you to customize without having any additional styles getting in the way. </p>
 
 <p>Many other grid systems use the same methodology for laying out a site as Skeleton. Here is how Skeleton uses it:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
 
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;six columns&quot;</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;six columns&quot;</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"six columns"</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"six columns"</span><span class="nt">&gt;</span>Content for 1/2 width column<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>Content for 1/3 width column<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;five columns&quot;</span><span class="nt">&gt;</span>Content for 5/12 width column<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>Content for 1/4 width column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>Content for 1/3 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"five columns"</span><span class="nt">&gt;</span>Content for 5/12 width column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns"</span><span class="nt">&gt;</span>Content for 1/4 width column<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 
 <span class="nt">&lt;/div&gt;</span>
@@ -382,7 +386,7 @@
 <p>If read through the code, you can see that Skeleton uses a &#39;div class=&quot;container&quot;&#39; to hold everything inside of it. Then inside of the container, the &#39;div class=&quot;row&quot;&#39; holds the &#39;div class=&quot;# columns&quot;&#39;. Lastly, you see that the divs that hold the columns have two classes: a number class and the &quot;columns&quot; class. The number class is based on there being 12 parts to the full width. You can see how I used different numbers in the number class to demonstrate how it works. This will certainly make more sense once you apply it.</p>
 
 <p>Simplifying what is happening above, you will see that the essential syntax is this (all HTML taken out for understanding purposes):</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Container
+<div class="highlight"><pre><code class="language-" data-lang="">Container
     Row
         Column
     Row
@@ -410,17 +414,18 @@
 
 <p>As a review, here is the simple, HTML method for linking to a file:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Link to a CSS file --&gt;</span> 
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
 
 <span class="c">&lt;!-- Link to a JavaScript file --&gt;</span> 
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;custom.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"custom.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
 </code></pre></div>
 <p>Now we are going to write our very first PHP for WordPress so that we can load something dynamic. We are going to link to our style.css file and the skeleton.css framework file.</p>
 
 <p class="file-name">index.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span>
 <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 </code></pre></div>
 <p>The &#39;&lt;?php bloginfo(&#39;stylesheet<em>url&#39;)</em>; ?&gt;&#39; portion of the code we added contains a built in WordPress function (bloginfo()) and a parameter that the function will use (&#39;stylesheet_url&#39;). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. </p>
@@ -432,7 +437,9 @@
 <p>Lastly we will add an @import to our style.css file for our Skeleton CSS file (downloaded from the Skeleton site.</p>
 
 <p class="file-name">style.css:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;css/my_custom_style.css&quot;</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">
+<span class="k">@import</span> <span class="sx">url("css/my_custom_style.css")</span><span class="p">;</span>
+
 </code></pre></div>
 <p>When we save and upload our index and style.css file you should be able to see that they are loading. </p>
 
@@ -443,18 +450,20 @@
 <p>Let&#39;s remember what our current index.php page looks like:</p>
 
 <p class="file-name">index.php:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
     <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
         <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
         <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
+
 </code></pre></div>
 <h4>Step 1. Add HTML 5 Sytnax</h4>
 
@@ -466,7 +475,7 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
         <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
         <span class="nt">&lt;header&gt;</span>
@@ -481,6 +490,7 @@
         <span class="nt">&lt;/footer&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
+
 </code></pre></div>
 <p>Basically we added &#39;header&#39;, &#39;footer&#39; and some filler text. However, the site makes more sense from a layout perspective. If you upload the index.php file to your server now, you will see the changes as you have made them.</p>
 
@@ -494,23 +504,23 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
         <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
                     <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/header&gt;</span>
-            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/section&gt;</span>
-            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/footer&gt;</span>
@@ -546,25 +556,25 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
         <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
                     <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/header&gt;</span>
             <span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
-            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/section&gt;</span>
             <span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
-            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/footer&gt;</span>
@@ -586,12 +596,12 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
         <span class="c">&lt;!-- Links to our Style.css file --&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
                     <span class="nt">&lt;h2&gt;</span>This is my WordPress template.<span class="nt">&lt;/h2&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
@@ -599,16 +609,16 @@
 <span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
 </code></pre></div>
 <p class="file-name">index.php:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">            <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/section&gt;</span>
 </code></pre></div>
 <p class="file-name">footer.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
-            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/footer&gt;</span>
@@ -622,8 +632,8 @@
 
 <p class="file-name">index.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/section&gt;</span>
@@ -639,12 +649,12 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
 <span class="cp">&lt;?php wp_head(); ?&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
                     <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
@@ -653,8 +663,8 @@
 </code></pre></div>
 <p class="file-name">footer.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- BEGINNING OF FOOTER - END SECTION CONTENT --&gt;</span>
-            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;p&gt;</span>Footer content goes here.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/footer&gt;</span>
@@ -673,14 +683,14 @@
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
 <span class="cp">&lt;?php wp_head(); ?&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php bloginfo(&#39;name&#39;); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
-                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo(&#39;description&#39;); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php bloginfo('name'); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo('description'); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/header&gt;</span>
 <span class="c">&lt;!-- END OF HEADER - BEGIN SECTION CONTENT --&gt;</span>
@@ -704,7 +714,7 @@
 <p>Though this may seem tedious, it is important to have a subset of data to program off of. My suggestion is to make 5 posts with different headings and plenty of body text. You will do this by going into the Dashboard, clicking on &quot;Posts&quot; and then &quot;Add New.&quot; For each one, put a different heading and some filler content</p>
 
 <p>For example:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">My First Post
+<div class="highlight"><pre><code class="language-" data-lang="">My First Post
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </code></pre></div>
@@ -714,8 +724,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <p class="file-name">index.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>Body content goes here.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/section&gt;</span>
@@ -726,28 +736,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">the_post</span><span class="p">();</span> 
-    <span class="p">}</span> <span class="c1">// end while</span>
-<span class="p">}</span> <span class="c1">// end if</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+    <span class="p">}</span> <span class="c1">// end while
+</span><span class="p">}</span> <span class="c1">// end if
+</span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>So let&#39;s combine this code! By doing this, we will add the PHP functionality found in the Loop into the index.php page. </p>
 
 <p class="file-name">index.php:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;section class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">&lt;!-- BEGIN LOOP --&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> 
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- BEGIN LOOP --&gt;</span>
+            <span class="cp">&lt;?php</span> 
             <span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
                     <span class="nx">the_post</span><span class="p">();</span> 
-                <span class="p">}</span> <span class="c1">// end while</span>
-            <span class="p">}</span> <span class="c1">// end if</span>
-            <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;!-- END LOOP --&gt;</span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/section&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+                <span class="p">}</span> <span class="c1">// end while
+</span>            <span class="p">}</span> <span class="c1">// end if
+</span>            <span class="cp">?&gt;</span>
+<span class="c">&lt;!-- END LOOP --&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>I have left plenty of room for you to see where I took out the filler content and placed the loop in there. If you need to remember what exactly the loop is doing, reference the previous chapter. </p>
 
@@ -809,8 +819,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <p class="file-name">page.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h1&gt;</span>Our Page<span class="nt">&lt;/h1&gt;</span>
             <span class="nt">&lt;p&gt;</span>Filler content for our page.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -822,21 +832,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <p>We discussed the &quot;Data Context&quot; above,  but here we are going to apply it to our code. Another thing to note about this code is that it should look almost identical to our loop (and the logic IS identical). We have added two important WordPress functions we will talk about after we add the PHP. </p>
 
 <p class="file-name">page.php:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">&lt;!-- BEGIN PAGE PHP --&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- BEGIN PAGE PHP --&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
                 <span class="cm">/* OUR DATA CONTEXT IS DEFINED  */</span>      
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;!-- END PAGE PHP --&gt;</span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="c">&lt;!-- END PAGE PHP --&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>The way that the PHP we added works looks a lot like the index.php loop. We do a test to see IF we have posts, then we define our data context by saying WHILE we have posts, let&#39;s display the post. Though it works identical to the loop logically, the data context is entirely different. </p>
 
@@ -853,10 +863,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <p>WordPress handles all the routing for you because it is built in functionality. So you don&#39;t need to worry about any of that, but know WHY the code that is essentially a loop functions differently on the front page than it does on the internal pages and posts. </p>
 
 <p>The second part to notice is the specifics of the content we are adding. This is a good opportunity to notice how easily PHP integrates with HTML. The part I am taking about is this:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">…</span>
-<span class="x">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">…</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">…
+<span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="cp">?&gt;</span>
+…
 </code></pre></div>
 <p>&#39;the<em>title&#39; and &#39;the</em>content&#39; are both custom WordPress functions. </p>
 
@@ -888,8 +898,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <p class="file-name">single.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h1&gt;</span>Our Post<span class="nt">&lt;/h1&gt;</span>
             <span class="nt">&lt;p&gt;</span>Filler content for our post.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -902,16 +912,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <p class="file-name">single.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
 <span class="c">&lt;!-- BEGIN SINGLE PHP --&gt;</span>
-            <span class="cp">&lt;?php if (have_posts()) :</span>
-<span class="cp">                /* OUR DATA CONTEXT IS DEFINED  */              </span>
-<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span> 
+            <span class="cp">&lt;?php if (have_posts()) :
+                /* OUR DATA CONTEXT IS DEFINED  */              
+                while (have_posts()) : the_post(); ?&gt;</span> 
                     <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">            endif; ?&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+            endif; ?&gt;</span>
 <span class="c">&lt;!-- END SINGLE PHP --&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -933,20 +943,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <p class="file-name">page.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
 
 <span class="c">&lt;!-- MAKE THIS COLUMN NINE WIDTH --&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
-            <span class="cp">&lt;?php if (have_posts()) :           </span>
-<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span> 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nine columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :           
+                while (have_posts()) : the_post(); ?&gt;</span> 
                     <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">            endif; ?&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+            endif; ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- ADD IN A THREE WIDTH COLUMN - COMPLETE THE TWELVE REQUIREMENT WIDTH --&gt;</span>
 <span class="c">&lt;!-- BEGIN SIDEBAR --&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h3&gt;</span>Sidebar Text<span class="nt">&lt;/h3&gt;</span>
             <span class="nt">&lt;p&gt;</span>This is the sidebar content to put in here.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -970,17 +980,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </code></pre></div>
 <p class="file-name">page.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
-            <span class="cp">&lt;?php if (have_posts()) :           </span>
-<span class="cp">while (have_posts()) : the_post(); ?&gt;</span> 
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nine columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :           
+while (have_posts()) : the_post(); ?&gt;</span> 
                     <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">            endif; ?&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+            endif; ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- BEGIN SIDEBAR --&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns"</span><span class="nt">&gt;</span>
             <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- END SIDEBAR --&gt;</span>
@@ -1000,60 +1010,60 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <p>Our style.css file currently looks like this:</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
-<span class="c">Theme Name: FirstName Blank Theme</span>
-<span class="c">Theme URI: URL for FirstName Blank</span>
-<span class="c">Author: FirstName LastName</span>
-<span class="c">Description: Blank theme for WIE course</span>
-<span class="c">Version: 0.1</span>
-<span class="c">License: Open</span>
-<span class="c">Text Domain: firstname_lastname_blank_template</span>
-<span class="c">*/</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*
+Theme Name: FirstName Blank Theme
+Theme URI: URL for FirstName Blank
+Author: FirstName LastName
+Description: Blank theme for WIE course
+Version: 0.1
+License: Open
+Text Domain: firstname_lastname_blank_template
+*/</span>
 
 <span class="o">*</span><span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#000000</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#000000</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Which is totally fine! That&#39;s actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (H1, H2, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). </p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*</span>
-<span class="c">Theme Name: FirstName Blank Theme</span>
-<span class="c">Theme URI: URL for FirstName Blank</span>
-<span class="c">Author: FirstName LastName</span>
-<span class="c">Description: Blank theme for WIE course</span>
-<span class="c">Version: 0.1</span>
-<span class="c">License: Open</span>
-<span class="c">Text Domain: firstname_lastname_blank_template</span>
-<span class="c">*/</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*
+Theme Name: FirstName Blank Theme
+Theme URI: URL for FirstName Blank
+Author: FirstName LastName
+Description: Blank theme for WIE course
+Version: 0.1
+License: Open
+Text Domain: firstname_lastname_blank_template
+*/</span>
 
 <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">h2</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">h1</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.4rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h2</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">2</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.0rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h3</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">8</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.8rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h4</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h5</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">h6</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.0rem</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>When you upload the CSS file, it should be apparent that there are immediate changes after you reload a page. We will definitely go into more advanced CSS with WordPress in the future - but I wanted to quickly touch on one of the biggest parts of template design. </p>

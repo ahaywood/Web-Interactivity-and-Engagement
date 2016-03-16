@@ -234,10 +234,10 @@
 <h5>Step 1: Add the Register Function</h5>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function custom_web_resources() {</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">function custom_web_resources() {
 
-<span class="x">}</span>
-<span class="x">add_action( &#39;init&#39;, &#39;custom_web_resources&#39; );</span>
+}
+add_action( 'init', 'custom_web_resources' );
 </code></pre></div>
 <p>You should recognize this code from the widget initialization code; The same concepts that are there apply here. You are creating a function and adding that function to WordPress through the add_action function.</p>
 
@@ -248,12 +248,12 @@
 <p>This codex entry can help you go through the next step of our tutorial if you are having trouble.</p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function custom_web_resources() {</span>
-<span class="x">$labels = array();</span>
-<span class="x">$args = array();</span>
-<span class="x">register_post_type( &#39;resources&#39;, $args ); </span>
-<span class="x">}</span>
-<span class="x">add_action( &#39;init&#39;, &#39;custom_web_resources&#39; );</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">function custom_web_resources() {
+$labels = array();
+$args = array();
+register_post_type( 'resources', $args ); 
+}
+add_action( 'init', 'custom_web_resources' );
 </code></pre></div>
 <p>As you can see, we used the register<em>post</em>type function to register a post type called ‘resources,’ included an empty array called $args, and included an empty array called $labels. The $args array is called where the function’s arguments would go. </p>
 
@@ -269,36 +269,36 @@
 <span class="nv">$labels</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
 <span class="cm">/*--- Begin Labels Options ---*/</span>
 
-    <span class="s1">&#39;name&#39;</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Links&#39;</span><span class="p">,</span> <span class="s1">&#39;post type general name&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;singular_name&#39;</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Link&#39;</span><span class="p">,</span> <span class="s1">&#39;post type singular name&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;add_new&#39;</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Add New&#39;</span><span class="p">,</span> <span class="nx">weblink</span> <span class="p">),</span>
-    <span class="s1">&#39;add_new_item&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Add Link&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;edit_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Edit Links&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;new_item&#39;</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;New Link&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;all_items&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;All Links&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;view_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;View Links&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;search_items&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Search Links&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;not_found&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No links found&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;not_found_in_trash&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No links found in the Trash&#39;</span> <span class="p">),</span> 
-    <span class="s1">&#39;parent_item_colon&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;menu_name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;Web Links&#39;</span>
+    <span class="s1">'name'</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Links'</span><span class="p">,</span> <span class="s1">'post type general name'</span> <span class="p">),</span>
+    <span class="s1">'singular_name'</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Link'</span><span class="p">,</span> <span class="s1">'post type singular name'</span> <span class="p">),</span>
+    <span class="s1">'add_new'</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Add New'</span><span class="p">,</span> <span class="nx">weblink</span> <span class="p">),</span>
+    <span class="s1">'add_new_item'</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Add Link'</span> <span class="p">),</span>
+    <span class="s1">'edit_item'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Edit Links'</span> <span class="p">),</span>
+    <span class="s1">'new_item'</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'New Link'</span> <span class="p">),</span>
+    <span class="s1">'all_items'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'All Links'</span> <span class="p">),</span>
+    <span class="s1">'view_item'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'View Links'</span> <span class="p">),</span>
+    <span class="s1">'search_items'</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Search Links'</span> <span class="p">),</span>
+    <span class="s1">'not_found'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'No links found'</span> <span class="p">),</span>
+    <span class="s1">'not_found_in_trash'</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'No links found in the Trash'</span> <span class="p">),</span> 
+    <span class="s1">'parent_item_colon'</span>  <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'menu_name'</span>          <span class="o">=&gt;</span> <span class="s1">'Web Links'</span>
 
 <span class="p">);</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
 <span class="cm">/*--- Begin Arguments Options ---*/</span>
 
-<span class="s1">&#39;labels&#39;</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
-<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Place to put useful links to other web resources&#39;</span><span class="p">,</span>
-<span class="s1">&#39;public&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-<span class="s1">&#39;menu_position&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
-<span class="s1">&#39;supports&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;excerpt&#39;</span><span class="p">,</span> <span class="s1">&#39;comments&#39;</span> <span class="p">),</span>
-<span class="s1">&#39;has_archive&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="s1">'labels'</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
+<span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Place to put useful links to other web resources'</span><span class="p">,</span>
+<span class="s1">'public'</span>        <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s1">'menu_position'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+<span class="s1">'supports'</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'title'</span><span class="p">,</span> <span class="s1">'editor'</span><span class="p">,</span> <span class="s1">'thumbnail'</span><span class="p">,</span> <span class="s1">'excerpt'</span><span class="p">,</span> <span class="s1">'comments'</span> <span class="p">),</span>
+<span class="s1">'has_archive'</span>   <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
 
 <span class="p">);</span>
-<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">&#39;resources&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
+<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">'resources'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
 <span class="p">}</span>
-<span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_web_resources&#39;</span> <span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="nx">add_action</span><span class="p">(</span> <span class="s1">'init'</span><span class="p">,</span> <span class="s1">'custom_web_resources'</span> <span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>One thing to notice is that the entire $labels array is brought in as an option to the $args array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. </p>
 
@@ -325,7 +325,7 @@
 <p><a href="http://codex.wordpress.org/Page_Templates">WordPress Codex - Page Templates</a></p>
 
 <p>The Tuts+ Tutorial below gives a great account of a use case for custom page templates.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">“A perfect example of a popular use for a custom page template is a ‘full-width’ page. A vast majority of WordPress templates have two or three columns: one ‘main content’ column where post/page content is held, and one or two sidebars that display widgets and calls to action. Sometimes a user will want to take advantage of the full-width of the container those columns are held within, and choose to omit the sidebar column(s) in favor of increasing the size of the ‘main content’ column. Pages that feature media such as image galleries or videos will often benefit from this type of custom page template.”
+<div class="highlight"><pre><code class="language-" data-lang="">“A perfect example of a popular use for a custom page template is a ‘full-width’ page. A vast majority of WordPress templates have two or three columns: one ‘main content’ column where post/page content is held, and one or two sidebars that display widgets and calls to action. Sometimes a user will want to take advantage of the full-width of the container those columns are held within, and choose to omit the sidebar column(s) in favor of increasing the size of the ‘main content’ column. Pages that feature media such as image galleries or videos will often benefit from this type of custom page template.”
 </code></pre></div>
 <p><a href="http://codex.wordpress.org/Page_Templates">Tuts+ - Creating Custom Page Templates </a></p>
 
@@ -351,10 +351,10 @@
 
 <p class="file-name">page_fullwidth.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
-<span class="cm">/* </span>
-<span class="cm">Template name: Full Width </span>
-<span class="cm">*/</span> 
-<span class="cp">?&gt;</span><span class="x">  </span>
+<span class="cm">/* 
+Template name: Full Width 
+*/</span> 
+<span class="cp">?&gt;</span>  
 </code></pre></div>
 <p>This registers the custom template with WordPress automatically (it works simply and easily!)</p>
 
@@ -366,30 +366,30 @@
 
 <p class="file-name">page_fullwidth.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
-<span class="cm">/* </span>
-<span class="cm">Template name: Full Width </span>
-<span class="cm">*/</span> 
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;section class=&quot;row&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;nine columns&quot;&gt;</span>
-<span class="x">    &lt;!-- BEGIN PAGE PHP --&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+<span class="cm">/* 
+Template name: Full Width 
+*/</span> 
+<span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nine columns"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- BEGIN PAGE PHP --&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
                 <span class="cm">/* OUR DATA CONTEXT IS DEFINED  */</span>
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;!-- END PAGE PHP --&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">    &lt;!-- Begin Sidebar Area --&gt;</span>
-<span class="x">    &lt;div class=&quot;three columns&quot;&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span> <span class="nx">get_sidebar</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">    &lt;!-- End Sidebar Area --&gt;</span>
-<span class="x">&lt;/section&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">  </span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+    <span class="c">&lt;!-- END PAGE PHP --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- Begin Sidebar Area --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="nx">get_sidebar</span><span class="p">();</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- End Sidebar Area --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>  
 </code></pre></div>
 <h6>Step 4: Make the Page Template Full Width</h6>
 
@@ -399,25 +399,25 @@
 
 <p class="file-name">page_fullwidth.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
-<span class="cm">/* </span>
-<span class="cm">Template name: Full Width </span>
-<span class="cm">*/</span> 
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;section class=&quot;row full-width-class&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">    &lt;!-- BEGIN PAGE PHP --&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+<span class="cm">/* 
+Template name: Full Width 
+*/</span> 
+<span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row full-width-class"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- BEGIN PAGE PHP --&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
                 <span class="cm">/* OUR DATA CONTEXT IS DEFINED  */</span>
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;!-- END PAGE PHP --&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">&lt;/section&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">  </span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+    <span class="c">&lt;!-- END PAGE PHP --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>  
 </code></pre></div>
 <h6>Step 5: Save and Upload Files</h6>
 
@@ -446,9 +446,9 @@
 <p>Shortcodes are a great way to integrate high level functionality into the WordPress admin directly. Many plugins use shortcodes as a means for displaying their generated content. You can also use shortcodes as a means to integrate your own custom functionality into WordPress. </p>
 
 <p>From the WordPress Codex:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">The Shortcode API makes it easy to create shortcodes that support attributes like this:
+<div class="highlight"><pre><code class="language-" data-lang="">The Shortcode API makes it easy to create shortcodes that support attributes like this:
 
-[gallery id=&quot;123&quot; size=&quot;medium&quot;]
+[gallery id="123" size="medium"]
 
 The API handles all the tricky parsing, eliminating the need for writing a custom regular expression for each shortcode. Helper functions are included for setting and fetching default attributes. The API supports both self-closing and enclosing shortcodes.
 </code></pre></div>
@@ -477,10 +477,11 @@ Use WordPress to enqueue the files and to handle dependencies. </p>
 <p><strong>Linking in the header</strong> is the most common and oldest way of integrating outside resources into the web page. This generally looks like this:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">”javascript.js:</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- OR --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;stylesheet&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"stylesheet"</span> <span class="nt">/&gt;</span>
+
 </code></pre></div>
 <p>The other way to do this is to use an <strong>@import in the stylesheet</strong> for CSS files. This usually looks like this:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="nt">stylesheet</span><span class="nc">.css</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="sx">url(stylesheet.css)</span><span class="p">;</span>
 </code></pre></div>
 <p>The third way, <strong>enqueuing files</strong>, was covered in the previous chapter and is a convenient way to organize files and deal with dependencies, but is a bit more time intensive with a slightly higher learning curve. </p>
 
@@ -505,7 +506,7 @@ The JavaScript insert method (probably the better choice…)</p>
 <p>Copy the @import code from the “Use” tab and paste it into your style.css file. Here is an example of what it should look like:</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="nt">http</span><span class="o">://</span><span class="nt">fonts</span><span class="nc">.googleapis.com</span><span class="o">/</span><span class="nt">css</span><span class="o">?</span><span class="nt">family</span><span class="o">=</span><span class="nt">Open</span><span class="o">+</span><span class="nt">Sans</span><span class="nd">:400</span><span class="o">,</span><span class="nt">600</span><span class="o">,</span><span class="nt">700</span><span class="o">,</span><span class="nt">300</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="sx">url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300)</span><span class="p">;</span>
 </code></pre></div>
 <h4>Step 3: Add the Font Family to your Webpage</h4>
 
@@ -513,7 +514,7 @@ The JavaScript insert method (probably the better choice…)</p>
 
 <p class="file-name">style.css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span><span class="o">,</span> <span class="nt">html</span> <span class="p">{</span>
- <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Open Sans&#39;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+ <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Open Sans'</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>You can find the font-family code on the Google Fonts page. They make it as easy as possible for you. </p>
@@ -531,7 +532,7 @@ The JavaScript insert method (probably the better choice…)</p>
 <h4>Step One: Gather Dependent Files</h4>
 
 <p>Let’s first download the unslider.js file (minified) and then place it into a subfolder in our theme titled “js”.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">1. Download unslider.js file
+<div class="highlight"><pre><code class="language-" data-lang="">1. Download unslider.js file
 
 2. Create “js” folder in our theme
 
@@ -544,16 +545,16 @@ The JavaScript insert method (probably the better choice…)</p>
 <p class="file-name">functions.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">enqueue_unslider</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script</span>
-        <span class="s1">&#39;unslider&#39;</span><span class="p">,</span> <span class="c1">//name of our script (id)</span>
-        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/js/unslider.js&#39;</span><span class="p">,</span> <span class="c1">//file loc</span>
-        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">),</span> <span class="c1">//dependencies</span>
-        <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">//version - left blank</span>
-        <span class="k">true</span> <span class="c1">//load in footer</span>
-    <span class="p">);</span>
+    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script
+</span>        <span class="s1">'unslider'</span><span class="p">,</span> <span class="c1">//name of our script (id)
+</span>        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'/js/unslider.js'</span><span class="p">,</span> <span class="c1">//file loc
+</span>        <span class="k">array</span><span class="p">(</span><span class="s1">'jquery'</span><span class="p">),</span> <span class="c1">//dependencies
+</span>        <span class="s1">''</span><span class="p">,</span> <span class="c1">//version - left blank
+</span>        <span class="kc">true</span> <span class="c1">//load in footer
+</span>    <span class="p">);</span>
 <span class="p">}</span>
-<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;enqueue_unslider&#39;</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">'wp_enqueue_scripts'</span><span class="p">,</span> <span class="s1">'enqueue_unslider'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>What is happening here should be familiar to you from the other code we have put into the functions file in the past, but I will walk through this because there are other new things here. </p>
 
@@ -575,13 +576,13 @@ The JavaScript insert method (probably the better choice…)</p>
 <p class="file-name">functions.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">enqueue_randomcss</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script</span>
-        <span class="s1">&#39;random-css&#39;</span><span class="p">,</span> <span class="c1">//name of our script (id)</span>
-        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/css/random.css&#39;</span> <span class="c1">//location of the file</span>
-    <span class="p">);</span>
+    <span class="nx">wp_enqueue_script</span><span class="p">(</span> <span class="c1">//function to enqueue script
+</span>        <span class="s1">'random-css'</span><span class="p">,</span> <span class="c1">//name of our script (id)
+</span>        <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'/css/random.css'</span> <span class="c1">//location of the file
+</span>    <span class="p">);</span>
 <span class="p">}</span>
-<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span> <span class="nx">enqueue_css</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">'wp_enqueue_scripts'</span><span class="p">,</span> <span class="nx">enqueue_css</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <h3>Tutorial: Properly Enqueuing jQuery in WordPress</h3>
 
@@ -591,10 +592,10 @@ The JavaScript insert method (probably the better choice…)</p>
 
 <p class="file-name">functions.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="nx">wp_deregister_script</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span>
+<span class="nx">wp_deregister_script</span><span class="p">(</span><span class="s1">'jquery'</span><span class="p">);</span>
 
-<span class="nx">wp_enqueue_script</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">,</span> <span class="s1">&#39;http://code.jquery.com/jquery-latest.min.js&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="nx">wp_enqueue_script</span><span class="p">(</span><span class="s1">'jquery'</span><span class="p">,</span> <span class="s1">'http://code.jquery.com/jquery-latest.min.js'</span><span class="p">,</span><span class="s1">''</span><span class="p">,</span><span class="s1">''</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>What we are doing here is first removing the jQuery default script using the wp<em>deregister</em>script function and then using the wp<em>enqueue</em>script to include the new version of jQuery in its place. Make sure to add this higher than your unslider code in WordPress because we want it to load before the unslider.js file does. </p>
 
@@ -649,19 +650,19 @@ Some of the disadvantages of child themes are:</p>
 <p>First, let’s note where the search bar is located. Earlier when we created our theme, we included it in the header. </p>
 
 <p>WordPress is loading the search form based off of its default settings. In order to create a better search form that suits our needs, we are going to recreate the search form and include it in our theme folder. </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Create “searchform.php” file and put it in your theme’s root directory
+<div class="highlight"><pre><code class="language-" data-lang="">Create “searchform.php” file and put it in your theme’s root directory
 </code></pre></div>
 <h4>Step Two: Add Code and Modify searchform.php</h4>
 
 <p>WordPress will now use our newly created searchform.php in place of the default search form. Let’s add some code so that something will start to show up.</p>
 
 <p class="file-name">searchform.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&lt;?php echo home_url( &#39;/&#39; ); ?&gt;&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">"search"</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">class=</span><span class="s">"search-form"</span> <span class="na">action=</span><span class="s">"&lt;?php echo home_url( '/' ); ?&gt;"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search …&#39;, &#39;placeholder&#39; ) ?&gt;&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo get_search_query() ?&gt;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"screen-reader-text"</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( 'Search for:', 'label' ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">class=</span><span class="s">"search-field"</span> <span class="na">placeholder=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search …', 'placeholder' ) ?&gt;"</span> <span class="na">value=</span><span class="s">"&lt;?php echo get_search_query() ?&gt;"</span> <span class="na">name=</span><span class="s">"s"</span> <span class="na">title=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search for:', 'label' ) ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search&#39;, &#39;submit button&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"search-submit"</span> <span class="na">value=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search', 'submit button' ) ?&gt;"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div>
 <p>This is the default for HTML5 in WordPress. Knowing what is happening here could be interesting from a knowledge standpoint so feel free to <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data">delve into the GET method and how it works in search forms.</a></p>
@@ -671,23 +672,24 @@ Some of the disadvantages of child themes are:</p>
 <p>The code for the Search Form is pretty solid for our purposes. We are going to add a CSS class to the code so that we can target it in the way we want. </p>
 
 <p class="file-name">searchform.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">&quot;search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">class=</span><span class="s">&quot;search-form wie-search-form&quot;</span> <span class="na">action=</span><span class="s">&quot;&lt;?php echo home_url( &#39;/&#39; ); ?&gt;&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">"search"</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">class=</span><span class="s">"search-form wie-search-form"</span> <span class="na">action=</span><span class="s">"&lt;?php echo home_url( '/' ); ?&gt;"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;screen-reader-text&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;search-field&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search …&#39;, &#39;placeholder&#39; ) ?&gt;&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo get_search_query() ?&gt;&quot;</span> <span class="na">name=</span><span class="s">&quot;s&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search for:&#39;, &#39;label&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"screen-reader-text"</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo _x( 'Search for:', 'label' ) ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">class=</span><span class="s">"search-field"</span> <span class="na">placeholder=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search …', 'placeholder' ) ?&gt;"</span> <span class="na">value=</span><span class="s">"&lt;?php echo get_search_query() ?&gt;"</span> <span class="na">name=</span><span class="s">"s"</span> <span class="na">title=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search for:', 'label' ) ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;search-submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo esc_attr_x( &#39;Search&#39;, &#39;submit button&#39; ) ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"search-submit"</span> <span class="na">value=</span><span class="s">"&lt;?php echo esc_attr_x( 'Search', 'submit button' ) ?&gt;"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div>
 <p>Now that we have the classes identified, we can add CSS to make it look how we want. I am going to just get rid of the screen reader text in a way that will still allow it to be actually readable by a screen reader but not displayed by the browser to the average viewer. Note that this way of getting rid of content on a page is prefered to using display:none;. </p>
 
 <p class="file-name">style.css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.wie-search-form</span> <span class="nc">.screen-reader-text</span> <span class="p">{</span>
-    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-    <span class="k">left</span><span class="o">:</span> <span class="m">-999em</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
-    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">-999em</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <h4>Step Four: Save and Upload</h4>
 
@@ -702,7 +704,7 @@ Some of the disadvantages of child themes are:</p>
 <p>Let&#39;s add a link to Font Awesome into our header.</p>
 
 <p class="file-name">header.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"</span><span class="nt">&gt;</span>
 </code></pre></div>
 <p>Upload your header.php file and you will see that the <strong>font-awesome.min.css</strong> file is loading when you refresh your page. </p>
 
@@ -711,18 +713,19 @@ Some of the disadvantages of child themes are:</p>
 <p>We are going to leverage our Skeleton grid to layout the search form. Notice how we are using the wie-hide utility class on the elements we don&#39;t want to see. </p>
 
 <p class="file-name">searchform.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;nine columns&quot;&gt;</span>
-<span class="x">        &lt;form role=&quot;search&quot; method=&quot;get&quot; class=&quot;search-form wie-search-form&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">home_url</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
-<span class="x">                &lt;span class=&quot;screen-reader-text wie-hide&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Search for:&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span> <span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                &lt;input type=&quot;search&quot; class=&quot;search-field wie-search-field&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_search_query</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&quot; name=&quot;s&quot; /&gt;</span>
-<span class="x">            &lt;input type=&quot;submit&quot; class=&quot;search-submit wie-search-submit wie-hide&quot; value=&quot;&quot; /&gt;</span>
-<span class="x">        &lt;/form&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">    &lt;div class=&quot;three columns search-bar-icon&quot;&gt;</span>
-<span class="x">        &lt;i class=&quot;fa fa-search fa-2x&quot;&gt;&lt;/i&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="x">&lt;/div&gt;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nine columns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">"search"</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">class=</span><span class="s">"search-form wie-search-form"</span> <span class="na">action=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">home_url</span><span class="p">(</span> <span class="s1">'/'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"screen-reader-text wie-hide"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Search for:'</span><span class="p">,</span> <span class="s1">'label'</span> <span class="p">)</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">class=</span><span class="s">"search-field wie-search-field"</span> <span class="na">value=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_search_query</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">"</span> <span class="na">name=</span><span class="s">"s"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"search-submit wie-search-submit wie-hide"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns search-bar-icon"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-search fa-2x"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
 </code></pre></div>
 <p>Replace all of the Search Bar CSS you have added thus far. Since we are getting rid of some of the elements, we will want to modify the whole thing. </p>
 
@@ -730,29 +733,29 @@ Some of the disadvantages of child themes are:</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*--- Search Bar CSS ---*/</span>
 
 <span class="nc">.search-bar-icon</span> <span class="p">{</span> 
-    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
-    <span class="k">color</span><span class="o">:</span> <span class="m">#666</span><span class="p">;</span> 
-    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span> 
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">min-height</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
-    <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
-    <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
-    <span class="k">border-right</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> 
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#666</span><span class="p">;</span> 
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span> 
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">min-height</span><span class="p">:</span> <span class="m">45px</span><span class="p">;</span>
+    <span class="nl">border-top</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">border-right</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;search&quot;</span><span class="o">]</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
-    <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
-    <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
-    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span>
-    <span class="k">min-height</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span> 
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="n">rem</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
-    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="err">"</span><span class="nt">search</span><span class="err">"</span><span class="o">]</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> 
+    <span class="nl">border-top</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">border-left</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="nl">min-height</span><span class="p">:</span> <span class="m">45px</span><span class="p">;</span> 
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2rem</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="nb">inherit</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Now upload your files and you should have a search form with a search icon. Feel free to mess around with this to get your own desired result. </p>
@@ -775,10 +778,10 @@ Some of the disadvantages of child themes are:</p>
 
 <p class="file-name">style.css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header-container</span> <span class="p">{</span>
-   <span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span>
-   <span class="k">position</span><span class="o">:</span><span class="k">fixed</span><span class="p">;</span>
-   <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span>
-   <span class="k">z-index</span><span class="o">:</span><span class="m">2</span><span class="p">;</span>
+   <span class="nl">width</span><span class="p">:</span><span class="m">100%</span><span class="p">;</span>
+   <span class="nl">position</span><span class="p">:</span><span class="nb">fixed</span><span class="p">;</span>
+   <span class="nl">top</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span>
+   <span class="nl">z-index</span><span class="p">:</span><span class="m">2</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Each rule here has it’s own purpose: The width makes sure it takes up the entire width of the window; the position: fixed tells the browser to make the div fix to its location on the screen; top:0px tells the distance from the top of the browser and; z-index is the value of the z parameter which control which items are on top of other items.(the default is 1 so a 2 would make it on top of everything else). </p>
@@ -789,10 +792,10 @@ Some of the disadvantages of child themes are:</p>
 
 <p class="file-name">style.css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">header</span> <span class="p">{</span>
-   <span class="k">height</span><span class="o">:</span><span class="m">50px</span><span class="p">;</span>
-   <span class="k">background</span><span class="o">:</span><span class="m">#F0F0F0</span><span class="p">;</span>
-   <span class="k">border-bottom</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#CCC</span><span class="p">;</span>
-   <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="k">auto</span><span class="p">;</span>
+   <span class="nl">height</span><span class="p">:</span><span class="m">50px</span><span class="p">;</span>
+   <span class="nl">background</span><span class="p">:</span><span class="m">#F0F0F0</span><span class="p">;</span>
+   <span class="nl">border-bottom</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="m">#CCC</span><span class="p">;</span>
+   <span class="nl">margin</span><span class="p">:</span><span class="m">0px</span> <span class="nb">auto</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4>Step Four: Save and Upload</h4>
@@ -802,22 +805,24 @@ Some of the disadvantages of child themes are:</p>
 <p>This isn&#39;t even a difficult thing to do so I won&#39;t even make it like tutorial. There is a CSS-only way to make images appear to be circular. </p>
 
 <p>As an aside, it helps if the image has a square format so tht there isn&#39;t too much cut off. In WordPress you can set your thumbnail size to be square and then apply this style to it to give the circular image effect.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;imagelocation&quot;</span> <span class="na">class=</span><span class="s">&quot;circular-image&quot;</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"imagelocation"</span> <span class="na">class=</span><span class="s">"circular-image"</span> <span class="nt">/&gt;</span>
+
 </code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.circular-image</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>See! Super easy.</p>
 
 <p>If you want to make it even more error proof, you can add some other classes to ensure that it works more uniformily. </p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;imagelocation&quot;</span> <span class="na">class=</span><span class="s">&quot;circular-image profile-image&quot;</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"imagelocation"</span> <span class="na">class=</span><span class="s">"circular-image profile-image"</span> <span class="nt">/&gt;</span>
+
 </code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.circular-image</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.profile-image</span> <span class="p">{</span>
-    <span class="k">height</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>See how I used two classes to ensure that I can reuse either bunch of code however I wish?</p>
@@ -840,18 +845,18 @@ Some of the disadvantages of child themes are:</p>
 <p>First we are going to add some different CSS animations to our menu - which is a great place to encourage and emphasize interaction (thus improving click-through rate). </p>
 
 <p>Let&#39;s start with a simple menu structure. If we are building this menu dynamically, you can imagine that the code below is how it might exist after it is rendered server-side. </p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;menu-container&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;menu-item&quot;</span><span class="nt">&gt;</span>Item One<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;menu-item&quot;</span><span class="nt">&gt;</span>Item Two<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;menu-item&quot;</span><span class="nt">&gt;</span>Item Three<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;menu-item&quot;</span><span class="nt">&gt;</span>Item Four<span class="nt">&lt;/li&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"menu-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"menu-item"</span><span class="nt">&gt;</span>Item One<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"menu-item"</span><span class="nt">&gt;</span>Item Two<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"menu-item"</span><span class="nt">&gt;</span>Item Three<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"menu-item"</span><span class="nt">&gt;</span>Item Four<span class="nt">&lt;/li&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre></div>
 <p>Below you can see just one of many different CSS3 properties. Here we are using the transform property to scale the object 1.2 times bigger on hover.</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.menu-item</span><span class="nd">:hover</span> <span class="p">{</span>
-    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="p">);</span>
-    <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="p">);</span> 
-    <span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="o">.</span><span class="m">2</span><span class="p">);</span>
+    <span class="nl">-webkit-transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1.2</span><span class="p">);</span>
+    <span class="nl">-ms-transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1.2</span><span class="p">);</span> 
+    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1.2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4>Adding a Hover Effect to Our Images</h4>
@@ -859,16 +864,18 @@ Some of the disadvantages of child themes are:</p>
 <p>Images are used a LOT and they can be both instructive and pretty. As far as being a UI benefit though, they rarely perform up to their potential. For our site though, we are going to want to let users know that some images are just there as content, while others are links (and thus interactive). We could do this a dozen or so ways, but let&#39;s an animation where if you hover over an image that is a link, it moves on the page a bit.</p>
 
 <p>Sample HTML:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;Link to Anywhere&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;image source&quot;</span> <span class="na">alt=</span><span class="s">&quot;image description&quot;</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"Link to Anywhere"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"image source"</span> <span class="na">alt=</span><span class="s">"image description"</span> <span class="nt">/&gt;&lt;/a&gt;</span>
 </code></pre></div>
 <p>Our CSS:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">a</span> <span class="nt">img</span><span class="nd">:hover</span> <span class="p">{</span>
-    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
-        <span class="m">1px</span> <span class="m">1px</span> <span class="m">#999</span><span class="o">,</span>
-        <span class="m">3px</span> <span class="m">3px</span> <span class="m">#999</span><span class="o">,</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">
+<span class="nt">a</span> <span class="nt">img</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">box-shadow</span><span class="p">:</span>
+        <span class="m">1px</span> <span class="m">1px</span> <span class="m">#999</span><span class="p">,</span>
+        <span class="m">3px</span> <span class="m">3px</span> <span class="m">#999</span><span class="p">,</span>
         <span class="m">5px</span> <span class="m">5px</span> <span class="m">#999</span><span class="p">;</span>
-    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">-5px</span><span class="p">);</span>
-    <span class="n">transform</span><span class="o">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">-5px</span><span class="p">);</span>
+    <span class="nl">-webkit-transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">-5px</span><span class="p">);</span>
+    <span class="nl">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">-5px</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>This CSS will add a box-shadow to any image on the site that is also a link. </p>
@@ -881,20 +888,21 @@ Some of the disadvantages of child themes are:</p>
 
 <p>Let&#39;s define a simple keyframe animation and then consider some other applications. We are going to add a color variety to a button when you hover (I know... more hover...). As a note, you can use keyframe to define any number of other functionalities other than effects. </p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Define the Animation */</span>
-<span class="k">@keyframes</span> <span class="nt">button-rainbow</span> <span class="p">{</span>
-    <span class="nt">0</span><span class="o">%</span>   <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
-    <span class="nt">25</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">orange</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
-    <span class="nt">50</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">200px</span><span class="p">;}</span>
-    <span class="nt">75</span><span class="o">%</span>  <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">200px</span><span class="p">;}</span>
-    <span class="nt">100</span><span class="o">%</span> <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;}</span>
+<span class="k">@keyframes</span> <span class="n">button-rainbow</span> <span class="p">{</span>
+    <span class="nt">0</span><span class="o">%</span>   <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span><span class="m">0px</span><span class="p">;}</span>
+    <span class="nt">25</span><span class="o">%</span>  <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span><span class="m">200px</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span><span class="m">0px</span><span class="p">;}</span>
+    <span class="nt">50</span><span class="o">%</span>  <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span><span class="m">200px</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span><span class="m">200px</span><span class="p">;}</span>
+    <span class="nt">75</span><span class="o">%</span>  <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span><span class="m">200px</span><span class="p">;}</span>
+    <span class="nt">100</span><span class="o">%</span> <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span><span class="m">0px</span><span class="p">;}</span>
 <span class="p">}</span>
 
 <span class="c">/* Add the Animation and Properties to the Object */</span>
 <span class="nc">.rainbow-button</span><span class="nd">:hover</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">purple</span><span class="p">;</span>
-    <span class="n">animation</span><span class="o">-</span><span class="n">name</span><span class="o">:</span> <span class="n">button</span><span class="o">-</span><span class="n">rainbow</span><span class="p">;</span>
-    <span class="n">animation</span><span class="o">-</span><span class="n">duration</span><span class="o">:</span> <span class="m">4s</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">purple</span><span class="p">;</span>
+    <span class="nl">animation-name</span><span class="p">:</span> <span class="n">button-rainbow</span><span class="p">;</span>
+    <span class="nl">animation-duration</span><span class="p">:</span> <span class="m">4s</span><span class="p">;</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <h2><a name="adding-functionality">Adding Advanced Functionality</a></h2>
 
@@ -906,22 +914,22 @@ Some of the disadvantages of child themes are:</p>
 
 <p>We are going to go through this tutorial very methodically, but this is because it is very important that we consider the order in which items are loaded into the page. I will first outline the order of the components and then we will go on adding the code to our footer. You can <a href="http://unslider.com/">see the Unslider tutorial here</a>. </p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- First is our slider CSS--&gt;</span>
-<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-    <span class="nc">.unslider</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">}</span>
-    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
-    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">}</span>
-    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="k">height</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
-    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">8</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="k">z-index</span><span class="o">:</span><span class="m">10</span><span class="p">}</span>
-    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="k">none</span><span class="p">}</span>
-    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">2</span><span class="p">;</span><span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">}</span>
-    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="k">left</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">20px</span><span class="p">}</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+    <span class="nc">.unslider</span><span class="p">{</span><span class="nl">overflow</span><span class="p">:</span><span class="nb">auto</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="nl">float</span><span class="p">:</span><span class="nb">left</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="nl">height</span><span class="p">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="nl">float</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">right</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">z-index</span><span class="p">:</span><span class="m">8</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span><span class="m">10</span><span class="p">}</span>
+    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="nl">list-style</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">padding</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span><span class="nb">none</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span><span class="m">20px</span><span class="p">;</span><span class="nl">z-index</span><span class="p">:</span><span class="m">2</span><span class="p">;</span><span class="nl">cursor</span><span class="p">:</span><span class="nb">pointer</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="nb">auto</span><span class="p">;</span><span class="nl">right</span><span class="p">:</span><span class="m">20px</span><span class="p">}</span>
 <span class="nt">&lt;/style&gt;</span>
 
-<span class="c">&lt;!-- Second is our &quot;Banner&quot; slider code --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- Second is our "Banner" slider code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul&gt;</span>
         <span class="nt">&lt;li&gt;</span>This is a slide.<span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li&gt;</span>This is another slide.<span class="nt">&lt;/li&gt;</span>
@@ -929,14 +937,14 @@ Some of the disadvantages of child themes are:</p>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Third we include jQuery --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//code.jquery.com/jquery-latest.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//code.jquery.com/jquery-latest.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="c">&lt;!-- Fourth we include the Unslider.js --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;path/to/js/files/unslider.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"path/to/js/files/unslider.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- Lastly we use a javascript function to initialize the unslider behavior --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
     <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.banner&#39;</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.banner'</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
     <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
@@ -947,19 +955,21 @@ Some of the disadvantages of child themes are:</p>
 <p>At the bottom of the footer.php file we will add the initiator for unslider. </p>
 
 <p class="file-name">footer.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;/div&gt;</span>
-<span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">
+<span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 
-<span class="x">&lt;!-- Begin Unslider Initiator --&gt;    </span>
-<span class="x">&lt;script&gt;</span>
-<span class="x">    jQuery(document).ready(function($) {</span>
-<span class="x">        $(&#39;.banner&#39;).unslider();</span>
-<span class="x">    });</span>
-<span class="x">&lt;/script&gt;</span>
-<span class="x">&lt;!-- End Unslider Initiator --&gt;</span>
+<span class="c">&lt;!-- Begin Unslider Initiator --&gt;</span>    
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.banner'</span><span class="p">).</span><span class="nx">unslider</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Unslider Initiator --&gt;</span>
 
-<span class="x">&lt;/body&gt;</span>
-<span class="x">&lt;/html&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
 </code></pre></div>
 <p>Note how we placed it ALL the way at the bottom so that it is the last thing our page loads. We can also use other javascript techniques to ensure that it loads after the page loads, but for now we will use this method. </p>
 
@@ -970,7 +980,7 @@ Some of the disadvantages of child themes are:</p>
 <p>Let&#39;s work right out of our index.php file for now, though this code should be completely transferable. </p>
 
 <p class="file-name">index.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul&gt;</span>
         <span class="nt">&lt;li&gt;</span>This is a slide.<span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li&gt;</span>This is another slide.<span class="nt">&lt;/li&gt;</span>
@@ -981,17 +991,17 @@ Some of the disadvantages of child themes are:</p>
 <p>and our CSS...</p>
 
 <p class="file-name">style.css</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="nc">.unslider</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">}</span>
-    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
-    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">}</span>
-    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="k">height</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
-    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="k">float</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">8</span><span class="p">}</span>
-    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="k">z-index</span><span class="o">:</span><span class="m">10</span><span class="p">}</span>
-    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="k">none</span><span class="p">}</span>
-    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span><span class="k">z-index</span><span class="o">:</span><span class="m">2</span><span class="p">;</span><span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">}</span>
-    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="k">left</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">20px</span><span class="p">}</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="nc">.unslider</span><span class="p">{</span><span class="nl">overflow</span><span class="p">:</span><span class="nb">auto</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-wrap.unslider-carousel</span> <span class="nt">li</span><span class="p">{</span><span class="nl">float</span><span class="p">:</span><span class="nb">left</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span><span class="o">&gt;</span><span class="nt">ul</span><span class="p">{</span><span class="nl">height</span><span class="p">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-vertical</span> <span class="nt">li</span><span class="p">{</span><span class="nl">float</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">100%</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">relative</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">right</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">z-index</span><span class="p">:</span><span class="m">8</span><span class="p">}</span>
+    <span class="nc">.unslider-fade</span> <span class="nc">.unslider-wrap</span> <span class="nt">li</span><span class="nc">.unslider-active</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span><span class="m">10</span><span class="p">}</span>
+    <span class="nc">.unslider</span> <span class="nt">li</span><span class="p">{</span><span class="nl">list-style</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">padding</span><span class="p">:</span><span class="m">0</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span><span class="nb">none</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span><span class="m">20px</span><span class="p">;</span><span class="nl">z-index</span><span class="p">:</span><span class="m">2</span><span class="p">;</span><span class="nl">cursor</span><span class="p">:</span><span class="nb">pointer</span><span class="p">}</span>
+    <span class="nc">.unslider-arrow.next</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="nb">auto</span><span class="p">;</span><span class="nl">right</span><span class="p">:</span><span class="m">20px</span><span class="p">}</span>
 </code></pre></div>
 <p>Now let&#39;s load all of our files up and if the text in the index doesn&#39;t slide by, then there is something wrong. </p>
 
@@ -1003,37 +1013,37 @@ Some of the disadvantages of child themes are:</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">slider_tutorial</span><span class="p">()</span> <span class="p">{</span>
 <span class="nv">$labels</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">&#39;name&#39;</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Slides&#39;</span><span class="p">,</span> <span class="s1">&#39;post type general name&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;singular_name&#39;</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Slide&#39;</span><span class="p">,</span> <span class="s1">&#39;post type singular name&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;add_new&#39;</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">&#39;Add New&#39;</span><span class="p">,</span> <span class="s1">&#39;slides&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;add_new_item&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Add Slide&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;edit_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Edit Slides&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;new_item&#39;</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;New Slide&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;all_items&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;All Slides&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;view_item&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;View Slides&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;search_items&#39;</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;Search Slides&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;not_found&#39;</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No slides found&#39;</span> <span class="p">),</span>
-    <span class="s1">&#39;not_found_in_trash&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">&#39;No slides found in the Trash&#39;</span> <span class="p">),</span> 
-    <span class="s1">&#39;parent_item_colon&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;menu_name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span>
+    <span class="s1">'name'</span>               <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Slides'</span><span class="p">,</span> <span class="s1">'post type general name'</span> <span class="p">),</span>
+    <span class="s1">'singular_name'</span>      <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Slide'</span><span class="p">,</span> <span class="s1">'post type singular name'</span> <span class="p">),</span>
+    <span class="s1">'add_new'</span>            <span class="o">=&gt;</span> <span class="nx">_x</span><span class="p">(</span> <span class="s1">'Add New'</span><span class="p">,</span> <span class="s1">'slides'</span> <span class="p">),</span>
+    <span class="s1">'add_new_item'</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Add Slide'</span> <span class="p">),</span>
+    <span class="s1">'edit_item'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Edit Slides'</span> <span class="p">),</span>
+    <span class="s1">'new_item'</span>           <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'New Slide'</span> <span class="p">),</span>
+    <span class="s1">'all_items'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'All Slides'</span> <span class="p">),</span>
+    <span class="s1">'view_item'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'View Slides'</span> <span class="p">),</span>
+    <span class="s1">'search_items'</span>       <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'Search Slides'</span> <span class="p">),</span>
+    <span class="s1">'not_found'</span>          <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'No slides found'</span> <span class="p">),</span>
+    <span class="s1">'not_found_in_trash'</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'No slides found in the Trash'</span> <span class="p">),</span> 
+    <span class="s1">'parent_item_colon'</span>  <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'menu_name'</span>          <span class="o">=&gt;</span> <span class="s1">'Slider'</span>
 
 <span class="p">);</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
 <span class="cm">/*--- Begin Arguments Options ---*/</span>
 
-<span class="s1">&#39;labels&#39;</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
-<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Slides for our Unslider integration&#39;</span><span class="p">,</span>
-<span class="s1">&#39;public&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-<span class="s1">&#39;menu_position&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
-<span class="s1">&#39;supports&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;excerpt&#39;</span><span class="p">),</span>
-<span class="s1">&#39;has_archive&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="s1">'labels'</span> <span class="o">=&gt;</span> <span class="nv">$labels</span><span class="p">,</span>
+<span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Slides for our Unslider integration'</span><span class="p">,</span>
+<span class="s1">'public'</span>        <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s1">'menu_position'</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+<span class="s1">'supports'</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'title'</span><span class="p">,</span> <span class="s1">'editor'</span><span class="p">,</span> <span class="s1">'thumbnail'</span><span class="p">,</span> <span class="s1">'excerpt'</span><span class="p">),</span>
+<span class="s1">'has_archive'</span>   <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
 
 <span class="p">);</span>
-<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">&#39;slider&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
+<span class="nx">register_post_type</span><span class="p">(</span> <span class="s1">'slider'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span> 
 <span class="p">}</span>
-<span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="s1">&#39;slider_tutorial&#39;</span> <span class="p">);</span>
+<span class="nx">add_action</span><span class="p">(</span> <span class="s1">'init'</span><span class="p">,</span> <span class="s1">'slider_tutorial'</span> <span class="p">);</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>This will allow us to have a special post type to loop through. Upload the funtions file and verify that everything works correctly. You should see your post type in your WordPress Dashboard. </p>
 
@@ -1042,22 +1052,22 @@ Some of the disadvantages of child themes are:</p>
 <p>Let&#39;s set up the HTML for our post type and then we can set it up as PHP loading from our new post type. </p>
 
 <p class="file-name">index.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide01.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">"background-image: url('slide01.jpg');"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slides-message"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;h1&gt;</span>Slide One Title<span class="nt">&lt;/h1&gt;</span>
                 <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide02.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">"background-image: url('slide02.jpg');"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slides-message"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;h1&gt;</span>Slide Twp Title<span class="nt">&lt;/h1&gt;</span>
                 <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;background-image: url(&#39;slide03.jpg&#39;);&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides-message&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">"background-image: url('slide03.jpg');"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slides-message"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;h1&gt;</span>Slide Three Title<span class="nt">&lt;/h1&gt;</span>
                 <span class="nt">&lt;p&gt;</span>This is where the excerpt for the slides will go<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
@@ -1071,79 +1081,79 @@ Some of the disadvantages of child themes are:</p>
 
 <p class="file-name">index.php</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span> <span class="p">);</span> <span class="c1">//Menu item name</span>
-
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'post_type'</span> <span class="o">=&gt;</span> <span class="s1">'Slider'</span> <span class="p">);</span> <span class="c1">//Menu item name
+</span>
     <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
     <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">while</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">the_post</span><span class="p">();</span>
-        <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">          &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
-<span class="x">          &lt;div class=&#39;content&#39;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">          &lt;/div&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span>
+        <span class="cp">?&gt;</span>
+          <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'content'</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="cp">&lt;?php</span>
       <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
-      <span class="k">echo</span> <span class="s1">&#39;No Slides&#39;</span><span class="p">;</span>
+      <span class="k">echo</span> <span class="s1">'No Slides'</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>This will generate the content from our custom post. Now let&#39;s integrate this into the code we created above.</p>
 
 <p class="file-name">index.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;banner&quot;&gt;</span>
-<span class="x">    &lt;ul&gt;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
 <span class="cp">&lt;?php</span>
-    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Slider&#39;</span> <span class="p">);</span>
+    <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'post_type'</span> <span class="o">=&gt;</span> <span class="s1">'Slider'</span> <span class="p">);</span>
     <span class="nv">$slides</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WP_Query</span><span class="p">(</span> <span class="nv">$args</span> <span class="p">);</span>
     <span class="k">if</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">while</span><span class="p">(</span> <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nv">$slides</span><span class="o">-&gt;</span><span class="na">the_post</span><span class="p">();</span>
         <span class="cm">/*--- Build Thumbnail URL ---*/</span>
         <span class="nv">$thumb_id</span> <span class="o">=</span> <span class="nx">get_post_thumbnail_id</span><span class="p">();</span>
-        <span class="nv">$thumb_url_array</span> <span class="o">=</span> <span class="nx">wp_get_attachment_image_src</span><span class="p">(</span><span class="nv">$thumb_id</span><span class="p">,</span> <span class="s1">&#39;thumbnail-size&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="nv">$thumb_url_array</span> <span class="o">=</span> <span class="nx">wp_get_attachment_image_src</span><span class="p">(</span><span class="nv">$thumb_id</span><span class="p">,</span> <span class="s1">'thumbnail-size'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
         <span class="nv">$thumb_url</span> <span class="o">=</span> <span class="nv">$thumb_url_array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-        <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">            &lt;li style=&quot;background-image: url(&#39;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$thumb_url</span> <span class="cp">?&gt;</span><span class="x">&#39;);&quot; class=&quot;slide-container&quot;&gt;</span>
-<span class="x">                &lt;div class=&quot;slides-message&quot;&gt;</span>
-<span class="x">                    &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
-<span class="x">                    &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">            &lt;/li&gt;</span>
-<span class="x">        </span><span class="cp">&lt;?php</span>
+        <span class="cp">?&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">"background-image: url('</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$thumb_url</span> <span class="cp">?&gt;</span><span class="s">');"</span> <span class="na">class=</span><span class="s">"slide-container"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slides-message"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="cp">&lt;?php</span>
       <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
-      <span class="k">echo</span> <span class="s1">&#39;No Slides&#39;</span><span class="p">;</span>
+      <span class="k">echo</span> <span class="s1">'No Slides'</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;/ul&gt;</span>
-<span class="x">&lt;/div&gt;</span>
+<span class="cp">?&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 <h4>Step Four: Style, Save, and Upload</h4>
 
 <p>Here is some sample styling, but you can repurpose this for however you want.</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.banner</span> <span class="p">{</span> 
-    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> 
-    <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> 
-    <span class="k">margin-top</span><span class="o">:</span><span class="m">25px</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span> 
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> 
+    <span class="nl">margin-top</span><span class="p">:</span><span class="m">25px</span><span class="p">;</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.banner</span> <span class="nt">li</span> <span class="p">{</span> 
-    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="nl">list-style</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.banner</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span> 
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> 
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span> 
 <span class="p">}</span>
 <span class="nc">.slide-container</span> <span class="p">{</span>
-    <span class="k">height</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.slides-message</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">50px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span><span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">50px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span><span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3><a name="creating-a-separate-blog-page">Tutorial: Creating a Separate Blog Page</a></h3>
@@ -1158,66 +1168,66 @@ Create a post query in a custom page and then assign that value to an existing p
 <h4>Step One: Create a Custom Page</h4>
 
 <p>Earlier in this chapter we learned how to create a custom page template. Let’s go ahead and create a new file and populate it with our bare minimum code.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Create a file titled “blog_custom_page.php”
+<div class="highlight"><pre><code class="language-" data-lang="">Create a file titled “blog_custom_page.php”
 </code></pre></div>
 <p>Let’s copy page.php into this file. This will save us time and ensure we have some uniformity to start out with. </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <h4>Step Two: Add the Custom Page Requirements</h4>
 
 <p>Since this is technically a custom page template, we need to follow the formalities of that. </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*</span>
-<span class="x">Template Name: Blog Posts</span>
-<span class="x">*/</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*
+Template Name: Blog Posts
+*/
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <h4>Step Three: Adding a Custom Query for Posts</h4>
 
 <p>The next step is basically about replacing the default code in the page with a custom query for all blog posts. This is a lot like the main index.php page except we need to be explicit about the data context and making sure we handle it correctly. </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*</span>
-<span class="x">Template Name: Blog Posts</span>
-<span class="x">*/</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">&#39;post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged=&#39;</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">&#39;paged&#39;</span><span class="p">));</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*
+Template Name: Blog Posts
+*/
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">'post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged='</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">'paged'</span><span class="p">));</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
                 <span class="k">endwhile</span><span class="p">;</span>
-            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+            <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>If you look at the code closely you can see that the query loads the 10 most recent published pages. It also allows for pagination. </p>
 
@@ -1226,26 +1236,26 @@ Create a post query in a custom page and then assign that value to an existing p
 <p>We are going to want to add some navigational links into our code so that this blog page can do everything we need it to as a separate functioning blog roll. </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*</span>
-<span class="x">Template Name: Blog Posts</span>
-<span class="x">*/</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">&#39;post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged=&#39;</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">&#39;paged&#39;</span><span class="p">));</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
-                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">            &lt;!-- Navigation --&gt;</span>
-<span class="x">            &lt;div class=&quot;navigation&quot;&gt;</span>
-<span class="x">                &lt;span class=&quot;newer&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;« Newer&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt; &lt;span class=&quot;older&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Older »&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
-<span class="x">            &lt;/div&gt;</span>
-<span class="x">           </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*
+Template Name: Blog Posts
+*/
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">'post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged='</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">'paged'</span><span class="p">));</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
+            <span class="c">&lt;!-- Navigation --&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"newer"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'« Newer'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"older"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'Older »'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+           <span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>We put it at the end of our while loop because we want it to be outside of the loop, but still inside of the if statement about showing posts. If there are no posts then there will be no pagination. </p>
 
@@ -1254,56 +1264,56 @@ Create a post query in a custom page and then assign that value to an existing p
 <p>We are going to want to reset the query so that it knows when to stop.  </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*</span>
-<span class="x">Template Name: Blog Posts</span>
-<span class="x">*/</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">&#39;post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged=&#39;</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">&#39;paged&#39;</span><span class="p">));</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
-                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">                &lt;div class=&quot;navigation&quot;&gt;</span>
-<span class="x">                    &lt;span class=&quot;newer&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;« Newer&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt; &lt;span class=&quot;older&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Older »&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> 
-            <span class="nx">wp_reset_query</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*
+Template Name: Blog Posts
+*/
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">'post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged='</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">'paged'</span><span class="p">));</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span>
+                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"newer"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'« Newer'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"older"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'Older »'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> 
+            <span class="nx">wp_reset_query</span><span class="p">();</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <h4>Step Six: Making it a Fuller, More Useful Blog Page</h4>
 
 <p>So the code above is sufficient for handling all of the needs of the blog page. I am going to add some other code just for error handling and for stylistic efforts. Read through the code so you understand what is happening at each stage. </p>
 
 <p class="file-name">blog_custom_page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*</span>
-<span class="x">Template Name: Blog Posts</span>
-<span class="x">*/</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">&#39;post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged=&#39;</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">&#39;paged&#39;</span><span class="p">));</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;row&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;twelve columns&quot;&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
-                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> </span>
-<span class="x">                    &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_post_thumbnail</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;</span>
-<span class="x">                    &lt;h3&gt;&lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h3&gt;</span>
-<span class="x">                    </span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Continue reading »&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">));</span>
-                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">                &lt;div class=&quot;navigation&quot;&gt;</span>
-<span class="x">                    &lt;span class=&quot;newer&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;« Newer&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt; &lt;span class=&quot;older&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Older »&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">                </span><span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">                &lt;div class=&quot;404-section&quot;&gt;</span>
-<span class="x">                    &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">_e</span><span class="p">(</span><span class="s1">&#39;None found.&#39;</span><span class="p">,</span><span class="s1">&#39;example&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
-<span class="x">                &lt;/div&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="nx">wp_reset_query</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/div&gt;</span>
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*
+Template Name: Blog Posts
+*/
+<span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">query_posts</span><span class="p">(</span><span class="s1">'post_type=post&amp;post_status=publish&amp;posts_per_page=10&amp;paged='</span><span class="o">.</span> <span class="nx">get_query_var</span><span class="p">(</span><span class="s1">'paged'</span><span class="p">));</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> 
+                <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> 
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_post_thumbnail</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/a&gt;</span>
+                    <span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'Continue reading »'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">));</span>
+                <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"newer"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'« Newer'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"older"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="nx">__</span><span class="p">(</span><span class="s1">'Older »'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"404-section"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">_e</span><span class="p">(</span><span class="s1">'None found.'</span><span class="p">,</span><span class="s1">'example'</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="nx">wp_reset_query</span><span class="p">();</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Note how we added some 404 handling and better outlined the post content that will be displayed. </p>
 
@@ -1319,29 +1329,29 @@ There are several ways to add breadcrumbs to your site. The (possibly) easiest w
 <p>Let’s start by editing the Functions.php file:</p>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Breadcrumbs --------------*/</span>
-<span class="x">function add_breadcrumbs() {</span>
-<span class="x">    $post_ancestors = get_post_ancestors($post);</span>
-<span class="x">    if (count($post_ancestors)) {</span>
-<span class="x">        $top_page = array_pop($post_ancestors);</span>
-<span class="x">        $children = wp_list_pages(&#39;title_li=&amp;child_of=&#39; . $top_page . &#39;&amp;echo=0&#39;);</span>
-<span class="x">    } elseif (is_page()) {</span>
-<span class="x">        $children = wp_list_pages(&#39;title_li=&amp;child_of=&#39; . $post-&gt;ID . &#39;&amp;echo=0&amp;depth=2&#39;);</span>
-<span class="x">    }</span>
-<span class="x">    if (is_page() &amp;&amp; !is_front_page()) {</span>
-<span class="x">        $breadcrumb = &quot;&lt;nav id=&#39;breadcrumb&#39;&gt;&lt;ul&gt;&quot;;</span>
-<span class="x">        $breadcrumb .= &#39;&lt;li&gt;&lt;a href=&quot; &#39; . get_bloginfo(&#39;url&#39;) . &#39;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;&#39;;</span>
-<span class="x">        $post_ancestors = get_post_ancestors($post);</span>
-<span class="x">    if ($post_ancestors) {</span>
-<span class="x">        $post_ancestors = array_reverse($post_ancestors);</span>
-<span class="x">    foreach ($post_ancestors as $crumb)</span>
-<span class="x">        $breadcrumb .= &#39;&lt;li&gt;&lt;a href=&quot;&#39; . get_permalink($crumb) . &#39;&quot;&gt;&#39; . get_the_title($crumb) . &#39;&lt;/a&gt;&lt;/li&gt;&#39;;</span>
-<span class="x">    }</span>
-<span class="x">    $breadcrumb .= &#39;&lt;li&gt;&lt;strong&gt;&#39; . get_the_title() . &#39;&lt;/strong&gt;&lt;/li&gt;&#39;;</span>
-<span class="x">    $breadcrumb .= &quot;&lt;/ul&gt;&lt;/nav&gt;&quot;;</span>
-<span class="x">    echo $breadcrumb;</span>
-<span class="x">    }</span>
-<span class="x">}</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*-------------- Enable Breadcrumbs --------------*/
+function add_breadcrumbs() {
+    $post_ancestors = get_post_ancestors($post);
+    if (count($post_ancestors)) {
+        $top_page = array_pop($post_ancestors);
+        $children = wp_list_pages('title_li=<span class="err">&amp;</span>child_of=' . $top_page . '<span class="ni">&amp;echo=0');</span>
+    } elseif (is_page()) {
+        $children = wp_list_pages('title_li=<span class="err">&amp;</span>child_of=' . $post-&gt;ID . '<span class="ni">&amp;echo=0&amp;depth=2');</span>
+    }
+    if (is_page() <span class="err">&amp;&amp;</span> !is_front_page()) {
+        $breadcrumb = "<span class="nt">&lt;nav</span> <span class="na">id=</span><span class="s">'breadcrumb'</span><span class="nt">&gt;&lt;ul&gt;</span>";
+        $breadcrumb .= '<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">" ' . get_bloginfo('url') . '"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>';
+        $post_ancestors = get_post_ancestors($post);
+    if ($post_ancestors) {
+        $post_ancestors = array_reverse($post_ancestors);
+    foreach ($post_ancestors as $crumb)
+        $breadcrumb .= '<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"' . get_permalink($crumb) . '"</span><span class="nt">&gt;</span>' . get_the_title($crumb) . '<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>';
+    }
+    $breadcrumb .= '<span class="nt">&lt;li&gt;&lt;strong&gt;</span>' . get_the_title() . '<span class="nt">&lt;/strong&gt;&lt;/li&gt;</span>';
+    $breadcrumb .= "<span class="nt">&lt;/ul&gt;&lt;/nav&gt;</span>";
+    echo $breadcrumb;
+    }
+}
 </code></pre></div>
 <p>Let’s talk about what is happening here. First, we are initializing a function named “add_breadcrumbs” that is going to be the place for our function to operate. </p>
 
@@ -1352,7 +1362,7 @@ There are several ways to add breadcrumbs to your site. The (possibly) easiest w
 <p>Next, let’s add the function we just created to our page.php file:</p>
 
 <p class="file-name">page.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">add_breadcrumbs</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">    <span class="cp">&lt;?php</span> <span class="nx">add_breadcrumbs</span><span class="p">();</span> <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>By adding this function we created, we are able to insert the functionality we created in step one anywhere on the site - and it will react dynamically. </p>
 

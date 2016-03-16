@@ -1383,64 +1383,64 @@ Our data model in a relational sense would look like this:
 <table>
 <thead>
 <tr>
-			<td>Key</td>
+<td>Key</td>
 <td>Name [0]</td>
-			<td>Type [1]</td>
-			<td>Size [2]</td>
+<td>Type [1]</td>
+<td>Size [2]</td>
 <td>Location [3]</td>
 <td>Date of Acquisition [4]</td>
 </tr>
-	</thead>
-	<tbody>
+</thead>
+<tbody>
 <tr>
-			<td>0</td>
+<td>0</td>
 <td>Elly</td>
-			<td>elephant</td>
-			<td>10</td>
+<td>elephant</td>
+<td>10</td>
 <td>0012</td>
 <td>02/07/2006</td>
 </tr>
 <tr>
-			<td>1</td>
+<td>1</td>
 <td>Fred</td>
-			<td>gorilla</td>
-			<td>7</td>
+<td>gorilla</td>
+<td>7</td>
 <td>0001</td>
 <td>03/08/2005</td>
 </tr>
 <tr>
-			<td>2</td>
+<td>2</td>
 <td>Squeaky</td>
-			<td>mouse</td>
-			<td>2</td>
+<td>mouse</td>
+<td>2</td>
 <td>0008</td>
 <td>04/09/2004</td>
 </tr>
 <tr>
-			<td>3</td>
+<td>3</td>
 <td>Sam</td>
-			<td>cougar</td>
-			<td>5</td>
+<td>cougar</td>
+<td>5</td>
 <td>0004</td>
 <td>05/11/2003</td>
 </tr>
 <tr>
-			<td>4</td>
+<td>4</td>
 <td>Rib</td>
-			<td>frog</td>
-			<td>2</td>
+<td>frog</td>
+<td>2</td>
 <td>0007</td>
 <td>06/21/2002</td>
 <tr>
 <tr>
-			<td>5</td>
+<td>5</td>
 <td>Karen</td>
-			<td>parrot</td>
-			<td>3</td>
+<td>parrot</td>
+<td>3</td>
 <td>0009</td>
 <td>07/31/2001</td>
 </tr>
-	</tbody>
+</tbody>
 </table>
 
 I am spending a lot of time making sure you understand how data sits in the application because it is also how data sits in a database. **Having an understanding of data organizations allows you to map out complex applications more efficiently**. Being able to create stable and efficient applications is just as important than being able to build them at all

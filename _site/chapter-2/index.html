@@ -211,23 +211,24 @@
 <p>The &quot;Loop&quot; is the mechanism that WordPress uses to display content from the MySQL database repeatedly. </p>
 
 <p>From the <a href="https://codex.wordpress.org/The_Loop">WordPress Codex - The Loop</a>:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">The Loop is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
-</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<div class="highlight"><pre><code class="language-" data-lang="">The Loop is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
+</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php">
+<span class="cp">&lt;?php</span> 
 <span class="k">if</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">while</span> <span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">the_post</span><span class="p">();</span> 
-    <span class="p">}</span> <span class="c1">// end while</span>
-<span class="p">}</span> <span class="c1">// end if</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+    <span class="p">}</span> <span class="c1">// end while
+</span><span class="p">}</span> <span class="c1">// end if
+</span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Let&#39;s walkthrough the Loop breaking down each step.</p>
 
 <p>WordPress creates a conditional statement to ask if there are any posts to display:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    if ( have_posts() ) {</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">    if ( have_posts() ) {
 </code></pre></div>
 <p>Next, inside of that conditional statement, WordPress directs that as long as there are posts to display, display the post:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">while ( have_posts() ) {</span>
-<span class="x">    the_post(); </span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">while ( have_posts() ) {
+    the_post(); 
 </code></pre></div>
 <p class="message">Conditional statements are covered in greater detail in the PHP lessons, but if you have not made it that far through those lessons, know that a conditional statement performs a check to see if "something" is true of false and then performs an action depending on the truthiness of that "something."</p>
 
@@ -248,12 +249,12 @@
 <p>As a philosophy, separating the individual functions of a resource is often referred to a &quot;component based&quot; approach. </p>
 
 <p>From Wikipedia - <a href="http://en.wikipedia.org/wiki/Component-based_software_engineering">Component-based Software Engineering:</a>:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Component-based Software Engineering... emphasizes the separation of concerns in respect of the wide-ranging functionality available throughout a given software system. It is a reuse-based approach to defining, implementing and composing loosely coupled independent components into systems. This practice aims to bring about an equally wide-ranging degree of benefits in both the short-term and the long-term for the software itself and for organizations that sponsor such software.
+<div class="highlight"><pre><code class="language-" data-lang="">Component-based Software Engineering... emphasizes the separation of concerns in respect of the wide-ranging functionality available throughout a given software system. It is a reuse-based approach to defining, implementing and composing loosely coupled independent components into systems. This practice aims to bring about an equally wide-ranging degree of benefits in both the short-term and the long-term for the software itself and for organizations that sponsor such software.
 </code></pre></div>
 <p>There are many projects that are embracing the Component Based philosophy from the ground up. For example, <a href="https://www.polymer-project.org/">Polymer: https://www.polymer-project.org/</a></p>
 
 <p>The Polymer website says:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;Web Components usher in a new era of web development based on encapsulated and interoperable custom elements that extend HTML itself. Built atop these new standards, Polymer makes it easier and faster to create anything from a button to a complete application across desktop, mobile, and beyond.&quot;
+<div class="highlight"><pre><code class="language-" data-lang="">"Web Components usher in a new era of web development based on encapsulated and interoperable custom elements that extend HTML itself. Built atop these new standards, Polymer makes it easier and faster to create anything from a button to a complete application across desktop, mobile, and beyond."
 </code></pre></div>
 <p>Though this concept is not novel, applying this philosophy from the start of a project can help you manage your project easier.</p>
 
@@ -346,7 +347,7 @@
 <p><strong>Aesthetics</strong> (at least for the purposes of this lesson) is about having a site that is enjoyable to be in. </p>
 
 <p><a href="http://en.wikipedia.org/wiki/Aesthetics">From Wikipedia - Aesthetics</a></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(Aesthetics) is more scientifically defined as the study of sensory or sensori-emotional values, sometimes called judgments of sentiment and taste.
+<div class="highlight"><pre><code class="language-" data-lang="">(Aesthetics) is more scientifically defined as the study of sensory or sensori-emotional values, sometimes called judgments of sentiment and taste.
 </code></pre></div>
 <p>Think about color, shape, composition, organization, and space (especially space) whenever you are designing. And after you think about those elements, think about how they may be distracting or enhancing the ultimate goal of your resource.</p>
 

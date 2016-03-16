@@ -449,6 +449,6 @@ Here are a few steps you can take to improve your security situation for WordPre
 
 ## <a name="various-readings">Various Readings</a>
 
-### [“Evoking Online Trust” by Seth Godin](http://sethgodin.typepad.com/seths_blog/2013/11/evoking-online-trust.html)
+* [“Evoking Online Trust” by Seth Godin](http://sethgodin.typepad.com/seths_blog/2013/11/evoking-online-trust.html)
 
-### [“Never Heard of It” by Lyza Danger Gardner](http://alistapart.com/column/never-heard-of-it)
+* [“Never Heard of It” by Lyza Danger Gardner](http://alistapart.com/column/never-heard-of-it)

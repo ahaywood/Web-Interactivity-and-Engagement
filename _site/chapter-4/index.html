@@ -231,29 +231,30 @@
 <p>Let&#39;s add the code and then discuss what is happening here.</p>
 
 <p class="file-name">function.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<div class="highlight"><pre><code class="language-php" data-lang="php">
+<span class="cp">&lt;?php</span> 
 <span class="cm">/*-------------- Enable Widgets--------------- */</span>
 
 <span class="k">function</span> <span class="nf">blank_widgets_init</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">register_sidebar</span><span class="p">(</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="s1">&#39;First Widget&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;first-widget&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Widget for our sidebar on pages&#39;</span><span class="p">,</span> 
-        <span class="s1">&#39;before_widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;div class=&quot;widget-sidebar&quot;&gt;&#39;</span><span class="p">,</span> 
-        <span class="s1">&#39;after_widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;before_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;h2&gt;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;after_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/h2&gt;&#39;</span>                        
+        <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="s1">'First Widget'</span><span class="p">),</span>
+        <span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="s1">'first-widget'</span><span class="p">,</span>
+        <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Widget for our sidebar on pages'</span><span class="p">,</span> 
+        <span class="s1">'before_widget'</span> <span class="o">=&gt;</span> <span class="s1">'&lt;div class="widget-sidebar"&gt;'</span><span class="p">,</span> 
+        <span class="s1">'after_widget'</span> <span class="o">=&gt;</span> <span class="s1">'&lt;/div&gt;'</span><span class="p">,</span>
+        <span class="s1">'before_title'</span> <span class="o">=&gt;</span> <span class="s1">'&lt;h2&gt;'</span><span class="p">,</span>
+        <span class="s1">'after_title'</span> <span class="o">=&gt;</span> <span class="s1">'&lt;/h2&gt;'</span>                        
         <span class="p">));</span>
     <span class="p">}</span>
-<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;widgets_init&#39;</span><span class="p">,</span> <span class="s1">&#39;blank_widgets_init&#39;</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">'widgets_init'</span><span class="p">,</span> <span class="s1">'blank_widgets_init'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>You are going to want to be able to add widgets and change their options often, so being comfortable with what all of the options do will help you be able to understand this better and prevent mistakes later. Let&#39;s talk about the code:</p>
 
 <p>What you see here first is a WordPress function and the options for that function. It starts with the first part:</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
 <span class="k">function</span> <span class="nf">blank_widgets_init</span><span class="p">()</span> <span class="p">{</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>This is creating a custom PHP function named blank<em>widgets</em>init(). You could name this whatever you want, but having an intelligible naming scheme will help you going forward. </p>
 
@@ -282,7 +283,9 @@
 <p>We already have a sidebar assigned to the page.php file and it is a separate template file so that it is easy to include where we see fit. Let&#39;s open up our sidebar.php file and add the PHP code WordPress uses to load a widget into the template file. First, delete the filler content you have in your sidebar.php file and then add this:</p>
 
 <p class="file-name">sidebar.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;first-widget&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">
+<span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">'first-widget'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+
 </code></pre></div>
 <p>The &#39;id&#39; that we defined in the options of the widget in functions.php is the parameter we use to call the widget using the dynamic_sidebar custom WordPress function. </p>
 
@@ -299,51 +302,52 @@
 <p>We already have one widget, so let&#39;s see how we can add multiple to the same custom function we have.</p>
 
 <p class="file-name">function.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Widgets--------------- */</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*-------------- Enable Widgets--------------- */
 
-<span class="x">function blank_widgets_init() {</span>
-<span class="x">    register_sidebar( array(</span>
-<span class="x">        &#39;name&#39; =&gt; (&#39;First Widget&#39;),</span>
-<span class="x">        &#39;id&#39; =&gt; &#39;first-widget&#39;,</span>
-<span class="x">        &#39;description&#39; =&gt; &#39;Widget for our sidebar on pages&#39;, </span>
-<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-sidebar&quot;&gt;&#39;, </span>
-<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
-<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
-<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
-<span class="x">        ));</span>
-<span class="x">/*--- New Widget --- */</span>
-<span class="x">    register_sidebar( array(</span>
-<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget One&#39;),</span>
-<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-one&#39;,</span>
-<span class="x">        &#39;description&#39; =&gt; &#39;First widget for our footer&#39;, </span>
-<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;, </span>
-<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
-<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
-<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
-<span class="x">        ));</span>
-<span class="x">    /*--- Second New Widget --- */</span>
-<span class="x">    register_sidebar( array(</span>
-<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget Two&#39;),</span>
-<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-two&#39;,</span>
-<span class="x">        &#39;&#39;description&#39; =&gt; &#39;Second widget for our footer&#39;, </span>
-<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;, </span>
-<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
-<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
-<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
-<span class="x">        ));</span>
-<span class="x">    /*--- Third New Widget --- */</span>
-<span class="x">    register_sidebar( array(</span>
-<span class="x">        &#39;name&#39; =&gt; (&#39;Footer Widget Three&#39;),</span>
-<span class="x">        &#39;id&#39; =&gt; &#39;footer-widget-three&#39;,</span>
-<span class="x">        &#39;description&#39; =&gt; &#39;Third widget for our footer&#39;, </span>
-<span class="x">        &#39;before_widget&#39; =&gt; &#39;&lt;div class=&quot;widget-footer&quot;&gt;&#39;,</span>
-<span class="x">        &#39;after_widget&#39; =&gt; &#39;&lt;/div&gt;&#39;,</span>
-<span class="x">        &#39;before_title&#39; =&gt; &#39;&lt;h2&gt;&#39;,</span>
-<span class="x">        &#39;after_title&#39; =&gt; &#39;&lt;/h2&gt;&#39;                        </span>
-<span class="x">        ));</span>
+function blank_widgets_init() {
+    register_sidebar( array(
+        'name' =&gt; ('First Widget'),
+        'id' =&gt; 'first-widget',
+        'description' =&gt; 'Widget for our sidebar on pages', 
+        'before_widget' =&gt; '<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-sidebar"</span><span class="nt">&gt;</span>', 
+        'after_widget' =&gt; '<span class="nt">&lt;/div&gt;</span>',
+        'before_title' =&gt; '<span class="nt">&lt;h2&gt;</span>',
+        'after_title' =&gt; '<span class="nt">&lt;/h2&gt;</span>'                        
+        ));
+/*--- New Widget --- */
+    register_sidebar( array(
+        'name' =&gt; ('Footer Widget One'),
+        'id' =&gt; 'footer-widget-one',
+        'description' =&gt; 'First widget for our footer', 
+        'before_widget' =&gt; '<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-footer"</span><span class="nt">&gt;</span>', 
+        'after_widget' =&gt; '<span class="nt">&lt;/div&gt;</span>',
+        'before_title' =&gt; '<span class="nt">&lt;h2&gt;</span>',
+        'after_title' =&gt; '<span class="nt">&lt;/h2&gt;</span>'                        
+        ));
+    /*--- Second New Widget --- */
+    register_sidebar( array(
+        'name' =&gt; ('Footer Widget Two'),
+        'id' =&gt; 'footer-widget-two',
+        ''description' =&gt; 'Second widget for our footer', 
+        'before_widget' =&gt; '<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-footer"</span><span class="nt">&gt;</span>', 
+        'after_widget' =&gt; '<span class="nt">&lt;/div&gt;</span>',
+        'before_title' =&gt; '<span class="nt">&lt;h2&gt;</span>',
+        'after_title' =&gt; '<span class="nt">&lt;/h2&gt;</span>'                        
+        ));
+    /*--- Third New Widget --- */
+    register_sidebar( array(
+        'name' =&gt; ('Footer Widget Three'),
+        'id' =&gt; 'footer-widget-three',
+        'description' =&gt; 'Third widget for our footer', 
+        'before_widget' =&gt; '<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-footer"</span><span class="nt">&gt;</span>',
+        'after_widget' =&gt; '<span class="nt">&lt;/div&gt;</span>',
+        'before_title' =&gt; '<span class="nt">&lt;h2&gt;</span>',
+        'after_title' =&gt; '<span class="nt">&lt;/h2&gt;</span>'                        
+        ));
 
-<span class="x">}</span>
-<span class="x">add_action(&#39;widgets_init&#39;, &#39;blank_widgets_init&#39;);</span>
+}
+add_action('widgets_init', 'blank_widgets_init');
+
 </code></pre></div>
 <p>The only thing we added was three more full register_sidebar functions and their options array. </p>
 
@@ -352,15 +356,15 @@
 <p>Now that we have the actual widgets created, let&#39;s add them to our footer. This will take two steps that are both important: 1. Separate the Footer into three equally sized columns, and 2. Add the dynamic_sidebar custom WordPress function. </p>
 
 <p class="file-name">footer.php:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
-<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-one&#39;); ?&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar('footer-widget-one'); ?&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
-<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-two&#39;); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar('footer-widget-two'); ?&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
-<span class="cp">&lt;?php dynamic_sidebar(&#39;footer-widget-three&#39;); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
+<span class="cp">&lt;?php dynamic_sidebar('footer-widget-three'); ?&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/footer&gt;</span>
 <span class="nt">&lt;/div&gt;</span> 
@@ -368,6 +372,7 @@
 
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
+
 </code></pre></div>
 <h5>Step 3: Save and Upload</h5>
 
@@ -389,12 +394,13 @@
 <h4>Tutorial: Adding a Dynamic Menu</h4>
 
 <h5>Step 1: Enable Menus in Functions</h5>
-<div class="highlight"><pre><code class="language-text" data-lang="text">As a note going forward, when I am adding a snippet to code to a file, I may not include the entire file, but rather just a portion of it. If this is the case, assume that you should place the code where I indicate or at the very bottom. 
+<div class="highlight"><pre><code class="language-" data-lang="">As a note going forward, when I am adding a snippet to code to a file, I may not include the entire file, but rather just a portion of it. If this is the case, assume that you should place the code where I indicate or at the very bottom. 
 </code></pre></div>
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*-------------- Enable Menu --------------- */</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*-------------- Enable Menu --------------- */
 
-<span class="x">add_theme_support(&#39;menus&#39;);</span>
+add_theme_support('menus');
+
 </code></pre></div>
 <p>Add this to the very bottom of the functions.php file, below the Widgets section.</p>
 
@@ -409,23 +415,23 @@
 <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
 <span class="cp">&lt;?php wp_head(); ?&gt;</span>
 
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
         <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/header&gt;</span>
 <span class="c">&lt;!-- Add Menu Here --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-        <span class="cp">&lt;?php wp_nav_menu(array(</span>
-<span class="cp">            &#39;sort_column&#39; =&gt; &#39;menu_order&#39;, </span>
-<span class="cp">            &#39;container_class&#39; =&gt; &#39;blank-menu-header&#39;</span>
-<span class="cp">            ));?&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php wp_nav_menu(array(
+            'sort_column' =&gt; 'menu_order', 
+            'container_class' =&gt; 'blank-menu-header'
+            ));?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
@@ -448,7 +454,7 @@
 <p><em>How are we going to style something that is dynamically generated?</em></p>
 
 <p>When working with a CMS, there are always going to be inherent traits that the data is pushed into. This could involve classes for styling, ids for javascript behavior, or just any other metadata that may serve any other purpose. </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Classes (.name-of-class) in HTML is used mostly for CSS. A Class is an identifier that can be used multiple times in a single page.
+<div class="highlight"><pre><code class="language-" data-lang="">Classes (.name-of-class) in HTML is used mostly for CSS. A Class is an identifier that can be used multiple times in a single page.
 
 Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier that should only be used once per page. 
 </code></pre></div>
@@ -462,27 +468,27 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*--- Menu --- */</span>
 
 <span class="nc">.blank-menu-header</span> <span class="p">{</span>
-    <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
-    <span class="k">margin-top</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">margin-top</span><span class="p">:</span> <span class="m">40px</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> 
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> 
-    <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
-    <span class="k">list-style-image</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> 
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> 
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> 
+    <span class="nl">list-style-type</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> 
+    <span class="nl">list-style-image</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> 
 <span class="p">}</span>
 <span class="nc">.blank-menu-header</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">inline</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">text-decoration</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>  
-    <span class="k">margin</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">0px</span> <span class="m">5px</span> <span class="m">40px</span><span class="p">;</span> 
-    <span class="k">font-weight</span><span class="o">:</span> <span class="m">300</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">1</span><span class="n">rem</span><span class="p">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>  
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">4px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span> <span class="m">0px</span> <span class="m">5px</span> <span class="m">40px</span><span class="p">;</span> 
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="m">300</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.1rem</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.blank-menu-header</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#cccccc</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#cccccc</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>This is just one of many ways you make a menu appear. You can find numerous ways to style a menu in different ways on other websites and tutorials (many of which are more elaborate than this one) so feel free to explore those.</p>
@@ -508,12 +514,12 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <p>We are going to include much of the same code we used before to set the data context and to make sure we are loading the exact elements we want for the archive. </p>
 
 <p class="file-name">archive.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Archive Page */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template Name: Archive Page */
 
-<span class="cp">get_header(); ?&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+get_header(); ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h2&gt;</span>Archive<span class="nt">&lt;/h2&gt;</span>    
             <span class="nt">&lt;p&gt;</span>Archive content goes here.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -523,21 +529,21 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <h5>Step 4: Add the functionality of the archive.php page</h5>
 
 <p class="file-name">archive.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Archive Page */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template Name: Archive Page */
 
-<span class="cp">get_header(); ?&gt;</span>
+get_header(); ?&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
         <span class="cp">&lt;?php if ( have_posts() ) : ?&gt;</span>
             <span class="nt">&lt;h2&gt;</span>Archives<span class="nt">&lt;/h2&gt;</span>
-            <span class="cp">&lt;?php</span>
-<span class="cp">            // The Loop</span>
-<span class="cp">            while ( have_posts() ) : the_post();?&gt;</span>
+            <span class="cp">&lt;?php
+            // The Loop
+            while ( have_posts() ) : the_post();?&gt;</span>
             <span class="c">&lt;!-- data context --&gt;</span>
                 <span class="nt">&lt;h2&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink() ?&gt;&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;?php the_permalink() ?&gt;"</span><span class="nt">&gt;</span>
                         <span class="cp">&lt;?php the_title(); ?&gt;</span>
                     <span class="nt">&lt;/a&gt;</span>
                 <span class="nt">&lt;/h2&gt;</span>
@@ -546,11 +552,11 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
         <span class="cp">&lt;?php endif; ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h2&gt;</span>Archives by Month:<span class="nt">&lt;/h2&gt;</span>
         <span class="nt">&lt;ul&gt;</span>
-            <span class="cp">&lt;?php wp_get_archives(&#39;type=monthly&#39;); ?&gt;</span>
+            <span class="cp">&lt;?php wp_get_archives('type=monthly'); ?&gt;</span>
         <span class="nt">&lt;/ul&gt;</span>
         <span class="nt">&lt;h2&gt;</span>Archives by Category:<span class="nt">&lt;/h2&gt;</span>
         <span class="nt">&lt;ul&gt;</span>
@@ -567,21 +573,22 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <p>There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an else statement to the if logic to address that situation.</p>
 
 <p class="file-name">archive.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Archive Page */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="cp">&lt;?php 
+/* Template Name: Archive Page */
 
-<span class="cp">get_header(); ?&gt;</span>
+get_header(); ?&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
         <span class="cp">&lt;?php if ( have_posts() ) : ?&gt;</span>
             <span class="nt">&lt;h2&gt;</span>Archives<span class="nt">&lt;/h2&gt;</span>
-            <span class="cp">&lt;?php</span>
-<span class="cp">            // The Loop</span>
-<span class="cp">            while ( have_posts() ) : the_post();?&gt;</span>
+            <span class="cp">&lt;?php
+            // The Loop
+            while ( have_posts() ) : the_post();?&gt;</span>
             <span class="c">&lt;!-- data context --&gt;</span>
                 <span class="nt">&lt;h2&gt;</span>
-                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink() ?&gt;&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;?php the_permalink() ?&gt;"</span><span class="nt">&gt;</span>
                         <span class="cp">&lt;?php the_title(); ?&gt;</span>
                     <span class="nt">&lt;/a&gt;</span>
                 <span class="nt">&lt;/h2&gt;</span>
@@ -592,6 +599,8 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
         <span class="cp">&lt;?php endif; ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
+
+
 </code></pre></div>
 <h5>Step 5: Save and upload files</h5>
 
@@ -617,43 +626,43 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <span class="nt">&lt;head&gt;</span>
 <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
 <span class="cp">&lt;?php wp_head(); ?&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nine columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nine columns"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h1&gt;</span>Blank WordPress Template<span class="nt">&lt;/h1&gt;</span>
         <span class="nt">&lt;p&gt;</span>This is my WordPress template.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Add Search Form --&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;three columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"three columns"</span><span class="nt">&gt;</span>
         <span class="cp">&lt;?php get_search_form(); ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/header&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-        <span class="cp">&lt;?php wp_nav_menu(array(</span>
-<span class="cp">            &#39;sort_column&#39; =&gt; &#39;menu_order&#39;, </span>
-<span class="cp">            &#39;container_class&#39; =&gt; &#39;blank-menu-header&#39;</span>
-<span class="cp">            ));?&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php wp_nav_menu(array(
+            'sort_column' =&gt; 'menu_order', 
+            'container_class' =&gt; 'blank-menu-header'
+            ));?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 <h5>Step 4: Build the search.php file</h5>
 
 <p class="file-name">search.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Search Page */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template Name: Search Page */
 
-<span class="cp">get_header(); ?&gt;</span>
+get_header(); ?&gt;</span>
 
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"eight columns"</span><span class="nt">&gt;</span>
 
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
             <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -665,22 +674,22 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <p>To walk through this file, we are going to include the header, the footer, and the grid system from all of the other files. Also, note the PHP comment at the top that says &quot;Template Name: Search Page.&quot; This is used for the identifying this file as a template file. </p>
 
 <p class="file-name">search.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Search Page */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template Name: Search Page */
 
-<span class="cp">get_header(); ?&gt;</span>
+get_header(); ?&gt;</span>
 
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php printf(__(&#39;Search Results for: %s&#39;), &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; ); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
-            <span class="cp">&lt;?php if (have_posts()) :</span>
-<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span>                                   <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">            endif; </span>
-<span class="cp">        ?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"eight columns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php printf(__('Search Results for: %s'), '&lt;span&gt;' . get_search_query() . '&lt;/span&gt;' ); ?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :
+                while (have_posts()) : the_post(); ?&gt;</span>                                   <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+            endif; 
+        ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
             <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -694,30 +703,30 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <p>To that end, we are going to use some conditional logic to make sure IF there is a result we will display that result, but if anything ELSE occurs, we will display a warning. Getting comfortable with conditional logic will help you considerably with programming going forward. </p>
 
 <p class="file-name">search.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template Name: Search Page */</span>
-<span class="cp">get_header(); ?&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template Name: Search Page */
+get_header(); ?&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"eight columns"</span><span class="nt">&gt;</span>
         <span class="cp">&lt;?php if( have_posts() ) :?&gt;</span>
             <span class="nt">&lt;h1&gt;</span>
-                <span class="cp">&lt;?php printf(</span>
-<span class="cp">                    __(&#39;Search Results for: %s&#39;), </span>
-<span class="cp">                    &#39;&lt;span&gt;&#39; . get_search_query() . &#39;&lt;/span&gt;&#39; );</span>
-<span class="cp">                ?&gt;</span>
+                <span class="cp">&lt;?php printf(
+                    __('Search Results for: %s'), 
+                    '&lt;span&gt;' . get_search_query() . '&lt;/span&gt;' );
+                ?&gt;</span>
             <span class="nt">&lt;/h1&gt;</span>
 
-            <span class="cp">&lt;?php if (have_posts()) :</span>
-<span class="cp">                while (have_posts()) : the_post(); ?&gt;</span>                       <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">         else : ?&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :
+                while (have_posts()) : the_post(); ?&gt;</span>                       <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+         else : ?&gt;</span>
             <span class="nt">&lt;h1&gt;</span>Nothing Found<span class="nt">&lt;/h1&gt;</span>
             <span class="nt">&lt;p&gt;</span>Sorry, but nothing matched your search criteria. Please try again with different search terms.<span class="nt">&lt;/p&gt;</span>
         <span class="cp">&lt;?php endif; ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
         <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -739,21 +748,21 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <h5>Step 2: Add functionality to the 404 page</h5>
 
 <p class="file-name">404.php</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php </span>
-<span class="cp">/* Template: 404 page (Not Found) */</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php 
+/* Template: 404 page (Not Found) */
 
-<span class="cp">get_header(); ?&gt;</span>
+get_header(); ?&gt;</span>
 
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;eight columns&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"eight columns"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h1&gt;</span>Not Found<span class="nt">&lt;/h1&gt;</span>
-            <span class="nt">&lt;h2&gt;</span>This is somewhat embarrassing, isn&#39;t it?<span class="nt">&lt;/h2&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>This is somewhat embarrassing, isn't it?<span class="nt">&lt;/h2&gt;</span>
             <span class="nt">&lt;p&gt;</span>It looks like nothing was found at this location. Maybe try a search?<span class="nt">&lt;/p&gt;</span>
 
             <span class="nt">&lt;h2&gt;</span>Try searching for what you need:<span class="nt">&lt;/h2&gt;</span>
             <span class="cp">&lt;?php get_search_form(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;four columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"four columns"</span><span class="nt">&gt;</span>
             <span class="cp">&lt;?php get_sidebar(); ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -783,8 +792,9 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <h5>Step 1: Enabling in Functions file</h5>
 
 <p class="file-name">functions.php</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/*--- Enable Post Thumbnails ---*/</span>
-<span class="x">add_theme_support( &#39;post-thumbnails&#39; ); </span>
+<div class="highlight"><pre><code class="language-php" data-lang="php">/*--- Enable Post Thumbnails ---*/
+add_theme_support( 'post-thumbnails' ); 
+
 </code></pre></div>
 <h5>Step 2: Adding Thumbnails to the index.php file</h5>
 
@@ -792,21 +802,21 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 
 <p class="file-name">index.php</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-        <span class="cp">&lt;?php </span>
-<span class="cp">        if ( have_posts() ) {</span>
-<span class="cp">        while ( have_posts() ) {</span>
-<span class="cp">            the_post();?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php 
+        if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();?&gt;</span>
             <span class="nt">&lt;h3&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h3&gt;</span>
-            <span class="cp">&lt;?php </span>
-<span class="cp">            if ( has_post_thumbnail() ) {</span>
-<span class="cp">                the_post_thumbnail(&#39;thumbnail&#39;);</span>
-<span class="cp">            }</span>
-<span class="cp">            the_excerpt(); </span>
-<span class="cp">                } // end while</span>
-<span class="cp">            } // end if</span>
-<span class="cp">        ?&gt;</span>
+            <span class="cp">&lt;?php 
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('thumbnail');
+            }
+            the_excerpt(); 
+                } // end while
+            } // end if
+        ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 <span class="cp">&lt;?php get_footer(); ?&gt;</span>
@@ -821,17 +831,17 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 
 <p class="file-name">single.php:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-            <span class="cp">&lt;?php if (have_posts()) :               </span>
-<span class="cp">                while (have_posts()) : the_post(); </span>
-<span class="cp">                if ( has_post_thumbnail() ) { ?&gt;</span>
-                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;post-thumbnail&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_post_thumbnail(&#39;large&#39;); ?&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;?php if (have_posts()) :               
+                while (have_posts()) : the_post(); 
+                if ( has_post_thumbnail() ) { ?&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"post-thumbnail"</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_post_thumbnail('large'); ?&gt;</span><span class="nt">&lt;/div&gt;</span>
                 <span class="cp">&lt;?php } ?&gt;</span>
                     <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/h2&gt;</span>
-                    <span class="cp">&lt;?php the_content();</span>
-<span class="cp">                endwhile;</span>
-<span class="cp">            endif; ?&gt;</span>
+                    <span class="cp">&lt;?php the_content();
+                endwhile;
+            endif; ?&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="cp">&lt;?php get_footer(); ?&gt;</span>
@@ -874,15 +884,15 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
 <span class="cp">&lt;?php wp_head(); ?&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"&lt;?php bloginfo('stylesheet_url'); ?&gt;"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
 <span class="c">&lt;!-- ADD LINK TO HOME_URL --&gt;</span>
-                    <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php $url = home_url(&#39;/&#39;); echo $url; ?&gt;&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php bloginfo(&#39;name&#39;); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
-                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo(&#39;description&#39;); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
+                    <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">"&lt;?php $url = home_url('/'); echo $url; ?&gt;"</span><span class="nt">&gt;</span><span class="cp">&lt;?php bloginfo('name'); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+                    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php bloginfo('description'); ?&gt;</span><span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/header&gt;</span>
 </code></pre></div>
@@ -896,23 +906,23 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 
 <p class="file-name">index.php</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;?php get_header(); ?&gt;</span>
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;twelve columns&quot;</span><span class="nt">&gt;</span>
-        <span class="cp">&lt;?php </span>
-<span class="cp">        if ( have_posts() ) {</span>
-<span class="cp">        while ( have_posts() ) {</span>
-<span class="cp">            the_post();?&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"twelve columns"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php 
+        if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();?&gt;</span>
 <span class="c">&lt;!-- ADD LINK TO THE TITLE --&gt;</span>
-            <span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink(); ?&gt;&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
-            <span class="cp">&lt;?php </span>
-<span class="cp">            if ( has_post_thumbnail() ) {</span>
-<span class="cp">                the_post_thumbnail(&#39;thumbnail&#39;);</span>
-<span class="cp">            }</span>
-<span class="cp">            the_excerpt(); ?&gt;</span>
-    <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&lt;?php the_permalink(); ?&gt;&quot;</span><span class="nt">&gt;</span>Read More<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-<span class="cp">&lt;?php } // end while</span>
-<span class="cp">            } // end if</span>
-<span class="cp">        ?&gt;</span>
+            <span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">"&lt;?php the_permalink(); ?&gt;"</span><span class="nt">&gt;</span><span class="cp">&lt;?php the_title(); ?&gt;</span><span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
+            <span class="cp">&lt;?php 
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('thumbnail');
+            }
+            the_excerpt(); ?&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"&lt;?php the_permalink(); ?&gt;"</span><span class="nt">&gt;</span>Read More<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="cp">&lt;?php } // end while
+            } // end if
+        ?&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 <span class="cp">&lt;?php get_footer(); ?&gt;</span>
@@ -926,7 +936,7 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <h2><a name="plugins">Plugins</a></h2>
 
 <p>We already introduced plugins in the first chapter in the context of WordPress. As a reminder: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">A Plugin is a group of PHP functions that can extend the functionality present in a standard WordPress weblog. These functions may all be defined in one php file, or may be spread among more than one file. Usually, a plugin is a PHP file that can be uploaded to the &quot;wp-content/plugins&quot; directory on your webserver, where you have installed WordPress. Once you have uploaded the plugin file, you should be able to &quot;turn it on&quot; or Enable it from the &quot;Plugins&quot; page in the administration interface of your weblog. The WordPress source code contains hooks that can be used by plugins.
+<div class="highlight"><pre><code class="language-" data-lang="">A Plugin is a group of PHP functions that can extend the functionality present in a standard WordPress weblog. These functions may all be defined in one php file, or may be spread among more than one file. Usually, a plugin is a PHP file that can be uploaded to the "wp-content/plugins" directory on your webserver, where you have installed WordPress. Once you have uploaded the plugin file, you should be able to "turn it on" or Enable it from the "Plugins" page in the administration interface of your weblog. The WordPress source code contains hooks that can be used by plugins.
 </code></pre></div>
 <p><a href="https://codex.wordpress.org/Glossary#Plugin">https://codex.wordpress.org/Glossary#Plugin</a></p>
 
@@ -998,14 +1008,14 @@ Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier 
 <h4>Step Two: Find the Best One</h4>
 
 <p>After you search this, you will see several search results - all of varying degrees of rating and naming. We are going to want to consider all of the relevant results and choose the one that is:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">* Up to date
+<div class="highlight"><pre><code class="language-" data-lang="">* Up to date
 * Has a lot of positive ratings
 * Does what we actually want
 </code></pre></div>
 <p><em>What is it we want? Why do we want this?</em></p>
 
 <p>Luckily the one we want is up at the top and simply called &quot;Limit Login Attempts&quot; and has over 1 million downloads.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">As of writing this, this plugin is out of date and hasn&#39;t been modified in a long time. This would be a big no-no for most plugins, but in this case it should be alright.
+<div class="highlight"><pre><code class="language-" data-lang="">As of writing this, this plugin is out of date and hasn't been modified in a long time. This would be a big no-no for most plugins, but in this case it should be alright.
 </code></pre></div>
 <h4>Step Three: Install the Plugin</h4>
 
