@@ -11,7 +11,6 @@ title: Chapter 7&#58; Advanced Theme Development
     - The wp-includes folder
 - [WordPress Dynamic File Loading](#wordpress-dynamic-file-loading)
     - Tutorial: Linking to JavaScript and CSS Files Correctly in WordPress
-    - Tutorial: Adding a jQuery Slider to WordPress
 
 ## <a name="css-and-template-development">CSS and Template Development</a>
 
@@ -324,8 +323,3 @@ add_action('wp_enqueue_scripts', skeleton_css);
 ##### Step 6: Save and Upload
 
 Make sure nothing broke and that the files load correctly.
-
-### Tutorial: Adding a jQuery Slider to WordPress
-
-## PHP and Adding Functionality
-
