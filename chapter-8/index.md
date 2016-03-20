@@ -813,25 +813,25 @@ We are going to go through this tutorial very methodically, but this is because 
 ```html
 <!-- First is our slider CSS-->
 <style type="text/css">
-    .unslider{overflow:auto}
-    .unslider-wrap{position:relative}
-    .unslider-wrap.unslider-carousel li{float:left}
-    .unslider-vertical>ul{height:100%}
-    .unslider-vertical li{float:none;width:100%}
-    .unslider-fade{position:relative}
-    .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}
-    .unslider-fade .unslider-wrap li.unslider-active{z-index:10}
-    .unslider li{list-style:none;margin:0;padding:0;border:none}
-    .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}
-    .unslider-arrow.next{left:auto;right:20px}
+     .unslider{overflow:auto;margin:0;padding:0;}
+     .unslider-wrap{position:relative;}
+     .unslider-wrap.unslider-carousel>li{float:left;}
+     .unslider-vertical>ul{height:100%;}
+     .unslider-vertical li{float:none;width:100%;}
+     .unslider-fade{position:relative;}
+     .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8;}
+     .unslider-fade .unslider-wrap li.unslider-active{z-index:10;}
+     .unslider li,.unslider ol,.unslider ul{list-style:none;margin:0;padding:0;border:none;}
+     .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer;}
+     .unslider-arrow.next{left:auto;right:20px;}
 </style>
 
 <!-- Second is our "Banner" slider code -->
-<div class="banner">
+<div class="my-slider">
     <ul>
-        <li>This is a slide.</li>
-        <li>This is another slide.</li>
-        <li>This is a final slide.</li>
+        <li>My slide</li>
+        <li>Another slide</li>
+        <li>My last slide</li>
     </ul>
 </div>
 <!-- Third we include jQuery -->
@@ -841,8 +841,9 @@ We are going to go through this tutorial very methodically, but this is because 
 <script src="path/to/js/files/unslider.js"></script>
 <!-- Lastly we use a javascript function to initialize the unslider behavior -->
 <script>
-    jQuery(document).ready(function($) {
-        $('.banner').unslider();
+    $(function() { $('.my-slider').unslider({
+        autoplay: true 
+        });
     });
 </script>
 ```
@@ -861,8 +862,9 @@ At the bottom of the footer.php file we will add the initiator for unslider.
 
 <!-- Begin Unslider Initiator -->    
 <script>
-    jQuery(document).ready(function($) {
-        $('.banner').unslider();
+    $(function() { $('.my-slider').unslider({
+        autoplay: true 
+        });
     });
 </script>
 <!-- End Unslider Initiator -->
@@ -882,11 +884,11 @@ Let's work right out of our index.php file for now, though this code should be c
 
 <p class="file-name">index.php</p>
 ```html
-<div class="banner">
+<div class="my-slider">
     <ul>
-        <li>This is a slide.</li>
-        <li>This is another slide.</li>
-        <li>This is a final slide.</li>
+        <li>My slide</li>
+        <li>Another slide</li>
+        <li>My last slide</li>
     </ul>
 </div>
 ``` 
@@ -895,17 +897,17 @@ and our CSS...
 
 <p class="file-name">style.css</p>
 ```css
-    .unslider{overflow:auto}
-    .unslider-wrap{position:relative}
-    .unslider-wrap.unslider-carousel li{float:left}
-    .unslider-vertical>ul{height:100%}
-    .unslider-vertical li{float:none;width:100%}
-    .unslider-fade{position:relative}
-    .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}
-    .unslider-fade .unslider-wrap li.unslider-active{z-index:10}
-    .unslider li{list-style:none;margin:0;padding:0;border:none}
-    .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}
-    .unslider-arrow.next{left:auto;right:20px}
+.unslider{overflow:auto;margin:0;padding:0;}
+.unslider-wrap{position:relative;}
+.unslider-wrap.unslider-carousel>li{float:left;}
+.unslider-vertical>ul{height:100%;}
+.unslider-vertical li{float:none;width:100%;}
+.unslider-fade{position:relative;}
+.unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8;}
+.unslider-fade .unslider-wrap li.unslider-active{z-index:10;}
+.unslider li,.unslider ol,.unslider ul{list-style:none;margin:0;padding:0;border:none;}
+.unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer;}
+.unslider-arrow.next{left:auto;right:20px;}
 ```
 
 Now let's load all of our files up and if the text in the index doesn't slide by, then there is something wrong. 
@@ -960,7 +962,7 @@ Let's set up the HTML for our post type and then we can set it up as PHP loading
 
 <p class="file-name">index.php</p>
 ```html
-<div class="banner">
+<div class="my-slider">
     <ul>
         <li style="background-image: url('slide01.jpg');">
             <div class="slides-message">
@@ -970,7 +972,7 @@ Let's set up the HTML for our post type and then we can set it up as PHP loading
         </li>
         <li style="background-image: url('slide02.jpg');">
             <div class="slides-message">
-                <h1>Slide Twp Title</h1>
+                <h1>Slide Two Title</h1>
                 <p>This is where the excerpt for the slides will go</p>
             </div>
         </li>
@@ -1015,7 +1017,7 @@ This will generate the content from our custom post. Now let's integrate this in
 
 <p class="file-name">index.php</p>
 ```php
-<div class="banner">
+<div class="my-slider">
     <ul>
 <?php
     $args = array( 'post_type' => 'Slider' );
@@ -1050,16 +1052,16 @@ This will generate the content from our custom post. Now let's integrate this in
 Here is some sample styling, but you can repurpose this for however you want.
 
 ```css
-.banner { 
+.my-slider { 
     position: relative; 
     overflow: auto; 
     margin-top:25px;
     margin-bottom: 25px;
 }
-.banner li { 
+.my-slider li { 
     list-style: none;
 }
-.banner ul li { 
+.my-slider ul li { 
     float: left; 
 }
 .slide-container {
