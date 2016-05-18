@@ -38,7 +38,7 @@ Some of these tasks include:
 
 * Managing User roles and responsibilities
 
-PHP is a server side language that provides directions to a PHP parser on the server to perform these tasks. As you work through the PHP lessons, the scope of how this works should become more apparrant. 
+PHP is a server side language that provides directions to a PHP parser on the server to perform these tasks. As you work through the PHP lessons, the scope of how this works should become more apparent. 
 
 PHP is merely the language that WordPress uses to provide directions to the server's PHP parser to perform the tasks. This is why you will see a lot of custom WordPress syntax for simplifying these tasks from a developer's standpoint. Not having to think about many of the small details of website programming is key to CMSs and CMS design. 
 
@@ -52,8 +52,10 @@ The "Loop" is the mechanism that WordPress uses to display content from the MySQ
 
 From the [WordPress Codex - The Loop](https://codex.wordpress.org/The_Loop):
 
-	The Loop is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
-
+> The Loop is PHP code used by WordPress to display posts. Using The Loop,
+  WordPress processes each post to be displayed on the current page, and formats
+  it according to how it matches specified criteria within The Loop tags. Any
+  HTML or PHP code in the Loop will be processed on each post.
  
 ``` php
 
@@ -86,7 +88,7 @@ Then you end the "while" conditional statement and then end the "if" conditional
 
 This simple PHP code contains a lot of power. WordPress is using its custom syntax and PHP to generate the content from all posts that are stored in your MySQL database. There is a lot that the WordPress software environment does to make sure this happens, but from a developer standpoint it is not necessary for you to specify all of the little details. 
 
-Making sure that the code is wrapped in "<?php" and "?>" tags lets the server know that it should process this code as PHP and not just to send it as HTML. 
+Making sure that the code is wrapped in `<?php` and `?>` tags lets the server know that it should process this code as PHP and not just to send it as HTML. 
 
 Additionally, there are a lot of parameters you can use (both in your code and in the WordPress admin) to manipulate how the simple Loop works. We will get into those things later.
 
@@ -101,13 +103,22 @@ As a philosophy, separating the individual functions of a resource is often refe
 
 From Wikipedia - [Component-based Software Engineering:](http://en.wikipedia.org/wiki/Component-based_software_engineering):
 
-	Component-based Software Engineering... emphasizes the separation of concerns in respect of the wide-ranging functionality available throughout a given software system. It is a reuse-based approach to defining, implementing and composing loosely coupled independent components into systems. This practice aims to bring about an equally wide-ranging degree of benefits in both the short-term and the long-term for the software itself and for organizations that sponsor such software.
+> Component-based Software Engineering... emphasizes the separation of concerns
+  in respect of the wide-ranging functionality available throughout a given
+  software system. It is a reuse-based approach to defining, implementing and
+  composing loosely coupled independent components into systems. This practice
+  aims to bring about an equally wide-ranging degree of benefits in both the
+  short-term and the long-term for the software itself and for organizations that
+  sponsor such software.
 
 There are many projects that are embracing the Component Based philosophy from the ground up. For example, [Polymer: https://www.polymer-project.org/](https://www.polymer-project.org/)
 
 The Polymer website says:
 
-	"Web Components usher in a new era of web development based on encapsulated and interoperable custom elements that extend HTML itself. Built atop these new standards, Polymer makes it easier and faster to create anything from a button to a complete application across desktop, mobile, and beyond."
+> "Web Components usher in a new era of web development based on encapsulated
+  and interoperable custom elements that extend HTML itself. Built atop these
+  new standards, Polymer makes it easier and faster to create anything from a
+  button to a complete application across desktop, mobile, and beyond."
 
 Though this concept is not novel, applying this philosophy from the start of a project can help you manage your project easier.
 
@@ -152,7 +163,7 @@ This may include the user's location, weather in their area, device they are acc
 It is useful to take into account as many environmental factors as possible when you are creating a resource so that you can control potential negative influences surrounding your user's experience but also to take advantage of the user's environment to make functional enhancements.
 
 #### i. Physical factors: 
-Serving a resource to a user will inevitably be hindered or enhanced by **physical factors** on the users end. This does not apply to just web resources, but every experience that a user will be a part of (in life and in design). Some factors could include weather, temperature, physical objects, location, time, or other users. 
+Serving a resource to a user will inevitably be hindered or enhanced by **physical factors** on the user's end. This does not apply to just web resources, but every experience that a user will be a part of (in life and in design). Some factors could include weather, temperature, physical objects, location, time, or other users. 
 
 An example of environmentally influenced situation would be a cell phone user that is trapped at a coffee shop by a rain storm. The physical factors in this example would be 1) a mobile device, 2) inclimate weather, 3) a cafe (location), and 4) possibly the fact that the user is crowded by other users who are experiencing the same thing. 
 
@@ -173,9 +184,9 @@ An example of resource generated factors being applied could be a user opening a
 
 *What are some techniques to use these resource generated factors knowing that some of your users won't be on the newest devices in the best connection areas?*
 
-Read ["Environmental Design with the Device API,"](http://alistapart.com/article/environmental-design-with-the-device-api) an A List Apart article about using factors in the design of your resource. 
+Read ["Environmental Design with the Device API,"](http://alistapart.com/article/environmental-design-with-the-device-api) an _A List Apart_ article about using factors in the design of your resource. 
 
-<p class="message">API is short for application programming interface (API) and specifies how software components interact with each other. Essentially, it is a phrase that is used to describe anytime two programs interact with one another. For instance, the Twitter API is used for integrating Twitter into other software.</p>
+<p class="message">API is short for <em>Application Programming Interface</em> and specifies how software components interact with each other. Essentially, it is a phrase that is used to describe anytime two programs interact with one another. For instance, the Twitter API is used for integrating Twitter into other software.</p>
 
 ### 2. Story
 
@@ -197,7 +208,8 @@ Design is not always about beauty and beauty is not always about design.
 
 [From Wikipedia - Aesthetics](http://en.wikipedia.org/wiki/Aesthetics)
 
-	(Aesthetics) is more scientifically defined as the study of sensory or sensori-emotional values, sometimes called judgments of sentiment and taste.
+> (Aesthetics) is more scientifically defined as the study of sensory or
+  sensori-emotional values, sometimes called judgments of sentiment and taste.
 
 Think about color, shape, composition, organization, and space (especially space) whenever you are designing. And after you think about those elements, think about how they may be distracting or enhancing the ultimate goal of your resource.
 
@@ -247,4 +259,4 @@ The worst mentality to take towards usability is "If they can't use it, then it 
 
 The good news is that there are methods in existence to measure and perfect usability. Some common methods include A/B testing, user feedback, and eye tracking software. 
 
-Read ["Defining a Vision: Making Sure Your Work Matters,"](http://alistapart.com/article/defining-a-vision-making-sure-your-work-matters) an A List Apart article.
+Read ["Defining a Vision: Making Sure Your Work Matters,"](http://alistapart.com/article/defining-a-vision-making-sure-your-work-matters) an _A List Apart_ article.
