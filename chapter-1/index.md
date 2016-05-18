@@ -55,7 +55,7 @@ title: Chapter 1&#58; Introduction to WordPress and CMSs
 
 The name "Content Management Systems" is already pretty instructive about what the scope and purpose of such a system is - managing content. So, good, it looks like you've learned everything you need to know in this class...
 
-CMSs come in all shapes and sizes. There are innumerable choices to make when selecting one, and due to their variety selecting one is never an easy choice. We will cover the criteria for selecting a CMS in greater detail later, but lets get to the definition and characteristics of a CMS before we move on to the practical application of a CMS through WordPress. 
+CMSs come in all shapes and sizes. There are innumerable choices to make when selecting one, and due to their variety selecting one is never an easy choice. We will cover the criteria for selecting a CMS in greater detail later, but let's get to the definition and characteristics of a CMS before we move on to the practical application of a CMS through WordPress. 
 
 From Wikipedia:
 <div class="message">The function and use of content management systems is to store and organize files, and provide version-controlled access to their data. CMS features vary widely. Simple systems showcase a handful of features, while other releases, notably enterprise systems, offer more complex and powerful functions. Most CMS include Web-based publishing, format management, revision control (version control), indexing, search, and retrieval.
@@ -165,20 +165,20 @@ This folder holds all of the plugins and their dependent files. Plugins are an e
 
 The Uploads folder stores all of the files you upload through the WordPress Dashboard. These files include images and other media. 
 
-The Uploads folder is sorted by date (year first, then month, then date). Additionally, WordPress resizes images you upload for optimized file serving. If you upload an image in the dashboard, it will store several versions of that image in different sizes in the uploads file. 
+The Uploads folder is sorted by date (year first, then month, then date). Additionally, WordPress resizes images you upload for optimized file serving. If you upload an image in the dashboard, it will store several versions of that image in different sizes in the uploads folder. 
 
 <div class="message">With regard to the Plugins and Uploads folder, note that when you have a local version of your WordPress site (on your own computer), the server version of your WordPress site will store the files and plugins you add through the WordPress Dashboard.</div>
 
 
 ##### WP-INCLUDES
 
-<div class="message">You will never want to edit the wp-admin folder. If WordPress is updated it will overwrite any changes made here.</div>
+<div class="message">You will never want to edit the wp-includes folder. If WordPress is updated it will overwrite any changes made here.</div>
 
 The wp-includes folder contains the files that WordPress uses to support its primary functions. The files in here are referenced by WordPress during its operation. An advanced WordPress developer may need to modify this area at points.
 
 ### WordPress Administration
 
-After you install WordPress and have logged into the WordPress Dashboard, you will come across a bunch of stuff you may not have seen before. Let's walk through the different items in the Dashboard. The best way to follow this portion of the lesson is to be logged into the WordPress Dashboard and to see mess around to see how everything works.
+After you install WordPress and have logged into the WordPress Dashboard, you will come across a bunch of stuff you may not have seen before. Let's walk through the different items in the Dashboard. The best way to follow this portion of the lesson is to be logged into the WordPress Dashboard and to mess around to see how everything works.
 
 Many of the definitions of the terms below are taken directly from the WordPress Codex.
 
@@ -350,7 +350,7 @@ Every part of a web site is important in its overall operation. The interrelatio
 
 #### HTML: "The Practical One"
 
-**Hypertext Markup Language (HTML)** is the language that browsers read to display web pages. Think of HTML as the language that provides structure and context to the webpage. For instance, if a paragraph is wrapped in a <p> tag, the browser (and you) will know that it is a paragraph. 
+**Hypertext Markup Language (HTML)** is the language that browsers read to display web pages. Think of HTML as the language that provides structure and context to the webpage. For instance, if a paragraph is wrapped in a `<p>` tag, the browser (and you) will know that it is a paragraph. 
 
 HTML is a very simple language that has a lot of power (much of which is taken for granted). The current version of HTML that is supported by most modern browsers is HTML5.
 
