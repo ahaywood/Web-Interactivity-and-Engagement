@@ -58,21 +58,39 @@ The name "Content Management Systems" is already pretty instructive about what t
 CMSs come in all shapes and sizes. There are innumerable choices to make when selecting one, and due to their variety selecting one is never an easy choice. We will cover the criteria for selecting a CMS in greater detail later, but let's get to the definition and characteristics of a CMS before we move on to the practical application of a CMS through WordPress. 
 
 From Wikipedia:
-<div class="message">The function and use of content management systems is to store and organize files, and provide version-controlled access to their data. CMS features vary widely. Simple systems showcase a handful of features, while other releases, notably enterprise systems, offer more complex and powerful functions. Most CMS include Web-based publishing, format management, revision control (version control), indexing, search, and retrieval.
 
-A CMS may serve as a central repository containing documents, movies, pictures, phone numbers, scientific data. 
+> The function and use of content management systems is to store and organize
+  files, and provide version-controlled access to their data. CMS features vary
+  widely. Simple systems showcase a handful of features, while other releases,
+  notably enterprise systems, offer more complex and powerful functions. Most CMS
+  include Web-based publishing, format management, revision control (version
+  control), indexing, search, and retrieval.
 
-Distinguishing between the basic concepts of user and content. The content management system (CMS) has two elements:
+> A CMS may serve as a central repository containing documents, movies,
+  pictures, phone numbers, scientific data. 
 
-1. Content management application (CMA) is the front-end user interface that allows a user, even with limited expertise, to add, modify and remove content from a Web site without the intervention of a Webmaster.
+> Distinguishing between the basic concepts of user and content. The content
+  management system (CMS) has two elements:
 
-2. Content display application (CDA) compiles that information and updates the Web site.
+> 1. Content management application (CMA) is the front-end user interface that
+  allows a user, even with limited expertise, to add, modify and remove content
+  from a Web site without the intervention of a Webmaster.
 
-Web content management systems
+> 2. Content display application (CDA) compiles that information and updates the Web site.
 
-A content management system (Web CMS) is a bundled or stand-alone application to create, deploy, manage and store content on Web pages. Web content includes text and embedded graphics, photos, video, audio, and code (e.g., for applications) that displays content or interacts with the user. Content Management has many roles in today's market place and is an important base for any website blogging, articles, news, description of products etc. A Web CMS may catalog and index content, select or assemble content at runtime, or deliver content to specific visitors in a requested way, such as other languages. Web CMSs usually allow client control over HTML-based content, files, documents, and Web hosting plans based on the system depth and the niche it serves.
+> Web content management systems
 
-</div>
+> A content management system (Web CMS) is a bundled or stand-alone application
+  to create, deploy, manage and store content on Web pages. Web content includes
+  text and embedded graphics, photos, video, audio, and code (e.g., for
+  applications) that displays content or interacts with the user. Content
+  Management has many roles in today's market place and is an important base for
+  any website blogging, articles, news, description of products etc. A Web CMS
+  may catalog and index content, select or assemble content at runtime, or
+  deliver content to specific visitors in a requested way, such as other
+  languages. Web CMSs usually allow client control over HTML-based content,
+  files, documents, and Web hosting plans based on the system depth and the niche
+  it serves.
 
 Wow. Couldn't have said it better myself. The only thing I would add, which almost every modern CMS has, is user management.
 
