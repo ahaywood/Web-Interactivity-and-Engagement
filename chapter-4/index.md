@@ -746,6 +746,31 @@ We are going to add the home_url() function in an anchor’s href and wrap our s
             <header class="row">
                 <div class="twelve columns">
 <!-- ADD LINK TO HOME_URL -->
+
+/**
+
+Comment from @chrisallenlane:
+
+This is a trivial point, but in my opinion, it may be better to invoke
+home_url() without a parameter, rather than with `/`. (This is in reference to
+the following lines of code.)
+
+The supplied parameter is always going to be appended to the home URL, per the
+documentation here:
+
+https://codex.wordpress.org/Function_Reference/home_url
+
+In my opinion, if the `/` path is necessary, it should be set within the CMS
+itself, rather than hard-coded here. Hard-coding it here makes it more
+labor-intensive to change the path in the future.
+
+Alternatively, if we want to link directly to `/` and know that this will
+always be the case, it may be simplest of all to forego PHP entirely:
+
+<h1><a href="/"><?php bloginfo('name'); ?></a></h1>
+
+**/
+
                     <h1><a href="<?php $url = home_url('/'); echo $url; ?>"><?php bloginfo('name'); ?></a></h1>
                     <p><?php bloginfo('description'); ?></p>
                 </div>
@@ -833,6 +858,31 @@ There are a lot of factors to consider when choosing a plugin:
 After taking into account all of these factors, you may end up determining that a plugin is not the best choice for this project. Often times, though, there will be a good fit for adding functionality and it will save you an enormous amount of time. 
 
 With WordPress, we can add, enable, and remove plugins from the Dashboard under the "Plugins" tab. The best way to get more familiar with plugins is to actually add them.
+
+<!--
+
+Comment from @chrisallenlane:
+
+On the topic of plugin security, it may be worth mentioning the various
+TimThumb exploits which affected so many sites over the years:
+
+- 2011: http://www.themelab.com/timthumb-security-exploit/
+- 2012: http://www.wpbeginner.com/wp-tutorials/how-to-fix-and-cleanup-the-timthumb-hack-in-wordpress/
+- 2014: https://blog.sucuri.net/2014/06/timthumb-webshot-code-execution-exploit-0-day.html
+
+(There were other incidents as well.)
+
+TimThumb is so notoriously vulnerable there are are security plugins whose sole job is to keep an eye on it!
+
+https://wordpress.org/plugins/timthumb-vulnerability-scanner/
+
+TimThumb, IMO, is interesting, because it was used by *a lot* of themes -
+including by some of the default themes, IIRC. As such, it rendered many sites
+vulnerable. IMO, mentioning TimThumb's sordid past could drive home the point
+that you make above regarding the potential of dubious plugins to compromise
+your site's security.
+
+-->
 
 ### Tutorial: Adding Plugins
 
