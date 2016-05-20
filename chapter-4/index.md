@@ -41,7 +41,7 @@ We are going to add 'places' in the actual template for Widgets to live. We will
 
 In this tutorial we will learn about defining functions, using WordPress built in functions, using an array to define options, and adding WordPress actions for additional functionality.
 
-##### Step 1: Create Functions.php File
+##### Step 1: Create functions.php File
 
 <p class="message">Create a functions.php file in your theme's root folder </p>
 
@@ -53,7 +53,6 @@ Let's add the code and then discuss what is happening here.
 
 <p class="file-name">function.php</p>
 ```php
-
 <?php 
 /*-------------- Enable Widgets--------------- */
 
@@ -82,21 +81,21 @@ function blank_widgets_init() {
 ?>
 ```
 
-This is creating a custom PHP function named blank_widgets_init(). You could name this whatever you want, but having an intelligible naming scheme will help you going forward. 
+This is creating a custom PHP function named `blank_widgets_init()`. You could name this whatever you want, but having an intelligible naming scheme will help you going forward. 
 
-Then we are using the WordPress function 'register_sidebar()' that tells WordPress to add a custom widget area that takes into account the options that you define inside the function. The options are pretty self explanatory:
+Then we are using the WordPress function `register_sidebar()` that tells WordPress to add a custom widget area that takes into account the options that you define inside the function. The options are pretty self explanatory:
 
-* 'name' is the name of the widget, 
-* 'id' is the id of the widget that we are going to use later for identifying this specific widget area, 
-* 'description' is the description of the widget, 
-* 'before_widget' is the code that comes before the widget is included, 
-* 'after_widget' is the code that comes after the widget is included, 
-* 'before_title' is the code that comes before the widget is included, 
-* 'after_title' is the code that comes after the widget is included.
+* `name` is the name of the widget, 
+* `id` is the id of the widget that we are going to use later for identifying this specific widget area, 
+* `description` is the description of the widget, 
+* `before_widget` is the code that comes before the widget is included, 
+* `after_widget` is the code that comes after the widget is included, 
+* `before_title` is the code that comes before the widget is included, 
+* `after_title` is the code that comes after the widget is included.
 
-The final part 'add_action('widgets_init', 'blank_widgets_init');' tells WordPress to include the custom PHP function we made that defines our widget functionality. 
+The final part `add_action('widgets_init', 'blank_widgets_init');` tells WordPress to include the custom PHP function we made that defines our widget functionality. 
 
-##### Step 3: Save and Upload your Functions.php File
+##### Step 3: Save and Upload your functions.php File
 
 If you upload the file now, you can go to Appearance -> Widgets and see the widget area ready for you to modify. Drag one of the default widgets to the new widget, modify it appropriately, and then hit save. 
 
@@ -108,13 +107,11 @@ We already have a sidebar assigned to the page.php file and it is a separate tem
 
 <p class="file-name">sidebar.php</p>
 ```php
-
 <?php dynamic_sidebar('first-widget'); ?>
-
 ```
 The 'id' that we defined in the options of the widget in functions.php is the parameter we use to call the widget using the dynamic_sidebar custom WordPress function. 
 
-##### Step 5: Save and Upload your Sidebar.php file
+##### Step 5: Save and Upload your sidebar.php file
 
 Once you upload the sidebar.php file (and the other files you have modified) you will see that whatever you put in your widget area will show up in your sidebar on page.php. 
 
@@ -140,7 +137,7 @@ function blank_widgets_init() {
 		'before_title' => '<h2>',
 		'after_title' => '</h2>'						
 		));
-/*--- New Widget --- */
+  /*--- New Widget --- */
 	register_sidebar( array(
 		'name' => ('Footer Widget One'),
 		'id' => 'footer-widget-one',
@@ -173,17 +170,16 @@ function blank_widgets_init() {
 
 }
 add_action('widgets_init', 'blank_widgets_init');
-
 ```
 
-The only thing we added was three more full register_sidebar functions and their options array. 
+The only thing we added was three more full `register_sidebar` functions and their options array. 
 
 ##### Step 2: Add More Widget Areas
 
-Now that we have the actual widgets created, let's add them to our footer. This will take two steps that are both important: 1. Separate the Footer into three equally sized columns, and 2. Add the dynamic_sidebar custom WordPress function. 
+Now that we have the actual widgets created, let's add them to our footer. This will take two steps that are both important: 1. Separate the Footer into three equally sized columns, and 2. Add the `dynamic_sidebar` custom WordPress function. 
 
 <p class="file-name">footer.php:</p>
-```html
+```php
 <footer class="row">
 	<div class="four columns">
 <?php dynamic_sidebar('footer-widget-one'); ?>
@@ -200,7 +196,6 @@ Now that we have the actual widgets created, let's add them to our footer. This 
 
 </body>
 </html>
-
 ```
 
 ##### Step 3: Save and Upload
@@ -228,9 +223,7 @@ For more in depth information about these subjects, go through the following lin
 
 ```php 
 /*-------------- Enable Menu --------------- */
-
 add_theme_support('menus');
-
 ```
 
 Add this to the very bottom of the functions.php file, below the Widgets section.
@@ -240,7 +233,7 @@ Add this to the very bottom of the functions.php file, below the Widgets section
 We are going do two things here: 1. Add a separate area in our header to house our menu, and 2. add code to hold the menu.
 
 <p class="file-name">header.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 <head>
@@ -268,7 +261,7 @@ We are going do two things here: 1. Add a separate area in our header to house o
 </div>
 ```
 
-The WordPress function we used is 'wp_nav_menu()'. We are using the options array here in a way we haven't before. We are defining an array explicitly with the array( ) object and then adding the options with their value (key/value pair). The options I included are sort_column and container_class. More information about this and the other options that are available can be found here: [https://codex.wordpress.org/Function_Reference/wp_nav_menu](https://codex.wordpress.org/Function_Reference/wp_nav_menu)
+The WordPress function we used is `wp_nav_menu()`. We are using the options array here in a way we haven't before. We are defining an array explicitly with the `array()` constructor and then adding the options with their value (key/value pair). The options I included are `sort_column` and `container_class`. More information about this and the other options that are available can be found here: [https://codex.wordpress.org/Function\_Reference/wp\_nav\_menu](https://codex.wordpress.org/Function_Reference/wp_nav_menu)
 
 ##### Step 3: Save and Upload
 
@@ -292,7 +285,7 @@ When working with a CMS, there are always going to be inherent traits that the d
 
 	Ids (#name-of-id) in HTML is used mostly for JavaScript. An Id is an identifier that should only be used once per page. 
 
-In our menu, we added an object in our options array called "container_class." The value associated with that option is "blank-menu-header." This is how we are going to target that area with our CSS. If you inspect the menu you will see that there the class we added in the options is the class surrounding the whole menu. 
+In our menu, we added an element in our options array called `container_class.` The value associated with that option is `blank-menu-header.` This is how we are going to target that area with our CSS. If you inspect the menu you will see that there the class we added in the options is the class surrounding the whole menu. 
 
 Using Google Chrome's "Inspect this Element" tool (right click on an object in a webpage to bring this up) is a great way to mess around with CSS in browser and to see what behavior is happening in your web page.
 
@@ -351,7 +344,7 @@ More information about creating an archive page can be found on the codex here: 
 We are going to include much of the same code we used before to set the data context and to make sure we are loading the exact elements we want for the archive. 
 
 <p class="file-name">archive.php</p>
-```html
+```php
 <?php 
 /* Template Name: Archive Page */
 
@@ -368,7 +361,7 @@ get_header(); ?>
 ##### Step 4: Add the functionality of the archive.php page
 
 <p class="file-name">archive.php</p>
-```html
+```php
 <?php 
 /* Template Name: Archive Page */
 
@@ -407,16 +400,15 @@ get_header(); ?>
 <?php get_footer(); ?>
 ```
 
-In the bottom of our archive page we are giving the user an opportunity to view by either month or by category. The WordPress function wp_get_archives will generate the information by month automatically because we passed the type=monthly parameter to it. 
+In the bottom of our archive page we are giving the user an opportunity to view by either month or by category. The WordPress function `wp_get_archives` will generate the information by month automatically because we passed the `type=monthly` parameter to it. 
 
 
 ##### Step 4: Add a Contingency
 
-There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an else statement to the if logic to address that situation.
+There may be a time where there is no archived posts to show from a certain query, so it would be prudent to add an `else` statement to the `if` logic to address that situation.
 
 <p class="file-name">archive.php</p>
-```html
-
+```php
 <?php 
 /* Template Name: Archive Page */
 
@@ -442,8 +434,6 @@ get_header(); ?>
 		<?php endif; ?>
 	</div>
 </div>
-
-
 ```
 ##### Step 5: Save and upload files
 
@@ -464,7 +454,7 @@ You may have already added a search bar into a widget - so using that would lead
 The two things we will do is to split up the header into two columns and then add the WordPress function for a search bar. 
 
 <p class="file-name">header.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 <head>
@@ -497,7 +487,7 @@ The two things we will do is to split up the header into two columns and then ad
 ##### Step 4: Build the search.php file
 
 <p class="file-name">search.php</p>
-```html
+```php
 <?php 
 /* Template Name: Search Page */
 
@@ -520,7 +510,7 @@ get_header(); ?>
 To walk through this file, we are going to include the header, the footer, and the grid system from all of the other files. Also, note the PHP comment at the top that says "Template Name: Search Page." This is used for the identifying this file as a template file. 
 
 <p class="file-name">search.php</p>
-```html
+```php
 <?php 
 /* Template Name: Search Page */
 
@@ -551,7 +541,7 @@ We already have a functioning search page, but what happens if there is no searc
 To that end, we are going to use some conditional logic to make sure IF there is a result we will display that result, but if anything ELSE occurs, we will display a warning. Getting comfortable with conditional logic will help you considerably with programming going forward. 
 
 <p class="file-name">search.php</p>
-```html
+```php
 <?php 
 /* Template Name: Search Page */
 get_header(); ?>
@@ -598,7 +588,7 @@ A 404 page is for when someone queries your website with a URL that does not poi
 ##### Step 2: Add functionality to the 404 page
 
 <p class="file-name">404.php</p>
-```html
+```php
 <?php 
 /* Template: 404 page (Not Found) */
 
@@ -633,7 +623,7 @@ WordPress handles images internally by sorting them in the media section. You ca
 
 We are going to implement another way to use images with WordPress, the "featured image." These are also referred to as "thumbnails" because of their original usages in the templating system. They are now used more dynamically as a thumbnail and a featured image (or for any of other things you could imagine). 
 
-*Why would you want to use a featured image on a post instead of just placing on in the post itself?*
+*Why would you want to use a featured image on a post instead of just placing it in the post itself?*
 
 #### Tutorial: Adding Featured Images and Thumbnails to Theme
 
@@ -652,10 +642,10 @@ add_theme_support( 'post-thumbnails' );
 
 ##### Step 2: Adding Thumbnails to the index.php file
 
-The code I am using contains a WordPress function and a parameter of 'thumbnail' to define which size image we want to serve up here. Also, we want to make sure that we can use featured images only for those posts where there is a featured image - so we are wrapping the code in a conditional statement. 
+The code I am using contains a WordPress function and a parameter of `thumbnail` to define which size image we want to serve up here. Also, we want to make sure that we can use featured images only for those posts where there is a featured image - so we are wrapping the code in a conditional statement. 
 
 <p class="file-name">index.php</p>
-```html
+```php
 <?php get_header(); ?>
 <section class="row">
 	<div class="twelve columns">
@@ -677,7 +667,7 @@ The code I am using contains a WordPress function and a parameter of 'thumbnail'
 <?php get_footer(); ?>
 ```
 
-I also added some additional PHP so that we are loading only the specific items we want. You should already be familiar with the_title, but you have not seen the_excerpt yet. 
+I also added some additional PHP so that we are loading only the specific items we want. You should already be familiar with `the_title`, but you have not seen `the_excerpt` yet. 
 
 An **Excerpt** is merely a preview of the full text of the post. This allows you to not dump your entire post into the front page. Additionally, on the post dashboard you can manually add the excerpt if you don't like what they put. 
 
@@ -686,7 +676,7 @@ An **Excerpt** is merely a preview of the full text of the post. This allows you
 We are going to do almost the exact same thing we did above except throw a different parameter into the WordPress function. 
 
 <p class="file-name">single.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<div class="row">
 		<div class="twelve columns">
@@ -704,7 +694,7 @@ We are going to do almost the exact same thing we did above except throw a diffe
 <?php get_footer(); ?>
 ```
 
-We have full image size going in now, but we could also use "array( width, height)" to define a custom value to display - which we might want to in case we want strict uniformity. For now though, we will just use the full size image and deal with those specifics later - mostly because I have a better way of dealing with uniformity of images. 
+We have full image size going in now, but we could also use `array(width, height)` to define a custom value to display - which we might want to in case we want strict uniformity. For now though, we will just use the full size image and deal with those specifics later - mostly because I have a better way of dealing with uniformity of images. 
 
 ##### Step 4: Save and Upload files
 
@@ -730,10 +720,10 @@ We are going to focus on two Codex entries:
 
 It is incredibly common, if not expected, that you can access the main page of your site through a URL from the site title or logo. You might have the desire to change this expectation for your designs, but for our purposes we will do it this way. 
 
-We are going to add the home_url() function in an anchor’s href and wrap our site title in the anchor. 
+We are going to add the `home_url()` function in an anchor’s `href` and wrap our site title in the anchor. 
 
 <p class="file-name">header.php</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
     <head>
@@ -752,7 +742,7 @@ We are going to add the home_url() function in an anchor’s href and wrap our s
             </header>
 ```
 
-Again, note how we are switching between html and php in our template files. 
+Again, note how we are switching between HTML and PHP in our template files. 
 
 ##### Step 2: Add a Permalink to a Post in the Loop
 
@@ -761,7 +751,7 @@ WordPress has a built in permalink system that you can change in the settings. H
 Let’s add the permalink to the post output in two ways, as a link that goes after the excerpt and one to the page title. 
 
 <p class="file-name">index.php</p>
-```html
+```php
 <?php get_header(); ?>
 <section class="row">
     <div class="twelve columns">
@@ -794,7 +784,14 @@ You should see a transformation of the way you can use the front page and your u
 
 We already introduced plugins in the first chapter in the context of WordPress. As a reminder: 
 
-	A Plugin is a group of PHP functions that can extend the functionality present in a standard WordPress weblog. These functions may all be defined in one php file, or may be spread among more than one file. Usually, a plugin is a PHP file that can be uploaded to the "wp-content/plugins" directory on your webserver, where you have installed WordPress. Once you have uploaded the plugin file, you should be able to "turn it on" or Enable it from the "Plugins" page in the administration interface of your weblog. The WordPress source code contains hooks that can be used by plugins.
+> A Plugin is a group of PHP functions that can extend the functionality present
+  in a standard WordPress weblog. These functions may all be defined in one php
+  file, or may be spread among more than one file. Usually, a plugin is a PHP
+  file that can be uploaded to the "wp-content/plugins" directory on your
+  webserver, where you have installed WordPress. Once you have uploaded the
+  plugin file, you should be able to "turn it on" or Enable it from the "Plugins"
+  page in the administration interface of your weblog. The WordPress source code
+  contains hooks that can be used by plugins.
 
 [https://codex.wordpress.org/Glossary#Plugin](https://codex.wordpress.org/Glossary#Plugin)
 
@@ -876,7 +873,7 @@ After you search this, you will see several search results - all of varying degr
 
 Luckily the one we want is up at the top and simply called "Limit Login Attempts" and has over 1 million downloads.
 
-	As of writing this, this plugin is out of date and hasn't been modified in a long time. This would be a big no-no for most plugins, but in this case it should be alright.
+(As of writing this, this plugin is out of date and hasn't been modified in a long time. This would be a big no-no for most plugins, but in this case it should be alright.)
 
 #### Step Three: Install the Plugin
 
