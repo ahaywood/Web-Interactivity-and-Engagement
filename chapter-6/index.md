@@ -56,6 +56,24 @@ Let's use WordPress as an example. WordPress will default to a numeric Primary K
 
 Each column in the top organizational row is given its own unique name (i.e., Post Title) and all of the other items in that column (i.e., "This is my first post") will be the data for that primary key and parameter. 
 
+<!--
+
+Note from @chrisallenlane:
+
+It's been a while since I've used either Wordpress or MySQL, but I have a
+question about the following assertion:
+
+> If a column is empty it will be given a null value and be considered empty.
+
+Is that correct? IIRC, Wordpress would leave most empty fields as an empty
+string in the database (`""`), rather than `null`. And MySQL (again, if I
+recall correctly) does make a distinction between `null` and `''`.
+
+I haven't used Wordpress for perhaps 3 years though, so I may be mistaken
+and/or out-of-date.
+
+-->
+
 Each column next to the primary key will relate directly to the data for that primary key. If a column is empty it will be given a null value and be considered empty. 
 
 The easiest way to think about it is to draw out a table with rows and columns. The top row is organizational and the first column is the primary key to help sort data. 
@@ -104,6 +122,27 @@ For a complete understanding of how WordPress integrates with MySQL go to the [W
 	MySQL is a popular choice of database for use in web applications, and is a central component of the widely used LAMP open source web application software stack… MySQL is a relational database management system (RDBMS), and ships with no GUI tools to administer MySQL databases or manage data contained within the databases. 
 
 [Wikipedia - MySQL](http://en.wikipedia.org/wiki/MySQL)
+
+<!--
+
+Note from @chrisallenlane:
+
+This is as much a question as it is a suggestion:
+
+Again, I haven't used Wordpress for a while, but last I heard, the open-source
+community was slowing migrating away from MySQL and into MariaDB, which is
+(allegedly) a drop-in replacement:
+
+https://mariadb.org/
+
+My understanding is that the motivation for making that change is mostly
+related to licensing - Oracle purchased MySQL some time ago, and there are
+fears that MySQL will become increasingly closed-source.
+
+In your experience, are a meaningful number of Wordpress sites powered by
+MariaDB yet? Is the latter worth mentioning?
+
+-->
 
 I have pulled a lot from this article here - in quotes below: [What is MySQL? What is a Database? What is SQL?](http://www.thesitewizard.com/faqs/what-is-mysql-database.shtml) because it's really good and you should read it fully if you want a better understanding of the topic. 
 
