@@ -43,6 +43,44 @@ Two common methods of dealing with bloat from CSS (and frameworks too) is using 
 
 #### Minifying
 
+<!--
+
+Note from @chrisallenlane:
+
+I have two comments here.
+
+First, regarding this assertion:
+
+> Minifying is the process of taking development code and making it production
+> ready by removing unnecessary spaces in the code. 
+
+It may be worth mentioning that the minification process can actually be a lot
+more elaborate than that. For example, uglifyjs will actually rename variables
+to shorter names to save page weight. (It will sometimes do other things, like
+change expression syntax to be more terse where possible.)
+
+That's not a major point, but it may be worth mentioning.
+
+Secondly, I believe we should make a clarification on the following assertion:
+
+> Minifying is also not limited to CSS but also applies to any front end file
+> that is loaded into a browser.
+
+To my knowledge, true minification is actually only possible on CSS and
+JavaScript files. I've never heard of it being used anywhere else, and I don't
+think that it can be.
+
+(I guess it would also be possible to "minify" HTML by simply vacuuming out the
+whitespace, but I don't think that's done all that often, given that gzip
+compression would likely minimize the extent to which that whitespace mattered
+anyway.)
+
+Other assets can be *compressed*, of course, (for example, web servers are
+commonly configured to gzip their output) but I believe that's generally not
+considered minification.
+
+-->
+
 You are probably well aware of the concept of minifying. Minifying is the process of taking development code and making it production ready by removing unnecessary spaces in the code. This is often done through a minifying command line tool or some other application. Many modern CMSs and application frameworks even have a minifying agent built in. Minifying is also not limited to CSS but also applies to any front end file that is loaded into a browser.
 
 For more information feel free to [read this article about minification](http://en.wikipedia.org/wiki/Minification_%28programming%29). 
@@ -170,6 +208,31 @@ The second is a hide class. The traditional display:none css rule is not actuall
 
 
 <p class="file-name">style.css</p>
+
+<!--
+
+Note from @chrisallenlane:
+
+Comment regarding the `.hide` class here.
+
+I read the linked article, but I'm not convinced this is a good idea for two reasons:
+
+1. It's been documented that Google treats sites with "off page" content with
+   great suspicion. (Ie, this has negative SEO consequences.)
+
+2. To my knowledge, this is what `visibility: hidden` was invented for.
+
+The broader point that you're making is valid, of course, but I propose that we
+modify the `.hide` class to simply be:
+
+```css
+.hide {
+  visibility: hidden;
+}
+```
+
+-->
+
 ```css
 .clear { clear:both; }
 
@@ -245,6 +308,21 @@ We already have a folder for our CSS, but we want to make sure we stay organized
     Copy bxslider.css into the ‘css’ sub-folder
 
 ##### Step 3: Enqueue the Files Using WordPress Functions
+
+<!--
+
+Note from @chrisallenlane:
+
+> There is ultimately no difference from a performance standpoint when you link
+> to the files in the header.
+
+I would argue that this is not the case. Given that `wp_enqueue_script` is
+smart enough to de-duplicate dependencies, I would argue that using
+`wp_enqueue_script` reduces page-weight and thereby improves performance. (It
+will also, of course, not include uneeded dependencies, which statically
+linking from within `<head>` will not do. That too reduces page weight.)
+
+-->
 
 Now that we have the files in our theme folder, we should enqueue them properly. When I say “properly,” I mean in the manner that WordPress prefers. There is ultimately no difference from a performance standpoint when you link to the files in the header. However, WordPress has a built in mechanism for handling dependent files via the functions.php file. The purpose of doing it this way is to ensure that there are no duplicative files loading, such as multiple jQuery files - which is known to happen when adding plugins or different functionality. Additionally, WordPress handles the order of loading the enqueued files for you so that you don’t have to worry about a dependent file being loaded in the wrong place. Of course this is never perfect and will have to be monitored through production.
 
