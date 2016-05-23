@@ -53,7 +53,7 @@ Additionally, you will want to "future-proof" your content early. Let's read a p
 
 We now know that we will want to consider how expansively our content should be used very early on in our design steps. After, we need to consider what approach we should use to implement our content management plan. 
 
-	I acknowledge that a "content management plan" or "content strategy" may not be an explicit plan for every project (certainly not the ones covered in this course), but considering the scope of how to use content will help you make better decisions as you go. 
+<p class='message'>I acknowledge that a "content management plan" or "content strategy" may not be an explicit plan for every project (certainly not the ones covered in this course), but considering the scope of how to use content will help you make better decisions as you go.</p>
 
 Content strategy is a key step in any design process.  You should read this article in its entirety: [Strategic Content Management - A List Apart](http://alistapart.com/article/strategic-content-management)
 
@@ -65,7 +65,7 @@ Content and the technology to manage content go hand in hand with the impression
 
 After making sure we know how we want to use our content and what methods we are going to use to handle the content, we will think about the overall organization and presentation of our content. That's where information architecture comes in. 
 
-	"Information architecture (IA) focuses on organizing, structuring, and labeling content in an effective and sustainable way.  The goal is to help users find information and complete tasks." 
+> Information architecture (IA) focuses on organizing, structuring, and labeling content in an effective and sustainable way.  The goal is to help users find information and complete tasks.
 [Information Architecture Basics - Usability.gov](http://www.usability.gov/what-and-why/information-architecture.html)
 
 Read the ["Content Modelling: A Master Skill"](http://alistapart.com/article/content-modelling-a-master-skill) article to get a grasp on how one might think about using information architecture as a content planning tool. 
@@ -178,7 +178,7 @@ The client might be the single biggest factor in your choice of a CMS. A lot wil
 1. *Current size of the organization*: Knowing the size of the organization will help you make a decision about the next factor (scale of the CMS). 
 2. *Potential future size of the organization*: You are going to want to make sure that if you choose a CMS, it will be able to grow with the organization. Obviously you won't be a mind reader but you should inquire to both growth strategies that are currently in place. 
 3. *Technological capabilities of the organization and its staff*: If the staff is not very technically able, you are going to want to consider the UI of the CMS from the content manager position a lot more heavily. 
-4.*Percentage of organizational operations that occur on the internet*: Not only percentage, but also the types of transactions the organization undertakes online. Your CMS is going to want to perform or integrate with tasks that are key to the business. So extensibility may play a bigger role depending on the type of business that the organization undertakes. 
+4. *Percentage of organizational operations that occur on the internet*: Not only percentage, but also the types of transactions the organization undertakes online. Your CMS is going to want to perform or integrate with tasks that are key to the business. So extensibility may play a bigger role depending on the type of business that the organization undertakes. 
 5. *Security needs of the organization*: This will be huge. A organization that needs a blog will have entirely different needs than an organization that handles sensitive documents and data (especially medical organizations). Make sure you are not giving them a solution that will come back to cause liability for that organization. I know getting into security can be both intimidating and overwhelming, but making sure you know of potential security concerns can help you make a decision or consult with others about what the best decision would be. 
 
 #### 5. Scale of the System
@@ -190,17 +190,17 @@ You don't want to get a CMS that is too big and slow when what you need is small
 
 Let's consider the following fact patterns and attempt to choose the best CMS from the above list.
 
-a. Small neighborhood market that has trouble with people finding where it is.
+a. Small neighborhood market that has trouble with people finding where it is
 
 b. Large, local office supply store that wants to start selling online
 
-c. Florida non-profit that wants to have a larger public face.
+c. Florida non-profit that wants to have a larger public face
 
-d.Internet startup that wants to sell doodads 
+d. Internet startup that wants to sell doodads 
 
 e. Internet startup that wants to sell consulting services
 
-f. Local doctors office.
+f. Local doctor's office
 
 *Do you see how there can be vaguery for each of these and several might fit the needs to the client?* 
 
@@ -212,25 +212,25 @@ Let's talk briefly about the elements in the context of a CMS and CMS selection.
 
 ### Environment:
 
-	Environment is essentially a grouping of concepts/items/situations related to the user at the time of accessing a resource.
+<p class='message'>Environment is essentially a grouping of concepts/items/situations related to the user at the time of accessing a resource.</p>
 
 *Is there something inherent about a CMS that will affect the user when they're accessing the resource?* 
 
 ### Story
 
-	Story encompasses the content and the display of the resource as a method of communicating a message.
+<p class='message'>Story encompasses the content and the display of the resource as a method of communicating a message.</p>
 
 *What role does a CMS have in the story you tell? Should it have any role at all?*
 
 ### Aesthetics
 
-	Aesthetics is about having a site that is enjoyable to be in.
+<p class='message'>Aesthetics is about having a site that is enjoyable to be in.</p>
 
 *How could a CMS help with the aesthetic quality of a CMS? How could it hinder it?*
 
 ### Performance
 
-	Performance is the speed with which your information is obtained by the user, but also how efficiently the user is able to navigate to the information they seek. 
+<p class='message'>Performance is the speed with which your information is obtained by the user, but also how efficiently the user is able to navigate to the information they seek.</p>
 
 Performance is definitely one of the most important choices with a CMS. It is also one of the most tangible to measure (both in general web design and in CMS selection). A good CMS will consider performance in its infrastructure (especially for file handling and serving). 
 
@@ -238,7 +238,7 @@ Performance is definitely one of the most important choices with a CMS. It is al
 
 ### Usability
 
-	Usability is the efficiency with which a user is able to use (or interact and perform tasks with) something. Making sure the user of your resource can do so in a positive and efficient manner is one of the biggest challenges of designers.
+<p class='message'>Usability is the efficiency with which a user is able to use (or interact and perform tasks with) something. Making sure the user of your resource can do so in a positive and efficient manner is one of the biggest challenges of designers.</p>
 
 Having a CMS that can both stay out of the way of usability and enhance the experience for the content managers would be amazing. There are plenty of CMSs that do these two things, but inevitably situations will arise where usability frustrations come from the structure of the CMS. 
 
@@ -246,17 +246,17 @@ Having a CMS that can both stay out of the way of usability and enhance the expe
 
 *What role does a CMS play for the content manager's usability?*
 
-## <a name="wireframing">Wireframing and Mockup Up a Site for a CMS</a>
+## <a name="wireframing">Wireframing and Mock-up Up a Site for a CMS</a>
 
 ### Wireframes
 
 The process of wireframing may seem like busy work. However, it actually is a really, really important step in creating a new web site or other resource. 
 
-	"Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually being informed by a business objective and a creative idea. The wireframe depicts the page layout or arrangement of the website's content, including interface elements and navigational systems, and how they work together. The wireframe usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content.[3] In other words, it focuses on what a screen does, not what it looks like"
+> Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually being informed by a business objective and a creative idea. The wireframe depicts the page layout or arrangement of the website's content, including interface elements and navigational systems, and how they work together. The wireframe usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content.[3] In other words, it focuses on what a screen does, not what it looks like.
 
 [From Wikipedia - Website Wireframe](http://en.wikipedia.org/wiki/Website_wireframe)
 
-There are many, many ways you can make a wireframe - from a pencil drawing to a photoshop mockup to using a web tool for help. The style of a mock up may differ for different organizations. Personally, I feel that anything that works in effectively conveying the UI, layout, and potential content is good enough though.
+There are many, many ways you can make a wireframe - from a pencil drawing to a photoshop mock-up to using a web tool for help. The style of a mock-up may differ for different organizations. Personally, I feel that anything that works in effectively conveying the UI, layout, and potential content is good enough though.
 
 *After you make the wireframes, what would the next step be?*
 
@@ -274,18 +274,18 @@ For our course though, we are going to use a more "self-intuition" method of cho
 
 [Wireframing Information - Wikipedia](http://en.wikipedia.org/wiki/Website_wireframe)
 
-### Visual Mockups
+### Visual Mock-ups
 
-If there was a lot of vaguery in the wireframing process above, there will be even more in the visual mockup category. However, these are often the more important of the two for the client. 
+If there was a lot of vaguery in the wireframing process above, there will be even more in the visual mock-up category. However, these are often the more important of the two for the client. 
 
-#### The visual mockup provides two benefits.
+#### The visual mock-up provides two benefits.
 
 The first is that you are able to make design decisions from a more tactile standpoint. Having an accurate visual representation of the project will help you balance all of the design decisions early on in the process.  
 
 Additionally, all of the technical specifications in the wireframe and project proposal will not always convey the look, feel, and direction of the project. Clients are often non-technical and need something pretty to look at. Having something pretty to show them will help convey your direction with the project. 
 
-#### Making a visual mockup
+#### Making a visual mock-up
 
 Well, there is no tutorial here, only advice.
 
-Each person will, inevitably, have their own method for doing this. I tend to take my wireframes and copy them into Photoshop (or illustrator). I will then gather other project specifications such as colors, images, fonts, etc. and space out potential content. Having several versions of a single mockup is always a good idea. I will often start over from scratch several times so that I don't get embedded in a single way of doing something.
+Each person will, inevitably, have their own method for doing this. I tend to take my wireframes and copy them into Photoshop (or illustrator). I will then gather other project specifications such as colors, images, fonts, etc. and space out potential content. Having several versions of a single mock-up is always a good idea. I will often start over from scratch several times so that I don't get embedded in a single way of doing something.
