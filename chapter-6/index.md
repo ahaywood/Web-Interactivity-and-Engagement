@@ -19,7 +19,7 @@ title: Chapter 6&#58; Storing and Using Content
 
 ## <a name="data-and-managing-data">Data and Managing Data</a>
 
-	Data as a general concept refers to the fact that some existing information or knowledge is represented or coded in some form suitable for better usage or processing.
+<p class='message'>Data as a general concept refers to the fact that some existing information or knowledge is represented or coded in some form suitable for better usage or processing.</p>
 
 [Wikipedia - Data](http://en.wikipedia.org/wiki/Data)
 
@@ -60,7 +60,7 @@ Each column next to the primary key will relate directly to the data for that pr
 
 The easiest way to think about it is to draw out a table with rows and columns. The top row is organizational and the first column is the primary key to help sort data. 
 
-	I know this is complicated, but stick with me...
+<p class='message'>I know this is complicated, but stick with me...</p>
 
 ### Database Operations
 
@@ -70,13 +70,13 @@ The obvious things that it can do include writing, editing, deleting, and reorga
 
 #### An Example
 
-As an example, let's say we want to view a post in WordPress called "Fun with Web Design." In WordPress, the database queries for specific posts are controlled by the internal routing function (a.k.a. the URL). So if we were going to find this post, we could use the URL "http://mywpsite.com/fun-with-web-design."
+As an example, let's say we want to view a post in WordPress called "Fun with Web Design." In WordPress, the database queries for specific posts are controlled by the internal routing function (a.k.a. the URL). So if we were going to find this post, we could use the URL `http://mywpsite.com/fun-with-web-design`.
 
 The extremely oversimplified version of what happens behind-the-scenes is this:
 
 1. The server will tell WordPress what has been asked of it
 2. WordPress will take the URL as it has been presented to it
-3. WordPress will know that it should look for the URL string as it appears after the domain ("fun-with-web-design")
+3. WordPress will know that it should look for the URL string as it appears after the domain (`fun-with-web-design`)
 4. WordPress queries the database for the "Post Title" of "Fun with Web Design." 
 5. The Database will find that post title and return 1) the primary key of the post and 2) any other information that WordPress asked for (post content, image URLs, etc.)
 6. WordPress will run that data through the theme and display the web page
@@ -89,11 +89,11 @@ Another advantage to a database is security. By having a secure system that stor
 
 ## <a name="wordpress-and-mysql">WordPress and MySQL</a>
 
-	WordPress requires a MySQL database to store all blog information, including posts, comments, metadata, and other information.
+<p class='message'>WordPress requires a MySQL database to store all blog information, including posts, comments, metadata, and other information.</p>
 
 [WordPress Codex - MySQL](http://codex.wordpress.org/Glossary#MySQL)
 
-The concept of an application interacting with a database is mostly universal. WordPress' integration with MySQL is no different. Using an index key, WordPress will query information from the database depending on the user's query (often through the URL - or route). 
+The concept of an application interacting with a database is mostly universal. WordPress' integration with MySQL is no different. Using a key, WordPress will query information from the database depending on the user's query (often through the URL - or route). 
 
 In fact, we directly discussed how WordPress works with MySQL in the examples above.
 
@@ -101,7 +101,7 @@ For a complete understanding of how WordPress integrates with MySQL go to the [W
 
 ### MySQL
 	
-	MySQL is a popular choice of database for use in web applications, and is a central component of the widely used LAMP open source web application software stack… MySQL is a relational database management system (RDBMS), and ships with no GUI tools to administer MySQL databases or manage data contained within the databases. 
+<p class='message'>MySQL is a popular choice of database for use in web applications, and is a central component of the widely used LAMP open source web application software stack… MySQL is a relational database management system (RDBMS), and ships with no GUI tools to administer MySQL databases or manage data contained within the databases.</p>
 
 [Wikipedia - MySQL](http://en.wikipedia.org/wiki/MySQL)
 
@@ -109,9 +109,8 @@ I have pulled a lot from this article here - in quotes below: [What is MySQL? Wh
 
 As we have established, web sites and other software need to receive data. Most of these systems that need data use a database to store, hold, and alter the data.
 
-	"To make it easy for other programs to access data through them, many database software support **a computer language called "SQL"** (often pronounced as "sequel"). SQL was specially designed for such a purpose. Programs that want the database software to handle the low-level work of managing data simply use that language to send it instructions."
-
-	"There are many databases that support the use of SQL to access their data, among them is MySQL. In other words, MySQL is just the brand of one database software, one of many. These databases are very popular among programs that run on websites which is why you often see one or both of them being advertised in the feature lists of web hosts, as well as being listed as one of the "system requirements" for certain web software (like blogs and content management systems)."
+<p class='message'>To make it easy for other programs to access data through them, many database software support **a computer language called "SQL"** (often pronounced as "sequel"). SQL was specially designed for such a purpose. Programs that want the database software to handle the low-level work of managing data simply use that language to send it instructions.
+<br>There are many databases that support the use of SQL to access their data, among them is MySQL. In other words, MySQL is just the brand of one database software, one of many. These databases are very popular among programs that run on websites which is why you often see one or both of them being advertised in the feature lists of web hosts, as well as being listed as one of the "system requirements" for certain web software (like blogs and content management systems).</p>
 
 You won't need to learn the programming language SQL or really learn how to use MySQL if you are a front end developer (or even a backend developer in some cases). WordPress handles a lot of the work for MySQL handling internally and it is done without your worrying about it. 
 
@@ -125,15 +124,14 @@ Hopefully you understand how databases work and if you are ever tasked with a pr
 
 Metadata is any data about data. For our purposes, we will primarily be using metadata for WordPress in the context of taxonomies.
 
-	The main purpose of metadata is to facilitate in the discovery of relevant information, more often classified as resource discovery. Metadata also helps organize electronic resources, provide digital identification, and helps support archiving and preservation of the resource. Metadata assists in resource discovery by "allowing resources to be found by relevant criteria, identifying resources, bringing similar resources together, distinguishing dissimilar resources, and giving location information."
+> The main purpose of metadata is to facilitate in the discovery of relevant information, more often classified as resource discovery. Metadata also helps organize electronic resources, provide digital identification, and helps support archiving and preservation of the resource. Metadata assists in resource discovery by "allowing resources to be found by relevant criteria, identifying resources, bringing similar resources together, distinguishing dissimilar resources, and giving location information."
 [Wikipedia - Metadata](http://en.wikipedia.org/wiki/Metadata)
 
 There are two types of metadata (for our purposes): 
 
-1. Descriptive metadata, 
+1. Descriptive metadata
 2. Structural metadata
 
-<br />
 **Descriptive metadata** is any data that describes or identifies information sources. Describing an item is useful for archiving or for sorting. Taxonomies would fall under the descriptive metadata context.
 
 **Structural metadata** facilitates navigation and presentation of electronic resources. Some structural metadata helps provide structure to the data. For example, if we were looking at an image tag, the width and height would be the structural metadata. Additionally, structural metadata could also include the primary key in a mysql database. 
@@ -158,7 +156,7 @@ Often, a tag is used for sorting and for identifying data. They can be used in a
 
 From the WordPress Codex: 
 
-	Tags can be made up on the fly, by simply typing them in. They can be seen on the site in the '/tag/name' types of URLs. Posts tend to have numerous tags, and they are generally displayed near posts or in the form of tag clouds.
+> Tags can be made up on the fly, by simply typing them in. They can be seen on the site in the '/tag/name' types of URLs. Posts tend to have numerous tags, and they are generally displayed near posts or in the form of tag clouds.
 
 ### Categories
 
@@ -176,7 +174,7 @@ For a third opinion, feel free to use this tutorial: [Smashing Magazine - Create
 
 Our project goal will be to create a taxonomy of different web development techniques that can be used alongside our existing categories.
 
-#### Step 1: Add a Function to your Functions.php File
+#### Step 1: Add a Function to your functions.php File
 
 The first step in adding a new taxonomy is register the taxonomy with WordPress through your Functions file - which we know modifies the way WordPress works from a theme level. Feel free to add this code to the bottom or top, but not between any other open functions.
 
@@ -194,37 +192,39 @@ This should look a LOT like the Widget registration process, and that's a good t
 <p class="file-name">functions.php</p>
 ```php
 function custom_taxonomy_wie_init() {
-	// create a new taxonomy
-	register_taxonomy(
-		'webdevelopment',
-		'post',
-		array(
-			'hierarchical' => true,
-    			'label' => 'Web Development Types',
-'query_var' => true
-		)
-	);
+
+  // create a new taxonomy
+  register_taxonomy(
+    'webdevelopment',
+    'post',
+    array(
+      'hierarchical' => true,
+      'label'        => 'Web Development Types',
+      'query_var'    => true
+    )
+  );
+
 }
 add_action( 'init', 'custom_taxonomy_wie_init' );
 ```
 
 The array of options has three different parameters:
 
-hierarchical (which asks whether the custom taxonomy will have the characteristics of embedded levels like a category)
-label (which is simple the label of the taxonomy that will be displayed)
-query_var (allows us to search and sort based on this custom taxonomy)
+1. `hierarchical` (which asks whether the custom taxonomy will have the characteristics of embedded levels like a category)
+2. `label` (which is simple the label of the taxonomy that will be displayed)
+3. `query_var` (allows us to search and sort based on this custom taxonomy)
 
 #### Step 3: Add Some Values to Your Taxonomy
 
 From WordPress Codex: 
 	
-	Once you've added a taxonomy, you'll find that WordPress creates a new meta box on posts for you. This new meta box looks almost exactly like the Tags box and will let you add tags to those posts.
+> Once you've added a taxonomy, you'll find that WordPress creates a new meta box on posts for you. This new meta box looks almost exactly like the Tags box and will let you add tags to those posts.
 
 To fully appreciate the custom taxonomy you should go into your Dashboard and add some values. If you are feeling uncreative, add "JavaScript," "CSS," and "HTML."
 
 #### Step 4: Implementing Some Use of the Custom Taxonomy
 
-I must admit the Codex suggests some rather complicated methods for using the custom taxonomy (many of which are inane). We are going to use it to implement a list of our new custom taxonomy in our Sidebar.php file - so that if we include the sidebar file, we will know it will display the list of our custom taxonomy. 
+I must admit the Codex suggests some rather complicated methods for using the custom taxonomy (many of which are inane). We are going to use it to implement a list of our new custom taxonomy in our sidebar.php file - so that if we include the sidebar file, we will know it will display the list of our custom taxonomy. 
 
 We are going to use the WordPress function get_terms. More information can be found here: [WordPress Codex - get_terms](https://codex.wordpress.org/Function_Reference/get_terms)
 
@@ -245,27 +245,29 @@ Let's keep the widget, but add some functionality to display our custom taxonomy
 <?php 
 
 $args = array(
-    'orderby'           => 'name', 
-    'hierarchical'      => true, 
-  ); 
+  'orderby'      => 'name', 
+  'hierarchical' => true, 
+); 
 
 $terms = get_terms('webdevelopment', $args);
 
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-    $count = count( $terms );
-    $i = 0;
-    $term_list = '<li>';
- 	foreach ( $terms as $term ) {
-        $i++;
-    	$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '">' . $term->name . '</a>';
-    	if ( $count != $i ) {
-            $term_list .= ' &middot; ';
-        }
-        else {
-            $term_list .= '</li>';
-        }
+  $count     = count( $terms );
+  $i         = 0;
+  $term_list = '<li>';
+
+  foreach ( $terms as $term ) {
+    $i++;
+    $term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '">' . $term->name . '</a>';
+    if ( $count != $i ) {
+      $term_list .= ' &middot; ';
     }
-    echo $term_list;
+    else {
+      $term_list .= '</li>';
+    }
+  }
+
+  echo $term_list;
 }
 ?>
 </ul>
