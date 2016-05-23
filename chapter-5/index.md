@@ -43,6 +43,29 @@ Isn't having your content distributed as widely as possible a good thing? Well, 
 
 Let's say you do want your content to be widely distributed. If you do that, it would be nice to have it as easy to access as possible. And not only by users, but also by other systems that may want to use that content. This is the whole concept of an Open API platform. 
 
+<!--
+
+Note from @chrisallenlane:
+
+The term "Open API" has been made unfortunately ambiguous recently. I assume
+that, above, you're referring to "Open API" in this sense:
+
+https://en.wikipedia.org/wiki/Open_API
+
+As of Jan 1 2016, however, swagger.io (the API description tool) has been
+adopted by the industry broadly and renamed as the Open API Initiative:
+
+https://openapis.org/
+
+Using the term as the former is still correct, of course - but now students may
+become confused by conflicting Google results.
+
+Perhaps it's worth using the more generic phrase "public API" instead of "Open
+API"? Alternatively, it might be worth explicity making the distinction between
+the general and specific uses in a "message" div or something.
+
+-->
+
 Additionally, you will want to "future-proof" your content early. Let's read a passage from the ["Your Content, Now Mobile" article](http://alistapart.com/article/your-content-now-mobile): 
 
 <blockquote>"If you take the time to figure out the right way to get your content out there, you'll have the freedom (and the flexibility) to get it everywhere. You can go back to thinking about the right design and development approaches for each platform, because you'll already have a reusable base of content to work from."</blockquote>
@@ -71,6 +94,22 @@ After making sure we know how we want to use our content and what methods we are
 Read the ["Content Modelling: A Master Skill"](http://alistapart.com/article/content-modelling-a-master-skill) article to get a grasp on how one might think about using information architecture as a content planning tool. 
 
 Structure of our content to the systems, users, and administrators of the content will shape the way people think about the content and how usable it will be to users. 
+
+<!--
+
+Note from @chrisallenlane:
+
+Perhaps the phrase "version control solution" in the next paragraph is somewhat
+confusing, because that term usually refers to programs like git, mercurial,
+svn, etc. (It's true that some flat-file CMSes - Jekyll, Metalsmith, etc. - use
+git for versioning, but I would argue that the "version control solution" is
+not itself the CMS.)
+
+I think I understand what you're getting at, though. Perhaps here, instead of
+using the phrase "version control solution", the phrase "flat-file CMS" would
+be more appropriate?
+
+-->
 
 Each CMS will have inherent biases to the content and the way it is organized. A blog CMS will treat organization differently than an image handling software. A version control solution will treat content differently than a ecommerce CMS. Developing a content strategy plan and an information architecture plan is a great first step to choosing a CMS.
 
@@ -180,6 +219,19 @@ The client might be the single biggest factor in your choice of a CMS. A lot wil
 3. *Technological capabilities of the organization and its staff*: If the staff is not very technically able, you are going to want to consider the UI of the CMS from the content manager position a lot more heavily. 
 4.*Percentage of organizational operations that occur on the internet*: Not only percentage, but also the types of transactions the organization undertakes online. Your CMS is going to want to perform or integrate with tasks that are key to the business. So extensibility may play a bigger role depending on the type of business that the organization undertakes. 
 5. *Security needs of the organization*: This will be huge. A organization that needs a blog will have entirely different needs than an organization that handles sensitive documents and data (especially medical organizations). Make sure you are not giving them a solution that will come back to cause liability for that organization. I know getting into security can be both intimidating and overwhelming, but making sure you know of potential security concerns can help you make a decision or consult with others about what the best decision would be. 
+
+
+<!--
+
+Note from @chrisallenlane:
+
+With point 5 above, it may be worth mentioning HIPAA by name, just to expose
+students to the term. It may also be worth noting that rigorous regulations
+(PCI DSS, commonly referred to as "PCI compliance") likewise apply to
+applications that store credit card data.
+
+-->
+
 
 #### 5. Scale of the System
 
