@@ -91,7 +91,21 @@ $friday = "Monday"; //Same variable defined above given a different value
 Variables begin with a $ in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer's use of that variable. The format for a variable will often look like this: $variable = value; (note the semicolon ending the statement). 
 
 #### Strings
-A string is merely the name given to a sequence of simple objects. In PHP, text is often referred to as a string. Of all of the types, strings are often the most static but can be modified in many ways using functions. 
+
+<!--
+
+Note from @chrisallenlane:
+
+Please examine this diff. I made some changes to the language, in order to
+avoid some potential confusion.
+
+Specifically, my understanding is that it is not accurate to say that strings
+are "names given to a sequence of simple objects", because `string` is a
+primitive type.
+
+-->
+
+In PHP, text is referred to as a string. Strings can be modified in many ways using functions. 
 
 ```php 
 <?php 
@@ -105,27 +119,37 @@ $stringTest3 = "a 1 ewj ..." // In Fact, a string can be anything as long as it 
 ?>
 ```
 
+<!-- 
+
+Note from @chrisallenlane:
+
+It may or may not also be worth noting that `strings` in PHP can also be binary
+blobs. Perhaps that's too confusing to bring into the discussion here, though -
+I don't know.
+
+-->
+
 #### Arrays
 
-Arrays allow the user to store multiple values in a special kind of variable called an array. It may be helpful to think of an array as a list. Let's think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
+Arrays allow the user to store multiple values in a special kind of variable. It may be helpful to think of an array as a list. Let's think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
 
 ```php
 <?php
 
 $animals = array(
-"dog", //key is 0
-"frog",  //key is 1
-"elephant",  //key is 2
-"cat", //key is 3
-"wolf", //key is 4
-"sheep"//key is 5
+  "dog",      //key is 0
+  "frog",     //key is 1
+  "elephant", //key is 2
+  "cat",      //key is 3
+  "wolf",     //key is 4
+  "sheep"     //key is 5
 );
 
 ?>
 ```
 
 
-Each item in an array is given a **key** (a.k.a. 'index'). A key (or index) in this case is the number in which the item appears within the array starting with 0. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
+Each item in an array is given a **key** (a.k.a. 'index'). A key (or index) in this case is the number in which the item appears within the array starting with `0`. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
 
 [PHP.net - Arrays](http://php.net/manual/en/language.types.array.php)
 
@@ -148,8 +172,8 @@ Booleans refer to any version of true or false (on or off/ I or O/ 1 or 0). In P
 ```php
 <?php
 
-$areWeHavingFun = true //boolean value is true
-$areWeReally = 'false' //not a boolean, this is a string
+$areWeHavingFun = true    //boolean value is true
+$areWeReally    = 'false' //not a boolean, this is a string
 
 ?>
 ```
@@ -159,16 +183,30 @@ Booleans are amazingly useful in a lot of programming situations. We will explor
 
 #### NULL: 
 
-The "null" *value* acts like the boolean value, but represents a variable with no value. A variable will be set to the value NULL if it is left blank or is set to NULL manually.
+<!--
+
+Notes from @chrisallenlane:
+
+I made two edits here:
+
+1. I removed the assertion that `null` acts like a Boolean, because I don't
+   believe that's technically accurate.
+
+2. `s/left blank/not assigned a value/`, because I believe that's clearer, and
+   because I wanted to avoid the term "{un}initialized".
+
+-->
+
+The "null" *value* acts represents a variable with no value. A variable will be set to the value `null` if it is not assigned a value or is set to `null` manually.
 
  ```php
 <?php
 
-$var1 = $var2; // var1 is a null value because we haven't set the value of var2
+$var1 = $var2;  // var1 is a null value because we haven't set the value of var2
 
 $var1 = 'null'; //var1 is no longer null because we have assigned it the value of a string 'null'
 
-$var1 = NULL; // var1 is again null, but is so because we have set it to be null.
+$var1 = NULL;  // var1 is again null, but is so because we have set it to be null.
 
 ?>
 ```
@@ -193,7 +231,7 @@ define('FAVORITE_ANIMAL', 'Dogs');
 
 ##### Integers
 
-Whole numbers are often referred to as 'integers' in PHP.
+Whole numbers are referred to as 'integers' in PHP.
 
 ##### Floating Point number
 
@@ -784,11 +822,32 @@ The loop then echoes the value of x plus some HTML
 Then the value of x is incrementally increased
 The loop starts over again until the statement is no longer true.
 
-Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. Many other languages have loops built in to the language but most aren't as specific or flexible as PHP. 
+<!--
+
+Note from @chrisallenlane:
+
+I remove the line about PHP having more flexible looping capabilities than
+other languages because, at least in my personal experience, that does not seem
+to be true.
+
+-->
+
+Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. (Many other languages have loops built in as well).
 
 ### Functions
 
 Functions are defined to perform preset tasks. PHP has an exhaustive list of its own preset functions and it is even possible to write custom functions.
+
+<!--
+
+Note from @chrisallenlane:
+
+Not to be overly pedantic, but `echo` is not actually a function, but rather a
+"language construct". See:
+
+http://php.net/manual/en/function.echo.php
+
+-->
 
 We have already dealt with the function "echo" which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
 
