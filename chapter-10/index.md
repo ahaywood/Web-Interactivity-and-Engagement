@@ -45,7 +45,7 @@ Here is some terminology that you should know going into this:
 
 **Fork/Branch**: "A branch is a parallel version of a repository." Branches allow you to modify another repository without having to modify the master. A Fork is similar to this, except the copy of the repository lives on your account. The difference, in practice, is generally that a branch will eventually be merged into the master if it is needed while a fork will be kept on your account (though many people make push/pull requests if the forked repository fixes something). 
 
-**Readme**: A Readme file contains descriptive information about the project. It is often an "md" file which stands for Markdown. Markdown is a simplified templating language which makes organizing the descriptive information easy.
+**Readme**: A Readme file contains descriptive information about the project. It is often an "md" file which stands for [Markdown](https://daringfireball.net/projects/markdown/). Markdown is a simplified templating language which makes organizing the descriptive information easy.
 
 
 ###  Setting up a Github Project
@@ -65,25 +65,24 @@ This will be the basis for the other WordPress projects in class. This project s
 
 The steps below outline the process in greater detail.
 
-	MAKE SURE YOU SAVE THESE FILES IN A SEPARATE FILE SO THAT YOU HAVE THE BLANK TEMPLATE FOR FUTURE PROJECTS WITHOUT MODIFICATIONS!
+<p class='message'>MAKE SURE YOU SAVE THESE FILES IN A SEPARATE FILE SO THAT YOU HAVE THE BLANK TEMPLATE FOR FUTURE PROJECTS WITHOUT MODIFICATIONS!</p>
 
 ### Project Requirements:
 
 1. Create a folder title "blank-template-yourname"
 
 2. Create the following files and place them in your template folder:
-	* Index.php
-	* Header.php
-	* Footer.php
-	* Functions.php
-	* Page.php
-	* Single.php
+	* index.php
+	* header.php
+	* footer.php
+	* functions.php
+	* page.php
+	* single.php
 	* 404.php
-	* Archive.php
-	* Search.php
-	* Sidebar.php
-	* Style.css
-
+	* archive.php
+	* search.php
+	* sidebar.php
+	* style.css
 
 3. Follow along in class to make sure these files all work together.
 
@@ -117,7 +116,7 @@ Completion of this project can be done by following along with the following tut
 
 ## <a name="class-presentations">Class Presentations</a>
 
-	This project is very specific to the Web Interactivity and Engagement Course - if you are using this course book for your general knowledge, disregard this section.
+<p class='message'>This project is very specific to the Web Interactivity and Engagement Course - if you are using this course book for your general knowledge, disregard this section.</p>
 
 You will be assigned a different "element" of web development as outlined in the ["Elements of a Website" lecture](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements) here: [http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements](http://jayres.github.io/Web-Interactivity-and-Engagement/chapter-2/#elements)
 
@@ -172,7 +171,7 @@ You will mock up and then implement changes to the WordPress template to make a 
 
 #### Grading Rubric:
 
-	Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.
+<p class='message'>Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.</p>
 
 **Design:** Did you provide an original, quality design beforehand? (Feel free to send new designs within a reasonable time before you begin your project if you have made any changes that were discussed in our critique): 35 points
 
@@ -233,7 +232,7 @@ h. Be well designed and demonstrate your knowledge and comfort with WordPress
 
 #### Grading Rubric:
 
-	Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.
+<p class='message'>Note that the majority of your grade is based on your ability to make a design and implement it as it appears in the mockup.</p>
 
 **Design:** Did you provide an original, quality design beforehand? (Feel free to send new designs within a reasonable time before you begin your project if you have taken away changes from our critique) 
 55 points
