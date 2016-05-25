@@ -87,6 +87,18 @@ The steps below outline the process in greater detail.
 
 3. Follow along in class to make sure these files all work together.
 
+<!-- 
+
+Note from @chrisallenlane:
+
+> zip these files and email them to me.
+
+Question: if the goal here is to help the students become more acquainted with
+the Github workflow, perhaps it would be better to have them open a ticket (and
+assign it to you) requesting a code-review on their personal repositories?
+
+-->
+
 4. When you have created these files and the class has progressed to the end of this series of lectures, zip these files and email them to me.
 
 5. Make sure you keep a separate zipped copy of these files separate from the "Modify a Wordpress Template" files so that you can reuse these files for your final project.
