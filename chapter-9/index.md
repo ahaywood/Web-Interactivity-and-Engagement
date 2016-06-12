@@ -28,7 +28,7 @@ Let’s start out our introduction to User Experience and User Interface by watc
 
 So the topics of UI and UX exist only on the periphery of this course's subject matter. However, the reason we will discuss this topic to a minor extent is because it is very important to everything that you do in the design and execution of a web site/application/resource. Additionally, there are direct ties between CMSs and UI/UX.
 
-	User Experience Design (UXD or UED or XD) is the process of enhancing user satisfaction by improving the usability, accessibility, and pleasure provided in the interaction between the user and the product.
+> User Experience Design (UXD or UED or XD) is the process of enhancing user satisfaction by improving the usability, accessibility, and pleasure provided in the interaction between the user and the product.
 
 [Wikipedia - User Experience Design](http://en.wikipedia.org/wiki/User_experience_design) 
 
@@ -65,7 +65,6 @@ Here is a short list of UI items the **site visitor** will want:
 * Clean display of content
 * An attractive presence
 * Navigation throughout the site to other content
-<br /><br />
 
 Here is a short list of UI items the **content manager** will want:
 
@@ -73,13 +72,12 @@ Here is a short list of UI items the **content manager** will want:
 * Clean method of inserting content
 * A simple presence
 * Tools to enhance and verify the quality of the content
-<br /><br />
 
-Though this list is clearer over-simplified, it demonstrates that the needs of the users are very different and the UI that they get will also be very different. The entire experience between the two is different therefore the UI will need to speak to that experiential difference. 
+Though this list is clearly over-simplified, it demonstrates that the needs of the users are very different and the UI that they get will also be very different. The entire experience between the two is different therefore the UI will need to speak to that experiential difference. 
 
 So what about the “...as part of a plan” thing? When you are designing a new site/application/anything you will, obviously, want to have a plan. 
 
-One of the most popular UI as a plan documents is the [Google Material Design documentation](https://www.google.com/design/spec/material-design/introduction.html). If you browse through it you can see the thorough planning taking into account for every element. 
+One of the most popular UI as a plan documents is the [Google Material Design documentation](https://www.google.com/design/spec/material-design/introduction.html). If you browse through it you can see the thorough planning taken into account for every element. 
 
 When coming up with your plan, here are some things to take into account:
 
@@ -95,7 +93,7 @@ Additionally, you can always add new elements to the plan as you go and test, bu
 
 #### Useful Links
 * [12 Useful Techniques For Good User Interface Design](http://www.smashingmagazine.com/2009/01/12-useful-techniques-for-good-user-interface-design-in-web-applications/) - Old but still useful
-* More to be added (if you have any to add, make a push request)
+* More to be added (if you have any to add, make a pull request)
 
 ## <a name="seo-techniques-in-a-cms">SEO Techniques in a CMS</a>
 
@@ -173,11 +171,11 @@ Let’s look at [The Google SEO Starter Guide](http://static.googleusercontent.c
 
 [From the schema site](http://schema.org/): 
 
-	This site provides a collection of schemas, i.e., html tags, that webmasters can use to markup their pages in ways recognized by major search providers. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results, making it easier for people to find the right web pages.
+> This site provides a collection of schemas, i.e., html tags, that webmasters can use to markup their pages in ways recognized by major search providers. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results, making it easier for people to find the right web pages.
 
-	Many sites are generated from structured data, which is often stored in databases. When this data is formatted into HTML, it becomes very difficult to recover the original structured data. Many applications, especially search engines, can benefit greatly from direct access to this structured data. On-page markup enables search engines to understand the information on web pages and provide richer search results in order to make it easier for users to find relevant information on the web. Markup can also enable new tools and applications that make use of the structure.
+> Many sites are generated from structured data, which is often stored in databases. When this data is formatted into HTML, it becomes very difficult to recover the original structured data. Many applications, especially search engines, can benefit greatly from direct access to this structured data. On-page markup enables search engines to understand the information on web pages and provide richer search results in order to make it easier for users to find relevant information on the web. Markup can also enable new tools and applications that make use of the structure.
 
-	A shared markup vocabulary makes it easier for webmasters to decide on a markup schema and get the maximum benefit for their efforts. So, in the spirit of sitemaps.org, search engines have come together to provide a shared collection of schemas that webmasters can use.
+> A shared markup vocabulary makes it easier for webmasters to decide on a markup schema and get the maximum benefit for their efforts. So, in the spirit of sitemaps.org, search engines have come together to provide a shared collection of schemas that webmasters can use.
 
 Essentially, schema is a series of html indicators you can include in a site that will allow the search engines to automatically pull information from them. This is EXTREMELY useful in a CMS environment because the markup can go in the template and then as the site changes, the information fed to search engines will change with it. This allows you to add things like side bars in Google, or information about location, contact info, etc. for searches. 
 
@@ -260,7 +258,6 @@ For our site there are a few default image sizes:
 * Medium: 300px x 300px
 * Large: 1024px x 1024px
 * Full: Whatever size the image was uploaded to.
-<br /><br />
 
 These may not correspond with your theme or your site at all though. You are able to override these sizes, but let’s make use of WordPress functionality to strictly define the sizes of some of our images we know we will use. Take some time to figure out what image sizes exist in your template. 
 
@@ -269,33 +266,44 @@ For us, let’s imagine we are going to use the following sizes in certain situa
 * Front page slider images: 940px x 300px
 * Thumbnails for posts: 200px x 200px
 * Profile Images: 200px x 300px
-<br /><br />
 
 *Are you using a ton of different image sizes throughout and wouldn’t it be better if you had more uniformity?*
 
 #### Step Two: Set Image Sizes in WordPress
 
-WordPress uses the “add_image_size” function to allow you to define your custom images. Let’s register these sizes in our functions file and then add a condition for us to display them as a selection mechanism in the image selection screen. You must have theme support post thumbnails enabled for this to work. 
+WordPress uses the `add_image_size` function to allow you to define your custom images. Let’s register these sizes in our functions file and then add a condition for us to display them as a selection mechanism in the image selection screen. You must have theme support post thumbnails enabled for this to work. 
 
 ```php
 <?php
+
 add_image_size( 'front-slider', 940, 300, true ); // width, height, crop
 add_image_size( 'blog-post-thumbnails', 200, 200, true );
 add_image_size( 'profile-images', 200, 300, true );
 
 // Register the image sizes
 function wie_custom_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'front-slider' => __( 'Front Slider Image' ),
-        'blog-post-thumbnails' => __( 'Blog Post Thumbnails' ),
-        'profile-images' => __( 'Profile Images' ),
-    ) );
+  return array_merge( $sizes, array(
+    'front-slider'         => __( 'Front Slider Image' ),
+    'blog-post-thumbnails' => __( 'Blog Post Thumbnails' ),
+    'profile-images'       => __( 'Profile Images' ),
+  ) );
 }
 add_filter( 'image_size_names', wie_custom_image_sizes );
 ?>
 ```
 
 #### Step Three: Reference New Image Sizes
+
+<!--
+
+Note from @chrisallenlane:
+
+Please pay special attention to the changes made in this diff. As far as I can
+tell, the changes I made fix what would otherwise have been broken code, but I
+haven't used Wordpress in some time, and I'm not 100% confident in that fact.
+Thanks.
+
+-->
 
 Let’s use our blog-post-thumbnails custom size in our regular loop as demonstration.
 
@@ -307,7 +315,7 @@ if ( have_posts() ) {
         the_post();
         if ( has_post_thumbnail() ) { ?>
             <div class="post-thumbnail-front">
-                <?php the_post_thumbnail(blog-post-thumbnails); ?>
+                <?php the_post_thumbnail(); ?>
             </div> 
         <?php } ?>
         <h3><?php the_title(); ?></h3>
@@ -380,21 +388,23 @@ Let’s create a sample css document that maximizes our readability requirements
 
 ```css
 body {
-    font: /*insert your base font here - may be sans serif */;
-    font-size: 16px;
-    color: #000;
-    background: #fff;
+  font: /*insert your base font here - may be sans serif */;
+  font-size: 16px;
+  color: #000;
+  background: #fff;
 }
 
 p {
-    font: /*insert a serif font here */;
-    line-height: 1.5rem;
+  font: /*insert a serif font here */;
+  line-height: 1.5rem;
 }
 ```
 
-[Readability: the Optimal Line Length - Baymard Institute ](http://baymard.com/blog/line-length-readability)
-[Read-able: Web Readability Test Tool](http://read-able.com/)
-[Balancing Line Length - Smashing Magazine ](http://www.smashingmagazine.com/2014/09/balancing-line-length-font-size-responsive-web-design/)
+Suggested reading:
+
+- [Readability: the Optimal Line Length - Baymard Institute ](http://baymard.com/blog/line-length-readability)
+- [Read-able: Web Readability Test Tool](http://read-able.com/)
+- [Balancing Line Length - Smashing Magazine ](http://www.smashingmagazine.com/2014/09/balancing-line-length-font-size-responsive-web-design/)
 
 ### Tutorial: Implement Changes to Our Site for Readability
 We are going to want to go through the following steps to enhance our site’s readability using what we learned above.
@@ -413,7 +423,7 @@ The reality is that most “attacks” on web sites and computers are due to use
 
 * Have difficult to guess passwords
 * Make sure your passwords aren’t written down on your desk (or in an email/text/other easy to read medium)
-* Take advantage of two step authentication when available
+* Take advantage of two-factor authentication when available
 * Share your passwords as little as possible
 * Change your passwords frequently
 * Update your sites/servers/resources often

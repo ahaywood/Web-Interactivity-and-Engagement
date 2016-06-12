@@ -51,23 +51,23 @@ Every WordPress template needs certain files to make sure that the content is di
 
 Here is a list of the files you will add in the upcoming lessons for creating a template:
 
-* **Index.php:** By default, the front page of your WordPress site. 
+* **index.php:** By default, the front page of your WordPress site. 
 
-* **Header.php:** The included file that holds your header section of your template.
+* **header.php:** The included file that holds your header section of your template.
 
-* **Footer.php:** The included file that holds the footer section of your template.
+* **footer.php:** The included file that holds the footer section of your template.
 
-* **Style.css:** The CSS file that holds your base CSS styles.
+* **style.css:** The CSS file that holds your base CSS styles.
 
-* **Functions.php:** Houses all of your PHP Functions that you add to make WordPress do more, or to enable things WordPress already intends to do.
+* **functions.php:** Houses all of your PHP Functions that you add to make WordPress do more, or to enable things WordPress already intends to do.
 
-* **Page.php:** The template file for your pages.
+* **page.php:** The template file for your pages.
 
-* **Single.php:** The template file for your posts.
+* **single.php:** The template file for your posts.
 
-* **Archive.php:** A template file that displays groupings of past courses.
+* **archive.php:** A template file that displays groupings of past courses.
 
-* **Search.php:** The template file that displays search results from using WordPress' built in search
+* **search.php:** The template file that displays search results from using WordPress' built in search
 
 * **404.php:** The page that will display if there is a 404 error (page not found).
 
@@ -103,13 +103,12 @@ Open your text editor and create two files:
 
 #### Step 3: Populate your index.php file
 
-Let's remember something we already learned: PHP is merely a means to generate content to go inside of HTML. This means that PHP will work seamlessly with HTML already and any PHP file can have HTML, CSS, JavaScript, and any other language that a browser will parse. The only thing a PHP file cares about is the code inside of the <?php … ?> brackets. For this reason, we aren't going to write a bit of PHP in the index.php file and that's okay - because the server will see that there is no PHP in the file and just return the HTML we write to the browser. 
+Let's remember something we already learned: PHP is merely a means to generate content to go inside of HTML. This means that PHP will work seamlessly with HTML already and any PHP file can have HTML, CSS, JavaScript, and any other language that a browser will parse. The only thing a PHP file cares about is the code inside of the `<?php` ... `?>` brackets. For this reason, we aren't going to write a bit of PHP in the index.php file and that's okay - because the server will see that there is no PHP in the file and just return the HTML we write to the browser. 
 
 You may recognize this next bit of code we are going to add to the index.php file:
 
 <p class="file-name">index.php</p>
 ``` html
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,7 +117,6 @@ You may recognize this next bit of code we are going to add to the index.php fil
 <body>
 </body>
 </html>
-
 ```
 
 Notice anything weird here? You shouldn't. It is the basic setup for any HTML file you will ever create. 
@@ -177,7 +175,7 @@ This will be a relatively easy process which hardly warrants a tutorial, but sin
 
 #### Step 1: Log into your WordPress admin
 
-To log into WordPress, visit the URL of your site (http://www.yoursite.com/wordpress-folder) and then go to the log in page (can be found at (http://www.yoursite.com/wordpress-folder/wp-admin or http://www.yoursite.com/wordpress-folder/wp-login.php). 
+To log into WordPress, visit the URL of your site (`http://www.yoursite.com/wordpress-folder`) and then go to the log in page (can be found at `http://www.yoursite.com/wordpress-folder/wp-admin` or `http://www.yoursite.com/wordpress-folder/wp-login.php`). 
 
 #### Step 2: Go to Appearance -> Themes
 
@@ -197,7 +195,7 @@ WordPress isn't doing anything on the pages because you didn't tell it to do any
 
 ## <a name="grid-based-layouts">Grid Based Layouts</a>
 
-A majority of modern web sites use a grid to determine where to place content. The advantages to a grid based layout is that you can place items on your site in a uniform manner. Many of the grid frameworks also make it very easy to have a fully responsible site with very little work.
+A majority of modern web sites use a grid to determine where to place content. The advantages to a grid based layout is that you can place items on your site in a uniform manner. Many of the grid frameworks also make it very easy to have a fully responsive site with very little work.
 
 If you have a good amount of experience with grid based layouts, this following section may be overly simple for you. I am including it because 1) it is not obvious on its own and 2) MANY mistakes are made by misusing a grid system.
 
@@ -265,33 +263,33 @@ As a review, here is the simple, HTML method for linking to a file:
 
 <!-- Link to a JavaScript file --> 
 <script src="custom.js"></script>
-
 ```
 
 Now we are going to write our very first PHP for WordPress so that we can load something dynamic. We are going to link to our style.css file and the skeleton.css framework file.
 
 <p class="file-name">index.php:</p>
 
-```html
+```php
 <head>
 <!-- Links to our Style.css file -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 </head>
 ```
 
-The '<?php bloginfo('stylesheet_url')_; ?>' portion of the code we added contains a built in WordPress function (bloginfo()) and a parameter that the function will use ('stylesheet_url'). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. 
+The `<?php bloginfo('stylesheet_url')?>` portion of the code we added contains a built in WordPress function (`bloginfo()`) and a parameter that the function will use (`stylesheet_url`). The purpose of this function is to link to your default stylesheet in a dynamic way so that if you move your theme around to different servers, the link will always work relatively. 
 
-Next we will create a folder inside of our theme folder (firstname_blank_theme) named "css". Then download the Skeleton CSS file and put that file inside of the firstname_blank_theme/css folder. 
+Next we will create a folder inside of our theme folder (`firstname_blank_theme`) named "css". Then download the Skeleton CSS file and put that file inside of the `firstname_blank_theme/css` folder. 
 
 We are going to store all of our CSS files EXCEPT our style.css file in this folder. The style.css file needs to be in the theme's root directory because it contains administrative information. 
 
-Lastly we will add an @import to our style.css file for our Skeleton CSS file (downloaded from the Skeleton site.
+Lastly we will add an `@import` to our style.css file for our Skeleton CSS file (downloaded from the Skeleton site).
 
+```html
 <p class="file-name">style.css:</p>
+```
+
 ``` css
-
 @import url("css/my_custom_style.css");
-
 ```
 When we save and upload our index and style.css file you should be able to see that they are loading. 
 
@@ -302,8 +300,7 @@ This tutorial will show you how to implement the Skeleton Grid system. This will
 Let's remember what our current index.php page looks like:
 
 <p class="file-name">index.php:</p>
-```html
-
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -323,7 +320,7 @@ Let's remember what our current index.php page looks like:
 Let's add some more HTML5 syntax so that we can have a blank template that is fuller and richer. 
 
 <p class="file-name">index.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -353,7 +350,7 @@ Basically we added 'header', 'footer' and some filler text. However, the site ma
 Next, let's implement the Skeleton grid system as we learned above. Note how we integrate the HTML5 elements as if they were divs. This is okay!
 
 <p class="file-name">index.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -407,7 +404,7 @@ If we take our code from above, it is easy to see that there are clear differenc
 #### Step 1. Add Comments for Separation
 
 <p class="file-name">index.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -449,7 +446,7 @@ Next, let's create two files:
 
 <p class="file-name">header.php:</p>
 
-```html
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -496,7 +493,7 @@ Next, let's create two files:
 Next we add the WordPress functions that link to the header and footer. These two PHP functions are built in to the WordPress syntax and can be found in the WordPress Codex if you want to learn more about them.
 
 <p class="file-name">index.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<section class="row">
 		<div class="twelve columns">
@@ -511,7 +508,7 @@ Next we add the WordPress functions that link to the header and footer. These tw
 WordPress needs some additional functions in the header and footer to make sure that some added features are included. One of these is the Dockbar that follows you throughout your site if you are logged in. Another is for various functional reasons that are not worth getting into - just do it.
 
 <p class="file-name">header.php:</p>
-```html
+```php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -531,7 +528,7 @@ WordPress needs some additional functions in the header and footer to make sure 
 ```
 
 <p class="file-name">footer.php:</p>
-```html
+```php
 <!-- BEGINNING OF FOOTER - END SECTION CONTENT -->
 			<footer class="row">
 				<div class="twelve columns">
@@ -549,7 +546,7 @@ WordPress needs some additional functions in the header and footer to make sure 
 Let's add some necessary items to our header now. We are going to add two built in WordPress functions to the header.php file where we are loading static content. 
 
 <p class="file-name">header.php:</p>
-``` html
+``` php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -568,7 +565,7 @@ Let's add some necessary items to our header now. We are going to add two built 
 <!-- END OF HEADER - BEGIN SECTION CONTENT -->
 ```
 
-Notice how we are using the bloginfo function that we used in the linking to the stylesheet, except we are using it here with different parameters inside the function. Instead of saying "Blank WordPress Template" we can now say whatever we want, from the WordPress admin. We changed nothing here but the text in between the 'h1' and 'p' tags because all we wanted to make happen was to have WordPress dynamically generate that content for us, not make it display differently. 
+Notice how we are using the `bloginfo` function that we used in the linking to the stylesheet, except we are using it here with different parameters inside the function. Instead of saying "Blank WordPress Template" we can now say whatever we want, from the WordPress admin. We changed nothing here but the text in between the `<h1>` and `<p>` tags because all we wanted to make happen was to have WordPress dynamically generate that content for us, not make it display differently. 
 
 #### Step 7. Save and Upload
 
@@ -598,7 +595,7 @@ We already have our Index.php file split up so that it dynamically loads the hea
 
 <p class="file-name">index.php:</p>
 
-```html
+```php
 <?php get_header(); ?>
 	<section class="row">
 		<div class="twelve columns">
@@ -699,7 +696,7 @@ Remember, *"a Page is often used to present 'static' information about yourself 
 Let's write some code for the Page.php file that we already understand. 
 
 <p class="file-name">page.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<section class="row">
 		<div class="twelve columns">
@@ -739,28 +736,28 @@ When you are templating (and just copying my code) it isn't apparent, but there 
 
 To simplify that explanation, the PHP is being written with the assumption that the URL will contain the proper data context to display.
 
-So this URL: 
-	http://myblog.com/the-name-of-my-post 
+So this URL:  
+`http://myblog.com/the-name-of-my-post `
 
-will return only the data found in the post (or page): 
-	"The Name of My Post."
+will return only the data found in the post (or page):  
+"The Name of My Post."
 
 WordPress handles all the routing for you because it is built in functionality. So you don't need to worry about any of that, but know WHY the code that is essentially a loop functions differently on the front page than it does on the internal pages and posts. 
 
 The second part to notice is the specifics of the content we are adding. This is a good opportunity to notice how easily PHP integrates with HTML. The part I am taking about is this:
 
 ``` php
-…
+...
 <h2><?php the_title(); ?></h2>
 <?php the_content(); ?>
-…
+...
 ```
 
-'the_title' and 'the_content' are both custom WordPress functions. 
+`the_title` and `the_content` are both custom WordPress functions. 
 
 *What do you think these functions do? (hint, it's quite obvious)*
 
-You will notice that the_title is wrapped in 'h2' tags. This is easy to do because the PHP tags are closed and opened around them. This is how the PHP parser on the server know what is PHP and what isn't. When the PHP parser sends the page to the client (person accessing the web page), it only parses the parts of the site wrapped in '<?php ?>' tags as PHP and the rest is sent as HTML and parsed PHP. 
+You will notice that the_title is wrapped in `<h2>` tags. This is easy to do because the PHP tags are closed and opened around them. This is how the PHP parser on the server know what is PHP and what isn't. When the PHP parser sends the page to the client (person accessing the web page), it only parses the parts of the site wrapped in `<?php ?>` tags as PHP and the rest is sent as HTML and parsed PHP. 
 
 Wrapping PHP tags in HTML tags is such a common practice in WordPress templating that you should make sure you fully grasp this concept right now.
 
@@ -783,7 +780,7 @@ Remember, *"posts are articles that you write to populate your blog."* Let's add
 Let's write some code for the Single.php file that we already understand. 
 
 <p class="file-name">single.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<section class="row">
 		<div class="twelve columns">
@@ -799,7 +796,7 @@ Let's write some code for the Single.php file that we already understand.
 This should look eerily similar to the Page tutorial above. That's because the logic is the exact same and the defining data context concept is also the same. 
 
 <p class="file-name">single.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<div class="row">
 		<div class="twelve columns">
@@ -823,16 +820,16 @@ Notice any differences from page.php? You shouldn't see any (except the comments
 
 If you have a post to view, you should be able to see it in this template after you save and upload this file to your server. In the Dashboard click the "View Post" button in the Dashboard or in the Post itself. 
 
-### Tutorial: Sidebars Includes
+### Tutorial: Sidebar Includes
 
 When you are doing this tutorial, think about the header and the footer. This is the EXACT same thing and if you understand how to link to a header or footer, you can link to a sidebar.
 
-#### Step 1: Modify the Page.php File to have a Sidebar
+#### Step 1: Modify the page.php File to have a Sidebar
 
 The first step will be to modify the LAYOUT of our page.php file. I have taken out the old comments from the previous steps and added in new ones for this tutorial. 
 
 <p class="file-name">page.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<div class="row">
 
@@ -858,13 +855,13 @@ The first step will be to modify the LAYOUT of our page.php file. I have taken o
 
 First we broke up the row into two columns instead of one. We made one column a nine width and the other a three width. This satisfies the requirement that the columns equal twelve. We then add filler content into the three width column so that there is something there. Feel free to upload the page.php file and check it out. 
 
-#### Step 2: Create a Sidebar.php File
+#### Step 2: Create a sidebar.php File
 
 <p class="message">Create a file called "sidebar.php" in your themes root folder.</p> 
 
 #### Step 3: Separate the Sidebar from the Page
 
-Now we are going to place the content that is between the Begin and End Sidebar comments into the Sidebar.php file. We will then modify the Page.php file to link to the sidebar.php file. 
+Now we are going to place the content that is between the Begin and End Sidebar comments into the sidebar.php file. We will then modify the page.php file to link to the sidebar.php file. 
 
 <p class="file-name">sidebar.php:</p>
 ```html
@@ -873,7 +870,7 @@ Now we are going to place the content that is between the Begin and End Sidebar 
 ```
 
 <p class="file-name">page.php:</p>
-```html
+```php
 <?php get_header(); ?>
 	<div class="row">
 		<div class="nine columns">
@@ -924,7 +921,7 @@ Text Domain: firstname_lastname_blank_template
 }
 ```
 
-Which is totally fine! That's actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (H1, H2, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). 
+Which is totally fine! That's actually probably more than we need. For the purpose of this lesson, I am going to modify the headers (`h1`, `h2`, etc.) to look different. Feel free to make other changes to see how CSS and WordPress works, but make sure to delete them after you are done (so that you truly do have a blank template). 
 
 <p class="file-name">style.css</p>
 ```css

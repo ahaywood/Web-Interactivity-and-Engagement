@@ -66,35 +66,36 @@ You should recognize this code from the widget initialization code; The same con
 
 ##### Step 2: Add the Custom WordPress Function
 
-Next we will add a WordPress function used for adding custom post types. It is called register_post_type and more information about it can be found here: [WordPress Codex - Function Reference - Register Post Type](https://codex.wordpress.org/Function_Reference/register_post_type)
+Next we will add a WordPress function used for adding custom post types. It is called `register_post_type` and more information about it can be found here: [WordPress Codex - Function Reference - Register Post Type](https://codex.wordpress.org/Function_Reference/register_post_type)
 
 This codex entry can help you go through the next step of our tutorial if you are having trouble.
 
 <p class="file-name">functions.php</p>
 ```php
 function custom_web_resources() {
-$labels = array();
-$args = array();
-register_post_type( 'resources', $args ); 
+  $labels = array();
+  $args   = array();
+  register_post_type( 'resources', $args ); 
 }
 add_action( 'init', 'custom_web_resources' );
 ```
 
-As you can see, we used the register_post_type function to register a post type called ‘resources,’ included an empty array called $args, and included an empty array called $labels. The $args array is called where the function’s arguments would go. 
+As you can see, we used the `register_post_type` function to register a post type called ‘resources,’ included an empty array called `$args`, and included an empty array called $labels. The `$args` array is called where the function’s arguments would go. 
 
 This is done a bit different than the Smashing Magazine tutorial but I think it is a slightly better way to go about it. 
 
 ##### Step 3: Add our Options into the Arrays
 
-There are numerous options that can be added to the register_post_type function. Instead of passing these options through directly, we are creating an object as an array to hold them. This will make our code a bit more organized and modular (which is a very good thing).
+There are numerous options that can be added to the `register_post_type` function. Instead of passing these options through directly, we are creating an object as an array to hold them. This will make our code a bit more organized and modular (which is a very good thing).
 
 <p class="file-name">functions.php</p>
 ```php
 <?php
-function custom_web_resources() {
-$labels = array(
-/*--- Begin Labels Options ---*/
 
+function custom_web_resources() {
+
+  $labels = array(
+    /*--- Begin Labels Options ---*/
     'name'               => _x( 'Links', 'post type general name' ),
     'singular_name'      => _x( 'Link', 'post type singular name' ),
     'add_new'            => _x( 'Add New', weblink ),
@@ -108,33 +109,40 @@ $labels = array(
     'not_found_in_trash' => __( 'No links found in the Trash' ), 
     'parent_item_colon'  => '',
     'menu_name'          => 'Web Links'
+  );
 
-);
-$args = array(
-/*--- Begin Arguments Options ---*/
+  $args = array(
+    /*--- Begin Arguments Options ---*/ 
+    'labels'        => $labels,
+    'description'   => 'Place to put useful links to other web resources',
+    'public'        => true,
+    'menu_position' => 5,
+    'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+    'has_archive'   => true,
+  );
 
-'labels' => $labels,
-'description'   => 'Place to put useful links to other web resources',
-'public'        => true,
-'menu_position' => 5,
-'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
-'has_archive'   => true,
-
-);
-register_post_type( 'resources', $args ); 
+  register_post_type( 'resources', $args ); 
 }
+
 add_action( 'init', 'custom_web_resources' );
 ?>
 ```
-One thing to notice is that the entire $labels array is brought in as an option to the $args array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. 
+One thing to notice is that the entire `$labels` array is brought in as an option to the `$args` array. Consider what each item in the options does so that you can see the sort of things that WordPress would want in order to make sure the CMS is using this new custom post type as effectively as possible. 
 
-Also, consider the ['_x'](https://codex.wordpress.org/Function_Reference/_x) and the ['__' functions](http://wpengineer.com/2237/whats-the-difference-between-__-_e-_x-and-_ex/) in the args array. *What do they do? How is this useful?*
+Also, consider the ['_x'](https://codex.wordpress.org/Function_Reference/_x) and the ['__' functions](http://wpengineer.com/2237/whats-the-difference-between-__-_e-_x-and-_ex/) in the `$args` array. *What do they do? How is this useful?*
 
 There are even more parameters that can be passed to the arguments. These can be found [in the WordPress Codex entry for the register_post_type function](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters). The one parameter we want to focus on is the “has_archive” parameter. This allows us to create an archive page to display these posts. 
 
 ##### Step 5: Save and Upload
 
-After you save and upload, this is where the errors would become apparent. When you are adding big chunks of code 
+<!--
+Note from @chrisallenlane:
+
+Was the following sentence cut-off prematurely somehow? It reads to me as
+though it may be, but I'm not sure.
+-->
+
+After you save and upload, this is where the errors would become apparent. When you are adding big chunks of code.
 
 ##### Step 6: Displaying the Custom Post
 
@@ -144,7 +152,7 @@ We could create a custom archive page for our new custom post and then we will b
 
 However, WordPress will automatically route us to an archive of our posts if we use the name of our post type  (Links) at the end of the URL for our WordPress site (http://www.mysite.com/links). It will automatically use our archive.php file. The routing sets the data context to our custom posts. 
 
-If we wanted to create a custom archive page (which would be pretty reasonable) then you could simply create a PHP document named ‘archive-links.php’ or if you have a different name of the custom post it would be ‘archive-[custom-post-name].php’, and then add the appropriate code (probably copied from the existing archive.php file and then modified).
+If we wanted to create a custom archive page (which would be pretty reasonable) then you could simply create a PHP document named `archive-links.php` or if you have a different name of the custom post it would be `archive-[custom-post-name].php`, and then add the appropriate code (probably copied from the existing archive.php file and then modified).
 
 ### Custom Page Templates
 
@@ -152,7 +160,7 @@ If we wanted to create a custom archive page (which would be pretty reasonable) 
 
 The Tuts+ Tutorial below gives a great account of a use case for custom page templates.
 
-	“A perfect example of a popular use for a custom page template is a ‘full-width’ page. A vast majority of WordPress templates have two or three columns: one ‘main content’ column where post/page content is held, and one or two sidebars that display widgets and calls to action. Sometimes a user will want to take advantage of the full-width of the container those columns are held within, and choose to omit the sidebar column(s) in favor of increasing the size of the ‘main content’ column. Pages that feature media such as image galleries or videos will often benefit from this type of custom page template.”
+> A perfect example of a popular use for a custom page template is a ‘full-width’ page. A vast majority of WordPress templates have two or three columns: one ‘main content’ column where post/page content is held, and one or two sidebars that display widgets and calls to action. Sometimes a user will want to take advantage of the full-width of the container those columns are held within, and choose to omit the sidebar column(s) in favor of increasing the size of the ‘main content’ column. Pages that feature media such as image galleries or videos will often benefit from this type of custom page template.
 
 [Tuts+ - Creating Custom Page Templates ](http://codex.wordpress.org/Page_Templates)
 
@@ -166,9 +174,9 @@ For our custom page template, we are going to create a full width template.
 
 The first step will just be to create a file in our template.
 
-<p class="message">Create a ‘page_fullwidth.php’ file in your theme's root folder </p>
+<p class="message">Create a `page_fullwidth.php` file in your theme's root folder </p>
 
-The naming conventions for page templates is often the word page, an underscore, and then the word describing the template. So I am going to create this file named “page_fullwidth.php.” This is not mandatory but it is good to remain within conventions. 
+The naming conventions for page templates is often the word "page", an underscore, and then the word describing the template. So I am going to create this file named `page_fullwidth.php.` This is not mandatory but it is good to remain within conventions. 
 
 This file must be placed within your theme directory for WordPress to read it. 
 
@@ -280,15 +288,15 @@ Shortcodes are a great way to integrate high level functionality into the WordPr
 
 From the WordPress Codex:
 
-    The Shortcode API makes it easy to create shortcodes that support attributes like this:
+> The Shortcode API makes it easy to create shortcodes that support attributes like this:
 
-    [gallery id="123" size="medium"]
+> [gallery id="123" size="medium"]
 
-    The API handles all the tricky parsing, eliminating the need for writing a custom regular expression for each shortcode. Helper functions are included for setting and fetching default attributes. The API supports both self-closing and enclosing shortcodes.
+> The API handles all the tricky parsing, eliminating the need for writing a custom regular expression for each shortcode. Helper functions are included for setting and fetching default attributes. The API supports both self-closing and enclosing shortcodes.
 
 [https://codex.wordpress.org/Shortcode_API](https://codex.wordpress.org/Shortcode_API)
 
-If you see a snippet of code in WordPress that is surrounded by two brackets (“[ ]”) then it is likely that you are dealing with a shortcode. The way they are used are defined by the function that created it. 
+If you see a snippet of code in WordPress that is surrounded by two brackets (`[]`) then it is likely that you are dealing with a shortcode. The way they are used are defined by the function that created it. 
 
 Further down in the jQuery slider tutorial we will briefly include a mechanism to use shortcodes so you can see a tangible example. 
 
@@ -302,22 +310,21 @@ In Chapter 7 we discussed the ways to link to a CSS or JavaScript file in WordPr
 
 There are three ways to link to “outside resources” in WordPress:
 
-Use a link in the header
-(For CSS) Use an @import in the stylesheet
-Use WordPress to enqueue the files and to handle dependencies. 
+- Use a link in the header
+- (For CSS) Use an `@import` in the stylesheet
+- Use WordPress to enqueue the files and to handle dependencies. 
 
 Each of these methods has it ups and downs. Each of these methods has a compelling use case and when you are linking to files you should consider which method is best. 
 
 **Linking in the header** is the most common and oldest way of integrating outside resources into the web page. This generally looks like this:
 
 ```html
-<script src=”javascript.js:></script>
+<script src='javascript.js'></script>
 <!-- OR -->
 <link rel="stylesheet" type="text/css" href="stylesheet" />
-
 ```
 
-The other way to do this is to use an **@import in the stylesheet** for CSS files. This usually looks like this:
+The other way to do this is to use an **`@import` in the stylesheet** for CSS files. This usually looks like this:
 
 ```css
 @import url(stylesheet.css);
@@ -339,11 +346,11 @@ Navigate to [Google Fonts](https://www.google.com/fonts) and select a font you l
 
 Google Fonts gives you three ways to link to the font:
 
-The header linking method
-The @import method (Which we will use)
-The JavaScript insert method (probably the better choice…)
+- The header linking method
+- The @import method (which we will use)
+- The JavaScript insert method (probably the better choice…)
 
-Copy the @import code from the “Use” tab and paste it into your style.css file. Here is an example of what it should look like:
+Copy the `@import` code from the “Use” tab and paste it into your style.css file. Here is an example of what it should look like:
 
 <p class="file-name">style.css</p>
 ```css
@@ -357,7 +364,7 @@ Assuming you will only want one font for your whole site, let’s add the font t
 <p class="file-name">style.css</p>
 ```css
 body, html {
- font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 ```
 
@@ -385,19 +392,19 @@ Let’s first download the unslider.js file (minified) and then place it into a 
 
 #### Step Two: Enqueue the Unslider File
 
-We are going to open our functions.php file and use a WordPress function called wp_enqueue_scripts to load the file dynamically. If you want to learn more about this function and some additional (and cool) things you can do to make it more dynamic yet, [go to the WordPress codex entry for wp_enqueue_scripts](https://codex.wordpress.org/Function_Reference/wp_enqueue_script).
+We are going to open our functions.php file and use a WordPress function called `wp_enqueue_scripts` to load the file dynamically. If you want to learn more about this function and some additional (and cool) things you can do to make it more dynamic yet, [go to the WordPress codex entry for wp_enqueue_scripts](https://codex.wordpress.org/Function_Reference/wp_enqueue_script).
 
 <p class="file-name">functions.php</p>
 ```php
 <?php
 function enqueue_unslider() {
-    wp_enqueue_script( //function to enqueue script
-        'unslider', //name of our script (id)
-        get_template_directory_uri() . '/js/unslider.js', //file loc
-        array('jquery'), //dependencies
-        '', //version - left blank
-        true //load in footer
-    );
+    wp_enqueue_script(                                // function to enqueue script
+    'unslider',                                       // name of our script (id)
+    get_template_directory_uri() . '/js/unslider.js', // file loc
+    array('jquery'),                                  // dependencies
+    '',                                               // version - left blank
+    true                                              // load in footer
+  );
 }
 add_action('wp_enqueue_scripts', 'enqueue_unslider');
 ?>
@@ -408,7 +415,7 @@ What is happening here should be familiar to you from the other code we have put
 1. We create a function to house our behavior.
 2. We use the WordPress function to enqueue the script.
 3. Input some parameters that the functions wants/needs. Note the dependencies array - where we are adding jquery to our enqueuing dynamically.
-4. Close out the function and then use the add_action function to make it work. 
+4. Close out the function and then use the `add_action` function to make it work. 
 
 #### Step Three: Save and Upload
 
@@ -422,10 +429,10 @@ You can also use this method for CSS files too. All you have to do is point to t
 ```php
 <?php
 function enqueue_randomcss() {
-    wp_enqueue_script( //function to enqueue script
-        'random-css', //name of our script (id)
-        get_template_directory_uri() . '/css/random.css' //location of the file
-    );
+  wp_enqueue_script(                                 // function to enqueue script
+    'random-css',                                    // name of our script (id)
+    get_template_directory_uri() . '/css/random.css' // location of the file
+  );
 }
 add_action('wp_enqueue_scripts', enqueue_css);
 ?>
@@ -446,7 +453,7 @@ wp_enqueue_script('jquery', 'http://code.jquery.com/jquery-latest.min.js','','',
 ?>
 ```
 
-What we are doing here is first removing the jQuery default script using the wp_deregister_script function and then using the wp_enqueue_script to include the new version of jQuery in its place. Make sure to add this higher than your unslider code in WordPress because we want it to load before the unslider.js file does. 
+What we are doing here is first removing the jQuery default script using the `wp_deregister_script` function and then using the `wp_enqueue_script` to include the new version of jQuery in its place. Make sure to add this higher than your unslider code in WordPress because we want it to load before the unslider.js file does. 
 
 ## <a name="child-and-parent-themes">Child and Parent Themes</a>
 
@@ -500,14 +507,14 @@ First, let’s note where the search bar is located. Earlier when we created our
 
 WordPress is loading the search form based off of its default settings. In order to create a better search form that suits our needs, we are going to recreate the search form and include it in our theme folder. 
 
-    Create “searchform.php” file and put it in your theme’s root directory
+<p class='message'>Create `searchform.php` file and put it in your theme’s root directory</p>
 
 #### Step Two: Add Code and Modify searchform.php
 
 WordPress will now use our newly created searchform.php in place of the default search form. Let’s add some code so that something will start to show up.
 
 <p class="file-name">searchform.php</p>
-```html
+```php
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
     <label>
         <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
@@ -524,7 +531,7 @@ This is the default for HTML5 in WordPress. Knowing what is happening here could
 The code for the Search Form is pretty solid for our purposes. We are going to add a CSS class to the code so that we can target it in the way we want. 
 
 <p class="file-name">searchform.php</p>
-```html
+```php
 <form role="search" method="get" class="search-form wie-search-form" action="<?php echo home_url( '/' ); ?>">
     <label>
         <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
@@ -553,7 +560,7 @@ Now that we have the classes identified, we can add CSS to make it look how we w
 
 **This area is optional and significantly changes the functionality of the UI**
 
-Let's say you want to make something more graphically interesting. We are going to add the Font Awesome package to our site so that we are able to use a bunch of cool icons relatively easily.
+Let's say you want to make something more graphically interesting. We are going to add the [Font Awesome](http://fontawesome.io/) package to our site so that we are able to use a bunch of cool icons relatively easily.
 
 It may seem excessive to add a whole css library for only one icon, but having the Font Awesome library in place allows us to use the other icons without even worrying about load time. Additionally, the Font Awesome CSS file often caches and the load time isn't all that bad when you have a visitor making repeated visits to your site. To make things better, there is even a content delivery network (CDN) link so that the load time is alleviated by allowing a concurrent connection.
 
@@ -564,11 +571,11 @@ Let's add a link to Font Awesome into our header.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 ```
 
-Upload your header.php file and you will see that the **font-awesome.min.css** file is loading when you refresh your page. 
+Upload your header.php file and you will see that the `font-awesome.min.css` file is loading when you refresh your page. 
 
 Now, lets replace the searchform.php content and add some CSS rules.
 
-We are going to leverage our Skeleton grid to layout the search form. Notice how we are using the wie-hide utility class on the elements we don't want to see. 
+We are going to leverage our Skeleton grid to lay out the search form. Notice how we are using the `wie-hide` utility class on the elements we don't want to see. 
 
 <p class="file-name">searchform.php</p>
 ```php
@@ -633,8 +640,7 @@ Essentially, we are going to use CSS’s positional elements (fixed) and then ad
 <p class="file-name">header.php</p>
 ```html
 <div class=”header-container”>
-<!-- Put your header content here -->
-
+  <!-- Put your header content here -->
 </div>
 ```
 
@@ -643,14 +649,14 @@ Essentially, we are going to use CSS’s positional elements (fixed) and then ad
 <p class="file-name">style.css</p>
 ```css
 .header-container {
-   width:100%;
-   position:fixed;
-   top:0px;
-   z-index:2;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
 }
 ```
 
-Each rule here has it’s own purpose: The width makes sure it takes up the entire width of the window; the position: fixed tells the browser to make the div fix to its location on the screen; top:0px tells the distance from the top of the browser and; z-index is the value of the z parameter which control which items are on top of other items.(the default is 1 so a 2 would make it on top of everything else). 
+Each rule here has its own purpose: The width makes sure it takes up the entire width of the window; the position: fixed tells the browser to make the div fix to its location on the screen; `top: 0px` tells the distance from the top of the browser and; `z-index` is the value of the `z` parameter which control which items are on top of other items.(the default is `1` so a `2` would make it on top of everything else). 
 
 Step Three: Add Other Styling to the Header
 
@@ -659,10 +665,10 @@ You can feel free to add other styling to the header to make sure it looks how y
 <p class="file-name">style.css</p>
 ```css
 header {
-   height:50px;
-   background:#F0F0F0;
-   border-bottom:1px solid #CCC;
-   margin:0px auto;
+  height: 50px;
+  background: #F0F0F0;
+  border-bottom: 1px solid #CCC;
+  margin: 0px auto;
 }
 ```
 #### Step Four: Save and Upload
@@ -675,12 +681,11 @@ As an aside, it helps if the image has a square format so tht there isn't too mu
 
 ```html
 <img src="imagelocation" class="circular-image" />
-
 ```
 
 ```css
 .circular-image {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 ```
 
@@ -690,17 +695,17 @@ If you want to make it even more error proof, you can add some other classes to 
 
 ```html
 <img src="imagelocation" class="circular-image profile-image" />
-
 ```
 
 ```css
 .circular-image {
-    border-radius: 50%;
+  border-radius: 50%;
 }
+
 .profile-image {
-    height: 150px;
-    width: 150px;
-    overflow: hidden;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
 }
 ```
 
@@ -834,11 +839,13 @@ We are going to go through this tutorial very methodically, but this is because 
         <li>My last slide</li>
     </ul>
 </div>
+
 <!-- Third we include jQuery -->
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- Fourth we include the Unslider.js -->
 <script src="path/to/js/files/unslider.js"></script>
+
 <!-- Lastly we use a javascript function to initialize the unslider behavior -->
 <script>
     $(function() { $('.my-slider').unslider({
@@ -871,7 +878,6 @@ At the bottom of the footer.php file we will add the initiator for unslider.
 
 </body>
 </html>
-
 ```
 
 Note how we placed it ALL the way at the bottom so that it is the last thing our page loads. We can also use other javascript techniques to ensure that it loads after the page loads, but for now we will use this method. 
@@ -919,8 +925,10 @@ We are going to make a custom post type in order to create our slides. If you fo
 <p class="file-name">functions.php</p>
 ```php
 <?php
+
 function slider_tutorial() {
-$labels = array(
+
+  $labels = array(
     'name'               => _x( 'Slides', 'post type general name' ),
     'singular_name'      => _x( 'Slide', 'post type singular name' ),
     'add_new'            => _x( 'Add New', 'slides' ),
@@ -934,21 +942,21 @@ $labels = array(
     'not_found_in_trash' => __( 'No slides found in the Trash' ), 
     'parent_item_colon'  => '',
     'menu_name'          => 'Slider'
+  );
 
-);
-$args = array(
-/*--- Begin Arguments Options ---*/
+  $args = array(
+    /*--- Begin Arguments Options ---*/
+    'labels'        => $labels,
+    'description'   => 'Slides for our Unslider integration',
+    'public'        => true,
+    'menu_position' => 6,
+    'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt'),
+    'has_archive'   => true,
+  );
 
-'labels' => $labels,
-'description'   => 'Slides for our Unslider integration',
-'public'        => true,
-'menu_position' => 6,
-'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt'),
-'has_archive'   => true,
-
-);
-register_post_type( 'slider', $args ); 
+  register_post_type( 'slider', $args ); 
 }
+
 add_action( 'init', 'slider_tutorial' );
 
 ?>
@@ -1020,15 +1028,17 @@ This will generate the content from our custom post. Now let's integrate this in
 <div class="my-slider">
     <ul>
 <?php
-    $args = array( 'post_type' => 'Slider' );
+    $args   = array( 'post_type' => 'Slider' );
     $slides = new WP_Query( $args );
+
     if( $slides->have_posts() ) {
       while( $slides->have_posts() ) {
         $slides->the_post();
+
         /*--- Build Thumbnail URL ---*/
-        $thumb_id = get_post_thumbnail_id();
+        $thumb_id        = get_post_thumbnail_id();
         $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-        $thumb_url = $thumb_url_array[0];
+        $thumb_url       = $thumb_url_array[0];
         ?>
             <li style="background-image: url('<?php echo $thumb_url ?>');" class="slide-container">
                 <div class="slides-message">
@@ -1053,24 +1063,28 @@ Here is some sample styling, but you can repurpose this for however you want.
 
 ```css
 .my-slider { 
-    position: relative; 
-    overflow: auto; 
-    margin-top:25px;
-    margin-bottom: 25px;
+  position: relative; 
+  overflow: auto; 
+  margin-top:25px;
+  margin-bottom: 25px;
 }
+
 .my-slider li { 
-    list-style: none;
+  list-style: none;
 }
+
 .my-slider ul li { 
-    float: left; 
+  float: left; 
 }
+
 .slide-container {
-    height: 300px;
+  height: 300px;
 }
+
 .slides-message {
-    margin: 50px 0 0 20px;
-    padding:20px 0 20px 10px;
-    color: #fff;
+  margin: 50px 0 0 20px;
+  padding:20px 0 20px 10px;
+  color: #fff;
 }
 ```
 
@@ -1078,8 +1092,14 @@ Here is some sample styling, but you can repurpose this for however you want.
 
 If you want to use WordPress as a fully functional CMS, you will probably need to separate the blog portion of WordPress into a separate area. There are ways to do this:
 
-The WordPress built in way (covered here: [http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/](http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/) which allows you to reconfigure your main page as a static page and your blog page as an internal page that can be queried. 
-Create a post query in a custom page and then assign that value to an existing page (covered here: [https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/](https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/)
+- The WordPress built in way (covered here:
+  [http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/](http://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/)
+  which allows you to reconfigure your main page as a static page and your blog
+  page as an internal page that can be queried. 
+
+- Create a post query in a custom page and then assign that value to an
+  existing page (covered here:
+  [https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/](https://upthemes.com/blog/2011/07/how-to-build-a-custom-page-template-for-blog-posts/)
 
 We are going to the second option because I prefer it as it is less confusing (for me at least).
 
@@ -1087,7 +1107,7 @@ We are going to the second option because I prefer it as it is less confusing (f
 
 Earlier in this chapter we learned how to create a custom page template. Let’s go ahead and create a new file and populate it with our bare minimum code.
 
-    Create a file titled “blog_custom_page.php”
+<p class='message'>Create a file titled `blog_custom_page.php`</p>
 
 Let’s copy page.php into this file. This will save us time and ensure we have some uniformity to start out with. 
 
@@ -1284,7 +1304,7 @@ function add_breadcrumbs() {
     }
 }
 ```
-Let’s talk about what is happening here. First, we are initializing a function named “add_breadcrumbs” that is going to be the place for our function to operate. 
+Let’s talk about what is happening here. First, we are initializing a function named `add_breadcrumbs` that is going to be the place for our function to operate. 
 
 We are then going to use the WordPress function  [get_post_ancestors](https://codex.wordpress.org/Function_Reference/get_post_ancestors) to generate an array of the subpages and the page hierarchy. The next conditional statement checks to see that there is anything worth executing - to avoid errors. The conditional statements after that are where we are generating our actual output depending on the array values we received from the get_post_ancestors function. We then iterate over the various values to generate a single output variable $breadcrumb.
 
@@ -1294,7 +1314,7 @@ Next, let’s add the function we just created to our page.php file:
 
 <p class="file-name">page.php</p>
 ```php
-    <?php add_breadcrumbs(); ?>
+<?php add_breadcrumbs(); ?>
 ```
 
 By adding this function we created, we are able to insert the functionality we created in step one anywhere on the site - and it will react dynamically. 

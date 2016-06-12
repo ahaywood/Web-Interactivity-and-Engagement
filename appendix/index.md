@@ -38,7 +38,7 @@ A basic introduction to PHP and very basic programming principles which will hel
 
 If you are feeling stuck from my lectures, I recommend trying the Lynda PHP training, which I feel is a good supplement to my lectures. It may be useful to you to have two different perspectives to learning the basics of PHP. In fact, I suggest you have dozens of resources that you use to improve your coding ability. My method of teaching is to teach through example, but if your learning style is through memorization or watching others - then you may want to supplement my lectures. 
 
-PHP means Hypertext Preprocessor - which should give you some guidance as to how PHP works. PHP was originally designed to be embedded in the HTML of a webpage, and that is how it is still often used to this day. So any code between the <?php ?> tags is "preprocessed" and then parsed by the browser with the HTML. PHP can be included alongside the HTML or can be contained in separate files and "included" in the HTML code. 
+PHP means Hypertext Preprocessor - which should give you some guidance as to how PHP works. PHP was originally designed to be embedded in the HTML of a webpage, and that is how it is still often used to this day. So any code between the `<?php` `?>` tags is "preprocessed" and then parsed by the browser with the HTML. PHP can be included alongside the HTML or can be contained in separate files and "included" in the HTML code. 
 
 The execution that a PHP file on the server is different than that of an HTML file. When an HTML file is parsed, the browser requests an HTML file, reads/parses the exact information that the coder put into the HTML file and delivers that to the user. However, when a PHP-driven site is visited, a different series of events occurs.
 
@@ -57,7 +57,7 @@ I will briefly mention that PHP is only as secure as the user programs it to be.
 
 For a file to be parsed as a PHP file, the file must have the .php extension (e.g., index.php)
 
-You must enclose PHP code in the <?php ?> tags. Having errant php tags will cause errors. 
+You must enclose PHP code in the `<?php` `?>` tags. Having errant php tags will cause errors. 
 
 When you are programming PHP, remember that it is parsed in the same way as HTML, from top to bottom. It is for this reason that you must make sure that your included files also follow this rule. For instance, if you have one index.php file that has some PHP code AND some includes to other PHP files, you must expect that the entire page will be parsed from top to bottom. That means that any included file will be parsed in its entirety before the server moves onto the next line of code within that primary file. 
 
@@ -88,7 +88,7 @@ $friday = "Monday"; //Same variable defined above given a different value
 ?>
 ```
 
-Variables begin with a $ in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer's use of that variable. The format for a variable will often look like this: $variable = value; (note the semicolon ending the statement). 
+Variables begin with a `$` in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer's use of that variable. The format for a variable will often look like this: `$variable = value`; (note the semicolon ending the statement). 
 
 #### Strings
 A string is merely the name given to a sequence of simple objects. In PHP, text is often referred to as a string. Of all of the types, strings are often the most static but can be modified in many ways using functions. 
@@ -113,21 +113,21 @@ Arrays allow the user to store multiple values in a special kind of variable cal
 <?php
 
 $animals = array(
-"dog", //key is 0
-"frog",  //key is 1
-"elephant",  //key is 2
-"cat", //key is 3
-"wolf", //key is 4
-"sheep"//key is 5
+  "dog",      //key is 0
+  "frog",     //key is 1
+  "elephant", //key is 2
+  "cat",      //key is 3
+  "wolf",     //key is 4
+  "sheep"     //key is 5
 );
 
 ?>
 ```
 
 
-Each item in an array is given a **key** (a.k.a. 'index'). A key (or index) in this case is the number in which the item appears within the array starting with 0. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
+Each item in an array is given a **key** (a.k.a. 'index'). A key (or index) in this case is the number in which the item appears within the array starting with `0`. These types of arrays are called *index arrays*. We will cover the key/value relationship more in the future. 
 
-[PHP.net - Arrays](http://php.net/manual/en/language.types.array.php)
+[php.net - Arrays](http://php.net/manual/en/language.types.array.php)
 
 ##### Associative Arrays
 An associative array is a different type of array where the items in the array are given names instead of numbers.
@@ -139,7 +139,7 @@ Multidimensional Arrays are arrays within arrays. Feel free to get into that as 
 
 PHP also has certain pre-existing arrays built-in called superglobals. PHP has a huge library of pre-existing functionality and values you can (and will) reference. There are a limited number of superglobals though. We will reference superglobals intermittently throughout the assignments. 
 
-[PHP.net - Superglobals](http://php.net/manual/en/language.variables.superglobals.php)
+[php.net - Superglobals](http://php.net/manual/en/language.variables.superglobals.php)
 
 #### Booleans
 
@@ -149,30 +149,30 @@ Booleans refer to any version of true or false (on or off/ I or O/ 1 or 0). In P
 <?php
 
 $areWeHavingFun = true //boolean value is true
-$areWeReally = 'false' //not a boolean, this is a string
+$areWeReally    = 'false' //not a boolean, this is a string
 
 ?>
 ```
-[PHP.net - Booleans](http://php.net/manual/en/language.types.boolean.php)
+[php.net - Booleans](http://php.net/manual/en/language.types.boolean.php)
 
 Booleans are amazingly useful in a lot of programming situations. We will explore them repeatedly as we go forward. 
 
 #### NULL: 
 
-The "null" *value* acts like the boolean value, but represents a variable with no value. A variable will be set to the value NULL if it is left blank or is set to NULL manually.
+The "null" *value* acts like the boolean value, but represents a variable with no value. A variable will be set to the value `null` if it is left blank or is set to `null` manually.
 
  ```php
 <?php
 
-$var1 = $var2; // var1 is a null value because we haven't set the value of var2
+$var1 = $var2;  // var1 is a null value because we haven't set the value of var2
 
 $var1 = 'null'; //var1 is no longer null because we have assigned it the value of a string 'null'
 
-$var1 = NULL; // var1 is again null, but is so because we have set it to be null.
+$var1 = NULL;   // var1 is again null, but is so because we have set it to be null.
 
 ?>
 ```
-[PHP.net - NULL](http://php.net/manual/en/language.types.null.php)
+[php.net - NULL](http://php.net/manual/en/language.types.null.php)
 
 #### Constants
 
@@ -183,17 +183,16 @@ A constant is an identifier (name) for a simple value. As the name suggests, tha
 define('FAVORITE_ANIMAL', 'Dogs');
 
 //Now our favorite animal will always be 'Dogs'... always.
-
 ?>
 ```
 
-[PHP.net - Constants](http://php.net/manual/en/language.constants.php)
+[php.net - Constants](http://php.net/manual/en/language.constants.php)
 
 #### Numbers
 
 ##### Integers
 
-Whole numbers are often referred to as 'integers' in PHP.
+Whole numbers are referred to as 'integers' in PHP.
 
 ##### Floating Point number
 
@@ -215,7 +214,7 @@ if ($var1 = $var2) {
 ```
 
 
-[PHP.net - If Statements](http://php.net/manual/en/control-structures.if.php)
+[php.net - If Statements](http://php.net/manual/en/control-structures.if.php)
 
 ##### Else Statements
 An "else" statement is a gap filler for an if statement and is coupled with an if statement. The logical statement containing both an if and else statement could look like this: IF the sky is blue, then it is sunny. ELSE, it is cloudy.
@@ -224,14 +223,14 @@ An "else" statement is a gap filler for an if statement and is coupled with an i
 <?php
 
 if ($sky = "blue") {
-echo "Sunny";
+  echo "Sunny";
 } else {
 	echo "Cloudy";
 }
 ?>
 ```
 
-[PHP.net - Else Statements](http://php.net/manual/en/control-structures.else.php)
+[php.net - Else Statements](http://php.net/manual/en/control-structures.else.php)
 
 There is also the else if statement which allows you to compound if statements. More on that later. 
 
@@ -251,12 +250,12 @@ while ($number <= 10) { // Will continuously loop through the contained operatio
 ?>
 
 ```
-[PHP.net - While Loops](http://php.net/manual/en/control-structures.while.php)
+[php.net - While Loops](http://php.net/manual/en/control-structures.while.php)
 
 #### Functions:
 A function is defined to perform preset tasks. PHP has an exhaustive list of its own preset functions and it is possible to write custom functions. We will periodically use functions to perform tasks for us in our code. If there is something you need done, odds are there is a PHP function that can perform the task.
 
-[PHP.net - Functions](http://php.net/manual/en/language.functions.php)
+[php.net - Functions](http://php.net/manual/en/language.functions.php)
 
 #### Object
 An 'object' is a sophisticated data type that can store and manipulate values. It is often made by creating a variable with a function and some room for a value (string, array, etc.). This object can then be used intermittently throughout the code.
@@ -285,12 +284,13 @@ There are three ways to add comments in PHP and each has a specific use case. Co
 two forward slashes between the php tags.
 
 ```php
-
 <?php 
-// this is a valid comment for single line.
+
+  // this is a valid comment for single line.
 	$variable = "value"; //Setting the value of this variable
-# or using the hash sign...
-	$variable 2 = "valuable"; # this works too
+
+  # or using the hash sign...
+	$variable2 = "valuable"; # this works too
 
 ?>
 ```
@@ -308,13 +308,14 @@ You may have learned how to comment like this with CSS, but it also works for mu
 ?>
 ```
 
-Of course, when you are using just HTML (or if you want to comment outside of the php), use the <!-- commenting method -->
+Of course, when you are using just HTML (or if you want to comment outside of the php), use the `<!--` commenting method `-->`
 
-```html
+```php
 <?php
 /* Setting Variable */
 $var1 = "variable"; // Equals Variable
 ?>
+
 <!-- back into HTML so we would set comments using HTML's syntax -->
 <h1>Heading One</h1>
 <p>The Variable equals <?php echo $var1; /* Echo value of var1 */ ?></p>
@@ -365,7 +366,7 @@ Now we will save this file to the XAMPP directory as blank.html.
 #### Step 4: Open Browser and Blank HTML File
 The next step will be to open up our browser and double check that the files are working correctly. 
 
-We can type of one two things to access our running XAMPP instance (assuming you did the default configuration when you set this up). You can go to http://127.0.0.1/ or http://localhost/ to access the xampp directory. Both of these mean the same thing, but for our purposes we are going to stick with the local IP address "http://127.0.0.1./
+We can type of one two things to access our running XAMPP instance (assuming you did the default configuration when you set this up). You can go to http://127.0.0.1/ or http://localhost/ to access the xampp directory. Both of these mean the same thing, but for our purposes we are going to stick with the local IP address http://127.0.0.1./
 
 By adding the filename to the end of the URL, we will be able to see the content we just created. 
 
@@ -409,7 +410,7 @@ Note also that if you mess up the syntax -- remove a quotation mark-- then PHP w
 
 As a side note, comments (again, I know) are important to use because you, as programmers, should start using them to make notes in your code. It is the best practice and will be a useful tool for the remainder of your coding life. 
 
-We are going to cover more about strings next. We have already "learned" about strings and we have already typed strings in this lesson. As a reminder, a string is merely the name given to a sequence of simple objects.
+We are going to cover more about strings next. We have already "learned" about strings and we have already typed strings in this lesson. As a reminder, a string is merely the name given to a sequence of characters.
 
 The portion of the previous echo command that was a string was the portion between the quotation marks. You use quotes to surround a string. Let's type out a sentence as a string.
 
@@ -418,7 +419,7 @@ The portion of the previous echo command that was a string was the portion betwe
 <?php echo "Web Interactivity and Engagement is the most fun"; ?>
 ```
 
-The sentence here is what we call a string. This may not seem mind blowing (which is probably isn't), but we are going to throw another step into string construction with a concept known as concatenation which basically means we split up whatever item we are processing. This is a very useful technique for combining objects.
+The sentence here is what we call a string. This may not seem mind blowing (which is probably isn't), but we are going to throw another step into string construction with a concept known as concatenation which basically means we conjoin whatever items we are processing. This is a very useful technique for combining strings.
 
 <p class="file-name">lesson2.php</p>
 ```php
@@ -504,7 +505,7 @@ The use of variables is more likely in a dynamically generated content situation
 
 Let's review about arrays. A good resource to help get your head wrapped around Arrays is [w3school - PHP Arrays](http://www.w3schools.com/php/php_arrays.asp). 
 
-Arrays - Allow the user to store multiple values in a special kind of variable called an array. Each item in an array is given a key/index. A key in this case is the number in which the item appears within the array starting with 0. These types of arrays are called index arrays.
+Arrays - Allow the user to store multiple values in a special kind of variable called an array. Each item in an array is given a key/index. A key in this case is the number in which the item appears within the array starting with `0`. These types of arrays are called index arrays.
 
 #### Step 1: Add Arrays to Lesson2.php
 
@@ -559,7 +560,7 @@ echo $array1[0];
 
 #### Associative Arrays
 
-Associative Arrays are a different type of array where the items in the array are given names instead of numbers. This means that instead of the first item in the array having a key of 0, it could have a key of "name" or "foo" or "location." 
+Associative Arrays are a different type of array where the items in the array are given names instead of numbers. This means that instead of the first item in the array having a key of `0`, it could have a key of `"name"` or `"foo"` or `"location"`. 
 
 You can use some information architecture to work through this in many ways, but let's pretend we want to create a price list for grocery items. 
 
@@ -569,53 +570,52 @@ You can use some information architecture to work through this in many ways, but
 ```php
 <?php
 $groceryArray = array(
-"milk" => "$2.50", 
-"bananas" => "$0.39", 
-"black beans" => "$1.20", 
-"sugar" => "$6.45", 
-"apple juice" => "$2.45", 
-"string cheese" => "$4.35"
+  "milk"          => "$2.50",
+  "bananas"       => "$0.39",
+  "black beans"   => "$1.20",
+  "sugar"         => "$6.45",
+  "apple juice"   => "$2.45",
+  "string cheese" => "$4.35"
 );
 ?>
 <p><?php echo $groceryArray["black beans"]; ?></p>
-
 ```
 
 This array would be represented like this:
 
 <table>
-<thead>
-<tr>
-<td>Key</td>
-<td>Value</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>milk</td>
-<td>$2.50</td>
-</tr>
-<tr>
-<td>bananas</td>
-<td>$0.39</td>
-</tr>
-<tr>
-<td>black beans</td>
-<td>$1.20</td>
-</tr>
-<tr>
-<td>sugar</td>
-<td>$6.45</td>
-</tr>
-<tr>
-<td>apple juice</td>
-<td>$2.45</td>
-</tr>
-<tr>
-<td>string cheese</td>
-<td>$4.35</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <td>Key</td>
+      <td>Value</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>milk</td>
+      <td>$2.50</td>
+    </tr>
+    <tr>
+      <td>bananas</td>
+      <td>$0.39</td>
+    </tr>
+    <tr>
+      <td>black beans</td>
+      <td>$1.20</td>
+    </tr>
+    <tr>
+      <td>sugar</td>
+      <td>$6.45</td>
+    </tr>
+    <tr>
+      <td>apple juice</td>
+      <td>$2.45</td>
+    </tr>
+    <tr>
+      <td>string cheese</td>
+      <td>$4.35</td>
+  </tr>
+  </tbody>
 </table>
 
 We will revisit associative arrays later when we are creating our first little applet. 
@@ -651,11 +651,11 @@ This embedded data array allows us to map data inside of the application.
 
 ## <a name="php-lesson-3">PHP Lesson 3: Conditional Logic & Functions</a>
 
-During this class we are going to discuss conditional logic through two different methods: if/else statements and loops.
+During this class we are going to discuss conditional logic through two different methods: `if`/`else` statements and loops.
 
 ### If/Else statements:
 
-To review, let's re-look at conditional logic. We are going to learn about if statements and else statements first. With an if statement, we're trying to find something that's true. If the thing we're testing is true, then we'll continue executing the section of the code. Let's do a simple if statement.
+To review, let's re-look at conditional logic. We are going to learn about `if` statements and else statements first. With an `if` statement, we're trying to find something that's true. If the thing we're testing is true, then we'll continue executing the section of the code. Let's do a simple `if` statement.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -668,7 +668,7 @@ if ($num1 > 50) {
 ?>
 ```
 
-If something is TRUE then the code inside of the "if" brackets will execute. This is convenient for situations where you want something to show up only if a condition is true. However, you will often want to have something execute for the instances where the item is FALSE, and that's where else statements come into play.
+If something is `true` then the body of the `if` statement (i.e., the code between the braces) will execute. This is convenient for situations where you want something to show up only if a condition is `true`. However, you will often want to have something execute for the instances where the item is `false`, and that's where `else` statements come into play.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -677,12 +677,14 @@ $num1 = 100;
 $num2 = 200;
 
 if ($num1 < $num2) {
-echo "The number one variable is smaller";
-} else {   echo "The number two variable is smaller";  }
+  echo "The number one variable is smaller";
+} else {
+  echo "The number two variable is smaller or equal";
+}
 ?>
 ```
 
-To add a third dimension to this, there is also the statement ELSEIF which allows you to add additional conditional statements (similar to an if statement) and then the else statement will output a result for any remaining options. Let's modify our previous conditional to include that option.
+To add a third dimension to this, there is also the statement `elseif` which allows you to add additional conditional statements (similar to an `if` statement) and then the `else` statement will output a result for any remaining options. Let's modify our previous conditional to include that option.
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -721,43 +723,42 @@ echo "<p>$num</p>";
 
 What is occurring here is a task being repeated over and over until it is satisfied. In this case, we are finding odd numbers from 1 - 99 and listing them. The syntax may appear weird, but if you think about how PHP works, each statement complements another to create a working function. Let's walk through the syntax and logic.
 
-We create a "for" loop to repetitively complete a task
-In this case, the task we are performing is echoing the value of $num in paragraph tasks
-The for statement first sets the value of $num to 1 (initial counter),
-Then asks for the truthfulness of $num to be less than 100 (test counter), and 
-Finally adds 2 to $num everytime the truthfulness is validated (increment counter).
+- We create a `for` loop to repetitively complete a task
+- In this case, the task we are performing is echoing the value of `$num` in paragraph tasks
+- The `for` statement first sets the value of `$num` to `1` (initial counter),
+- Then asks for the truthfulness of `$num` to be less than `100` (test counter), and 
+- Finally adds `2` to `$num` everytime the truthfulness is validated (increment counter).
 
-The for loop will cycle through the statement until it is no longer true.
+The `for` loop will cycle through the statement until it is no longer `true`.
 
 #### Foreach Loop
 
-Foreach is a different way to do a loop but with a vastly different approach from the for loop. It involves cycling through an array. 
+`foreach` is a different way to do a loop but with a vastly different approach from the `for` loop. It involves cycling through an array. 
 
 <p class="file-name">lesson3.php</p>
 ```php
-      <ul>
-        <?php
-          $dogs = array("Golden", "Dachshund", "Corgi", "Shetland Sheepdog", "Mutt");
-        
-          foreach ($dogs as $var) {
-              echo "<li>$var</li>";
-          }
-        
-          unset($var);
-        ?>
-     </ul>
+<ul>
+<?php
+  $dogs = array("Golden", "Dachshund", "Corgi", "Shetland Sheepdog", "Mutt");
+
+  foreach ($dogs as $var) {
+    echo "<li>$var</li>";
+  }
+
+?>
+</ul>
 ```
 
-The same concept of the for loop is being executed here, we are looping over a series of values so long as it remains true - which in this case means there are still objects in the array that haven't been looped over.
+The same concept of the for loop is being executed here, we are looping over a series of values so long as it remains `true` - which in this case means there are still objects in the array that haven't been looped over.
 
-We can create our array using the array() syntax or reference an already existing array
-Use the foreach keyword to start the loop, followed by parentheses and brackets
-Between the parentheses, we use the ($dogs as $var) syntax to tell PHP: "For each thing in $dogs, assign that thing temporarily to the variable $var." 
-Finally, we put the code we want to execute between the curly braces. In this case, we just echo each element in turn wrapped in HTML syntax.
+- We can create our array using the `array()` syntax or reference an already existing array
+- Use the `foreach` keyword to start the loop, followed by parentheses and brackets
+- Between the parentheses, we use the `($dogs as $var)` syntax to tell PHP: "For each thing in `$dogs`, assign that thing temporarily to the variable `$var`." 
+- Finally, we put the code we want to execute between the curly braces. In this case, we just `echo` each element in turn wrapped in HTML syntax.
 
 #### While Loop
 
-The loop that is used the most and which WordPress relies is the "while" loop. It is called that because so long as a statement is true, then the loop will continue
+The loop that is used the most and which WordPress relies is the `while` loop. It is called that because **while** statement is `true`, the loop will continue.
 
 [W3 Schools - While Loop](http://www.w3schools.com/php/php_looping.asp)
 
@@ -773,16 +774,17 @@ while ( $x <= 10 ) {
 	echo "X equals: " . $x . "<br />";
 	$x++;
 }
+
 ?>
 </p>
 ```
 
 What is happening here is this:
-We set the variable x to have the value of 1
-The while loop will continues to execute until the statement inside of the parenthesis are not true, in this case the value of x is less than or equal to 10.
-The loop then echoes the value of x plus some HTML
-Then the value of x is incrementally increased
-The loop starts over again until the statement is no longer true.
+- We set the variable `$x` to have the value of `1`
+- The `while` loop will continues to execute until the statement inside of the parenthesis are not `true`, in this case the value of `$x` is less than or equal to `10`.
+- The loop then echoes the value of `$x` plus some HTML
+- Then the value of `$x` is incrementally increased
+- The loop starts over again until the statement is no longer `true`.
 
 Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. Many other languages have loops built in to the language but most aren't as specific or flexible as PHP. 
 
@@ -790,7 +792,7 @@ Looping is a functional tool that is included deep into the PHP language and is 
 
 Functions are defined to perform preset tasks. PHP has an exhaustive list of its own preset functions and it is even possible to write custom functions.
 
-We have already dealt with the function "echo" which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
+We have already dealt with the function `echo` which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
 
 Let's start with the easiest to understand PHP building blocks (strings) and the functions to modify them. String functions allow you to output your string in different ways. This is the kind of function that would be useful for printing an excerpt of a string, or for printing out different versions of your string. Changing around the way data is displayed is a common and powerful tool. 
 
@@ -840,7 +842,7 @@ We have just used four unique functions which are included in the PHP language. 
 
 Note how the fourth function, the substring function, requires more input information for the function to work correctly. This is because the function is constructed (in the language itself) in such a way to require more parameters to function, while the previous uppercase and lowercasing functions are not built with extra parameters required. 
 
-Knowing the functions that you are using is key to making sure that you are using the functions correctly. The PHP.net website has information about functions, so while you are learning which functions exist, you should look at the PHP.net site for more information about certain functions. For instance, [here is the PHP specification for the substr function](http://php.net/manual/en/function.substr.php).
+Knowing the functions that you are using is key to making sure that you are using the functions correctly. The php.net website has information about functions, so while you are learning which functions exist, you should look at the php.net site for more information about certain functions. For instance, [here is the PHP specification for the substr function](http://php.net/manual/en/function.substr.php).
 
 Let's try another useful String function. This time we're going to pass the string directly into the function instead of worrying about the variable definition.
 
@@ -868,7 +870,7 @@ print $positionQ;
 </p>
 ```
 
-See how it returns nothing? That's php's way of returning a false result.
+See how it returns nothing? That's php's way of returning a negative result.
 
 Let's put this together with conditional logic to create something that resembles something useful.
 
@@ -878,7 +880,7 @@ Let's put this together with conditional logic to create something that resemble
 <?php
 $elephantstring = "Elephant"; //set variable value
 $positionP = strpos($elephantstring, "p"); //set variable value
-if ( $positionP) { //test if variable value is true or false
+if ($positionP) { //test if variable value is true or false
 	echo "Yes";
 } else {
 	echo "No";
@@ -889,7 +891,7 @@ if ( $positionP) { //test if variable value is true or false
 <p>Is there a 'Q' in Elephant? 
 <?php
 $positionQ = strpos($elephantstring, "q"); //set variable value
-if ( $positionQ ) { //test if variable value is true or false
+if ($positionQ) { //test if variable value is true or false
 	echo "Yes";
 } else {
 	echo "No";
@@ -913,9 +915,9 @@ Now every time we refresh the page we get a new number.
 
 Let's work with an array function really quick just so we get a grasp of the diversity of types of functions.
 
-Let's use the *array_push* function we can add items into our empty array. This allows us to keep a list of array items up to date and dynamic instead of static like we had before.
+Let's use the `array_push` function we can add items into our empty array. This allows us to keep a list of array items up to date and dynamic instead of static like we had before.
 
-[PHP.net - array_push](http://php.net/manual/en/function.array-push.php)
+[php.net - array_push](http://php.net/manual/en/function.array-push.php)
 
 <p class="file-name">lesson3.php</p>
 ```php
@@ -974,14 +976,11 @@ Our index.html file will not have any PHP in it directly, but will use the HTML 
 		<div class="twelve columns">
 			<h1>PHP Lesson 4</h1>
 			<h2>Simple Contact Form</h2>
-
-
 		</div>
 	</div>
 </div>
 </body>
 </html>
-
 ```
 
 Now that we have the basis for the simple HTML document, let’s add the form elements
@@ -1006,7 +1005,6 @@ Now that we have the basis for the simple HTML document, let’s add the form el
 	</form>
 
 </div>
-
 ```
 
 Our form now has spaces for a name, an email, and a message. If you look at the form now, it appears to be sound - but nothing works correctly until we add an “action” or “method” into the form. 
@@ -1033,7 +1031,6 @@ The “method” we are going to add is “post” which is an HTTP method for s
 	</form>
 
 </div>
-
 ```
 
 ### Step Three: Setup the PHP Script
@@ -1050,24 +1047,28 @@ mail ( string $to , string $subject , string $message [, string $additional_head
 
 So we know that we need to use the following parameters which we will represent as variables:
 
-	$to
-	$subject
-	$message
+```php
+$to
+$subject
+$message
+```
 
 We are also going to include an additional parameter so that we can include a “from” email address and the “name” from the form - though they aren’t required. 
 
-	$from
-	$name
+```php
+$from
+$name
+```
 
 So the first thing we will do is set up the variables we need, and then add the “mail function”
 
 <p class="file-name">contact-form.php</p>
 ```php
-$to = "";
+$to      = "";
 $subject = "";
-$name = "";
+$name    = "";
 $message = "";
-$from = "";
+$from    = "";
 
 mail($to, $subject, $body, "From: <$from>");
 ```
@@ -1076,11 +1077,11 @@ Let’s add the sample values into the variables and then attach the output of t
 
 <p class="file-name">contact-form.php</p>
 ```php
-$to = "your-email@your-domain.com";
+$to      = "your-email@your-domain.com";
 $subject = "New Contact Form Submission";
-$message = "MESSAGE GOES HERE"; //input from form
-$from = "FROM EMAIL GOES HERE"; //input from form
-$name = "NAME GOES HERE"; //input from form
+$message = "MESSAGE GOES HERE";    //input from form
+$from    = "FROM EMAIL GOES HERE"; //input from form
+$name    = "NAME GOES HERE";       //input from form
 
 $success = mail($to, $subject, $body, "From: <$from>");
 ```
@@ -1089,56 +1090,50 @@ Next, let’s’ build the $body variable so that it is sent in a proper way.
 
 <p class="file-name">contact-form.php</p>
 ```php
-$body = "";
-$body .= "Name: ";
-$body .= $name;
-$body .= "\n";
-$body .= "Email: ";
-$body .= $from;
-$body .= "\n";
-$body .= "Message: ";
-$body .= $message;
-$body .= "\n";
+$body  = "";
+$body .= "Name: "    . $name    . "\n";
+$body .= "Email: "   . $from    . "\n";
+$body .= "Message: " . $message . "\n";
 ```
 
-You may not be familiar with this syntax, but what is occurring is the $body variable is being built bit by bit from the values of the other variables through the “.=” operator. 
+You may not be familiar with this syntax, but what is occurring is the $body variable is being built bit by bit from the values of the other variables through the `.=` operator. 
 
 We will quickly add some data validation check. This will let us use a variable based system to return an error page if the data doesn’t work out how we want.
 
 <p class="file-name">contact-form.php</p>
 ```php
-$validationOK=true;
+$validationOK = true;
+
 if (!$validationOK) {
   print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
   exit;
 }
 ```
 
-We are almost done. The form will mostly work at this point, but we want to make sure there is an action after the form is submitted. In this case, we are going to use the $success variable and attach it to a conditional statement which will either:
-Redirect the user to an error page, or
-Redirect the user to a success page with a “Thank You” message.
+We are almost done. The form will mostly work at this point, but we want to make sure there is an action after the form is submitted. In this case, we are going to use the `$success` variable and attach it to a conditional statement which will either:
+Redirect the user to an error page, or Redirect the user to a success page with a “Thank You” message.
 
 <p class="file-name">contact-form.php</p>
 ```php
 if ($success){
-print "<meta http-equiv=\"refresh\" content=\"0;URL=thank-you.php\">";
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=thank-you.php\">";
 }
 else {
-print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
 }
 ```
 
-You may notice that there are two “URL” parameters in our conditional statement: thank-you.php and error.html. If there is a truthful value for the $success variable, then the user will be served up the thank-you.php document. If there is a falsey value for the $success variable, then the user will be served with the error.html document. We haven’t made the error.html document but if we wanted to we could and then perhaps place some helper text for the user. 
+You may notice that there are two “URL” parameters in our conditional statement: thank-you.php and error.html. If there is a truthful value for the `$success` variable, then the user will be served up the thank-you.php document. If there is a falsey value for the $success variable, then the user will be served with the error.html document. We haven’t made the error.html document but if we wanted to we could and then perhaps place some helper text for the user. 
 
-The last step for the contact-form file is to add out $_POST superglobal variables into our various other variables. These $_POST superglobals will let us send data to our mail function which will let us send emails. 
+The last step for the contact-form file is to add out `$_POST` superglobal variables into our various other variables. These `$_POST` superglobals will let us send data to our mail function which will let us send emails. 
 
 <p class="file-name">contact-form.php</p>
 ```php
-$to = "your-email@your-domain.com";
+$to      = "your-email@your-domain.com";
 $subject = "New Contact Form Submission";
-$message = Trim(stripslashes($_POST['Message'])); 
-$from = Trim(stripslashes($_POST['Email'])); 
-$name = Trim(stripslashes($_POST['Name'])); 
+$message = trim(stripslashes($_POST['Message']));
+$from    = trim(stripslashes($_POST['Email']));
+$name    = trim(stripslashes($_POST['Name']));
 ```
 
 This may seem weird, but what we have done is used the following PHP functions to modify the data coming out of the “Message”, “Email”, and “Name” form elements:
@@ -1153,37 +1148,32 @@ Let’s piece together our entire contact-form.php file.
 ```php
 <?php
 
-$to = "your-email@your-domain.com";
+$to      = "your-email@your-domain.com";
 $subject = "New Contact Form Submission";
-$message = Trim(stripslashes($_POST['Message'])); 
-$from = Trim(stripslashes($_POST['Email'])); 
-$name = Trim(stripslashes($_POST['Name'])); 
+$message = trim(stripslashes($_POST['Message']));
+$from    = trim(stripslashes($_POST['Email']));
+$name    = trim(stripslashes($_POST['Name']));
 
-$validationOK=true;
+$validationOK = true;
+
 if (!$validationOK) {
   print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
   exit;
 }
 
-$body = "";
-$body .= "Name: ";
-$body .= $name;
-$body .= "\n";
-$body .= "Email: ";
-$body .= $from;
-$body .= "\n";
-$body .= "Message: ";
-$body .= $message;
-$body .= "\n";
+$body  = "";
+$body .= "Name: "    . $name    . "\n";
+$body .= "Email: "   . $from    . "\n";
+$body .= "Message: " . $message . "\n";
 
 $success = mail($to, $subject, $body, "From: <$from>");
 
 if ($success){
   print "<meta http-equiv=\"refresh\" content=\"0;URL=thank-you.php\">";
-}
-else{
+} else {
   print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
 }
+
 ?>
 ```
 
@@ -1195,24 +1185,22 @@ We are going to copy the code from our index.html file first and then take away 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>PHP Lesson 4: Simple Contact Form</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="/dependencies/skeleton.css">
-</head>
-<body>
-<div class="container">
-	<div class="row">
-<div class="twelve columns">
-	<h1>PHP Lesson 4</h1>
-	<h2>Simple Contact Form</h2>
-
-
-</div>
-	</div>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>PHP Lesson 4: Simple Contact Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="/dependencies/skeleton.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h1>PHP Lesson 4</h1>
+          <h2>Simple Contact Form</h2>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 ```
 
@@ -1220,12 +1208,11 @@ Let’s add a little message and a link back to the form itself.
 
 ```html
 <div class="twelve columns">
-	<h1>PHP Lesson 4</h1>
-	<h2>Simple Contact Form</h2>
-<h3>Thanks!</h3>
-<p>Thank you for filling out this form.</p>
-<p><a href="index.html">Return to the Form</a></p>
-
+  <h1>PHP Lesson 4</h1>
+  <h2>Simple Contact Form</h2>
+  <h3>Thanks!</h3>
+  <p>Thank you for filling out this form.</p>
+  <p><a href="index.html">Return to the Form</a></p>
 </div>
 ```
 
@@ -1251,7 +1238,6 @@ The list of elements we are going to use in this tutorial is as follows:
 * Arrays
 * Functions
 * Conditional Statements
-<br /><br />
 
 You should feel comfortable with all of these going forward.
 
@@ -1270,13 +1256,12 @@ Every step of an application requires some design before any steps of coding are
 #### Data Architecture/Model
 
 * Animal
-	* Name
-	* Type
-	* Size
-	* Location
-	* Date of Acquisition
+* Name
+* Type
+* Size
+* Location
+* Date of Acquisition
 
-<br /><br />
 Looking at our data architecture, it is clear that there is an overarching value of the animal name with many other values associated with that animal name. This seems to work out for us, but how are we going to make this look?
 
 #### Front End Structure
@@ -1356,12 +1341,12 @@ So ultimately we are going to want to generate some new entries from a form - bu
 <?php 
 
 $animals = array(
-array(“Elly”, “elephant”, “10”, “0012”, “02/07/2006”),
-array(“Fred”, “gorilla”, “7”, “0001”, “03/08/2005”),
-array(“Squeaky”, “mouse”, “2”, “0008”, “04/09/2004”),
-array(“Sam”, “cougar”, “5”, “0004”, “05/11/2003”),
-array(“Rib”, “frog”, “2”, “0007”, “06/21/2002”),
-array(“Karen”, “parrot”, “3”, “0009”, “07/31/2001”)
+  array("Elly", "elephant", "10", "0012", "02/07/2006"),
+  array("Fred", "gorilla", "7", "0001", "03/08/2005"),
+  array("Squeaky", "mouse", "2", "0008", "04/09/2004"),
+  array("Sam", "cougar", "5", "0004", "05/11/2003"),
+  array("Rib", "frog", "2", "0007", "06/21/2002"),
+  array("Karen", "parrot", "3", "0009", "07/31/2001")
 );
 ?>
 ```
@@ -1370,77 +1355,81 @@ array(“Karen”, “parrot”, “3”, “0009”, “07/31/2001”)
 
 Now that we have some actual sample data to deal with, let’s talk about how this data exists. Back in Lesson 2 we talked about keys/indexes. As a reminder, the key refers to the placement of the item in the array. For example:
 
-	$animals[0][1] => “elephant”
+```php
+echo $animals[0][1]; // echoes "elephant"
+```
 
 This is because the first array’s ([0]) second item ([1]) is the string “elephant”.
 
-	$animals[3][4] => “05/11/2003”
+```php
+echo $animals[3][4]; // echoes "05/11/2003"
+```
 
-This is because the fourth array’s ([3]) fifth item ([4]) is the string “05/11/2003”.
+This is because the fourth array’s (`[3]`) fifth item (`[4]`) is the string `"05/11/2003"`.
 
 Our data model in a relational sense would look like this:
 
 <table>
-<thead>
-<tr>
-<td>Key</td>
-<td>Name [0]</td>
-<td>Type [1]</td>
-<td>Size [2]</td>
-<td>Location [3]</td>
-<td>Date of Acquisition [4]</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>Elly</td>
-<td>elephant</td>
-<td>10</td>
-<td>0012</td>
-<td>02/07/2006</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Fred</td>
-<td>gorilla</td>
-<td>7</td>
-<td>0001</td>
-<td>03/08/2005</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Squeaky</td>
-<td>mouse</td>
-<td>2</td>
-<td>0008</td>
-<td>04/09/2004</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Sam</td>
-<td>cougar</td>
-<td>5</td>
-<td>0004</td>
-<td>05/11/2003</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Rib</td>
-<td>frog</td>
-<td>2</td>
-<td>0007</td>
-<td>06/21/2002</td>
-<tr>
-<tr>
-<td>5</td>
-<td>Karen</td>
-<td>parrot</td>
-<td>3</td>
-<td>0009</td>
-<td>07/31/2001</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <td>Key</td>
+      <td>Name [0]</td>
+      <td>Type [1]</td>
+      <td>Size [2]</td>
+      <td>Location [3]</td>
+      <td>Date of Acquisition [4]</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Elly</td>
+      <td>elephant</td>
+      <td>10</td>
+      <td>0012</td>
+      <td>02/07/2006</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Fred</td>
+      <td>gorilla</td>
+      <td>7</td>
+      <td>0001</td>
+      <td>03/08/2005</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Squeaky</td>
+      <td>mouse</td>
+      <td>2</td>
+      <td>0008</td>
+      <td>04/09/2004</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Sam</td>
+      <td>cougar</td>
+      <td>5</td>
+      <td>0004</td>
+      <td>05/11/2003</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Rib</td>
+      <td>frog</td>
+      <td>2</td>
+      <td>0007</td>
+      <td>06/21/2002</td>
+    <tr>
+    <tr>
+      <td>5</td>
+      <td>Karen</td>
+      <td>parrot</td>
+      <td>3</td>
+      <td>0009</td>
+      <td>07/31/2001</td>
+    </tr>
+  </tbody>
 </table>
 
 I am spending a lot of time making sure you understand how data sits in the application because it is also how data sits in a database. **Having an understanding of data organizations allows you to map out complex applications more efficiently**. Being able to create stable and efficient applications is just as important than being able to build them at all
@@ -1450,41 +1439,50 @@ Now that we have a good understanding of the sample data, let’s output the sam
 <p class="file-name">index.php</p>
 ```php
 <?php
-if ( $animals ) { //if there is an $animals array then...
-	$animalsVal = 0; //set variable for iteration
-	$animalsCount = count($animals);
-while ( $animalsVal <=  $animalsCount ) { 
-// we need to make sure there is a count of the items in the array so that we don’t iterate over empty items in the array	
-?>
-<tr>
-	<td>
-		<?php echo $animals[$animalsVal][0]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalsVal][1]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalsVal][2]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalsVal][3]; ?>
-	</td>
-	<td>
-		<?php echo $animals[$animalsVal][4]; ?>
-	</td>
-</tr>
-<?php 
-$animalsVal++ //increase the value of animalVal
-} // end while
+
+//if there is an $animals array then...
+if ( $animals ) {
+
+  $animalsVal   = 0; //set variable for iteration
+  $animalsCount = count($animals);
+
+  // we need to make sure there is a count of the items in the array so that we
+  // don’t iterate over empty items in the array	
+  while ( $animalsVal <=  $animalsCount ) { ?>
+    <tr>
+      <td>
+        <?php echo $animals[$animalsVal][0]; ?>
+      </td>
+      <td>
+        <?php echo $animals[$animalsVal][1]; ?>
+      </td>
+      <td>
+        <?php echo $animals[$animalsVal][2]; ?>
+      </td>
+      <td>
+        <?php echo $animals[$animalsVal][3]; ?>
+      </td>
+      <td>
+        <?php echo $animals[$animalsVal][4]; ?>
+      </td>
+    </tr>
+
+  <?php 
+
+  //increase the value of animalVal and end while
+  $animalsVal++ 
+
+  } // end while
 } // end if
+
 ?>
 ```
 
 There is a lot happening here:
 
-* We set a variable to be the value of 0
+* We set a variable to be the value of `0`
 * We are looping through the array
-* We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to echo will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
+* We use the value of our variable inside of our array query. Since this value increases every time we loop through the array, the key that indicates which array to `echo` will ensure that the echoed array will change every time. This allows us to progress through the array one by one.
 * We are also outputting the value of the array inside of a table structure. Make a note of how easily we jump from HTML to PHP without any effort. The HTML is even part of the looping PHP functionality. 
 
 This looping of values from the array need to be put into our hardcoded table from Step One. 
@@ -1505,11 +1503,14 @@ This looping of values from the array need to be put into our hardcoded table fr
 	<tbody>
 
 <?php
-	if ( $animals ) { //if there is an $animals array then...
-		$animalsVal = 0; //set variable for iteration
+
+  //if there is an $animals array then...
+	if ( $animals ) {
+
+		$animalsVal   = 0; //set variable for iteration
 		$animalsCount = count($animals) - 1;
-		while ( $animalsVal <=  $animalsCount ) { 
-		?>
+
+		while ( $animalsVal <=  $animalsCount ) { ?>
 		<tr>
 			<td>
 				<?php echo $animals[$animalsVal][0]; ?>
@@ -1527,10 +1528,16 @@ This looping of values from the array need to be put into our hardcoded table fr
 				<?php echo $animals[$animalsVal][4]; ?>
 			</td>
 		</tr>
+
 		<?php 
-		$animalsVal++ //increase the value of animalVal
+
+      //increase the value of animalVal
+      $animalsVal++
+
 		} // end while
+
 		unset($animalsVal);
+
 	} // end if
 ?>
 
@@ -1541,7 +1548,7 @@ Two important things to note that I added:
 
 1. I subtracted 1 from the count variable value because the count function starts at 1 but the array key starts at 0 - so that's why you were probably getting an error.
 
-2. I added an "unset" function to the $animalsVal variable so that it is not stored in memory even though we aren't using it anymore - plus this will prevent future issues. 
+2. I invoked the `unset` function on the `$animalsVal` variable so that it is not stored in memory even though we aren't using it anymore - plus this will prevent future issues. 
 
 We now are iterating through our array one step at a time and outputting it into the table. This is a huge step in our process is our first step in creating dynamically generated web pages. 
 
@@ -1549,21 +1556,20 @@ We now are iterating through our array one step at a time and outputting it into
 
 Having a static list of objects is not very interesting and it can hardly be called an application. Let’s create a form that submits data to the array we have.
 
-Remember in Lesson 2 when we used array_push? Well, that is going to be the basis for our form submission here.
+Remember in Lesson 2 when we used `array_push`? Well, that is going to be the basis for our form submission here.
 
 Let’s start by looking at the form we created in Step One.
 
 <p class="file-name">index.php</p>
 ```html
 <form>
-Name: <input type="text" name="name"><br />
-Type: <input type="text" name="type"><br />
-Size: <input type="text" name="size"><br />
-Location: <input type="text" name="location"><br />
-Date of Acquisition: <input type="text" name="doa"><br />
-<input type="submit" name="submit" value="Submit">
+  Name: <input type="text" name="name"><br />
+  Type: <input type="text" name="type"><br />
+  Size: <input type="text" name="size"><br />
+  Location: <input type="text" name="location"><br />
+  Date of Acquisition: <input type="text" name="doa"><br />
+  <input type="submit" name="submit" value="Submit">
 </form>
-
 ```
 
 This form doesn’t do anything because we haven’t wired it up to do anything. Forms are a very powerful part of the HTML language. It allows you to make submissions to both internal and external sources from the page. 
@@ -1580,84 +1586,76 @@ Location: <input type="text" name="location" value=””><br />
 Date of Acquisition: <input type="text" name="doa" value=””><br />
 <input type="submit" name="submit" value="Submit">
 </form>
-
 ```
 
 In this code, we are doing three things (one of them not completely defined yet):
 
-We are giving it the method “post” which defines what happens when the form is submitted
-We are giving the form an action which tells the form how to behave. Our action is currently blank but we are going to define that action with PHP. 
-We are giving the inputs an empty value which will be used for the form submission.
+- We are giving it the method `post` which defines what happens when the form is submitted
+- We are giving the form an action which tells the form how to behave. Our action is currently blank but we are going to define that action with PHP. 
+- We are giving the inputs an empty value which will be used for the form submission.
 
-The value parameter is used to pass a value to the “post” event. Please note that none of this is PHP but rather HTML. The next thing we will do is to create some blank variable placeholders for our PHP form submission.
+The value parameter is used to pass a value to the `post` event. Please note that none of this is PHP but rather HTML. The next thing we will do is to create some blank variable placeholders for our PHP form submission.
 
 <p class="file-name">index.php</p>
 ```php
 <?php
 // Define variables and set empty values
-$animalName = “”; 
-$animalType = “”; 
-$animalSize = “”; 
-$animalLocation = “”; 
-$animalDoa = “”; 
+$animalName     = "";
+$animalType     = "";
+$animalSize     = "";
+$animalLocation = "";
+$animalDoa      = "";
 ?>
 ```
 
 These variables are going to hold the information that is submitted through the form. Let’s place the variables dynamically into the inputs.
 
 ```php
-<form method=”post” action=””>
-Name: <input type="text" name="name" value=”<?php echo $animalName;?>
-”><br />
-Type: <input type="text" name="type" value=”<?php echo $animalType;?>
-”><br />
-Size: <input type="text" name="size" value=”<?php echo $animalSize;?>
-”><br />
-Location: <input type="text" name="location" value=”<?php echo $animalLocation;?>
-”><br />
-Date of Acquisition: <input type="text" name="doa" value=”<?php echo $animalDoa;?>
-”><br />
-<input type="submit" name="submit" value="Submit">
+<form method="post" action="">
+  Name:                <input type="text" name="name" value="<?php echo $animalName;?>"><br />
+  Type:                <input type="text" name="type" value="<?php echo $animalType;?>"><br />
+  Size:                <input type="text" name="size" value="<?php echo $animalSize;?>"><br />
+  Location:            <input type="text" name="location" value="<?php echo $animalLocation;?>"><br />
+  Date of Acquisition: <input type="text" name="doa" value="<?php echo $animalDoa;?>"><br />
+  <input type="submit" name="submit" value="Submit">
 </form>
-
 ```
 
 We are taking the variable and inputting it into value. When the variable changes, so will the value.
 
-A major part of using forms in PHP involves the use of one of PHP’s most powerful and attractive features: *Superglobals*. 
+A major part of using forms in PHP involves the use of one of PHP’s most powerful and attractive features: `Superglobals`. 
 
-Superglobals get their name because their scope is universal. They are built in variables that are used for receiving and sending data, often over HTTP. Even if that last sentence was gobbledegook for you, know that they are very powerful variables you can use to simplify the effort needed for sending and receiving data. The syntax for a superglobal is $_POST - which is to say it starts with a $_ and then adds in the name of the global variable. 
+Superglobals get their name because their scope is universal. They are built in variables that are used for receiving and sending data, often over HTTP. Even if that last sentence was gobbledegook for you, know that they are very powerful variables you can use to simplify the effort needed for sending and receiving data. The syntax for a superglobal is `$_POST` - which is to say it starts with a `$_` and then adds in the name of the global variable. 
 
-We are going to use $_POST and $_SERVER. You can [learn more about superglobals at PHP.net](http://php.net/manual/en/language.variables.superglobals.php)
+We are going to use `$_POST` and `$_SERVER`. You can [learn more about superglobals at php.net](http://php.net/manual/en/language.variables.superglobals.php)
 
-Let’s add some of these super powered variables into our code. The $_POST superglobal pushes the value it receives. The $_SERVER superglobal has many options it can accept so that it does different things. If you want to look into this in greater detail, I recommend you check out the pages for the appropriate superglobals:
+Let’s add some of these super powered variables into our code. The `$_POST` superglobal pushes the value it receives. The `$_SERVER` superglobal has many options it can accept so that it does different things. If you want to look into this in greater detail, I recommend you check out the pages for the appropriate superglobals:
 
 * [$_POST](http://php.net/manual/en/reserved.variables.post.php)
 * [$_SERVER](http://php.net/manual/en/reserved.variables.server.php)
-<br /><br />
 
 <p class="file-name">index.php</p>
 ```php
 <?php
 
 // define variables and set to empty values
-$animalName = "";
-$animalType = "";
-$animalSize = "";
+$animalName     = "";
+$animalType     = "";
+$animalSize     = "";
 $animalLocation = "";
-$animalDoa = "";
+$animalDoa      = "";
 
 // redefine variables if the form is submitted using the $_POST superglobal
-$animalName = animalValidation($_POST["name"]);
-$animalType = animalValidation($_POST["type"]);
-$animalSize = animalValidation($_POST["size"]);
+$animalName     = animalValidation($_POST["name"]);
+$animalType     = animalValidation($_POST["type"]);
+$animalSize     = animalValidation($_POST["size"]);
 $animalLocation = animalValidation($_POST["location"]);
-$animalDoa = animalValidation($_POST["doa"]);
+$animalDoa      = animalValidation($_POST["doa"]);
 ?>
 ```
 
 
-By adding the $_POST superglobal, we allow the variable to be redefined by the form field of the specified name.
+By adding the `$_POST` superglobal, we allow the variable to be redefined by the form field of the specified name.
 
 Let’s set up our form so that it is functioning as a PHP HTTP form.
 
@@ -1673,7 +1671,7 @@ Let’s set up our form so that it is functioning as a PHP HTTP form.
 </form>
 ```
 
-The superglobal we added is $_SERVER with the option of “PHP_SELF” which tells the $_SERVER superglobal that the server is existing in the same window frame. Which works for us since we want to update the page like a single page app. The weird thing you may not understand is the htmlspecialchars function we are putting in front of the superglobal. This is a PHP function that converts any special characters to HTML. 
+The superglobal we added is `$_SERVER` with the option of `'PHP_SELF'` which tells the `$_SERVER` superglobal that the server is existing in the same window frame. Which works for us since we want to update the page like a single page app. The weird thing you may not understand is the `htmlspecialchars` function we are putting in front of the superglobal. This is a PHP function that converts any special characters to HTML. 
 
 This is the first step of preventing unwanted behavior from happening that we will do in this little application. Let’s add some more data validation and conditional steps into the application so that we aren’t letting the user mess anything up. 
 
@@ -1681,19 +1679,20 @@ This is the first step of preventing unwanted behavior from happening that we wi
 ```php
 <?php
 // define variables and set to empty values
-$animalName = "";
-$animalType = "";
-$animalSize = "";
+$animalName     = "";
+$animalType     = "";
+$animalSize     = "";
 $animalLocation = "";
-$animalDoa = "";
+$animalDoa      = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $animalName = animalValidation($_POST["name"]);
-  $animalType = animalValidation($_POST["type"]);
-  $animalSize = animalValidation($_POST["size"]);
+  $animalName     = animalValidation($_POST["name"]);
+  $animalType     = animalValidation($_POST["type"]);
+  $animalSize     = animalValidation($_POST["size"]);
   $animalLocation = animalValidation($_POST["location"]);
-  $animalDoa = animalValidation($_POST["doa"]);
+  $animalDoa      = animalValidation($_POST["doa"]);
 }
+
 function animalValidation($data) {
    $data = trim($data);
    $data = stripslashes($data);
@@ -1714,18 +1713,18 @@ function animalValidation($data) {
 
 Here’s what we added:
 
-* A conditional statement using the $_SERVER superglobal to ensure that a POST event occurs before it changes the variables
-* A custom function (oh yeah, did you know you can define your own functions in PHP too?) that uses three built in PHP functions to output the input (algorithm). Do you see how the use of the $data variable works?
-* Then we applied that custom function into the $_POST superglobal behavior we added earlier. 
-* Lastly, we need to add the array_push behavior so that there is a new item added into the array.
-<br /><br />
+* A conditional statement using the `$_SERVER` superglobal to ensure that a POST event occurs before it changes the variables
+* A custom function (oh yeah, did you know you can define your own functions in PHP too?) that uses three built in PHP functions to output the input (algorithm). Do you see how the use of the `$data` variable works?
+* Then we applied that custom function into the `$_POST` superglobal behavior we added earlier. 
+* Lastly, we need to add the `array_push` behavior so that there is a new item added into the array.
 
 <p class="file-name">index.php</p>
 ```php
 <?php
-  array_push($animals,
-	array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
-  );
+array_push(
+  $animals,
+  array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
+);
 ?>
 ```
 
@@ -1734,18 +1733,18 @@ Let’s put our whole PHP functionality thing together:
 <p class="file-name">index.php</p>
 ```php
 <?php
-$animalName = "";
-$animalType = "";
-$animalSize = "";
+$animalName     = "";
+$animalType     = "";
+$animalSize     = "";
 $animalLocation = "";
-$animalDoa = "";
+$animalDoa      = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $animalName = animalValidation($_POST["name"]);
-  $animalType = animalValidation($_POST["type"]);
-  $animalSize = animalValidation($_POST["size"]);
+  $animalName     = animalValidation($_POST["name"]);
+  $animalType     = animalValidation($_POST["type"]);
+  $animalSize     = animalValidation($_POST["size"]);
   $animalLocation = animalValidation($_POST["location"]);
-  $animalDoa = animalValidation($_POST["doa"]);
+  $animalDoa      = animalValidation($_POST["doa"]);
 }
 function animalValidation($data) {
    $data = trim($data);
@@ -1765,7 +1764,8 @@ function animalValidation($data) {
 </form>
 
 <?php
-	array_push($animals,
+	array_push(
+    $animals,
 		array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
 	);
 ?>
@@ -1778,18 +1778,18 @@ Let’s add the form function and the table function as start adding some new an
 <p class="file-name">index.php</p>
 ```php
 <?php
-$animalName = "";
-$animalType = "";
-$animalSize = "";
+$animalName     = "";
+$animalType     = "";
+$animalSize     = "";
 $animalLocation = "";
-$animalDoa = "";
+$animalDoa      = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $animalName = animalValidation($_POST["name"]);
-  $animalType = animalValidation($_POST["type"]);
-  $animalSize = animalValidation($_POST["size"]);
+  $animalName     = animalValidation($_POST["name"]);
+  $animalType     = animalValidation($_POST["type"]);
+  $animalSize     = animalValidation($_POST["size"]);
   $animalLocation = animalValidation($_POST["location"]);
-  $animalDoa = animalValidation($_POST["doa"]);
+  $animalDoa      = animalValidation($_POST["doa"]);
 }
 function animalValidation($data) {
    $data = trim($data);
@@ -1809,8 +1809,9 @@ function animalValidation($data) {
 </form>
 
 <?php
-  array_push($animals,
-	array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
+  array_push(
+    $animals,
+    array($animalName, $animalType, $animalSize, $animalLocation, $animalDoa)
   );
 ?>
 
@@ -1826,35 +1827,41 @@ function animalValidation($data) {
 		</tr>
 	</thead>
 	<tbody>
-	<?php
-	if ( $animals ) { 
-            $animalsCount = count($animals) - 1; 
-            $animalsVal = 0; 
-            while ( $animalsVal <=  $animalsCount ) { ?>
-                <tr>
-                    <td>
-                    <?php echo $animals[$animalsVal][0]; ?>
-                    </td>
-                    <td>
-                    <?php echo $animals[$animalsVal][1]; ?>
-                    </td>
-                    <td>
-                    <?php echo $animals[$animalsVal][2]; ?>
-                    </td>
-                    <td>
-                    <?php echo $animals[$animalsVal][3]; ?>
-                    </td>
-                    <td>
-                    <?php echo $animals[$animalsVal][4]; ?>
-                    </td>
-                </tr>
-              <?php 
-              $animalsVal++; 
-          } // end while
-          unset($animalsVal);
-        } // end if
-        ?>
-	</tbody>
+
+    <?php
+    if ( $animals ) { 
+      $animalsCount = count($animals) - 1;
+      $animalsVal   = 0;
+
+      while ( $animalsVal <=  $animalsCount ) { ?>
+      <tr>
+        <td>
+          <?php echo $animals[$animalsVal][0]; ?>
+        </td>
+        <td>
+          <?php echo $animals[$animalsVal][1]; ?>
+        </td>
+        <td>
+          <?php echo $animals[$animalsVal][2]; ?>
+        </td>
+        <td>
+          <?php echo $animals[$animalsVal][3]; ?>
+        </td>
+        <td>
+          <?php echo $animals[$animalsVal][4]; ?>
+        </td>
+      </tr>
+
+      <?php 
+
+      $animalsVal++; 
+      } // end while
+
+      unset($animalsVal);
+    } // end if
+
+    ?>
+  </tbody>
 </table>
 ```
 

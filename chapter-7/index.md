@@ -14,7 +14,7 @@ title: Chapter 7&#58; Advanced Theme Development
 
 ## <a name="css-and-template-development">CSS and Template Development</a>
 
-In an ideal world you will have a complete team of individuals who do nothing but design and create a style guide and you will have a team that only does front end work (HTML, CSS, JavaScript) to realize the dreams of those designers and to properly implement the style guide. However, sometimes we will have to taken on several roles at the same time and be both the designer and the front end dev. This is okay though because having an understanding of both roles allows you to be better at each individually. Knowing the front end workflows and results/expectations (regardless of your role) is an important part of being a competent web professional. 
+In an ideal world you will have a complete team of individuals who do nothing but design and create a style guide and you will have a team that only does front end work (HTML, CSS, JavaScript) to realize the dreams of those designers and to properly implement the style guide. However, sometimes we will have to take on several roles at the same time and be both the designer and the front end dev. This is okay though because having an understanding of both roles allows you to be better at each individually. Knowing the front end workflows and results/expectations (regardless of your role) is an important part of being a competent web professional. 
 
 CSS is (as we know) the language that makes things pretty. It is a very powerful language that controls much of what we see and do on a webpage. CSS is the primary tool that is used to bring a designer’s vision to life. So how is this relevant to template development?
 
@@ -30,10 +30,10 @@ Loading unused CSS rules is basically the worst part of CSS frameworks. When you
 
 You have a few options with dealing with this problem:
 
-Accept the bloat and move on (and also accept the judgment of other web developers for having too much bloat)
-Don’t use a framework (obviously)
-Edit an existing framework to only contain the rules you need (could be a lot of work which would negate the whole reason you used a framework to begin with)
-Find the best framework that fits your needs as closely as possible and accept whatever judgment that may come
+- Accept the bloat and move on (and also accept the judgment of other web developers for having too much bloat)
+- Don’t use a framework (obviously)
+- Edit an existing framework to only contain the rules you need (could be a lot of work which would negate the whole reason you used a framework to begin with)
+- Find the best framework that fits your needs as closely as possible and accept whatever judgment that may come
 
 Having knowledge about the range of frameworks available to you will help you make the best decision here. Also, it may be good to make your own framework at some point so that you can quickly spin up a site on the fly with only the rules you need for your project. 
 
@@ -66,7 +66,7 @@ Less is a CSS pre-processor, meaning that it extends the CSS language, adding fe
 
 As you can see they basically do the exact same thing but have slightly different syntax. 
 
-Being slightly familiar with both but focusing on using on is generally the standard for most web developers. Being comfortable with a CSS preprocessor can greatly speed up your development time and make you more marketable as a developer or project manager. 
+Being slightly familiar with both but focusing on using one is generally the standard for most web developers. Being comfortable with a CSS preprocessor can greatly speed up your development time and make you more marketable as a developer or project manager. 
 
 ### Tutorial: Adding the Basic CSS for a Template
 
@@ -74,11 +74,11 @@ After the interesting discussion about minifying and preprocessing, we are going
 
 This will involve the following:
 
-Pre-planning colors, spacing, and text
-Default text treatment
-Default headers treatment
-Some Utility classes
-Other Common Elements and Classes
+- Pre-planning colors, spacing, and text
+- Default text treatment
+- Default headers treatment
+- Some Utility classes
+- Other Common Elements and Classes
 
 As a note, much of this would become incredibly easy with the correct usage of a CSS preprocessor and I urge you, as an exercise, to attempt to learn one of the above preprocessors while you work through this tutorial.
 
@@ -86,9 +86,9 @@ As a note, much of this would become incredibly easy with the correct usage of a
 
 We should already have an idea of what our site will look like and what our goals will be. Making sure we have a clear UI flow and visual direction at this point is key. Some important information to gather at this point includes:
 
-Colors
-Fonts
-Potential functional requirements that rely on CSS (jQuery style elements, layout issues, content handling like images, etc.)
+- Colors
+- Fonts
+- Potential functional requirements that rely on CSS (jQuery style elements, layout issues, content handling like images, etc.)
 
 *So first off, what are the colors you are using?*
 
@@ -96,9 +96,9 @@ Potential functional requirements that rely on CSS (jQuery style elements, layou
 
 *Can you make a short list of elements that will need styling?*
 
-Image thumbnails?
-Quotes?
-Metadata handling?
+- Image thumbnails?
+- Quotes?
+- Metadata handling?
 
 #### Step 2: Default Text Treatment
 
@@ -108,54 +108,50 @@ Let’s add some CSS for our text.
 
 <p class="file-name">style.css</p>
 ```css
-
 * {
-font-size: 16px;
-line-height: 16px;
-font-weight: 400px;
-color: #000;
-font-family: XXX; 
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400px;
+  color: #000;
+  font-family: XXX; 
 }
 
 p {
-font-size: 1.0rem;
+  font-size: 1.0rem;
 }
-
 ```
 
 The asterisk selector means the rules in there will apply to the entire site. Since CSS uses a top-down hierarchy for rules, using the asterisk as a means for communicating default rules can be handy. But remember that you will not want redundant CSS in your site, so be careful about how much you put in there and how you are using this selector. 
 
-I also want to point out that our Skeleton framework does a LOT of what we are doing here so be careful that we aren’t being unnecessary duplicitous (which we are - but I am showing you this as an example). 
+I also want to point out that our Skeleton framework does a LOT of what we are doing here so be careful that we aren’t being redundant (which we are - but I am showing you this as an example). 
 
 #### Step 3: Default Headers Treatment
 
-The h1 - h6 elements are extraordinarily useful from a SEO and UI perspective. However, controlling their emphasis and usage is a big part of a template. When using your headers elements you can control how pages display and present information in a hierarchical fashion. 
+The `<h1>` - `<h6>` elements are extraordinarily useful from a SEO and UI perspective. However, controlling their emphasis and usage is a big part of a template. When using your headers elements you can control how pages display and present information in a hierarchical fashion. 
 
 <p class="file-name">style.css</p>
 ```css
-
 h1, h2, h3, h4, h5, h6 {
-font-weight: 600;
+  font-weight: 600;
 }
 h1 {
-font-size: 3.0rem;
+  font-size: 3.0rem;
 }
 h2 {
-font-size: 2.4rem;
+  font-size: 2.4rem;
 }
 h3 {
-font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 h4 {
-font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 h5 {
-font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 h6 {
-font-size: 1.2rem;
+  font-size: 1.2rem;
 }
-
 ```
 
 Because we used the asterisk selector to set a default font size, all of the ‘rem’s are relative to that size. Instead of setting a default size to these in pixels, we can use ‘rem’ to create a formulaic approach. This is useful for responsive design because we can change just the pixel size of a font at the top level of a CSS rule and all of the other text will adjust accordingly. 
@@ -166,7 +162,7 @@ The concept of a utility class is that you will need to use classes in certain s
 
 The first is a clear: both class which allows you to easily apply the clear both property to a layout without inlining styling or mucking up other CSS rules. 
 
-The second is a hide class. The traditional display:none css rule is not actually the best way to hide something and has implications from an accessibility standpoint. We are going to use [this csstricks.com solution for an alternative to display:none.](https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/)
+The second is a hide class. The traditional `display: none` css rule is not actually the best way to hide something and has implications from an accessibility standpoint. We are going to use [this csstricks.com solution for an alternative to display:none.](https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/)
 
 
 <p class="file-name">style.css</p>
@@ -174,9 +170,9 @@ The second is a hide class. The traditional display:none css rule is not actuall
 .clear { clear:both; }
 
 .hide {
-position: absolute !important;
-top: -9999px !important;
-left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }
 ```
 
@@ -187,15 +183,15 @@ So without having a specific design, what else could there be? Well the answer i
 <p class="file-name">style.css</p>
 ```css
 .thumbnail-image {
-margin: 10px;
-padding: 5px;
-border: 1px solid #000;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #000;
 }
 
 .featured-text {
-font-size: 1.2rem;
-font-weight: 600;
-text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 ```
 *What other css styles would you put in here that I may have forgot?*
@@ -210,7 +206,7 @@ However, there are numerous considerations when you are working with a CMS and J
 
 ### The wp-includes Folder 
 
-With WordPress there are additional, specific, concerns. Remember the wp-includes folder we discussed in earlier chapters? Well, we don’t want to mess with the contents of it, but let’s discuss how we can use it to our advantage (or how we might want to ignore its contents to our advantage. The wp-includes folder contains many files that WordPress uses (or may use) to perform specific behavior. Several of the files in this folder are JavaScript files (since JavaScript helps with how content behaves and displays). Some of the important components stored in this folder include jQuery, tinyMCE (a plugin for text editing in browser), and JSON support. There are also dozens of other JavaScript files which all do different and important things. 
+With WordPress there are additional, specific, concerns. Remember the wp-includes folder we discussed in earlier chapters? Well, we don’t want to mess with the contents of it, but let’s discuss how we can use it to our advantage (or how we might want to ignore its contents to our advantage). The wp-includes folder contains many files that WordPress uses (or may use) to perform specific behavior. Several of the files in this folder are JavaScript files (since JavaScript helps with how content behaves and displays). Some of the important components stored in this folder include jQuery, tinyMCE (a plugin for text editing in browser), and JSON support. There are also dozens of other JavaScript files which all do different and important things. 
 
 ### <a name="wordpress-dynamic-file-loading">WordPress Dynamic File Loading</a>
 
@@ -220,7 +216,7 @@ WordPress uses a dynamic approach to linking to JavaScript files. Instead of lin
 
 As a side note, we are going to link to JavaScript files that we are going to use in the next tutorial. 
 
-The entirety of this tutorial is to load JavaScript files from our Functions.php file using a custom WordPress function. 
+The entirety of this tutorial is to load JavaScript files from our functions.php file using a custom WordPress function. 
 
 We will use [wp_enqueue_script](https://codex.wordpress.org/Function_Reference/wp_enqueue_script) and [wp_enqueue_style](https://codex.wordpress.org/Function_Reference/wp_enqueue_style) in this tutorial. 
 
@@ -279,7 +275,7 @@ function bxslider_js() {
 add_action( 'wp_enqueue_scripts', 'bxslider_js' );
 ```
 
-One major thing to note here is that we are adding an array at the end with ‘jquery’ in it. This is because we want to use jQuery as a dependency for our bxslider plugin. This is WordPress’ way of handling this simply. 
+One major thing to note here is that we are adding an array at the end with `jquery` in it. This is because we want to use jQuery as a dependency for our bxslider plugin. This is WordPress’ way of handling this simply. 
 
 ##### Step 4: Save and Upload
 
