@@ -92,19 +92,6 @@ Variables begin with a $ in PHP and no spaces or punctuation are allowed in the 
 
 #### Strings
 
-<!--
-
-Note from @chrisallenlane:
-
-Please examine this diff. I made some changes to the language, in order to
-avoid some potential confusion.
-
-Specifically, my understanding is that it is not accurate to say that strings
-are "names given to a sequence of simple objects", because `string` is a
-primitive type.
-
--->
-
 In PHP, text is referred to as a string. Strings can be modified in many ways using functions. 
 
 ```php 
@@ -118,16 +105,6 @@ $stringTest3 = "a 1 ewj ..." // In Fact, a string can be anything as long as it 
 
 ?>
 ```
-
-<!-- 
-
-Note from @chrisallenlane:
-
-It may or may not also be worth noting that `strings` in PHP can also be binary
-blobs. Perhaps that's too confusing to bring into the discussion here, though -
-I don't know.
-
--->
 
 #### Arrays
 
@@ -183,20 +160,6 @@ Booleans are amazingly useful in a lot of programming situations. We will explor
 
 #### NULL: 
 
-<!--
-
-Notes from @chrisallenlane:
-
-I made two edits here:
-
-1. I removed the assertion that `null` acts like a Boolean, because I don't
-   believe that's technically accurate.
-
-2. `s/left blank/not assigned a value/`, because I believe that's clearer, and
-   because I wanted to avoid the term "{un}initialized".
-
--->
-
 The "null" *value* acts represents a variable with no value. A variable will be set to the value `null` if it is not assigned a value or is set to `null` manually.
 
  ```php
@@ -251,7 +214,6 @@ if ($var1 = $var2) {
 }
 ?>
 ```
-
 
 [PHP.net - If Statements](http://php.net/manual/en/control-structures.if.php)
 
@@ -822,34 +784,13 @@ The loop then echoes the value of x plus some HTML
 Then the value of x is incrementally increased
 The loop starts over again until the statement is no longer true.
 
-<!--
-
-Note from @chrisallenlane:
-
-I remove the line about PHP having more flexible looping capabilities than
-other languages because, at least in my personal experience, that does not seem
-to be true.
-
--->
-
 Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. (Many other languages have loops built in as well).
 
 ### Functions
 
 Functions are defined to perform preset tasks. PHP has an exhaustive list of its own preset functions and it is even possible to write custom functions.
 
-<!--
-
-Note from @chrisallenlane:
-
-Not to be overly pedantic, but `echo` is not actually a function, but rather a
-"language construct". See:
-
-http://php.net/manual/en/function.echo.php
-
--->
-
-We have already dealt with the function "echo" which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
+We have already dealt with "echo" which is a built in PHP "function" that outputs the string, variable, etc. that is being echoed. (Note echo is technically NOT a function but for our understanding at this point, let's continue with this ruse).
 
 Let's start with the easiest to understand PHP building blocks (strings) and the functions to modify them. String functions allow you to output your string in different ways. This is the kind of function that would be useful for printing an excerpt of a string, or for printing out different versions of your string. Changing around the way data is displayed is a common and powerful tool. 
 
