@@ -859,31 +859,6 @@ After taking into account all of these factors, you may end up determining that 
 
 With WordPress, we can add, enable, and remove plugins from the Dashboard under the "Plugins" tab. The best way to get more familiar with plugins is to actually add them.
 
-<!--
-
-Comment from @chrisallenlane:
-
-On the topic of plugin security, it may be worth mentioning the various
-TimThumb exploits which affected so many sites over the years:
-
-- 2011: http://www.themelab.com/timthumb-security-exploit/
-- 2012: http://www.wpbeginner.com/wp-tutorials/how-to-fix-and-cleanup-the-timthumb-hack-in-wordpress/
-- 2014: https://blog.sucuri.net/2014/06/timthumb-webshot-code-execution-exploit-0-day.html
-
-(There were other incidents as well.)
-
-TimThumb is so notoriously vulnerable there are are security plugins whose sole job is to keep an eye on it!
-
-https://wordpress.org/plugins/timthumb-vulnerability-scanner/
-
-TimThumb, IMO, is interesting, because it was used by *a lot* of themes -
-including by some of the default themes, IIRC. As such, it rendered many sites
-vulnerable. IMO, mentioning TimThumb's sordid past could drive home the point
-that you make above regarding the potential of dubious plugins to compromise
-your site's security.
-
--->
-
 ### Tutorial: Adding Plugins
 
 Since plugin creation could be a course on its own, we are just going to introduce them and I will show you how to add plugins, and how to determine which plugins are trustworthy. We are not going to go into crafting plugins or modifying them.
