@@ -145,22 +145,8 @@ Wow, this ultimate technique must be really great, right? Well it is - and the g
 
 The secret to good SEO is to **have a site that is healthy, safe, and clearly organized.** Most web crawlers will look for this information before they take anything else into account. So what can you do to ensure this? 
 
-<!--
-
-Note from @chrisallenlane:
-
-Regarding point 2 below:
-
-While I understand (and agree) that now is not the time to explore the topic of
-SSL/HTTPS in-depth, it may be worth mentioning in a `p.message` or something
-that letsencrypt.org now offers free SSL certificates:
-
-https://letsencrypt.org/
-
--->
-
 1. **Healthy**: Have your site be fast and optimized. Make sure you aren’t loading too much extraneous stuff
-2. **Safe**: No malware and have an SSL certificate. I know for this course we will probably not worry about SSL certificates, but making sure the data is coming and going securely makes a difference in one's SEO rank.
+2. **Safe**: No malware and have an SSL certificate. I know for this course we will probably not worry about SSL certificates, but making sure the data is coming and going securely makes a difference in one's SEO rank. There are multiple free SSL services and even if you are not willing/able to explore the free solutions, having your host set you up with SSL is a critical step for any production site. 
 3. **Clearly Organized**: Using the elements listed above is step one (headers, description tags, etc.). Step two is to make sure that your content is organized in a logical manner, is navigable easily, and makes sense. This sounds a lot like UI, doesn’t it? Well, the bots that scan sites are quite advanced and are able to know when the content is good or bad - and when it is organized well or poorly. 
 
 Basically, the secret to good SEO is to have a good website. 
@@ -234,17 +220,7 @@ It is easy to talk about resource management as a theory, but applying it can be
 
 #### 1. Use a CSS Preprocessor (correctly)
 
-<!-- 
-
-Note from @chrisallenlane:
-
-I would argue that `object-oriented` is not the term you're looking for here,
-because that has very specific connotations within a programming context.
-Perhaps "modular" or "component-based" would be more appropriate?
-
--->
-
-Duplicated CSS code is one of the most common and easy to fix issues with site speed. Being incredibly organized is a lot easier than using a system that allows you to compartmentalize and take an object-oriented approach to your styling. 
+Duplicated CSS code is one of the most common and easy to fix issues with site speed. Being incredibly organized is a lot easier than using a system that allows you to compartmentalize and take an component based approach to your styling. 
 
 You can learn more about CSS preprocessing and minifying here: [http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development](http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development)
 
@@ -390,41 +366,13 @@ As a general rule, the base font size should be 14px or 16px. I tend to prefer 1
 
 Since we are using a grid system in class that has a default width of around 940px and our default font size supports about 120 - 150 for a full width screen on desktop. This means we would want our reading area to be about 50% of the full width (in our case, six columns). On mobile it handles the text much better but you may want to watch out for variations and ensure uniformity. 
 
-
-<!-- 
-
-Note from @chrisallenlane:
-
-Regarding the following paragraph:
-
-I have always heard that sans-serif fonts are generally considered to be easier
-to be read on screens, while serif fonts are easier to read in print. (This
-contracts what is said below.) Is that the case, or not? I'm not a designer, so
-I may just be wrong on this point.
-
--->
-
-
-Also, it is generally accepted that **serif fonts are easier to read** than sans serif fonts. There is a definite trend towards using sans serif fonts, but consider implementing two fonts - one for body text and one for headings and other text. 
+Also, it is generally accepted, by most people, that **serif fonts are easier to read** than sans serif fonts. There is a definite trend towards using sans serif fonts, but consider implementing two fonts - one for body text and one for headings and other text. 
 
 ### General Concerns
 
 Contrast is a huge issue, especially for those who have accessibility issues. As a base, you want to have the lightest color background (i.e., white) with the darkest color text (i.e., black).
 
 Letter spacing (a.k.a., kerning) is the space between letters and plays a HUGE roll in readability. It is mostly unwise to mess with a font’s default letter spacing if you are using a major font (times new roman, arial, etc.). 
-
-<!--
-
-Note from @chrisallenlane:
-
-I've heard before that it's also a good idea to avoid "justifying" text,
-because doing so can create "rivers" of whitespace that can cause problems for
-people with certain kinds of reading disabilities. (I want to say dyslexia?)
-
-Again, I'm not a designer, so I may be mistaken on that point. If I'm correct,
-though, it may be worth adding a note to that effect here.
-
--->
 
 ### Putting it all together
 
@@ -482,23 +430,7 @@ Using HTTPS as opposed to HTTP is a good way to prevent a lot of issues with sec
 
 For a site to use HTTPS, there must be an SSL certificate in place. An SSL Certificate allows for an encrypted handshake to take place between the browser and the server - this preventing data from being skimmed.
 
-<!--
-
-Note from @chrisallenlane:
-
-> The only downside to using an SSL certificate is the continued cost to attach
-> it to your site.
-
-This information is now *thankfully* out-of-date, as of a few months ago.
-letsencrypt.org will now provide SSL certificates for free:
-
-https://letsencrypt.org/
-
-I use them personally, and will vouch for the service.
-
--->
-
-The only downside to using an SSL certificate is the continued cost to attach it to your site. The cost is rather minor and every functioning site that has server communication (and primarily authentication) should have an SSL certificate. Most hosts will have an easy setup for including an SSL certificate so that your site can operate over HTTPS. 
+The only downside to using an SSL certificate is the continued cost to attach it to your site (if you are paying for the cert). The cost is rather minor and every functioning site that has server communication (and primarily authentication) should have an SSL certificate. Most hosts will have an easy setup for including an SSL certificate so that your site can operate over HTTPS. Additionally, there are many free SSL certificate services you can explore to avoid these costs.
 
 [Google - Getting Started with SSL](https://support.google.com/adwords/answer/2580401?hl=en)
 
@@ -514,22 +446,7 @@ Here are a few steps you can take to improve your security situation for WordPre
 * Change the location of your WordPress login. [ManageWP Blog - Change WordPress Login URL](https://managewp.com/change-your-wordpress-login-url)
 * Limit login attempts (plugins available).
 * Turn off comments and make sure you manage user accounts carefully. One slip up from one user is all you need to make your site vulnerable. 
-
-<!-- 
-
-Note from @chrisallenlane:
-
-You mentioned this a few chapters ago, but I would strongly recommend also
-mentioning here that, from a security perspective, it's hugely important to
-limit the use of Wordpress plugins.
-
-While it's true that the Wordpress core is _relatively_ secure, the Wordpress
-ecosystem is absolutely plagued by poorly-written, poorly-audited, and
-vulnerable plugins. By limiting the number of plugins used to the fewest
-possible, you decrease your Wordpress installation's "attack-surface", which is
-(I would argue) the single best preventative-security measure there is.
-
--->
+* Limit the use of plugins to only those you trust
 
 ## <a name="various-readings">Various Readings</a>
 
