@@ -544,12 +544,10 @@ The code for the Search Form is pretty solid for our purposes. We are going to a
 Now that we have the classes identified, we can add CSS to make it look how we want. I am going to just get rid of the screen reader text in a way that will still allow it to be actually readable by a screen reader but not displayed by the browser to the average viewer. Note that this way of getting rid of content on a page is prefered to using display:none;. 
 
 <p class="file-name">style.css</p>
+
 ```css
 .wie-search-form .screen-reader-text {
-    position: absolute;
-    left: -999em;
-    width: 1em;
-    overflow: hidden;
+    visibility:hidden;
 }
 
 ```

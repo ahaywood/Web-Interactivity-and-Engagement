@@ -736,6 +736,31 @@ We are going to add the `home_url()` function in an anchor’s `href` and wrap o
             <header class="row">
                 <div class="twelve columns">
 <!-- ADD LINK TO HOME_URL -->
+
+/**
+
+Comment from @chrisallenlane:
+
+This is a trivial point, but in my opinion, it may be better to invoke
+home_url() without a parameter, rather than with `/`. (This is in reference to
+the following lines of code.)
+
+The supplied parameter is always going to be appended to the home URL, per the
+documentation here:
+
+https://codex.wordpress.org/Function_Reference/home_url
+
+In my opinion, if the `/` path is necessary, it should be set within the CMS
+itself, rather than hard-coded here. Hard-coding it here makes it more
+labor-intensive to change the path in the future.
+
+Alternatively, if we want to link directly to `/` and know that this will
+always be the case, it may be simplest of all to forego PHP entirely:
+
+<h1><a href="/"><?php bloginfo('name'); ?></a></h1>
+
+**/
+
                     <h1><a href="<?php $url = home_url('/'); echo $url; ?>"><?php bloginfo('name'); ?></a></h1>
                     <p><?php bloginfo('description'); ?></p>
                 </div>

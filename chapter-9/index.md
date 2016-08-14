@@ -144,7 +144,7 @@ Wow, this ultimate technique must be really great, right? Well it is - and the g
 The secret to good SEO is to **have a site that is healthy, safe, and clearly organized.** Most web crawlers will look for this information before they take anything else into account. So what can you do to ensure this? 
 
 1. **Healthy**: Have your site be fast and optimized. Make sure you aren’t loading too much extraneous stuff
-2. **Safe**: No malware and have an SSL certificate. I know for this course we will probably not worry about SSL certificates, but making sure the data is coming and going securely makes a difference in one's SEO rank.
+2. **Safe**: No malware and have an SSL certificate. I know for this course we will probably not worry about SSL certificates, but making sure the data is coming and going securely makes a difference in one's SEO rank. There are multiple free SSL services and even if you are not willing/able to explore the free solutions, having your host set you up with SSL is a critical step for any production site. 
 3. **Clearly Organized**: Using the elements listed above is step one (headers, description tags, etc.). Step two is to make sure that your content is organized in a logical manner, is navigable easily, and makes sense. This sounds a lot like UI, doesn’t it? Well, the bots that scan sites are quite advanced and are able to know when the content is good or bad - and when it is organized well or poorly. 
 
 Basically, the secret to good SEO is to have a good website. 
@@ -218,7 +218,7 @@ It is easy to talk about resource management as a theory, but applying it can be
 
 #### 1. Use a CSS Preprocessor (correctly)
 
-Duplicated CSS code is one of the most common and easy to fix issues with site speed. Being incredibly organized is a lot easier than using a system that allows you to compartmentalize and take an object-oriented approach to your styling. 
+Duplicated CSS code is one of the most common and easy to fix issues with site speed. Being incredibly organized is a lot easier than using a system that allows you to compartmentalize and take an component based approach to your styling. 
 
 You can learn more about CSS preprocessing and minifying here: [http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development](http://jayres.github.io/Web-Interactivity-and-Engagement//chapter-7/#css-and-template-development)
 
@@ -374,7 +374,7 @@ As a general rule, the base font size should be 14px or 16px. I tend to prefer 1
 
 Since we are using a grid system in class that has a default width of around 940px and our default font size supports about 120 - 150 for a full width screen on desktop. This means we would want our reading area to be about 50% of the full width (in our case, six columns). On mobile it handles the text much better but you may want to watch out for variations and ensure uniformity. 
 
-Also, it is generally accepted that **serif fonts are easier to read** than sans serif fonts. There is a definite trend towards using sans serif fonts, but consider implementing two fonts - one for body text and one for headings and other text. 
+Also, it is generally accepted, by most people, that **serif fonts are easier to read** than sans serif fonts. There is a definite trend towards using sans serif fonts, but consider implementing two fonts - one for body text and one for headings and other text. 
 
 ### General Concerns
 
@@ -440,7 +440,7 @@ Using HTTPS as opposed to HTTP is a good way to prevent a lot of issues with sec
 
 For a site to use HTTPS, there must be an SSL certificate in place. An SSL Certificate allows for an encrypted handshake to take place between the browser and the server - this preventing data from being skimmed.
 
-The only downside to using an SSL certificate is the continued cost to attach it to your site. The cost is rather minor and every functioning site that has server communication (and primarily authentication) should have an SSL certificate. Most hosts will have an easy setup for including an SSL certificate so that your site can operate over HTTPS. 
+The only downside to using an SSL certificate is the continued cost to attach it to your site (if you are paying for the cert). The cost is rather minor and every functioning site that has server communication (and primarily authentication) should have an SSL certificate. Most hosts will have an easy setup for including an SSL certificate so that your site can operate over HTTPS. Additionally, there are many free SSL certificate services you can explore to avoid these costs.
 
 [Google - Getting Started with SSL](https://support.google.com/adwords/answer/2580401?hl=en)
 
@@ -456,6 +456,7 @@ Here are a few steps you can take to improve your security situation for WordPre
 * Change the location of your WordPress login. [ManageWP Blog - Change WordPress Login URL](https://managewp.com/change-your-wordpress-login-url)
 * Limit login attempts (plugins available).
 * Turn off comments and make sure you manage user accounts carefully. One slip up from one user is all you need to make your site vulnerable. 
+* Limit the use of plugins to only those you trust
 
 ## <a name="various-readings">Various Readings</a>
 

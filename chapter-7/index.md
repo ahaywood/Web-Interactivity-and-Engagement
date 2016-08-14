@@ -166,13 +166,18 @@ The second is a hide class. The traditional `display: none` css rule is not actu
 
 
 <p class="file-name">style.css</p>
+
 ```css
 .clear { clear:both; }
 
 .hide {
+<<<<<<< HEAD
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
+=======
+  visibility:hidden;
+>>>>>>> patch-3
 }
 ```
 
@@ -242,7 +247,7 @@ We already have a folder for our CSS, but we want to make sure we stay organized
 
 ##### Step 3: Enqueue the Files Using WordPress Functions
 
-Now that we have the files in our theme folder, we should enqueue them properly. When I say “properly,” I mean in the manner that WordPress prefers. There is ultimately no difference from a performance standpoint when you link to the files in the header. However, WordPress has a built in mechanism for handling dependent files via the functions.php file. The purpose of doing it this way is to ensure that there are no duplicative files loading, such as multiple jQuery files - which is known to happen when adding plugins or different functionality. Additionally, WordPress handles the order of loading the enqueued files for you so that you don’t have to worry about a dependent file being loaded in the wrong place. Of course this is never perfect and will have to be monitored through production.
+Now that we have the files in our theme folder, we should enqueue them properly. When I say “properly,” I mean in the manner that WordPress prefers. There is ultimately no difference from a performance standpoint when you link to the files in the header over in the footer. However, WordPress has a built in mechanism for handling dependent files via the functions.php file. The purpose of doing it this way is to ensure that there are no duplicative files loading, such as multiple jQuery files - which is known to happen when adding plugins or different functionality. Additionally, WordPress handles the order of loading the enqueued files for you so that you don’t have to worry about a dependent file being loaded in the wrong place. Of course this is never perfect and will have to be monitored through production.
 
 Let’s go into our functions.php file and add the enqueuing. First we will do our CSS files. 
 

@@ -91,7 +91,8 @@ $friday = "Monday"; //Same variable defined above given a different value
 Variables begin with a `$` in PHP and no spaces or punctuation are allowed in the name of a variable. The value assigned to a variable in PHP depends on the circumstances of the programmer's use of that variable. The format for a variable will often look like this: `$variable = value`; (note the semicolon ending the statement). 
 
 #### Strings
-A string is merely the name given to a sequence of simple objects. In PHP, text is often referred to as a string. Of all of the types, strings are often the most static but can be modified in many ways using functions. 
+
+In PHP, text is referred to as a string. Strings can be modified in many ways using functions. 
 
 ```php 
 <?php 
@@ -107,7 +108,7 @@ $stringTest3 = "a 1 ewj ..." // In Fact, a string can be anything as long as it 
 
 #### Arrays
 
-Arrays allow the user to store multiple values in a special kind of variable called an array. It may be helpful to think of an array as a list. Let's think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
+Arrays allow the user to store multiple values in a special kind of variable. It may be helpful to think of an array as a list. Let's think about it as a list of animals as we go forward  (dog, frog, elephant, cat, wolf, sheep). 
 
 ```php
 <?php
@@ -148,7 +149,11 @@ Booleans refer to any version of true or false (on or off/ I or O/ 1 or 0). In P
 ```php
 <?php
 
+<<<<<<< HEAD
 $areWeHavingFun = true //boolean value is true
+=======
+$areWeHavingFun = true    //boolean value is true
+>>>>>>> patch-3
 $areWeReally    = 'false' //not a boolean, this is a string
 
 ?>
@@ -159,7 +164,11 @@ Booleans are amazingly useful in a lot of programming situations. We will explor
 
 #### NULL: 
 
+<<<<<<< HEAD
 The "null" *value* acts like the boolean value, but represents a variable with no value. A variable will be set to the value `null` if it is left blank or is set to `null` manually.
+=======
+The "null" *value* acts represents a variable with no value. A variable will be set to the value `null` if it is not assigned a value or is set to `null` manually.
+>>>>>>> patch-3
 
  ```php
 <?php
@@ -168,7 +177,11 @@ $var1 = $var2;  // var1 is a null value because we haven't set the value of var2
 
 $var1 = 'null'; //var1 is no longer null because we have assigned it the value of a string 'null'
 
+<<<<<<< HEAD
 $var1 = NULL;   // var1 is again null, but is so because we have set it to be null.
+=======
+$var1 = NULL;  // var1 is again null, but is so because we have set it to be null.
+>>>>>>> patch-3
 
 ?>
 ```
@@ -213,8 +226,12 @@ if ($var1 = $var2) {
 ?>
 ```
 
+<<<<<<< HEAD
 
 [php.net - If Statements](http://php.net/manual/en/control-structures.if.php)
+=======
+[PHP.net - If Statements](http://php.net/manual/en/control-structures.if.php)
+>>>>>>> patch-3
 
 ##### Else Statements
 An "else" statement is a gap filler for an if statement and is coupled with an if statement. The logical statement containing both an if and else statement could look like this: IF the sky is blue, then it is sunny. ELSE, it is cloudy.
@@ -786,13 +803,17 @@ What is happening here is this:
 - Then the value of `$x` is incrementally increased
 - The loop starts over again until the statement is no longer `true`.
 
-Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. Many other languages have loops built in to the language but most aren't as specific or flexible as PHP. 
+Looping is a functional tool that is included deep into the PHP language and is fundamental to its success. (Many other languages have loops built in as well).
 
 ### Functions
 
 Functions are defined to perform preset tasks. PHP has an exhaustive list of its own preset functions and it is even possible to write custom functions.
 
+<<<<<<< HEAD
 We have already dealt with the function `echo` which is a built in PHP function that outputs the string, variable, etc. that is being echoed. 
+=======
+We have already dealt with "echo" which is a built in PHP "function" that outputs the string, variable, etc. that is being echoed. (Note echo is technically NOT a function but for our understanding at this point, let's continue with this ruse).
+>>>>>>> patch-3
 
 Let's start with the easiest to understand PHP building blocks (strings) and the functions to modify them. String functions allow you to output your string in different ways. This is the kind of function that would be useful for printing an excerpt of a string, or for printing out different versions of your string. Changing around the way data is displayed is a common and powerful tool. 
 
