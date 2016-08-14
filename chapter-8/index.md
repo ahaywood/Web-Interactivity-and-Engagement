@@ -433,24 +433,6 @@ add_action('wp_enqueue_scripts', enqueue_css);
 
 ### Tutorial: Properly Enqueuing jQuery in WordPress
 
-<!--
-
-Note from @chrisallenlane:
-
-Regarding updating jQuery to a newer version (mentioned in the following
-paragraph):
-
-Is it worth mentioning here that this must be done with caution? I don't know
-what version of jQuery Wordpress ships with these days, but it may be worth
-noting that jQuery made backward-incompatible changes between versions 1.x and
-2.x. (This is self-evident, because jQuery is semantically versioned.)
-
-It seems possible to me that a student unaware of these incompatibilities may
-end up with a broken Wordpress installation, and confusion over what was done
-wrong.
-
--->
-
 WordPress comes default with a copy of jQuery. However, that copy is not always the version that you may want/need. In the case of the unslider plugin we added in the previous tutoral, we will need to use a different version than the default one that WordPress uses.
 
 We are going to change the version of jQuery loaded by deregistering the WordPress default and modifying WordPress to include the latest jQuery version. 
@@ -556,26 +538,9 @@ Now that we have the classes identified, we can add CSS to make it look how we w
 
 <p class="file-name">style.css</p>
 
-<!--
-
-Note from @chrisallenlane:
-
-Please see my earlier remarks regarding my concerns with this approach.
-Instead, I would recommend simply:
-
-.wie-search-form .screen-reader-text {
-  visibility: hidden;
-}
-
--->
-
-
 ```css
 .wie-search-form .screen-reader-text {
-    position: absolute;
-    left: -999em;
-    width: 1em;
-    overflow: hidden;
+    visibility:hidden;
 }
 
 ```
