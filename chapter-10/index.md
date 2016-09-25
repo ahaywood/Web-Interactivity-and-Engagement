@@ -23,7 +23,7 @@ There are a lot of different version control solutions of varying quality and fe
 
 ###  Walkthrough of Github
 
-The version control mechanism we are going to use for this course is Github. Since we are going to want a VC that is publicly available, free, and easy to use I have chosen Github. I apologize in advance if there are slight differences between a Mac Github experience and a Windows/Linux experience. 
+The version control mechanism we are going to use for this course is Github. Since we are going to want a VC that is publicly available, free, and easy to use I have chosen Github. I apologize in advance if there are slight differences between a Mac Github experience and a Windows/Linux experience.   
 
 #### Step One: Create a Github Account and Log in
 
